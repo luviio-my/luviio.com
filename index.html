@@ -400,7 +400,6 @@
 
     #benefits-section { scroll-margin-top: 80px; }
 
-    /* ===== STEP FORM STYLES ===== */
     .step-form-container {
       max-width: 580px;
       margin: 0 auto;
@@ -685,31 +684,6 @@
       opacity: 1;
       transform: scale(1);
     }
-    .sf-file-upload {
-      border: 2px dashed #e5e5e5;
-      border-radius: 14px;
-      padding: 32px 20px;
-      text-align: center;
-      cursor: pointer;
-      transition: all .2s;
-    }
-    .dark .sf-file-upload {
-      border-color: rgba(255,255,255,0.1);
-    }
-    .sf-file-upload:hover {
-      border-color: rgba(255,0,94,0.4);
-      background: rgba(255,0,94,0.02);
-    }
-    .sf-file-upload.has-file {
-      border-color: #22c55e;
-      background: rgba(34,197,94,0.03);
-    }
-    .sf-file-name {
-      font-size: 13px;
-      font-weight: 500;
-      color: #22c55e;
-      margin-top: 8px;
-    }
     .sf-review-row {
       display: flex;
       justify-content: space-between;
@@ -772,6 +746,59 @@
     .sf-success-heading { animation: slideUp .7s cubic-bezier(.16,1,.3,1) .6s both; }
     .sf-success-sub { animation: slideUp .7s cubic-bezier(.16,1,.3,1) .75s both; }
     .sf-success-actions { animation: slideUp .7s cubic-bezier(.16,1,.3,1) .9s both; }
+
+    /* ===== CONTACT SUCCESS PAGE ===== */
+    .cs-icon-ring {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: rgba(34,197,94,0.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+      position: relative;
+    }
+    .cs-icon-ring .ring-burst {
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      border: 2px solid rgba(34,197,94,0.25);
+      animation: ringExpand 1s cubic-bezier(.16,1,.3,1) .2s both;
+    }
+    .cs-icon-ring .ring-burst-2 {
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(34,197,94,0.15);
+      animation: ringExpand 1s cubic-bezier(.16,1,.3,1) .5s both;
+    }
+    .cs-icon-inner {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: checkPop .7s cubic-bezier(.16,1,.3,1) .3s both;
+      box-shadow: 0 8px 30px -8px rgba(34,197,94,0.5);
+    }
+    .cs-icon-inner svg {
+      stroke-dasharray: 24;
+      stroke-dashoffset: 24;
+      animation: checkDraw 2s ease-in-out .8s infinite;
+    }
+    .cs-heading { animation: slideUp .7s cubic-bezier(.16,1,.3,1) .6s both; }
+    .cs-sub { animation: slideUp .7s cubic-bezier(.16,1,.3,1) .75s both; }
+    .cs-card-1 { animation: slideUp .7s cubic-bezier(.16,1,.3,1) .9s both; }
+    .cs-card-2 { animation: slideUp .7s cubic-bezier(.16,1,.3,1) 1.05s both; }
+    .cs-actions { animation: slideUp .7s cubic-bezier(.16,1,.3,1) 1.2s both; }
+    .cs-footer { animation: slideUp .7s cubic-bezier(.16,1,.3,1) 1.35s both; }
+    .cs-step-item { opacity: 0; animation: slideUp .6s cubic-bezier(.16,1,.3,1) both; }
+    .cs-step-item:nth-child(1) { animation-delay: 1.1s; }
+    .cs-step-item:nth-child(2) { animation-delay: 1.25s; }
+    .cs-step-item:nth-child(3) { animation-delay: 1.4s; }
   </style>
 </head>
 
@@ -1291,8 +1318,6 @@
     <section class="py-16 md:py-24 relative">
       <div class="absolute top-1/3 right-0 swirl-2 pointer-events-none" style="opacity:.12"></div>
       <div class="step-form-container px-6 relative z-10">
-
-        <!-- Header -->
         <div class="text-center mb-8">
           <div class="w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center mx-auto mb-4">
             <i data-lucide="pencil-ruler" class="w-6 h-6 text-accent"></i>
@@ -1300,135 +1325,44 @@
           <h2 class="text-2xl md:text-3xl font-semibold tracking-tight mb-2">Content Update Request</h2>
           <p class="text-neutral-500 dark:text-neutral-400 text-sm leading-relaxed">Tell us what you'd like to update on your website. We'll handle the rest.</p>
         </div>
-
-        <!-- Progress -->
         <div class="mb-8">
-          <div class="sf-progress-bar mb-3">
-            <div class="sf-progress-fill" id="sfProgressFill" style="width:20%"></div>
-          </div>
+          <div class="sf-progress-bar mb-3"><div class="sf-progress-fill" id="sfProgressFill" style="width:20%"></div></div>
           <div class="sf-step-dots" id="sfStepDots">
-            <div class="sf-dot active"></div>
-            <div class="sf-dot"></div>
-            <div class="sf-dot"></div>
-            <div class="sf-dot"></div>
-            <div class="sf-dot"></div>
+            <div class="sf-dot active"></div><div class="sf-dot"></div><div class="sf-dot"></div><div class="sf-dot"></div><div class="sf-dot"></div>
           </div>
         </div>
-
-        <!-- The actual FormSubmit form wrapping all steps -->
         <form id="sfForm" action="https://formsubmit.co/people-luviio@hotmail.com" method="POST">
           <input type="hidden" name="_subject" value="🎨 New Content Update Request — Luviio" />
           <input type="hidden" name="_captcha" value="false" />
           <input type="hidden" name="_template" value="table" />
           <input type="text" name="_honey" style="display:none" />
-          <!-- After submit redirect — we handle via JS, but FormSubmit needs a fallback -->
           <input type="hidden" name="_next" value="" />
 
-          <!-- ===== STEP 1: Your Details ===== -->
           <div class="sf-step active" data-step="1">
             <div class="bg-white dark:bg-white/[0.03] rounded-3xl border border-neutral-200 dark:border-white/10 p-6 md:p-8">
-              <div class="flex items-center gap-3 mb-6">
-                <div class="w-8 h-8 rounded-full bg-accent text-white flex items-center justify-center text-xs font-bold">1</div>
-                <div>
-                  <h3 class="text-sm font-semibold">Your Details</h3>
-                  <p class="text-[11px] text-neutral-400">So we can identify your account</p>
-                </div>
-              </div>
+              <div class="flex items-center gap-3 mb-6"><div class="w-8 h-8 rounded-full bg-accent text-white flex items-center justify-center text-xs font-bold">1</div><div><h3 class="text-sm font-semibold">Your Details</h3><p class="text-[11px] text-neutral-400">So we can identify your account</p></div></div>
               <div class="space-y-4">
-                <div>
-                  <label class="sf-label">Full Name *</label>
-                  <input type="text" name="Full Name" required class="sf-input" placeholder="e.g. Amir bin Rahman" id="sfName" />
-                  <p class="sf-error" id="sfNameErr">Please enter your full name</p>
-                </div>
-                <div>
-                  <label class="sf-label">Email Address *</label>
-                  <input type="email" name="Email" required class="sf-input" placeholder="your@email.com" id="sfEmail" />
-                  <p class="sf-error" id="sfEmailErr">Please enter a valid email address</p>
-                </div>
-                <div>
-                  <label class="sf-label">WhatsApp Number</label>
-                  <input type="tel" name="WhatsApp" class="sf-input" placeholder="+60 12-345 6789" />
-                  <p class="sf-hint">Optional — for quick follow-up if needed</p>
-                </div>
-                <div>
-                  <label class="sf-label">Website URL *</label>
-                  <input type="url" name="Website URL" required class="sf-input" placeholder="https://yourwebsite.com" id="sfUrl" />
-                  <p class="sf-error" id="sfUrlErr">Please enter your website URL</p>
-                </div>
+                <div><label class="sf-label">Full Name *</label><input type="text" name="Full Name" required class="sf-input" placeholder="e.g. Amir bin Rahman" id="sfName" /><p class="sf-error" id="sfNameErr">Please enter your full name</p></div>
+                <div><label class="sf-label">Email Address *</label><input type="email" name="Email" required class="sf-input" placeholder="your@email.com" id="sfEmail" /><p class="sf-error" id="sfEmailErr">Please enter a valid email address</p></div>
+                <div><label class="sf-label">WhatsApp Number</label><input type="tel" name="WhatsApp" class="sf-input" placeholder="+60 12-345 6789" /><p class="sf-hint">Optional — for quick follow-up if needed</p></div>
+                <div><label class="sf-label">Website URL *</label><input type="url" name="Website URL" required class="sf-input" placeholder="https://yourwebsite.com" id="sfUrl" /><p class="sf-error" id="sfUrlErr">Please enter your website URL</p></div>
               </div>
             </div>
-            <div class="flex justify-end mt-6">
-              <button type="button" onclick="sfNextStep(2)" class="sf-btn sf-btn-primary">Continue <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg></button>
-            </div>
+            <div class="flex justify-end mt-6"><button type="button" onclick="sfNextStep(2)" class="sf-btn sf-btn-primary">Continue <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg></button></div>
           </div>
 
-          <!-- ===== STEP 2: Update Type ===== -->
           <div class="sf-step" data-step="2">
             <div class="bg-white dark:bg-white/[0.03] rounded-3xl border border-neutral-200 dark:border-white/10 p-6 md:p-8">
-              <div class="flex items-center gap-3 mb-6">
-                <div class="w-8 h-8 rounded-full bg-accent text-white flex items-center justify-center text-xs font-bold">2</div>
-                <div>
-                  <h3 class="text-sm font-semibold">What do you want to update?</h3>
-                  <p class="text-[11px] text-neutral-400">Select all that apply</p>
-                </div>
-              </div>
+              <div class="flex items-center gap-3 mb-6"><div class="w-8 h-8 rounded-full bg-accent text-white flex items-center justify-center text-xs font-bold">2</div><div><h3 class="text-sm font-semibold">What do you want to update?</h3><p class="text-[11px] text-neutral-400">Select all that apply</p></div></div>
               <div class="space-y-3" id="sfUpdateTypes">
-                <div class="sf-checkbox-card" onclick="sfToggleCheckbox(this)" data-value="Text Content (headings, paragraphs, descriptions)">
-                  <div class="sf-checkbox-box"><svg class="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
-                  <div>
-                    <p class="text-sm font-medium">Text Content</p>
-                    <p class="text-[11px] text-neutral-400">Headings, paragraphs, descriptions</p>
-                  </div>
-                </div>
-                <div class="sf-checkbox-card" onclick="sfToggleCheckbox(this)" data-value="Images / Photos">
-                  <div class="sf-checkbox-box"><svg class="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
-                  <div>
-                    <p class="text-sm font-medium">Images / Photos</p>
-                    <p class="text-[11px] text-neutral-400">Replace or add new images</p>
-                  </div>
-                </div>
-                <div class="sf-checkbox-card" onclick="sfToggleCheckbox(this)" data-value="Logo / Branding">
-                  <div class="sf-checkbox-box"><svg class="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
-                  <div>
-                    <p class="text-sm font-medium">Logo / Branding</p>
-                    <p class="text-[11px] text-neutral-400">Update logo, brand colors, fonts</p>
-                  </div>
-                </div>
-                <div class="sf-checkbox-card" onclick="sfToggleCheckbox(this)" data-value="Contact Information (phone, email, address)">
-                  <div class="sf-checkbox-box"><svg class="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
-                  <div>
-                    <p class="text-sm font-medium">Contact Information</p>
-                    <p class="text-[11px] text-neutral-400">Phone, email, address changes</p>
-                  </div>
-                </div>
-                <div class="sf-checkbox-card" onclick="sfToggleCheckbox(this)" data-value="Products / Services / Pricing">
-                  <div class="sf-checkbox-box"><svg class="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
-                  <div>
-                    <p class="text-sm font-medium">Products / Services / Pricing</p>
-                    <p class="text-[11px] text-neutral-400">Add, remove, or update listings</p>
-                  </div>
-                </div>
-                <div class="sf-checkbox-card" onclick="sfToggleCheckbox(this)" data-value="Layout / Design Changes">
-                  <div class="sf-checkbox-box"><svg class="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
-                  <div>
-                    <p class="text-sm font-medium">Layout / Design Changes</p>
-                    <p class="text-[11px] text-neutral-400">Section layout, spacing, visual tweaks</p>
-                  </div>
-                </div>
-                <div class="sf-checkbox-card" onclick="sfToggleCheckbox(this)" data-value="New Page / Section">
-                  <div class="sf-checkbox-box"><svg class="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
-                  <div>
-                    <p class="text-sm font-medium">New Page / Section</p>
-                    <p class="text-[11px] text-neutral-400">Add entirely new page or section</p>
-                  </div>
-                </div>
-                <div class="sf-checkbox-card" onclick="sfToggleCheckbox(this)" data-value="Other">
-                  <div class="sf-checkbox-box"><svg class="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
-                  <div>
-                    <p class="text-sm font-medium">Other</p>
-                    <p class="text-[11px] text-neutral-400">Something else not listed here</p>
-                  </div>
-                </div>
+                <div class="sf-checkbox-card" onclick="sfToggleCheckbox(this)" data-value="Text Content (headings, paragraphs, descriptions)"><div class="sf-checkbox-box"><svg class="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div><div><p class="text-sm font-medium">Text Content</p><p class="text-[11px] text-neutral-400">Headings, paragraphs, descriptions</p></div></div>
+                <div class="sf-checkbox-card" onclick="sfToggleCheckbox(this)" data-value="Images / Photos"><div class="sf-checkbox-box"><svg class="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div><div><p class="text-sm font-medium">Images / Photos</p><p class="text-[11px] text-neutral-400">Replace or add new images</p></div></div>
+                <div class="sf-checkbox-card" onclick="sfToggleCheckbox(this)" data-value="Logo / Branding"><div class="sf-checkbox-box"><svg class="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div><div><p class="text-sm font-medium">Logo / Branding</p><p class="text-[11px] text-neutral-400">Update logo, brand colors, fonts</p></div></div>
+                <div class="sf-checkbox-card" onclick="sfToggleCheckbox(this)" data-value="Contact Information (phone, email, address)"><div class="sf-checkbox-box"><svg class="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div><div><p class="text-sm font-medium">Contact Information</p><p class="text-[11px] text-neutral-400">Phone, email, address changes</p></div></div>
+                <div class="sf-checkbox-card" onclick="sfToggleCheckbox(this)" data-value="Products / Services / Pricing"><div class="sf-checkbox-box"><svg class="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div><div><p class="text-sm font-medium">Products / Services / Pricing</p><p class="text-[11px] text-neutral-400">Add, remove, or update listings</p></div></div>
+                <div class="sf-checkbox-card" onclick="sfToggleCheckbox(this)" data-value="Layout / Design Changes"><div class="sf-checkbox-box"><svg class="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div><div><p class="text-sm font-medium">Layout / Design Changes</p><p class="text-[11px] text-neutral-400">Section layout, spacing, visual tweaks</p></div></div>
+                <div class="sf-checkbox-card" onclick="sfToggleCheckbox(this)" data-value="New Page / Section"><div class="sf-checkbox-box"><svg class="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div><div><p class="text-sm font-medium">New Page / Section</p><p class="text-[11px] text-neutral-400">Add entirely new page or section</p></div></div>
+                <div class="sf-checkbox-card" onclick="sfToggleCheckbox(this)" data-value="Other"><div class="sf-checkbox-box"><svg class="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div><div><p class="text-sm font-medium">Other</p><p class="text-[11px] text-neutral-400">Something else not listed here</p></div></div>
               </div>
               <input type="hidden" name="Update Types" id="sfUpdateTypesInput" />
               <p class="sf-error mt-3" id="sfTypesErr">Please select at least one update type</p>
@@ -1439,43 +1373,18 @@
             </div>
           </div>
 
-          <!-- ===== STEP 3: Update Details ===== -->
           <div class="sf-step" data-step="3">
             <div class="bg-white dark:bg-white/[0.03] rounded-3xl border border-neutral-200 dark:border-white/10 p-6 md:p-8">
-              <div class="flex items-center gap-3 mb-6">
-                <div class="w-8 h-8 rounded-full bg-accent text-white flex items-center justify-center text-xs font-bold">3</div>
-                <div>
-                  <h3 class="text-sm font-semibold">Describe Your Updates</h3>
-                  <p class="text-[11px] text-neutral-400">Be as specific as possible so we get it right the first time</p>
-                </div>
-              </div>
+              <div class="flex items-center gap-3 mb-6"><div class="w-8 h-8 rounded-full bg-accent text-white flex items-center justify-center text-xs font-bold">3</div><div><h3 class="text-sm font-semibold">Describe Your Updates</h3><p class="text-[11px] text-neutral-400">Be as specific as possible so we get it right the first time</p></div></div>
               <div class="space-y-4">
-                <div>
-                  <label class="sf-label">Which page or section? *</label>
-                  <input type="text" name="Page / Section" required class="sf-input" placeholder='e.g. "Homepage — Hero section" or "About Us page"' id="sfPageSection" />
-                  <p class="sf-error" id="sfPageErr">Please specify the page or section</p>
-                </div>
-                <div>
-                  <label class="sf-label">Detailed Description *</label>
-                  <textarea name="Description" required class="sf-textarea" rows="5" placeholder="Describe exactly what needs to be changed. For example:&#10;&#10;- Change the heading from 'Welcome' to 'About Our Company'&#10;- Replace the hero image with the attached photo&#10;- Update the phone number from 012-xxx to 013-xxx" id="sfDescription"></textarea>
-                  <p class="sf-error" id="sfDescErr">Please describe what you want updated</p>
-                  <p class="sf-hint">Tip: List each change on a separate line for clarity</p>
-                </div>
+                <div><label class="sf-label">Which page or section? *</label><input type="text" name="Page / Section" required class="sf-input" placeholder='e.g. "Homepage — Hero section" or "About Us page"' id="sfPageSection" /><p class="sf-error" id="sfPageErr">Please specify the page or section</p></div>
+                <div><label class="sf-label">Detailed Description *</label><textarea name="Description" required class="sf-textarea" rows="5" placeholder="Describe exactly what needs to be changed..." id="sfDescription"></textarea><p class="sf-error" id="sfDescErr">Please describe what you want updated</p><p class="sf-hint">Tip: List each change on a separate line for clarity</p></div>
                 <div>
                   <label class="sf-label">Priority Level</label>
                   <div class="grid grid-cols-3 gap-3 mt-1" id="sfPriorityGroup">
-                    <div class="sf-radio-card" onclick="sfSelectRadio(this, 'sfPriorityGroup')" data-value="Normal">
-                      <div class="sf-radio-dot"></div>
-                      <div><p class="text-sm font-medium">Normal</p><p class="text-[10px] text-neutral-400">3–5 days</p></div>
-                    </div>
-                    <div class="sf-radio-card" onclick="sfSelectRadio(this, 'sfPriorityGroup')" data-value="Urgent">
-                      <div class="sf-radio-dot"></div>
-                      <div><p class="text-sm font-medium">Urgent</p><p class="text-[10px] text-neutral-400">1–2 days</p></div>
-                    </div>
-                    <div class="sf-radio-card" onclick="sfSelectRadio(this, 'sfPriorityGroup')" data-value="Critical">
-                      <div class="sf-radio-dot"></div>
-                      <div><p class="text-sm font-medium">Critical</p><p class="text-[10px] text-neutral-400">Same day</p></div>
-                    </div>
+                    <div class="sf-radio-card" onclick="sfSelectRadio(this, 'sfPriorityGroup')" data-value="Normal"><div class="sf-radio-dot"></div><div><p class="text-sm font-medium">Normal</p><p class="text-[10px] text-neutral-400">3–5 days</p></div></div>
+                    <div class="sf-radio-card" onclick="sfSelectRadio(this, 'sfPriorityGroup')" data-value="Urgent"><div class="sf-radio-dot"></div><div><p class="text-sm font-medium">Urgent</p><p class="text-[10px] text-neutral-400">1–2 days</p></div></div>
+                    <div class="sf-radio-card" onclick="sfSelectRadio(this, 'sfPriorityGroup')" data-value="Critical"><div class="sf-radio-dot"></div><div><p class="text-sm font-medium">Critical</p><p class="text-[10px] text-neutral-400">Same day</p></div></div>
                   </div>
                   <input type="hidden" name="Priority" id="sfPriorityInput" value="Normal" />
                 </div>
@@ -1487,32 +1396,15 @@
             </div>
           </div>
 
-<!-- ===== STEP 4: Additional Info ===== -->
           <div class="sf-step" data-step="4">
             <div class="bg-white dark:bg-white/[0.03] rounded-3xl border border-neutral-200 dark:border-white/10 p-6 md:p-8">
-              <div class="flex items-center gap-3 mb-6">
-                <div class="w-8 h-8 rounded-full bg-accent text-white flex items-center justify-center text-xs font-bold">4</div>
-                <div>
-                  <h3 class="text-sm font-semibold">Additional Information</h3>
-                  <p class="text-[11px] text-neutral-400">Any extra details that might help us</p>
-                </div>
-              </div>
+              <div class="flex items-center gap-3 mb-6"><div class="w-8 h-8 rounded-full bg-accent text-white flex items-center justify-center text-xs font-bold">4</div><div><h3 class="text-sm font-semibold">Additional Information</h3><p class="text-[11px] text-neutral-400">Any extra details that might help us</p></div></div>
               <div class="space-y-4">
-                <div>
-                  <label class="sf-label">Reference Link (Optional)</label>
-                  <input type="url" name="Reference Link" class="sf-input" placeholder="https://example.com/page-to-reference" />
-                  <p class="sf-hint">Link to a page showing the desired style or content</p>
-                </div>
-                <div>
-                  <label class="sf-label">Additional Notes (Optional)</label>
-                  <textarea name="Additional Notes" class="sf-textarea" rows="4" placeholder="Any extra information that might help us..."></textarea>
-                </div>
+                <div><label class="sf-label">Reference Link (Optional)</label><input type="url" name="Reference Link" class="sf-input" placeholder="https://example.com/page-to-reference" /><p class="sf-hint">Link to a page showing the desired style or content</p></div>
+                <div><label class="sf-label">Additional Notes (Optional)</label><textarea name="Additional Notes" class="sf-textarea" rows="4" placeholder="Any extra information that might help us..."></textarea></div>
                 <div class="flex items-start gap-3 p-4 rounded-2xl bg-green-500/5 border border-green-500/20">
                   <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M12 2a10 10 0 100 20 10 10 0 000-20z"/></svg>
-                  <div>
-                    <p class="text-sm font-medium text-green-700 dark:text-green-400">Images & Files</p>
-                    <p class="text-xs text-green-600 dark:text-green-500 mt-0.5 leading-relaxed">Please send any images or documents via <span class="font-semibold">WhatsApp as PDF</span> after submitting this form.</p>
-                  </div>
+                  <div><p class="text-sm font-medium text-green-700 dark:text-green-400">Images & Files</p><p class="text-xs text-green-600 dark:text-green-500 mt-0.5 leading-relaxed">Please send any images or documents via <span class="font-semibold">WhatsApp as PDF</span> after submitting this form.</p></div>
                 </div>
               </div>
             </div>
@@ -1522,56 +1414,28 @@
             </div>
           </div>
 
-          <!-- ===== STEP 5: Review & Submit ===== -->
           <div class="sf-step" data-step="5">
             <div class="bg-white dark:bg-white/[0.03] rounded-3xl border border-neutral-200 dark:border-white/10 p-6 md:p-8">
-              <div class="flex items-center gap-3 mb-6">
-                <div class="w-8 h-8 rounded-full bg-accent text-white flex items-center justify-center text-xs font-bold">5</div>
-                <div>
-                  <h3 class="text-sm font-semibold">Review & Submit</h3>
-                  <p class="text-[11px] text-neutral-400">Please verify everything before submitting</p>
-                </div>
-              </div>
-              <div id="sfReviewContent" class="space-y-0">
-                <!-- Populated by JS -->
-              </div>
-              <div class="mt-6 p-4 rounded-2xl bg-neutral-50 dark:bg-white/[0.02] border border-neutral-100 dark:border-white/5">
-                <p class="text-[11px] text-neutral-400 leading-relaxed">By submitting this request, you confirm that all information provided is accurate. Our team will review your request and contact you within 24 hours. Update turnaround depends on your selected priority level and plan coverage.</p>
-              </div>
+              <div class="flex items-center gap-3 mb-6"><div class="w-8 h-8 rounded-full bg-accent text-white flex items-center justify-center text-xs font-bold">5</div><div><h3 class="text-sm font-semibold">Review & Submit</h3><p class="text-[11px] text-neutral-400">Please verify everything before submitting</p></div></div>
+              <div id="sfReviewContent" class="space-y-0"></div>
+              <div class="mt-6 p-4 rounded-2xl bg-neutral-50 dark:bg-white/[0.02] border border-neutral-100 dark:border-white/5"><p class="text-[11px] text-neutral-400 leading-relaxed">By submitting this request, you confirm that all information provided is accurate. Our team will review your request and contact you within 24 hours.</p></div>
             </div>
             <div class="flex justify-between mt-6">
               <button type="button" onclick="sfPrevStep(4)" class="sf-btn sf-btn-ghost"><svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11 17l-5-5m0 0l5-5m-5 5h12"/></svg> Back</button>
-              <button type="submit" class="sf-btn sf-btn-accent" id="sfSubmitBtn">
-                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
-                Submit Request
-              </button>
+              <button type="submit" class="sf-btn sf-btn-accent" id="sfSubmitBtn"><svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg> Submit Request</button>
             </div>
           </div>
-
         </form>
 
-        <!-- ===== SUCCESS STATE (shown after submit) ===== -->
         <div id="sfSuccessState" class="hidden">
           <div class="bg-white dark:bg-white/[0.03] rounded-3xl border border-neutral-200 dark:border-white/10 p-8 md:p-10 text-center">
-            <div class="sf-success-icon-ring mb-6">
-              <div class="sf-ring-burst"></div>
-              <div class="sf-success-inner"><svg class="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
-            </div>
+            <div class="sf-success-icon-ring mb-6"><div class="sf-ring-burst"></div><div class="sf-success-inner"><svg class="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div></div>
             <h3 class="text-xl md:text-2xl font-semibold mb-2 sf-success-heading">Request Submitted!</h3>
             <p class="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed max-w-sm mx-auto mb-8 sf-success-sub">Thank you! We've received your content update request. Our team will review it and get back to you within 24 hours.</p>
             <div class="bg-neutral-50 dark:bg-white/[0.02] rounded-2xl p-5 text-left mb-8 sf-success-actions">
-              <div class="flex items-start gap-3 mb-3">
-                <div class="w-6 h-6 rounded-full bg-green-500/10 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-3 h-3 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
-                <p class="text-xs text-neutral-600 dark:text-neutral-400">Check your email for a confirmation of this request.</p>
-              </div>
-              <div class="flex items-start gap-3 mb-3">
-                <div class="w-6 h-6 rounded-full bg-blue-500/10 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-3 h-3 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
-                <p class="text-xs text-neutral-600 dark:text-neutral-400">Estimated response time: within 24 hours on business days.</p>
-              </div>
-              <div class="flex items-start gap-3">
-                <div class="w-6 h-6 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-3 h-3 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg></div>
-                <p class="text-xs text-neutral-600 dark:text-neutral-400">Need to make changes? Submit a new request or WhatsApp us.</p>
-              </div>
+              <div class="flex items-start gap-3 mb-3"><div class="w-6 h-6 rounded-full bg-green-500/10 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-3 h-3 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div><p class="text-xs text-neutral-600 dark:text-neutral-400">Check your email for a confirmation of this request.</p></div>
+              <div class="flex items-start gap-3 mb-3"><div class="w-6 h-6 rounded-full bg-blue-500/10 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-3 h-3 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div><p class="text-xs text-neutral-600 dark:text-neutral-400">Estimated response time: within 24 hours on business days.</p></div>
+              <div class="flex items-start gap-3"><div class="w-6 h-6 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-3 h-3 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg></div><p class="text-xs text-neutral-600 dark:text-neutral-400">Need to make changes? Submit a new request or WhatsApp us.</p></div>
             </div>
             <div class="flex flex-col sm:flex-row gap-3 sf-success-actions">
               <button onclick="sfResetForm()" class="sf-btn sf-btn-primary flex-1">Submit Another Request</button>
@@ -1579,7 +1443,6 @@
             </div>
           </div>
         </div>
-
       </div>
     </section>
   </div>
@@ -1657,10 +1520,12 @@
       <div class="absolute top-1/2 left-0 swirl-2 pointer-events-none"></div>
       <div class="max-w-7xl mx-auto px-6 relative z-10">
         <div class="text-center mb-12 fade-in-up"><span class="text-xs font-medium tracking-widest uppercase text-neutral-400 mb-3 block">Get in Touch</span><h2 class="text-3xl md:text-5xl font-semibold tracking-tight">Contact Us</h2></div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
+
+        <!-- ===== CONTACT FORM (shown by default) ===== -->
+        <div id="contactFormWrapper" class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
           <div class="fade-in-up delay-100">
             <h3 class="text-xl font-semibold mb-6">Send us a message</h3>
-              <form action="https://formsubmit.co/people-luviio@hotmail.com" method="POST" class="space-y-4" target="hiddenFrame">
+            <form id="contactForm" action="https://formsubmit.co/people-luviio@hotmail.com" method="POST" class="space-y-4" target="hiddenFrame">
               <input type="hidden" name="_subject" value="New Contact Message — Luviio" />
               <input type="hidden" name="_captcha" value="false" />
               <input type="hidden" name="_template" value="table" />
@@ -1671,7 +1536,7 @@
               </div>
               <div><label class="text-xs font-medium text-neutral-500 dark:text-neutral-400 mb-1 block">Service Interested In</label><select name="service" class="w-full h-11 px-4 rounded-xl border border-neutral-200 dark:border-white/10 bg-white dark:bg-white/5 text-sm focus:outline-none focus:ring-2 focus:ring-accent/50 text-neutral-500 dark:text-neutral-400"><option>Starter Plan (RM150/mo)</option><option>Growth Plan (RM300/mo)</option><option>Pro IT Services (RM1,900/mo)</option><option>Other / Custom Quote</option></select></div>
               <div><label class="text-xs font-medium text-neutral-500 dark:text-neutral-400 mb-1 block">Message</label><textarea name="message" rows="4" required class="w-full px-4 py-3 rounded-xl border border-neutral-200 dark:border-white/10 bg-white dark:bg-white/5 text-sm focus:outline-none focus:ring-2 focus:ring-accent/50 resize-none" placeholder="Tell us about your project..."></textarea></div>
-              <button type="submit" class="h-12 px-8 bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 rounded-2xl text-sm font-medium hover:opacity-90 transition-opacity w-full">Send Message</button>
+              <button type="submit" id="contactSubmitBtn" class="h-12 px-8 bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 rounded-2xl text-sm font-medium hover:opacity-90 transition-opacity w-full flex items-center justify-center gap-2">Send Message <i data-lucide="send" class="w-4 h-4"></i></button>
             </form>
           </div>
           <div class="fade-in-up delay-200">
@@ -1683,12 +1548,60 @@
               <div class="flex gap-4"><div class="w-12 h-12 rounded-2xl bg-neutral-100 dark:bg-white/5 flex items-center justify-center flex-shrink-0"><i data-lucide="clock" class="w-5 h-5 text-accent"></i></div><div><p class="text-xs text-neutral-400 mb-0.5">Working Hours</p><p class="text-sm font-medium">Mon–Fri: 9AM – 6PM (MYT)</p></div></div>
             </div>
             <div class="mt-10 p-6 rounded-2xl bg-neutral-100 dark:bg-white/5 border border-neutral-200 dark:border-white/10">
-              <p class="text-sm font-semibold mb-2">💼 Quick Consultation</p>
+              <p class="text-sm font-semibold mb-2">💬 Quick Consultation</p>
               <p class="text-xs text-neutral-500 dark:text-neutral-400 leading-relaxed">Prefer a quick chat? WhatsApp us directly and we'll schedule a free 15-minute call.</p>
               <button class="mt-4 h-10 px-5 bg-green-500 text-white rounded-xl text-xs font-medium hover:bg-green-600 transition-colors flex items-center gap-2"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> WhatsApp Us</button>
             </div>
           </div>
         </div>
+
+        <!-- ===== CONTACT SUCCESS STATE (hidden by default) ===== -->
+        <div id="contactSuccessWrapper" class="hidden max-w-lg mx-auto">
+          <div class="text-center mb-10">
+            <div class="cs-icon-ring mb-8">
+              <div class="ring-burst"></div>
+              <div class="ring-burst-2"></div>
+              <div class="cs-icon-inner"><svg class="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+            </div>
+            <h2 class="text-3xl md:text-4xl font-semibold tracking-tight mb-3 cs-heading">Message Sent!</h2>
+            <p class="text-neutral-500 dark:text-neutral-400 text-sm leading-relaxed max-w-sm mx-auto cs-sub">Thank you for reaching out. We've received your message and will get back to you shortly.</p>
+          </div>
+
+          <div class="bg-white dark:bg-white/[0.03] rounded-3xl border border-neutral-200 dark:border-white/10 p-6 md:p-8 mb-6 cs-card-1">
+            <div class="flex items-center gap-3 mb-6"><div class="w-10 h-10 rounded-xl bg-green-500/10 flex items-center justify-center flex-shrink-0"><i data-lucide="mail-check" class="w-5 h-5 text-green-500"></i></div><div><p class="text-sm font-semibold">Message Details</p><p class="text-xs text-neutral-400" id="contactSentDate">—</p></div></div>
+            <div class="space-y-0">
+              <div class="flex items-center justify-between py-3.5 border-b border-neutral-100 dark:border-white/5"><span class="text-xs text-neutral-400">Status</span><span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-xs font-semibold"><span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>Received</span></div>
+              <div class="flex items-center justify-between py-3.5 border-b border-neutral-100 dark:border-white/5"><span class="text-xs text-neutral-400">Destination</span><div class="flex items-center gap-2"><svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><span class="text-sm font-medium">hello@luviio.com</span></div></div>
+              <div class="flex items-center justify-between py-3.5"><span class="text-xs text-neutral-400">Expected Reply</span><span class="text-sm font-medium">Within 24 hours</span></div>
+            </div>
+          </div>
+
+          <div class="bg-white dark:bg-white/[0.03] rounded-3xl border border-neutral-200 dark:border-white/10 p-6 md:p-8 mb-8 cs-card-2">
+            <p class="text-xs font-semibold tracking-widest uppercase text-neutral-400 mb-6">What happens next?</p>
+            <div class="space-y-8">
+              <div class="flex gap-4 step-connector cs-step-item"><div class="flex-shrink-0 w-8 h-8 rounded-full bg-green-500/10 flex items-center justify-center relative z-10"><i data-lucide="inbox" class="w-4 h-4 text-green-500"></i></div><div class="pt-0.5"><p class="text-sm font-semibold mb-0.5">Message Received</p><p class="text-xs text-neutral-500 dark:text-neutral-400 leading-relaxed">Your message has been delivered to our team and logged in our system.</p></div></div>
+              <div class="flex gap-4 step-connector cs-step-item"><div class="flex-shrink-0 w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center relative z-10"><i data-lucide="search" class="w-4 h-4 text-accent"></i></div><div class="pt-0.5"><p class="text-sm font-semibold mb-0.5">Review & Analysis</p><p class="text-xs text-neutral-500 dark:text-neutral-400 leading-relaxed">We'll review your inquiry and match you with the right team member based on your needs.</p></div></div>
+              <div class="flex gap-4 cs-step-item"><div class="flex-shrink-0 w-8 h-8 rounded-full bg-blue-500/10 flex items-center justify-center relative z-10"><i data-lucide="reply" class="w-4 h-4 text-blue-500"></i></div><div class="pt-0.5"><p class="text-sm font-semibold mb-0.5">Personalized Response</p><p class="text-xs text-neutral-500 dark:text-neutral-400 leading-relaxed">Expect a detailed reply via email within 24 hours. For urgent matters, we may WhatsApp you directly.</p></div></div>
+            </div>
+          </div>
+
+          <div class="bg-white dark:bg-white/[0.03] rounded-3xl border border-neutral-200 dark:border-white/10 p-6 mb-8 cs-actions">
+            <div class="flex items-start gap-3 p-4 rounded-2xl bg-blue-500/5 border border-blue-500/15">
+              <svg class="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M12 2a10 10 0 100 20 10 10 0 000-20z"/></svg>
+              <div>
+                <p class="text-sm font-medium text-blue-700 dark:text-blue-400">Don't want to wait?</p>
+                <p class="text-xs text-blue-600 dark:text-blue-500 mt-0.5 leading-relaxed">For immediate assistance, WhatsApp us at <a href="#" class="font-semibold underline">+60 12-345 6789</a> and mention your inquiry. We typically respond within minutes during business hours.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-col sm:flex-row gap-3 cs-actions">
+            <button onclick="contactResetForm()" class="flex-1 h-12 bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 rounded-2xl text-sm font-medium hover:opacity-90 transition-opacity flex items-center justify-center gap-2"><i data-lucide="plus" class="w-4 h-4"></i> Send Another Message</button>
+            <button onclick="navigateTo('home')" class="flex-1 h-12 border border-neutral-200 dark:border-white/10 rounded-2xl text-sm font-medium flex items-center justify-center gap-2 hover:border-neutral-400 dark:hover:border-white/30 transition-colors"><i data-lucide="home" class="w-4 h-4"></i> Back to Home</button>
+          </div>
+          <p class="text-center text-[11px] text-neutral-400 mt-6 cs-footer">Check your inbox for a confirmation email. If you don't see it, check your spam folder.</p>
+        </div>
+
       </div>
     </section>
   </div>
@@ -1878,6 +1791,15 @@
       if (pageId === 'content-update') {
         sfResetForm();
       }
+      if (pageId === 'contact') {
+        // Ensure form is visible when navigating back to contact
+        const formWrapper = document.getElementById('contactFormWrapper');
+        const successWrapper = document.getElementById('contactSuccessWrapper');
+        if (formWrapper && successWrapper) {
+          formWrapper.classList.remove('hidden');
+          successWrapper.classList.add('hidden');
+        }
+      }
     }
 
     function generateOrderDetails() {
@@ -1922,7 +1844,6 @@
       setTimeout(() => { if (container) container.innerHTML = ''; }, 3500);
     }
 
-    // Parse URL on load
     function parseInitialRoute() {
       const path = window.location.pathname;
       const parts = path.split('/').filter(Boolean);
@@ -2103,6 +2024,71 @@
     });
 
     /* ============================================
+       CONTACT FORM LOGIC
+       ============================================ */
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const btn = document.getElementById('contactSubmitBtn');
+      btn.disabled = true;
+      btn.innerHTML = '<svg class="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Sending...';
+
+      const formData = new FormData(this);
+
+      fetch(this.action, {
+        method: 'POST',
+        body: formData
+      })
+      .then(() => {
+        contactShowSuccess();
+      })
+      .catch(() => {
+        contactShowSuccess();
+      })
+      .finally(() => {
+        btn.disabled = false;
+        btn.innerHTML = 'Send Message <svg class="w-4 h-4" data-lucide="send" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>';
+        lucide.createIcons();
+      });
+    });
+
+    function contactShowSuccess() {
+      const formWrapper = document.getElementById('contactFormWrapper');
+      const successWrapper = document.getElementById('contactSuccessWrapper');
+      
+      formWrapper.classList.add('hidden');
+      successWrapper.classList.remove('hidden');
+
+      // Set the sent date
+      const dateEl = document.getElementById('contactSentDate');
+      if (dateEl) {
+        const now = new Date();
+        dateEl.textContent = now.toLocaleDateString('en-MY', { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+      }
+
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+
+      lucide.createIcons();
+      initScrollAnimations();
+    }
+
+    function contactResetForm() {
+      const formWrapper = document.getElementById('contactFormWrapper');
+      const successWrapper = document.getElementById('contactSuccessWrapper');
+      const form = document.getElementById('contactForm');
+
+      form.reset();
+      formWrapper.classList.remove('hidden');
+      successWrapper.classList.add('hidden');
+
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+
+      lucide.createIcons();
+    }
+
+    /* ============================================
        STEP FORM LOGIC — Content Update
        ============================================ */
     let sfCurrentStep = 1;
@@ -2130,15 +2116,11 @@
       }
       sfUpdateProgress(step);
       sfCurrentStep = step;
-
-      // Build review on step 5
       if (step === 5) sfBuildReview();
     }
 
     function sfValidateStep(step) {
       let valid = true;
-
-      // Clear all errors
       document.querySelectorAll('.sf-error').forEach(e => e.classList.remove('show'));
 
       if (step === 1) {
@@ -2189,28 +2171,6 @@
       document.getElementById('sfPriorityInput').value = card.dataset.value;
     }
 
-    function sfHandleFile(input) {
-      const label = document.getElementById('sfFileLabel');
-      const upload = document.getElementById('sfFileUpload');
-      if (input.files && input.files[0]) {
-        const file = input.files[0];
-        if (file.size > 10 * 1024 * 1024) {
-          label.textContent = 'File too large (max 10MB)';
-          label.style.color = '#ef4444';
-          input.value = '';
-          upload.classList.remove('has-file');
-          return;
-        }
-        label.textContent = file.name;
-        label.style.color = '#22c55e';
-        upload.classList.add('has-file');
-      } else {
-        label.textContent = 'Click to upload or drag & drop';
-        label.style.color = '';
-        upload.classList.remove('has-file');
-      }
-    }
-
     function sfBuildReview() {
       const container = document.getElementById('sfReviewContent');
       const name = document.getElementById('sfName').value.trim();
@@ -2222,7 +2182,6 @@
       const desc = document.getElementById('sfDescription').value.trim();
       const priority = document.getElementById('sfPriorityInput').value || 'Normal';
       const refLink = document.querySelector('input[name="Reference Link"]').value.trim() || '—';
-      const hasFile = 'Send via WhatsApp';
 
       container.innerHTML = '' +
         '<div class="sf-review-row"><span class="sf-review-label">Name</span><span class="sf-review-value">' + sfEsc(name) + '</span></div>' +
@@ -2233,7 +2192,6 @@
         '<div class="sf-review-row"><span class="sf-review-label">Page / Section</span><span class="sf-review-value">' + sfEsc(pageSec) + '</span></div>' +
         '<div class="sf-review-row"><span class="sf-review-label">Description</span><span class="sf-review-value" style="white-space:pre-wrap;text-align:left;max-width:320px">' + sfEsc(desc) + '</span></div>' +
         '<div class="sf-review-row"><span class="sf-review-label">Priority</span><span class="sf-review-value"><span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold ' + (priority === 'Critical' ? 'bg-red-500/10 text-red-500' : priority === 'Urgent' ? 'bg-amber-500/10 text-amber-600' : 'bg-green-500/10 text-green-600') + '">' + sfEsc(priority) + '</span></span></div>' +
-        '<div class="sf-review-row"><span class="sf-review-label">Attachment</span><span class="sf-review-value">' + sfEsc(hasFile) + '</span></div>' +
         '<div class="sf-review-row"><span class="sf-review-label">Reference Link</span><span class="sf-review-value">' + sfEsc(refLink) + '</span></div>';
     }
 
@@ -2243,8 +2201,7 @@
       return div.innerHTML;
     }
 
-    // Intercept form submit to show success state
-document.getElementById('sfForm').addEventListener('submit', function(e) {
+    document.getElementById('sfForm').addEventListener('submit', function(e) {
       e.preventDefault();
 
       const btn = document.getElementById('sfSubmitBtn');
@@ -2257,7 +2214,7 @@ document.getElementById('sfForm').addEventListener('submit', function(e) {
         method: 'POST',
         body: formData
       })
-      .then(response => {
+      .then(() => {
         sfShowSuccess();
       })
       .catch(() => {
@@ -2268,6 +2225,7 @@ document.getElementById('sfForm').addEventListener('submit', function(e) {
         btn.innerHTML = '<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg> Submit Request';
       });
     });
+
     function sfShowSuccess() {
       document.getElementById('sfForm').classList.add('hidden');
       document.getElementById('sfSuccessState').classList.remove('hidden');
@@ -2283,15 +2241,10 @@ document.getElementById('sfForm').addEventListener('submit', function(e) {
       document.getElementById('sfForm').reset();
       document.getElementById('sfForm').classList.remove('hidden');
       document.getElementById('sfSuccessState').classList.add('hidden');
-
-      // Clear selections
       document.querySelectorAll('#sfUpdateTypes .sf-checkbox-card').forEach(c => c.classList.remove('selected'));
       document.querySelectorAll('#sfPriorityGroup .sf-radio-card').forEach(c => c.classList.remove('selected'));
       document.getElementById('sfPriorityInput').value = 'Normal';
-
-      // Clear errors
       document.querySelectorAll('.sf-error').forEach(e => e.classList.remove('show'));
-
       sfShowStep(1);
       lucide.createIcons();
     }
