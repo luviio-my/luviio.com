@@ -680,9 +680,13 @@
       transform: scale(0);
       transition: all .2s;
     }
-    .sf-checkbox-card.selected .sf-checkbox-box svg {
+.sf-checkbox-card.selected .sf-checkbox-box svg {
       opacity: 1;
       transform: scale(1);
+      display: block;
+    }
+    .sf-checkbox-box svg {
+      display: none;
     }
     .sf-review-row {
       display: flex;
