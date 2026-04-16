@@ -400,621 +400,6 @@
 
     #benefits-section { scroll-margin-top: 80px; }
 
-    /* ===== CONTENT UPDATE PAGE REDESIGN ===== */
-    .cu-page-bg {
-      position: relative;
-      overflow: hidden;
-    }
-    .cu-page-bg::before {
-      content: '';
-      position: absolute;
-      top: -200px;
-      right: -200px;
-      width: 600px;
-      height: 600px;
-      background: conic-gradient(from 0deg, rgba(255,0,94,0.08), rgba(124,58,237,0.06), rgba(59,130,246,0.06), rgba(255,0,94,0.08));
-      border-radius: 50%;
-      filter: blur(100px);
-      pointer-events: none;
-    }
-    .cu-page-bg::after {
-      content: '';
-      position: absolute;
-      bottom: -150px;
-      left: -150px;
-      width: 400px;
-      height: 400px;
-      background: conic-gradient(from 180deg, rgba(16,185,129,0.06), rgba(6,182,212,0.05), rgba(16,185,129,0.06));
-      border-radius: 50%;
-      filter: blur(80px);
-      pointer-events: none;
-    }
-    .cu-hero-icon {
-      width: 80px;
-      height: 80px;
-      border-radius: 24px;
-      background: linear-gradient(135deg, rgba(255,0,94,0.1), rgba(124,58,237,0.08));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-    }
-    .dark .cu-hero-icon {
-      background: linear-gradient(135deg, rgba(255,0,94,0.15), rgba(124,58,237,0.1));
-    }
-    .cu-hero-icon::after {
-      content: '';
-      position: absolute;
-      inset: -2px;
-      border-radius: 26px;
-      border: 1.5px solid rgba(255,0,94,0.2);
-      animation: gentlePulse 3s ease-in-out infinite;
-    }
-    .cu-breadcrumb {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 12px;
-      color: #a3a3a3;
-      margin-bottom: 2rem;
-    }
-    .dark .cu-breadcrumb { color: #525252; }
-    .cu-breadcrumb a {
-      color: #a3a3a3;
-      text-decoration: none;
-      transition: color .2s;
-    }
-    .dark .cu-breadcrumb a { color: #525252; }
-    .cu-breadcrumb a:hover { color: #ff005e; }
-    .cu-breadcrumb .cu-bc-sep { opacity: 0.4; }
-    .cu-breadcrumb .cu-bc-current { color: #171717; font-weight: 500; }
-    .dark .cu-breadcrumb .cu-bc-current { color: #e5e5e5; }
-    .cu-url-bar {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 16px;
-      border-radius: 12px;
-      background: #f5f5f5;
-      border: 1px solid #e5e5e5;
-      margin-bottom: 2rem;
-      overflow: hidden;
-    }
-    .dark .cu-url-bar {
-      background: rgba(255,255,255,0.03);
-      border-color: rgba(255,255,255,0.08);
-    }
-    .cu-url-bar span {
-      font-size: 12px;
-      color: #a3a3a3;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .dark .cu-url-bar span { color: #525252; }
-    .cu-url-bar .cu-url-live {
-      color: #171717;
-      font-weight: 500;
-    }
-    .dark .cu-url-bar .cu-url-live { color: #e5e5e5; }
-    .cu-url-bar .cu-url-accent {
-      color: #ff005e;
-      font-weight: 600;
-    }
-    .cu-step-card {
-      background: #ffffff;
-      border: 1px solid #e5e5e5;
-      border-radius: 1.5rem;
-      padding: 2rem;
-      position: relative;
-      overflow: hidden;
-      transition: all .3s cubic-bezier(.16,1,.3,1);
-    }
-    .dark .cu-step-card {
-      background: rgba(255,255,255,0.02);
-      border-color: rgba(255,255,255,0.08);
-    }
-    .cu-step-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, #ff005e, #7c3aed);
-      opacity: 0;
-      transition: opacity .3s;
-    }
-    .cu-step-card::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 200px;
-      height: 200px;
-      background: radial-gradient(circle, rgba(255,0,94,0.03), transparent 70%);
-      pointer-events: none;
-    }
-    .cu-step-number {
-      width: 36px;
-      height: 36px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, #ff005e, #e60055);
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 14px;
-      font-weight: 700;
-      flex-shrink: 0;
-      box-shadow: 0 4px 15px -3px rgba(255,0,94,0.4);
-    }
-    .cu-progress-section {
-      margin-bottom: 2rem;
-    }
-    .cu-progress-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 10px;
-    }
-    .cu-progress-label {
-      font-size: 12px;
-      font-weight: 600;
-      color: #171717;
-    }
-    .dark .cu-progress-label { color: #e5e5e5; }
-    .cu-progress-step-text {
-      font-size: 11px;
-      color: #a3a3a3;
-    }
-    .cu-progress-track {
-      height: 6px;
-      background: #f0f0f0;
-      border-radius: 999px;
-      overflow: hidden;
-      position: relative;
-    }
-    .dark .cu-progress-track {
-      background: rgba(255,255,255,0.06);
-    }
-    .cu-progress-fill {
-      height: 100%;
-      background: linear-gradient(90deg, #ff005e, #7c3aed, #3b82f6);
-      background-size: 200% 100%;
-      border-radius: 999px;
-      transition: width .6s cubic-bezier(.16,1,.3,1);
-      animation: shine 3s linear infinite;
-    }
-    .cu-step-indicators {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      margin-top: 12px;
-    }
-    .cu-step-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #d4d4d4;
-      transition: all .4s cubic-bezier(.16,1,.3,1);
-    }
-    .dark .cu-step-dot { background: #333; }
-    .cu-step-dot.active {
-      background: #ff005e;
-      width: 28px;
-      border-radius: 999px;
-      box-shadow: 0 0 12px rgba(255,0,94,0.3);
-    }
-    .cu-step-dot.completed {
-      background: #22c55e;
-    }
-    .cu-input-group {
-      margin-bottom: 1.25rem;
-    }
-    .cu-input-group:last-child {
-      margin-bottom: 0;
-    }
-    .cu-label {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 13px;
-      font-weight: 600;
-      color: #171717;
-      margin-bottom: 8px;
-    }
-    .dark .cu-label { color: #e5e5e5; }
-    .cu-label .cu-required {
-      color: #ff005e;
-      font-size: 14px;
-    }
-    .cu-input {
-      width: 100%;
-      height: 50px;
-      padding: 0 18px;
-      border-radius: 14px;
-      border: 1.5px solid #e5e5e5;
-      background: #fafafa;
-      font-size: 14px;
-      font-family: 'Inter', sans-serif;
-      transition: all .25s;
-      outline: none;
-      color: #171717;
-    }
-    .dark .cu-input {
-      border-color: rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.03);
-      color: #e5e5e5;
-    }
-    .cu-input:focus {
-      border-color: #ff005e;
-      background: #ffffff;
-      box-shadow: 0 0 0 4px rgba(255,0,94,0.08);
-    }
-    .dark .cu-input:focus {
-      background: rgba(255,255,255,0.05);
-      box-shadow: 0 0 0 4px rgba(255,0,94,0.1);
-    }
-    .cu-input::placeholder {
-      color: #b0b0b0;
-    }
-    .dark .cu-input::placeholder {
-      color: #444;
-    }
-    .cu-textarea {
-      width: 100%;
-      padding: 16px 18px;
-      border-radius: 14px;
-      border: 1.5px solid #e5e5e5;
-      background: #fafafa;
-      font-size: 14px;
-      font-family: 'Inter', sans-serif;
-      transition: all .25s;
-      outline: none;
-      resize: vertical;
-      min-height: 120px;
-      color: #171717;
-    }
-    .dark .cu-textarea {
-      border-color: rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.03);
-      color: #e5e5e5;
-    }
-    .cu-textarea:focus {
-      border-color: #ff005e;
-      background: #ffffff;
-      box-shadow: 0 0 0 4px rgba(255,0,94,0.08);
-    }
-    .dark .cu-textarea:focus {
-      background: rgba(255,255,255,0.05);
-      box-shadow: 0 0 0 4px rgba(255,0,94,0.1);
-    }
-    .cu-textarea::placeholder {
-      color: #b0b0b0;
-    }
-    .dark .cu-textarea::placeholder {
-      color: #444;
-    }
-    .cu-hint {
-      font-size: 11px;
-      color: #a3a3a3;
-      margin-top: 6px;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-    .cu-error {
-      font-size: 12px;
-      color: #ef4444;
-      margin-top: 6px;
-      display: none;
-      align-items: center;
-      gap: 4px;
-      animation: fadeInUp .3s ease forwards;
-    }
-    .cu-error.show {
-      display: flex;
-    }
-    .cu-checkbox-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
-    @media (max-width: 640px) {
-      .cu-checkbox-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-    .cu-check-card {
-      border: 1.5px solid #e5e5e5;
-      border-radius: 14px;
-      padding: 14px 16px;
-      cursor: pointer;
-      transition: all .25s cubic-bezier(.16,1,.3,1);
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      background: #fafafa;
-    }
-    .dark .cu-check-card {
-      border-color: rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.02);
-    }
-    .cu-check-card:hover {
-      border-color: rgba(255,0,94,0.3);
-      background: #ffffff;
-      transform: translateY(-1px);
-    }
-    .dark .cu-check-card:hover {
-      background: rgba(255,255,255,0.04);
-    }
-    .cu-check-card.selected {
-      border-color: #ff005e;
-      background: rgba(255,0,94,0.03);
-    }
-    .dark .cu-check-card.selected {
-      background: rgba(255,0,94,0.06);
-    }
-    .cu-check-box {
-      width: 22px;
-      height: 22px;
-      border-radius: 7px;
-      border: 2px solid #d4d4d4;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      transition: all .25s;
-    }
-    .dark .cu-check-box { border-color: #444; }
-    .cu-check-card.selected .cu-check-box {
-      border-color: #ff005e;
-      background: #ff005e;
-      transform: scale(1.05);
-    }
-    .cu-check-box svg {
-      opacity: 0;
-      transform: scale(0);
-      transition: all .2s;
-      display: block;
-    }
-    .cu-check-card.selected .cu-check-box svg {
-      opacity: 1;
-      transform: scale(1);
-    }
-    .cu-radio-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-    }
-    @media (max-width: 480px) {
-      .cu-radio-row {
-        grid-template-columns: 1fr;
-      }
-    }
-    .cu-radio-card {
-      border: 1.5px solid #e5e5e5;
-      border-radius: 14px;
-      padding: 16px;
-      cursor: pointer;
-      transition: all .25s cubic-bezier(.16,1,.3,1);
-      text-align: center;
-      background: #fafafa;
-    }
-    .dark .cu-radio-card {
-      border-color: rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.02);
-    }
-    .cu-radio-card:hover {
-      border-color: rgba(255,0,94,0.3);
-      transform: translateY(-2px);
-    }
-    .cu-radio-card.selected {
-      border-color: #ff005e;
-      background: rgba(255,0,94,0.03);
-    }
-    .dark .cu-radio-card.selected {
-      background: rgba(255,0,94,0.06);
-    }
-    .cu-radio-dot {
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      border: 2px solid #d4d4d4;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      transition: all .2s;
-      margin-bottom: 8px;
-    }
-    .dark .cu-radio-dot { border-color: #444; }
-    .cu-radio-card.selected .cu-radio-dot {
-      border-color: #ff005e;
-    }
-    .cu-radio-dot::after {
-      content: '';
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: #ff005e;
-      transform: scale(0);
-      transition: transform .2s;
-    }
-    .cu-radio-card.selected .cu-radio-dot::after {
-      transform: scale(1);
-    }
-    .cu-btn {
-      height: 50px;
-      padding: 0 28px;
-      border-radius: 14px;
-      font-size: 14px;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      transition: all .25s cubic-bezier(.16,1,.3,1);
-      cursor: pointer;
-      border: none;
-      outline: none;
-      font-family: 'Inter', sans-serif;
-    }
-    .cu-btn-primary {
-      background: #171717;
-      color: #ffffff;
-    }
-    .dark .cu-btn-primary {
-      background: #ffffff;
-      color: #171717;
-    }
-    .cu-btn-primary:hover {
-      opacity: 0.9;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px -5px rgba(0,0,0,0.15);
-    }
-    .cu-btn-accent {
-      background: linear-gradient(135deg, #ff005e, #e60055);
-      color: #ffffff;
-      box-shadow: 0 4px 20px -4px rgba(255,0,94,0.4);
-    }
-    .cu-btn-accent:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px -4px rgba(255,0,94,0.5);
-    }
-    .cu-btn-accent:active {
-      transform: translateY(0);
-    }
-    .cu-btn-ghost {
-      background: transparent;
-      color: #737373;
-      border: 1.5px solid #e5e5e5;
-    }
-    .dark .cu-btn-ghost {
-      color: #a3a3a3;
-      border-color: rgba(255,255,255,0.1);
-    }
-    .cu-btn-ghost:hover {
-      border-color: #a3a3a3;
-      color: #171717;
-    }
-    .dark .cu-btn-ghost:hover {
-      border-color: rgba(255,255,255,0.3);
-      color: #ffffff;
-    }
-    .cu-nav-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 2rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid #f0f0f0;
-    }
-    .dark .cu-nav-row {
-      border-top-color: rgba(255,255,255,0.06);
-    }
-    .cu-review-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      padding: 14px 0;
-      border-bottom: 1px solid #f5f5f5;
-    }
-    .dark .cu-review-row {
-      border-bottom-color: rgba(255,255,255,0.05);
-    }
-    .cu-review-row:last-child {
-      border-bottom: none;
-    }
-    .cu-review-label {
-      font-size: 12px;
-      color: #a3a3a3;
-      flex-shrink: 0;
-      min-width: 110px;
-    }
-    .cu-review-value {
-      font-size: 13px;
-      font-weight: 500;
-      text-align: right;
-      word-break: break-word;
-      max-width: 320px;
-    }
-    .cu-info-box {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      padding: 14px 16px;
-      border-radius: 14px;
-      margin-bottom: 1.25rem;
-    }
-    .cu-info-box-green {
-      background: rgba(34,197,94,0.05);
-      border: 1px solid rgba(34,197,94,0.15);
-    }
-    .cu-info-box-blue {
-      background: rgba(59,130,246,0.05);
-      border: 1px solid rgba(59,130,246,0.15);
-    }
-    .cu-info-box-icon {
-      width: 32px;
-      height: 32px;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      margin-top: 1px;
-    }
-    .cu-success-ring {
-      width: 110px;
-      height: 110px;
-      border-radius: 50%;
-      background: rgba(34,197,94,0.06);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto;
-      position: relative;
-    }
-    .cu-success-ring .cu-ring-pulse {
-      position: absolute;
-      inset: -6px;
-      border-radius: 50%;
-      border: 2px solid rgba(34,197,94,0.2);
-      animation: ringExpand 1s cubic-bezier(.16,1,.3,1) .2s both;
-    }
-    .cu-success-ring .cu-ring-pulse-2 {
-      position: absolute;
-      inset: -6px;
-      border-radius: 50%;
-      border: 1.5px solid rgba(34,197,94,0.12);
-      animation: ringExpand 1s cubic-bezier(.16,1,.3,1) .5s both;
-    }
-    .cu-success-inner {
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #22c55e, #16a34a);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      animation: checkPop .7s cubic-bezier(.16,1,.3,1) .3s both;
-      box-shadow: 0 8px 30px -8px rgba(34,197,94,0.5);
-    }
-    .cu-success-inner svg {
-      stroke-dasharray: 24;
-      stroke-dashoffset: 24;
-      animation: checkDraw 2s ease-in-out .8s infinite;
-    }
-    .cu-anim-1 { animation: slideUp .7s cubic-bezier(.16,1,.3,1) .6s both; }
-    .cu-anim-2 { animation: slideUp .7s cubic-bezier(.16,1,.3,1) .75s both; }
-    .cu-anim-3 { animation: slideUp .7s cubic-bezier(.16,1,.3,1) .9s both; }
-    .cu-anim-4 { animation: slideUp .7s cubic-bezier(.16,1,.3,1) 1.05s both; }
-    .cu-anim-5 { animation: slideUp .7s cubic-bezier(.16,1,.3,1) 1.2s both; }
-
-    /* ===== END CONTENT UPDATE REDESIGN ===== */
-
     .step-form-container {
       max-width: 580px;
       margin: 0 auto;
@@ -1733,7 +1118,7 @@
               <li class="flex items-start gap-3"><div class="pricing-check pricing-check-included"><svg class="w-3 h-3 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div><span class="text-sm text-neutral-600 dark:text-neutral-300">Basic SEO tracking</span></li>
               <li class="flex items-start gap-3"><div class="pricing-check pricing-check-included"><svg class="w-3 h-3 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div><span class="text-sm text-neutral-600 dark:text-neutral-300">Monthly performance review</span></li>
             </ul>
-            <a href="https://buy.stripe.com/8x2aERcVq5eD7Tgeve97G06" target="_blank" rel="noopener" class="pricing-btn pricing-btn-accent">Subscribe Now <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg></a>
+            <a href="https://buy.stripe.com/8x2aERcVq5eD7Tgcn697G06" target="_blank" rel="noopener" class="pricing-btn pricing-btn-accent">Subscribe Now <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg></a>
           </div>
 
           <div class="pricing-card fade-in-up delay-300">
@@ -1916,7 +1301,6 @@
             <div class="flex gap-4 step-connector step-item"><div class="flex-shrink-0 w-8 h-8 rounded-full bg-green-500/10 flex items-center justify-center relative z-10"><i data-lucide="mail" class="w-4 h-4 text-green-500"></i></div><div class="pt-0.5"><p class="text-sm font-semibold mb-0.5">Confirmation Email</p><p class="text-xs text-neutral-500 dark:text-neutral-400 leading-relaxed">You'll receive a detailed receipt and onboarding email within 5 minutes.</p></div></div>
             <div class="flex gap-4 step-connector step-item"><div class="flex-shrink-0 w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center relative z-10"><i data-lucide="message-circle" class="w-4 h-4 text-accent"></i></div><div class="pt-0.5"><p class="text-sm font-semibold mb-0.5">Team Assignment</p><p class="text-xs text-neutral-500 dark:text-neutral-400 leading-relaxed">Our team will review your order and assign a project manager within 24 hours.</p></div></div>
             <div class="flex gap-4 step-item"><div class="flex-shrink-0 w-8 h-8 rounded-full bg-blue-500/10 flex items-center justify-center relative z-10"><i data-lucide="rocket" class="w-4 h-4 text-blue-500"></i></div><div class="pt-0.5"><p class="text-sm font-semibold mb-0.5">Project Kickoff</p><p class="text-xs text-neutral-500 dark:text-neutral-400 leading-relaxed">We'll schedule a kickoff call to discuss your project details and timeline.</p></div></div>
-            </div>
           </div>
         </div>
         <div class="flex flex-col sm:flex-row gap-3 confirmed-actions">
@@ -1929,242 +1313,137 @@
   </div>
 
   <!-- ============================================================ -->
-  <!-- ===== PAGE: CONTENT UPDATE (REDESIGNED) ===== -->
+  <!-- ===== PAGE: CONTENT UPDATE (HIDDEN STEP FORM) ===== -->
   <!-- ============================================================ -->
   <div id="page-content-update" class="page">
-    <section class="cu-page-bg py-12 md:py-20">
-      <div class="max-w-2xl mx-auto px-6 relative z-10">
-        
-        <!-- Breadcrumb -->
-        <div class="cu-breadcrumb fade-in-up">
-          <a href="/home" onclick="navigateTo('home');return false">Home</a>
-          <span class="cu-bc-sep">/</span>
-          <span class="cu-bc-current">Content Update Request</span>
-        </div>
-
-        <!-- Live URL Bar -->
-        <div class="cu-url-bar fade-in-up delay-100" id="cuUrlBar">
-          <svg class="w-4 h-4 text-neutral-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
-          <span>luviio.com</span>
-          <span>/</span>
-          <span class="cu-url-accent">content-update</span>
-          <span id="cuUrlDynamic" class="cu-url-live"></span>
-          <span class="animate-pulse w-2 h-2 rounded-full bg-green-500 flex-shrink-0 ml-auto"></span>
-        </div>
-
-        <!-- Header -->
-        <div class="text-center mb-8 fade-in-up delay-200">
-          <div class="cu-hero-icon mx-auto mb-5">
-            <i data-lucide="pencil-ruler" class="w-9 h-9 text-accent"></i>
+    <section class="py-16 md:py-24 relative">
+      <div class="absolute top-1/3 right-0 swirl-2 pointer-events-none" style="opacity:.12"></div>
+      <div class="step-form-container px-6 relative z-10">
+        <div class="text-center mb-8">
+          <div class="w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center mx-auto mb-4">
+            <i data-lucide="pencil-ruler" class="w-6 h-6 text-accent"></i>
           </div>
           <h2 class="text-2xl md:text-3xl font-semibold tracking-tight mb-2">Content Update Request</h2>
-          <p class="text-neutral-500 dark:text-neutral-400 text-sm leading-relaxed max-w-md mx-auto">Tell us what you'd like to update on your website. We'll handle the rest.</p>
+          <p class="text-neutral-500 dark:text-neutral-400 text-sm leading-relaxed">Tell us what you'd like to update on your website. We'll handle the rest.</p>
         </div>
-
-        <!-- Progress Section -->
-        <div class="cu-progress-section fade-in-up delay-300" id="cuProgressSection">
-          <div class="cu-progress-header">
-            <span class="cu-progress-label" id="cuStepLabel">Step 1 of 5</span>
-            <span class="cu-progress-step-text" id="cuStepName">Your Details</span>
-          </div>
-          <div class="cu-progress-track">
-            <div class="cu-progress-fill" id="cuProgressFill" style="width:20%"></div>
-          </div>
-          <div class="cu-step-indicators" id="cuStepDots">
-            <div class="cu-step-dot active"></div>
-            <div class="cu-step-dot"></div>
-            <div class="cu-step-dot"></div>
-            <div class="cu-step-dot"></div>
-            <div class="cu-step-dot"></div>
+        <div class="mb-8">
+          <div class="sf-progress-bar mb-3"><div class="sf-progress-fill" id="sfProgressFill" style="width:20%"></div></div>
+          <div class="sf-step-dots" id="sfStepDots">
+            <div class="sf-dot active"></div><div class="sf-dot"></div><div class="sf-dot"></div><div class="sf-dot"></div><div class="sf-dot"></div>
           </div>
         </div>
+        <form id="sfForm" action="https://formsubmit.co/people-luviio@hotmail.com" method="POST">
+        <input type="hidden" name="_subject" value="🎨 New Content Update Request — Luviio" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_ajax" value="true" />
+        <input type="text" name="_honey" style="display:none" />
 
-        <!-- Form -->
-        <form id="cuForm" action="https://formsubmit.co/people-luviio@hotmail.com" method="POST">
-          <input type="hidden" name="_subject" value="🎨 New Content Update Request — Luviio" />
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" name="_template" value="table" />
-          <input type="hidden" name="_ajax" value="true" />
-          <input type="text" name="_honey" style="display:none" />
-
-          <!-- STEP 1: Your Details -->
-          <div class="cu-step-card sf-step active" data-step="1">
-            <div class="flex items-center gap-3 mb-6 relative z-10">
-              <div class="cu-step-number">1</div>
-              <div>
-                <h3 class="text-sm font-semibold">Your Details</h3>
-                <p class="text-[11px] text-neutral-400">So we can identify your account</p>
+          <div class="sf-step active" data-step="1">
+            <div class="bg-white dark:bg-white/[0.03] rounded-3xl border border-neutral-200 dark:border-white/10 p-6 md:p-8">
+              <div class="flex items-center gap-3 mb-6"><div class="w-8 h-8 rounded-full bg-accent text-white flex items-center justify-center text-xs font-bold">1</div><div><h3 class="text-sm font-semibold">Your Details</h3><p class="text-[11px] text-neutral-400">So we can identify your account</p></div></div>
+              <div class="space-y-4">
+                <div><label class="sf-label">Full Name *</label><input type="text" name="Full Name" required class="sf-input" placeholder="e.g. Amir bin Rahman" id="sfName" /><p class="sf-error" id="sfNameErr">Please enter your full name</p></div>
+                <div><label class="sf-label">Email Address *</label><input type="email" name="Email" required class="sf-input" placeholder="your@email.com" id="sfEmail" /><p class="sf-error" id="sfEmailErr">Please enter a valid email address</p></div>
+                <div><label class="sf-label">WhatsApp Number</label><input type="tel" name="WhatsApp" class="sf-input" placeholder="+60 12-345 6789" /><p class="sf-hint">Optional — for quick follow-up if needed</p></div>
+                <div><label class="sf-label">Website URL *</label><input type="url" name="Website URL" required class="sf-input" placeholder="https://yourwebsite.com" id="sfUrl" /><p class="sf-error" id="sfUrlErr">Please enter your website URL</p></div>
               </div>
             </div>
-            <div class="relative z-10">
-              <div class="cu-input-group">
-                <label class="cu-label">Full Name <span class="cu-required">*</span></label>
-                <input type="text" name="Full Name" required class="cu-input" placeholder="e.g. Amir bin Rahman" id="cuName" />
-                <div class="cu-error" id="cuNameErr"><svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> Please enter your full name</div>
+            <div class="flex justify-end mt-6"><button type="button" onclick="sfNextStep(2)" class="sf-btn sf-btn-primary">Continue <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg></button></div>
+          </div>
+
+          <div class="sf-step" data-step="2">
+            <div class="bg-white dark:bg-white/[0.03] rounded-3xl border border-neutral-200 dark:border-white/10 p-6 md:p-8">
+              <div class="flex items-center gap-3 mb-6"><div class="w-8 h-8 rounded-full bg-accent text-white flex items-center justify-center text-xs font-bold">2</div><div><h3 class="text-sm font-semibold">What do you want to update?</h3><p class="text-[11px] text-neutral-400">Select all that apply</p></div></div>
+              <div class="space-y-3" id="sfUpdateTypes">
+                <div class="sf-checkbox-card" onclick="sfToggleCheckbox(this)" data-value="Text Content (headings, paragraphs, descriptions)"><div class="sf-checkbox-box"><svg class="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div><div><p class="text-sm font-medium">Text Content</p><p class="text-[11px] text-neutral-400">Headings, paragraphs, descriptions</p></div></div>
+                <div class="sf-checkbox-card" onclick="sfToggleCheckbox(this)" data-value="Images / Photos"><div class="sf-checkbox-box"><svg class="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div><div><p class="text-sm font-medium">Images / Photos</p><p class="text-[11px] text-neutral-400">Replace or add new images</p></div></div>
+                <div class="sf-checkbox-card" onclick="sfToggleCheckbox(this)" data-value="Logo / Branding"><div class="sf-checkbox-box"><svg class="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div><div><p class="text-sm font-medium">Logo / Branding</p><p class="text-[11px] text-neutral-400">Update logo, brand colors, fonts</p></div></div>
+                <div class="sf-checkbox-card" onclick="sfToggleCheckbox(this)" data-value="Contact Information (phone, email, address)"><div class="sf-checkbox-box"><svg class="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div><div><p class="text-sm font-medium">Contact Information</p><p class="text-[11px] text-neutral-400">Phone, email, address changes</p></div></div>
+                <div class="sf-checkbox-card" onclick="sfToggleCheckbox(this)" data-value="Products / Services / Pricing"><div class="sf-checkbox-box"><svg class="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div><div><p class="text-sm font-medium">Products / Services / Pricing</p><p class="text-[11px] text-neutral-400">Add, remove, or update listings</p></div></div>
+                <div class="sf-checkbox-card" onclick="sfToggleCheckbox(this)" data-value="Layout / Design Changes"><div class="sf-checkbox-box"><svg class="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div><div><p class="text-sm font-medium">Layout / Design Changes</p><p class="text-[11px] text-neutral-400">Section layout, spacing, visual tweaks</p></div></div>
+                <div class="sf-checkbox-card" onclick="sfToggleCheckbox(this)" data-value="New Page / Section"><div class="sf-checkbox-box"><svg class="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div><div><p class="text-sm font-medium">New Page / Section</p><p class="text-[11px] text-neutral-400">Add entirely new page or section</p></div></div>
+                <div class="sf-checkbox-card" onclick="sfToggleCheckbox(this)" data-value="Other"><div class="sf-checkbox-box"><svg class="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div><div><p class="text-sm font-medium">Other</p><p class="text-[11px] text-neutral-400">Something else not listed here</p></div></div>
               </div>
-              <div class="cu-input-group">
-                <label class="cu-label">Email Address <span class="cu-required">*</span></label>
-                <input type="email" name="Email" required class="cu-input" placeholder="your@email.com" id="cuEmail" />
-                <div class="cu-error" id="cuEmailErr"><svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> Please enter a valid email address</div>
-              </div>
-              <div class="cu-input-group">
-                <label class="cu-label">WhatsApp Number</label>
-                <input type="tel" name="WhatsApp" class="cu-input" placeholder="+60 12-345 6789" />
-                <div class="cu-hint"><svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M12 2a10 10 0 100 20 10 10 0 000-20z"/></svg> Optional — for quick follow-up if needed</div>
-              </div>
-              <div class="cu-input-group">
-                <label class="cu-label">Website URL <span class="cu-required">*</span></label>
-                <input type="url" name="Website URL" required class="cu-input" placeholder="https://yourwebsite.com" id="cuUrl" />
-                <div class="cu-error" id="cuUrlErr"><svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> Please enter your website URL</div>
-              </div>
+              <input type="hidden" name="Update Types" id="sfUpdateTypesInput" />
+              <p class="sf-error mt-3" id="sfTypesErr">Please select at least one update type</p>
             </div>
-            <div class="cu-nav-row relative z-10">
-              <div></div>
-              <button type="button" onclick="cuNextStep(2)" class="cu-btn cu-btn-primary">Continue <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg></button>
+            <div class="flex justify-between mt-6">
+              <button type="button" onclick="sfPrevStep(1)" class="sf-btn sf-btn-ghost"><svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11 17l-5-5m0 0l5-5m-5 5h12"/></svg> Back</button>
+              <button type="button" onclick="sfNextStep(3)" class="sf-btn sf-btn-primary">Continue <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg></button>
             </div>
           </div>
 
-          <!-- STEP 2: Update Types -->
-          <div class="cu-step-card sf-step" data-step="2">
-            <div class="flex items-center gap-3 mb-6 relative z-10">
-              <div class="cu-step-number">2</div>
-              <div>
-                <h3 class="text-sm font-semibold">What do you want to update?</h3>
-                <p class="text-[11px] text-neutral-400">Select all that apply</p>
-              </div>
-            </div>
-            <div class="relative z-10">
-              <div class="cu-checkbox-grid" id="cuUpdateTypes">
-                <div class="cu-check-card" onclick="cuToggleCheckbox(this)" data-value="Text Content (headings, paragraphs, descriptions)"><div class="cu-check-box"><svg class="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div><div><p class="text-sm font-medium">Text Content</p><p class="text-[11px] text-neutral-400">Headings, paragraphs, descriptions</p></div></div>
-                <div class="cu-check-card" onclick="cuToggleCheckbox(this)" data-value="Images / Photos"><div class="cu-check-box"><svg class="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div><div><p class="text-sm font-medium">Images / Photos</p><p class="text-[11px] text-neutral-400">Replace or add new images</p></div></div>
-                <div class="cu-check-card" onclick="cuToggleCheckbox(this)" data-value="Logo / Branding"><div class="cu-check-box"><svg class="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div><div><p class="text-sm font-medium">Logo / Branding</p><p class="text-[11px] text-neutral-400">Update logo, brand colors, fonts</p></div></div>
-                <div class="cu-check-card" onclick="cuToggleCheckbox(this)" data-value="Contact Information (phone, email, address)"><div class="cu-check-box"><svg class="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div><div><p class="text-sm font-medium">Contact Info</p><p class="text-[11px] text-neutral-400">Phone, email, address changes</p></div></div>
-                <div class="cu-check-card" onclick="cuToggleCheckbox(this)" data-value="Products / Services / Pricing"><div class="cu-check-box"><svg class="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div><div><p class="text-sm font-medium">Products / Pricing</p><p class="text-[11px] text-neutral-400">Add, remove, or update listings</p></div></div>
-                <div class="cu-check-card" onclick="cuToggleCheckbox(this)" data-value="Layout / Design Changes"><div class="cu-check-box"><svg class="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div><div><p class="text-sm font-medium">Layout / Design</p><p class="text-[11px] text-neutral-400">Section layout, spacing, visual tweaks</p></div></div>
-                <div class="cu-check-card" onclick="cuToggleCheckbox(this)" data-value="New Page / Section"><div class="cu-check-box"><svg class="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div><div><p class="text-sm font-medium">New Page / Section</p><p class="text-[11px] text-neutral-400">Add entirely new page or section</p></div></div>
-                <div class="cu-check-card" onclick="cuToggleCheckbox(this)" data-value="Other"><div class="cu-check-box"><svg class="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div><div><p class="text-sm font-medium">Other</p><p class="text-[11px] text-neutral-400">Something else not listed here</p></div></div>
-              </div>
-              <input type="hidden" name="Update Types" id="cuUpdateTypesInput" />
-              <div class="cu-error" id="cuTypesErr"><svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> Please select at least one update type</div>
-            </div>
-            <div class="cu-nav-row relative z-10">
-              <button type="button" onclick="cuPrevStep(1)" class="cu-btn cu-btn-ghost"><svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11 17l-5-5m0 0l5-5m-5 5h12"/></svg> Back</button>
-              <button type="button" onclick="cuNextStep(3)" class="cu-btn cu-btn-primary">Continue <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg></button>
-            </div>
-          </div>
-
-          <!-- STEP 3: Describe Updates -->
-          <div class="cu-step-card sf-step" data-step="3">
-            <div class="flex items-center gap-3 mb-6 relative z-10">
-              <div class="cu-step-number">3</div>
-              <div>
-                <h3 class="text-sm font-semibold">Describe Your Updates</h3>
-                <p class="text-[11px] text-neutral-400">Be as specific as possible so we get it right the first time</p>
-              </div>
-            </div>
-            <div class="relative z-10">
-              <div class="cu-input-group">
-                <label class="cu-label">Which page or section? <span class="cu-required">*</span></label>
-                <input type="text" name="Page / Section" required class="cu-input" placeholder='e.g. "Homepage — Hero section" or "About Us page"' id="cuPageSection" />
-                <div class="cu-error" id="cuPageErr"><svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> Please specify the page or section</div>
-              </div>
-              <div class="cu-input-group">
-                <label class="cu-label">Detailed Description <span class="cu-required">*</span></label>
-                <textarea name="Description" required class="cu-textarea" rows="5" placeholder="Describe exactly what needs to be changed..." id="cuDescription"></textarea>
-                <div class="cu-error" id="cuDescErr"><svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> Please describe what you want updated</div>
-                <div class="cu-hint"><svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M12 2a10 10 0 100 20 10 10 0 000-20z"/></svg> Tip: List each change on a separate line for clarity</div>
-              </div>
-              <div class="cu-input-group">
-                <label class="cu-label">Priority Level</label>
-                <div class="cu-radio-row" id="cuPriorityGroup">
-                  <div class="cu-radio-card" onclick="cuSelectRadio(this, 'cuPriorityGroup')" data-value="Normal"><div class="cu-radio-dot"></div><p class="text-sm font-medium">Normal</p><p class="text-[10px] text-neutral-400 mt-1">3–5 days</p></div>
-                  <div class="cu-radio-card" onclick="cuSelectRadio(this, 'cuPriorityGroup')" data-value="Urgent"><div class="cu-radio-dot"></div><p class="text-sm font-medium">Urgent</p><p class="text-[10px] text-neutral-400 mt-1">1–2 days</p></div>
-                  <div class="cu-radio-card" onclick="cuSelectRadio(this, 'cuPriorityGroup')" data-value="Critical"><div class="cu-radio-dot"></div><p class="text-sm font-medium">Critical</p><p class="text-[10px] text-neutral-400 mt-1">Same day</p></div>
-                </div>
-                <input type="hidden" name="Priority" id="cuPriorityInput" value="Normal" />
-              </div>
-            </div>
-            <div class="cu-nav-row relative z-10">
-              <button type="button" onclick="cuPrevStep(2)" class="cu-btn cu-btn-ghost"><svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11 17l-5-5m0 0l5-5m-5 5h12"/></svg> Back</button>
-              <button type="button" onclick="cuNextStep(4)" class="cu-btn cu-btn-primary">Continue <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg></button>
-            </div>
-          </div>
-
-          <!-- STEP 4: Additional Info -->
-          <div class="cu-step-card sf-step" data-step="4">
-            <div class="flex items-center gap-3 mb-6 relative z-10">
-              <div class="cu-step-number">4</div>
-              <div>
-                <h3 class="text-sm font-semibold">Additional Information</h3>
-                <p class="text-[11px] text-neutral-400">Any extra details that might help us</p>
-              </div>
-            </div>
-            <div class="relative z-10">
-              <div class="cu-input-group">
-                <label class="cu-label">Reference Link (Optional)</label>
-                <input type="url" name="Reference Link" class="cu-input" placeholder="https://example.com/page-to-reference" />
-                <div class="cu-hint"><svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M12 2a10 10 0 100 20 10 10 0 000-20z"/></svg> Link to a page showing the desired style or content</div>
-              </div>
-              <div class="cu-input-group">
-                <label class="cu-label">Additional Notes (Optional)</label>
-                <textarea name="Additional Notes" class="cu-textarea" rows="4" placeholder="Any extra information that might help us..."></textarea>
-              </div>
-              <div class="cu-info-box cu-info-box-green">
-                <div class="cu-info-box-icon bg-green-500/10"><svg class="w-4 h-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M12 2a10 10 0 100 20 10 10 0 000-20z"/></svg></div>
+          <div class="sf-step" data-step="3">
+            <div class="bg-white dark:bg-white/[0.03] rounded-3xl border border-neutral-200 dark:border-white/10 p-6 md:p-8">
+              <div class="flex items-center gap-3 mb-6"><div class="w-8 h-8 rounded-full bg-accent text-white flex items-center justify-center text-xs font-bold">3</div><div><h3 class="text-sm font-semibold">Describe Your Updates</h3><p class="text-[11px] text-neutral-400">Be as specific as possible so we get it right the first time</p></div></div>
+              <div class="space-y-4">
+                <div><label class="sf-label">Which page or section? *</label><input type="text" name="Page / Section" required class="sf-input" placeholder='e.g. "Homepage — Hero section" or "About Us page"' id="sfPageSection" /><p class="sf-error" id="sfPageErr">Please specify the page or section</p></div>
+                <div><label class="sf-label">Detailed Description *</label><textarea name="Description" required class="sf-textarea" rows="5" placeholder="Describe exactly what needs to be changed..." id="sfDescription"></textarea><p class="sf-error" id="sfDescErr">Please describe what you want updated</p><p class="sf-hint">Tip: List each change on a separate line for clarity</p></div>
                 <div>
-                  <p class="text-sm font-medium text-green-700 dark:text-green-400">Images & Files</p>
-                  <p class="text-xs text-green-600 dark:text-green-500 mt-0.5 leading-relaxed">Please send any images or documents via <span class="font-semibold">WhatsApp as PDF</span> after submitting this form.</p>
+                  <label class="sf-label">Priority Level</label>
+                  <div class="grid grid-cols-3 gap-3 mt-1" id="sfPriorityGroup">
+                    <div class="sf-radio-card" onclick="sfSelectRadio(this, 'sfPriorityGroup')" data-value="Normal"><div class="sf-radio-dot"></div><div><p class="text-sm font-medium">Normal</p><p class="text-[10px] text-neutral-400">3–5 days</p></div></div>
+                    <div class="sf-radio-card" onclick="sfSelectRadio(this, 'sfPriorityGroup')" data-value="Urgent"><div class="sf-radio-dot"></div><div><p class="text-sm font-medium">Urgent</p><p class="text-[10px] text-neutral-400">1–2 days</p></div></div>
+                    <div class="sf-radio-card" onclick="sfSelectRadio(this, 'sfPriorityGroup')" data-value="Critical"><div class="sf-radio-dot"></div><div><p class="text-sm font-medium">Critical</p><p class="text-[10px] text-neutral-400">Same day</p></div></div>
+                  </div>
+                  <input type="hidden" name="Priority" id="sfPriorityInput" value="Normal" />
                 </div>
               </div>
             </div>
-            <div class="cu-nav-row relative z-10">
-              <button type="button" onclick="cuPrevStep(3)" class="cu-btn cu-btn-ghost"><svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11 17l-5-5m0 0l5-5m-5 5h12"/></svg> Back</button>
-              <button type="button" onclick="cuNextStep(5)" class="cu-btn cu-btn-primary">Continue <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg></button>
+            <div class="flex justify-between mt-6">
+              <button type="button" onclick="sfPrevStep(2)" class="sf-btn sf-btn-ghost"><svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11 17l-5-5m0 0l5-5m-5 5h12"/></svg> Back</button>
+              <button type="button" onclick="sfNextStep(4)" class="sf-btn sf-btn-primary">Continue <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg></button>
             </div>
           </div>
 
-          <!-- STEP 5: Review & Submit -->
-          <div class="cu-step-card sf-step" data-step="5">
-            <div class="flex items-center gap-3 mb-6 relative z-10">
-              <div class="cu-step-number">5</div>
-              <div>
-                <h3 class="text-sm font-semibold">Review & Submit</h3>
-                <p class="text-[11px] text-neutral-400">Please verify everything before submitting</p>
+          <div class="sf-step" data-step="4">
+            <div class="bg-white dark:bg-white/[0.03] rounded-3xl border border-neutral-200 dark:border-white/10 p-6 md:p-8">
+              <div class="flex items-center gap-3 mb-6"><div class="w-8 h-8 rounded-full bg-accent text-white flex items-center justify-center text-xs font-bold">4</div><div><h3 class="text-sm font-semibold">Additional Information</h3><p class="text-[11px] text-neutral-400">Any extra details that might help us</p></div></div>
+              <div class="space-y-4">
+                <div><label class="sf-label">Reference Link (Optional)</label><input type="url" name="Reference Link" class="sf-input" placeholder="https://example.com/page-to-reference" /><p class="sf-hint">Link to a page showing the desired style or content</p></div>
+                <div><label class="sf-label">Additional Notes (Optional)</label><textarea name="Additional Notes" class="sf-textarea" rows="4" placeholder="Any extra information that might help us..."></textarea></div>
+                <div class="flex items-start gap-3 p-4 rounded-2xl bg-green-500/5 border border-green-500/20">
+                  <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M12 2a10 10 0 100 20 10 10 0 000-20z"/></svg>
+                  <div><p class="text-sm font-medium text-green-700 dark:text-green-400">Images & Files</p><p class="text-xs text-green-600 dark:text-green-500 mt-0.5 leading-relaxed">Please send any images or documents via <span class="font-semibold">WhatsApp as PDF</span> after submitting this form.</p></div>
+                </div>
               </div>
             </div>
-            <div id="cuReviewContent" class="relative z-10"></div>
-            <div class="mt-6 p-4 rounded-2xl bg-neutral-50 dark:bg-white/[0.02] border border-neutral-100 dark:border-white/5 relative z-10">
-              <p class="text-[11px] text-neutral-400 leading-relaxed">By submitting this request, you confirm that all information provided is accurate. Our team will review your request and contact you within 24 hours.</p>
+            <div class="flex justify-between mt-6">
+              <button type="button" onclick="sfPrevStep(3)" class="sf-btn sf-btn-ghost"><svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11 17l-5-5m0 0l5-5m-5 5h12"/></svg> Back</button>
+              <button type="button" onclick="sfNextStep(5)" class="sf-btn sf-btn-primary">Continue <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg></button>
             </div>
-            <div class="cu-nav-row relative z-10">
-              <button type="button" onclick="cuPrevStep(4)" class="cu-btn cu-btn-ghost"><svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11 17l-5-5m0 0l5-5m-5 5h12"/></svg> Back</button>
-              <button type="submit" class="cu-btn cu-btn-accent" id="cuSubmitBtn"><svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg> Submit Request</button>
+          </div>
+
+          <div class="sf-step" data-step="5">
+            <div class="bg-white dark:bg-white/[0.03] rounded-3xl border border-neutral-200 dark:border-white/10 p-6 md:p-8">
+              <div class="flex items-center gap-3 mb-6"><div class="w-8 h-8 rounded-full bg-accent text-white flex items-center justify-center text-xs font-bold">5</div><div><h3 class="text-sm font-semibold">Review & Submit</h3><p class="text-[11px] text-neutral-400">Please verify everything before submitting</p></div></div>
+              <div id="sfReviewContent" class="space-y-0"></div>
+              <div class="mt-6 p-4 rounded-2xl bg-neutral-50 dark:bg-white/[0.02] border border-neutral-100 dark:border-white/5"><p class="text-[11px] text-neutral-400 leading-relaxed">By submitting this request, you confirm that all information provided is accurate. Our team will review your request and contact you within 24 hours.</p></div>
+            </div>
+            <div class="flex justify-between mt-6">
+              <button type="button" onclick="sfPrevStep(4)" class="sf-btn sf-btn-ghost"><svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11 17l-5-5m0 0l5-5m-5 5h12"/></svg> Back</button>
+              <button type="submit" class="sf-btn sf-btn-accent" id="sfSubmitBtn"><svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg> Submit Request</button>
             </div>
           </div>
         </form>
 
-        <!-- Success State -->
-        <div id="cuSuccessState" class="hidden">
-          <div class="cu-step-card text-center py-10 px-8">
-            <div class="cu-success-ring mb-8">
-              <div class="cu-ring-pulse"></div>
-              <div class="cu-ring-pulse-2"></div>
-              <div class="cu-success-inner"><svg class="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
-            </div>
-            <h3 class="text-xl md:text-2xl font-semibold mb-2 cu-anim-1">Request Submitted!</h3>
-            <p class="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed max-w-sm mx-auto mb-8 cu-anim-2">Thank you! We've received your content update request. Our team will review it and get back to you within 24 hours.</p>
-            <div class="bg-neutral-50 dark:bg-white/[0.02] rounded-2xl p-5 text-left mb-8 cu-anim-3">
+        <div id="sfSuccessState" class="hidden">
+          <div class="bg-white dark:bg-white/[0.03] rounded-3xl border border-neutral-200 dark:border-white/10 p-8 md:p-10 text-center">
+            <div class="sf-success-icon-ring mb-6"><div class="sf-ring-burst"></div><div class="sf-success-inner"><svg class="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div></div>
+            <h3 class="text-xl md:text-2xl font-semibold mb-2 sf-success-heading">Request Submitted!</h3>
+            <p class="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed max-w-sm mx-auto mb-8 sf-success-sub">Thank you! We've received your content update request. Our team will review it and get back to you within 24 hours.</p>
+            <div class="bg-neutral-50 dark:bg-white/[0.02] rounded-2xl p-5 text-left mb-8 sf-success-actions">
               <div class="flex items-start gap-3 mb-3"><div class="w-6 h-6 rounded-full bg-green-500/10 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-3 h-3 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div><p class="text-xs text-neutral-600 dark:text-neutral-400">Check your email for a confirmation of this request.</p></div>
               <div class="flex items-start gap-3 mb-3"><div class="w-6 h-6 rounded-full bg-blue-500/10 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-3 h-3 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div><p class="text-xs text-neutral-600 dark:text-neutral-400">Estimated response time: within 24 hours on business days.</p></div>
               <div class="flex items-start gap-3"><div class="w-6 h-6 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-3 h-3 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg></div><p class="text-xs text-neutral-600 dark:text-neutral-400">Need to make changes? Submit a new request or WhatsApp us.</p></div>
             </div>
-            <div class="flex flex-col sm:flex-row gap-3 cu-anim-4">
-              <button onclick="cuResetForm()" class="cu-btn cu-btn-primary flex-1">Submit Another Request</button>
-              <button onclick="navigateTo('home')" class="cu-btn cu-btn-ghost flex-1">Back to Home</button>
+            <div class="flex flex-col sm:flex-row gap-3 sf-success-actions">
+              <button onclick="sfResetForm()" class="sf-btn sf-btn-primary flex-1">Submit Another Request</button>
+              <button onclick="navigateTo('home')" class="sf-btn sf-btn-ghost flex-1">Back to Home</button>
             </div>
           </div>
         </div>
-
       </div>
     </section>
   </div>
@@ -2511,11 +1790,12 @@
         if (container) container.innerHTML = '';
       }
       if (pageId === 'content-update') {
-        cuResetForm();
+        sfResetForm();
       }
       if (pageId === 'contact') {
-        var formWrapper = document.getElementById('contactFormWrapper');
-        var successWrapper = document.getElementById('contactSuccessWrapper');
+        // Ensure form is visible when navigating back to contact
+        const formWrapper = document.getElementById('contactFormWrapper');
+        const successWrapper = document.getElementById('contactSuccessWrapper');
         if (formWrapper && successWrapper) {
           formWrapper.classList.remove('hidden');
           successWrapper.classList.add('hidden');
@@ -2524,29 +1804,29 @@
     }
 
     function generateOrderDetails() {
-      var dateEl = document.getElementById('orderDate');
+      const dateEl = document.getElementById('orderDate');
       if (dateEl) {
-        var now = new Date();
+        const now = new Date();
         dateEl.textContent = now.toLocaleDateString('en-MY', { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' });
       }
     }
 
     function launchConfetti() {
-      var container = document.getElementById('confettiContainer');
+      const container = document.getElementById('confettiContainer');
       if (!container) return;
       container.innerHTML = '';
-      var colors = ['#ff005e', '#7c3aed', '#3b82f6', '#22c55e', '#f59e0b', '#ec4899', '#06b6d4', '#f97316'];
-      var shapes = ['50%', '2px', '0'];
-      var centerX = window.innerWidth / 2;
-      var centerY = window.innerHeight * 0.18;
-      for (var i = 0; i < 60; i++) {
-        var piece = document.createElement('div');
-        var size = 5 + Math.random() * 8;
-        var angle = (Math.random() * 360) * (Math.PI / 180);
-        var velocity = 120 + Math.random() * 280;
-        var driftX = Math.cos(angle) * velocity * (0.4 + Math.random() * 0.6);
-        var fallY = Math.sin(angle) * velocity * 0.5 + 200 + Math.random() * 300;
-        var spin = (Math.random() - 0.5) * 1080;
+      const colors = ['#ff005e', '#7c3aed', '#3b82f6', '#22c55e', '#f59e0b', '#ec4899', '#06b6d4', '#f97316'];
+      const shapes = ['50%', '2px', '0'];
+      const centerX = window.innerWidth / 2;
+      const centerY = window.innerHeight * 0.18;
+      for (let i = 0; i < 60; i++) {
+        const piece = document.createElement('div');
+        const size = 5 + Math.random() * 8;
+        const angle = (Math.random() * 360) * (Math.PI / 180);
+        const velocity = 120 + Math.random() * 280;
+        const driftX = Math.cos(angle) * velocity * (0.4 + Math.random() * 0.6);
+        const fallY = Math.sin(angle) * velocity * 0.5 + 200 + Math.random() * 300;
+        const spin = (Math.random() - 0.5) * 1080;
         piece.className = 'confetti-piece';
         piece.style.left = centerX + 'px';
         piece.style.top = centerY + 'px';
@@ -2562,70 +1842,70 @@
         piece.style.animationDuration = (1.2 + Math.random() * 1) + 's';
         container.appendChild(piece);
       }
-      setTimeout(function() { if (container) container.innerHTML = ''; }, 3500);
+      setTimeout(() => { if (container) container.innerHTML = ''; }, 3500);
     }
 
     function parseInitialRoute() {
-      var path = window.location.pathname;
-      var parts = path.split('/').filter(Boolean);
-      var pageId = 'home';
-      var hash = null;
+      const path = window.location.pathname;
+      const parts = path.split('/').filter(Boolean);
+      let pageId = 'home';
+      let hash = null;
       if (parts.length > 0) {
         pageId = parts[0];
-        if (parts.length > 1) { hash = parts[1]; }
+        if (parts.length > 1) { hash = '#' + parts[1]; }
       }
       if (!document.getElementById('page-' + pageId)) {
         pageId = 'home';
         hash = null;
       }
-      return { pageId: pageId, hash: hash };
+      return { pageId, hash };
     }
 
-    window.addEventListener('popstate', function() {
-      var parsed = parseInitialRoute();
+    window.addEventListener('popstate', () => {
+      const { pageId, hash } = parseInitialRoute();
       document.body.scrollTop = 0;
       document.documentElement.scrollTop = 0;
-      var currentEl = document.getElementById('page-' + currentPage);
+      const currentEl = document.getElementById('page-' + currentPage);
       if (currentEl) { currentEl.classList.remove('active'); currentEl.classList.remove('page-enter'); }
-      var newEl = document.getElementById('page-' + parsed.pageId);
+      const newEl = document.getElementById('page-' + pageId);
       if (newEl) { newEl.classList.add('active'); newEl.classList.add('page-enter'); }
-      currentPage = parsed.pageId;
-      updateNavActive(parsed.pageId);
+      currentPage = pageId;
+      updateNavActive(pageId);
       updateNavState();
-      setTimeout(function() { 
-        lucide.createIcons(); initScrollAnimations(); handlePageSpecific(parsed.pageId);
-        if (parsed.hash) {
-          var te = document.querySelector(parsed.hash);
-          if (te) { setTimeout(function() { te.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 100); }
+      setTimeout(() => { 
+        lucide.createIcons(); initScrollAnimations(); handlePageSpecific(pageId);
+        if (hash) {
+          const targetElement = document.querySelector(hash);
+          if (targetElement) { setTimeout(() => { targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 100); }
         }
       }, 50);
     });
 
     function updateNavActive(pageId) {
-      document.querySelectorAll('.nav-link').forEach(function(link) {
+      document.querySelectorAll('.nav-link').forEach(link => {
         if (link.dataset.page === pageId) { link.classList.remove('text-neutral-600','dark:text-neutral-400'); link.classList.add('text-neutral-900','dark:text-white'); }
         else { link.classList.remove('text-neutral-900','dark:text-white'); link.classList.add('text-neutral-600','dark:text-neutral-400'); }
       });
     }
 
-    window.addEventListener('DOMContentLoaded', function() {
-      var parsed = parseInitialRoute();
-      if (parsed.pageId !== 'home') {
+    window.addEventListener('DOMContentLoaded', () => {
+      const { pageId, hash } = parseInitialRoute();
+      if (pageId !== 'home') {
         document.getElementById('page-home').classList.remove('active');
-        var targetEl = document.getElementById('page-' + parsed.pageId);
-        if (targetEl) { targetEl.classList.add('active'); currentPage = parsed.pageId; updateNavActive(parsed.pageId); 
-          if (parsed.hash) { setTimeout(function() { var te = document.querySelector(parsed.hash); if (te) te.scrollIntoView({ behavior: 'auto', block: 'start' }); }, 150); }
+        const targetEl = document.getElementById('page-' + pageId);
+        if (targetEl) { targetEl.classList.add('active'); currentPage = pageId; updateNavActive(pageId); 
+          if (hash) { setTimeout(() => { const te = document.querySelector(hash); if (te) te.scrollIntoView({ behavior: 'auto', block: 'start' }); }, 150); }
         }
       } else { updateNavActive('home'); }
       updateNavState();
-      setTimeout(function() { handlePageSpecific(currentPage); }, 100);
+      setTimeout(() => { handlePageSpecific(currentPage); }, 100);
     });
 
-    var announcementBar = document.getElementById('announcementBar');
-    var mainNav = document.getElementById('mainNav');
+    const announcementBar = document.getElementById('announcementBar');
+    const mainNav = document.getElementById('mainNav');
 
     function updateNavState() {
-      var scrollY = window.scrollY || window.pageYOffset;
+      const scrollY = window.scrollY || window.pageYOffset;
       if (scrollY > 40) {
         announcementBar.classList.add('hidden-bar');
         mainNav.classList.remove('nav-top');
@@ -2640,17 +1920,17 @@
     window.addEventListener('scroll', updateNavState, { passive: true });
 
     function toggleFaq(btn) {
-      var item = btn.closest('.faq-item');
-      var answer = item.querySelector('.faq-answer');
-      var chevron = item.querySelector('.faq-chevron');
-      var isOpen = answer.classList.contains('open');
-      document.querySelectorAll('.faq-answer').forEach(function(a) { a.classList.remove('open'); });
-      document.querySelectorAll('.faq-chevron').forEach(function(c) { c.classList.remove('open'); });
+      const item = btn.closest('.faq-item');
+      const answer = item.querySelector('.faq-answer');
+      const chevron = item.querySelector('.faq-chevron');
+      const isOpen = answer.classList.contains('open');
+      document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+      document.querySelectorAll('.faq-chevron').forEach(c => c.classList.remove('open'));
       if (!isOpen) { answer.classList.add('open'); chevron.classList.add('open'); }
     }
 
-    var mobileMenu = document.getElementById('mobileMenu');
-    var mobileOverlay = document.getElementById('mobileOverlay');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileOverlay = document.getElementById('mobileOverlay');
 
     function closeMobileMenu() {
       mobileMenu.classList.remove('open');
@@ -2659,7 +1939,7 @@
       document.body.style.overflow = '';
     }
 
-    document.getElementById('menuToggle').addEventListener('click', function() {
+    document.getElementById('menuToggle').addEventListener('click', () => {
       mobileMenu.classList.add('open');
       mobileOverlay.classList.add('active');
       document.documentElement.classList.add('menu-open');
@@ -2672,7 +1952,7 @@
 
     function toggleTheme() {
       document.documentElement.classList.toggle('dark');
-      var isDark = document.documentElement.classList.contains('dark');
+      const isDark = document.documentElement.classList.contains('dark');
       localStorage.setItem('luviio-theme', isDark ? 'dark' : 'light');
       lucide.createIcons();
     }
@@ -2680,10 +1960,10 @@
     document.getElementById('mobileThemeToggle').addEventListener('click', toggleTheme);
     document.getElementById('themeToggle').addEventListener('click', toggleTheme);
 
-    var searchablePages = [
+    const searchablePages = [
       { id:'home', name:'Home', desc:'Main page with hero, services, features, portfolio, reviews' },
       { id:'pricing', name:'Pricing', desc:'View all service packages from RM150/month' },
-      { id:'pricing', name:'Plan Benefits', desc:'Plan benefits comparison at a glance', hash:'benefits' },
+      { id:'pricing/benefits', name:'Plan Benefits', desc:'Plan benefits comparison at a glance' },
       { id:'faq', name:'FAQ', desc:'Frequently asked questions about our services' },
       { id:'process', name:'Process', desc:'How we work — our 5-step process' },
       { id:'terms', name:'Terms of Service', desc:'Legal terms and conditions for subscriptions' },
@@ -2693,50 +1973,53 @@
       { id:'privacy', name:'Privacy Policy', desc:'Data protection and PDPA compliance' },
     ];
 
-    document.getElementById('searchToggle').addEventListener('click', function() {
-      var bar = document.getElementById('searchBar');
+    document.getElementById('searchToggle').addEventListener('click', () => {
+      const bar = document.getElementById('searchBar');
       bar.classList.toggle('hidden');
       if (!bar.classList.contains('hidden')) bar.querySelector('input').focus();
       else document.getElementById('searchResults').classList.add('hidden');
     });
 
     function handleSearch(query) {
-      var resultsEl = document.getElementById('searchResults');
+      const resultsEl = document.getElementById('searchResults');
       if (!query.trim()) { resultsEl.classList.add('hidden'); return; }
-      var matches = searchablePages.filter(function(p) { return p.name.toLowerCase().indexOf(query.toLowerCase()) !== -1 || p.desc.toLowerCase().indexOf(query.toLowerCase()) !== -1; });
+      const matches = searchablePages.filter(p => p.name.toLowerCase().includes(query.toLowerCase()) || p.desc.toLowerCase().includes(query.toLowerCase()));
       if (matches.length === 0) { resultsEl.innerHTML = '<div class="p-4 text-sm text-neutral-400">No results found</div>'; }
       else { 
-        resultsEl.innerHTML = matches.map(function(p) {
-          var clickAction = "navigateTo('" + p.id + "'" + (p.hash ? ", '" + p.hash + "'" : '') + ")";
-          var closeAction = "document.getElementById('searchBar').classList.add('hidden');document.getElementById('searchResults').classList.add('hidden')";
+        resultsEl.innerHTML = matches.map(p => {
+          const navParts = p.id.split('/');
+          const pagePart = navParts[0];
+          const hashPart = navParts.length > 1 ? navParts[1] : null;
+          let clickAction = "navigateTo('" + pagePart + "'" + (hashPart ? ", '" + hashPart + "'" : '') + ")";
+          let closeAction = "document.getElementById('searchBar').classList.add('hidden');document.getElementById('searchResults').classList.add('hidden')";
           return '<button onclick="' + clickAction + ';' + closeAction + '" class="w-full text-left p-4 hover:bg-neutral-50 dark:hover:bg-white/5 transition-colors border-b border-neutral-100 dark:border-white/5 last:border-0"><p class="text-sm font-medium">' + p.name + '</p><p class="text-xs text-neutral-400 mt-0.5">' + p.desc + '</p></button>';
         }).join(''); 
       }
       resultsEl.classList.remove('hidden');
     }
 
-    document.addEventListener('click', function(e) {
-      var bar = document.getElementById('searchBar');
+    document.addEventListener('click', (e) => {
+      const bar = document.getElementById('searchBar');
       if (!bar.classList.contains('hidden') && !bar.contains(e.target) && !document.getElementById('searchToggle').contains(e.target)) {
         bar.classList.add('hidden');
         document.getElementById('searchResults').classList.add('hidden');
       }
     });
 
-    var observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) { entry.target.style.animationPlayState = 'running'; observer.unobserve(entry.target); }
       });
     }, { threshold: 0.1 });
 
     function initScrollAnimations() {
-      document.querySelectorAll('.page.active .fade-in-up, .page.active .scale-in').forEach(function(el) {
+      document.querySelectorAll('.page.active .fade-in-up, .page.active .scale-in').forEach(el => {
         el.style.animationPlayState = 'paused';
         observer.observe(el);
       });
     }
 
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', () => {
       lucide.createIcons();
       setTimeout(initScrollAnimations, 100);
     });
@@ -2747,23 +2030,23 @@
     document.getElementById('contactForm').addEventListener('submit', function(e) {
       e.preventDefault();
 
-      var btn = document.getElementById('contactSubmitBtn');
+      const btn = document.getElementById('contactSubmitBtn');
       btn.disabled = true;
       btn.innerHTML = '<svg class="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Sending...';
 
-      var formData = new FormData(this);
+      const formData = new FormData(this);
 
       fetch(this.action, {
         method: 'POST',
         body: formData
       })
-      .then(function() {
+      .then(() => {
         contactShowSuccess();
       })
-      .catch(function() {
+      .catch(() => {
         contactShowSuccess();
       })
-      .finally(function() {
+      .finally(() => {
         btn.disabled = false;
         btn.innerHTML = 'Send Message <svg class="w-4 h-4" data-lucide="send" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>';
         lucide.createIcons();
@@ -2771,15 +2054,16 @@
     });
 
     function contactShowSuccess() {
-      var formWrapper = document.getElementById('contactFormWrapper');
-      var successWrapper = document.getElementById('contactSuccessWrapper');
+      const formWrapper = document.getElementById('contactFormWrapper');
+      const successWrapper = document.getElementById('contactSuccessWrapper');
       
       formWrapper.classList.add('hidden');
       successWrapper.classList.remove('hidden');
 
-      var dateEl = document.getElementById('contactSentDate');
+      // Set the sent date
+      const dateEl = document.getElementById('contactSentDate');
       if (dateEl) {
-        var now = new Date();
+        const now = new Date();
         dateEl.textContent = now.toLocaleDateString('en-MY', { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' });
       }
 
@@ -2791,9 +2075,9 @@
     }
 
     function contactResetForm() {
-      var formWrapper = document.getElementById('contactFormWrapper');
-      var successWrapper = document.getElementById('contactSuccessWrapper');
-      var form = document.getElementById('contactForm');
+      const formWrapper = document.getElementById('contactFormWrapper');
+      const successWrapper = document.getElementById('contactSuccessWrapper');
+      const form = document.getElementById('contactForm');
 
       form.reset();
       formWrapper.classList.remove('hidden');
@@ -2806,250 +2090,16 @@
     }
 
     /* ============================================
-       CONTENT UPDATE FORM — REDESIGNED (cu-)
+       STEP FORM LOGIC — Content Update
        ============================================ */
-    var cuCurrentStep = 1;
-    var cuTotalSteps = 5;
-    var cuStepNames = ['Your Details', 'Update Types', 'Describe Updates', 'Additional Info', 'Review & Submit'];
-
-    function cuSlugify(str) {
-      return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-    }
-
-    function cuUpdateUrlBar() {
-      var dynamicEl = document.getElementById('cuUrlDynamic');
-      if (!dynamicEl) return;
-      var name = document.getElementById('cuName');
-      var typesInput = document.getElementById('cuUpdateTypesInput');
-      var parts = [];
-
-      if (name && name.value.trim()) {
-        parts.push(cuSlugify(name.value.trim()));
-      }
-      if (typesInput && typesInput.value) {
-        var typeSlugs = typesInput.value.split(',').map(function(t) { return cuSlugify(t.split('(')[0].trim()); });
-        parts.push(typeSlugs.slice(0, 2).join('-'));
-      }
-
-      if (parts.length > 0) {
-        dynamicEl.textContent = '/' + parts.join('/');
-      } else {
-        dynamicEl.textContent = '';
-      }
-    }
-
-    function cuPushRoute() {
-      var name = document.getElementById('cuName');
-      var typesInput = document.getElementById('cuUpdateTypesInput');
-      var routeParts = ['content-update'];
-
-      if (name && name.value.trim()) {
-        routeParts.push(cuSlugify(name.value.trim()));
-      }
-      if (typesInput && typesInput.value) {
-        var typeSlugs = typesInput.value.split(',').map(function(t) { return cuSlugify(t.split('(')[0].trim()); });
-        routeParts.push(typeSlugs.slice(0, 2).join('-'));
-      }
-
-      history.replaceState(null, '', '/' + routeParts.join('/'));
-    }
-
-    function cuUpdateProgress(step) {
-      var pct = (step / cuTotalSteps) * 100;
-      document.getElementById('cuProgressFill').style.width = pct + '%';
-      document.getElementById('cuStepLabel').textContent = 'Step ' + step + ' of ' + cuTotalSteps;
-      document.getElementById('cuStepName').textContent = cuStepNames[step - 1];
-
-      var dots = document.querySelectorAll('#cuStepDots .cu-step-dot');
-      dots.forEach(function(dot, i) {
-        dot.classList.remove('active', 'completed');
-        if (i < step - 1) dot.classList.add('completed');
-        if (i === step - 1) dot.classList.add('active');
-      });
-    }
-
-    function cuShowStep(step) {
-      document.querySelectorAll('#cuForm .sf-step').forEach(function(s) { s.classList.remove('active'); });
-      var target = document.querySelector('#cuForm .sf-step[data-step="' + step + '"]');
-      if (target) {
-        target.classList.add('active');
-        target.style.animation = 'none';
-        void target.offsetWidth;
-        target.style.animation = '';
-      }
-      cuUpdateProgress(step);
-      cuCurrentStep = step;
-      cuUpdateUrlBar();
-      if (step === 5) cuBuildReview();
-    }
-
-    function cuValidateStep(step) {
-      var valid = true;
-      document.querySelectorAll('.cu-error').forEach(function(e) { e.classList.remove('show'); });
-
-      if (step === 1) {
-        var name = document.getElementById('cuName').value.trim();
-        var email = document.getElementById('cuEmail').value.trim();
-        var url = document.getElementById('cuUrl').value.trim();
-        if (!name) { document.getElementById('cuNameErr').classList.add('show'); valid = false; }
-        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { document.getElementById('cuEmailErr').classList.add('show'); valid = false; }
-        if (!url) { document.getElementById('cuUrlErr').classList.add('show'); valid = false; }
-      }
-
-      if (step === 2) {
-        var selected = document.querySelectorAll('#cuUpdateTypes .cu-check-card.selected');
-        if (selected.length === 0) { document.getElementById('cuTypesErr').classList.add('show'); valid = false; }
-        else {
-          var vals = Array.from(selected).map(function(c) { return c.dataset.value; });
-          document.getElementById('cuUpdateTypesInput').value = vals.join(', ');
-        }
-      }
-
-      if (step === 3) {
-        var pageSec = document.getElementById('cuPageSection').value.trim();
-        var desc = document.getElementById('cuDescription').value.trim();
-        if (!pageSec) { document.getElementById('cuPageErr').classList.add('show'); valid = false; }
-        if (!desc) { document.getElementById('cuDescErr').classList.add('show'); valid = false; }
-      }
-
-      return valid;
-    }
-
-    function cuNextStep(nextStep) {
-      if (!cuValidateStep(cuCurrentStep)) return;
-      cuPushRoute();
-      cuShowStep(nextStep);
-    }
-
-    function cuPrevStep(prevStep) {
-      cuShowStep(prevStep);
-    }
-
-    function cuToggleCheckbox(card) {
-      card.classList.toggle('selected');
-    }
-
-    function cuSelectRadio(card, groupId) {
-      var group = document.getElementById(groupId);
-      group.querySelectorAll('.cu-radio-card').forEach(function(c) { c.classList.remove('selected'); });
-      card.classList.add('selected');
-      document.getElementById('cuPriorityInput').value = card.dataset.value;
-    }
-
-    function cuEsc(str) {
-      var div = document.createElement('div');
-      div.textContent = str;
-      return div.innerHTML;
-    }
-
-    function cuBuildReview() {
-      var container = document.getElementById('cuReviewContent');
-      var name = document.getElementById('cuName').value.trim();
-      var email = document.getElementById('cuEmail').value.trim();
-      var whatsapp = document.querySelector('input[name="WhatsApp"]').value.trim() || '—';
-      var url = document.getElementById('cuUrl').value.trim();
-      var types = document.getElementById('cuUpdateTypesInput').value || '—';
-      var pageSec = document.getElementById('cuPageSection').value.trim();
-      var desc = document.getElementById('cuDescription').value.trim();
-      var priority = document.getElementById('cuPriorityInput').value || 'Normal';
-      var refLink = document.querySelector('input[name="Reference Link"]').value.trim() || '—';
-
-      var priorityClass = 'bg-green-500/10 text-green-600';
-      if (priority === 'Critical') priorityClass = 'bg-red-500/10 text-red-500';
-      else if (priority === 'Urgent') priorityClass = 'bg-amber-500/10 text-amber-600';
-
-      container.innerHTML = 
-        '<div class="cu-review-row"><span class="cu-review-label">Name</span><span class="cu-review-value">' + cuEsc(name) + '</span></div>' +
-        '<div class="cu-review-row"><span class="cu-review-label">Email</span><span class="cu-review-value">' + cuEsc(email) + '</span></div>' +
-        '<div class="cu-review-row"><span class="cu-review-label">WhatsApp</span><span class="cu-review-value">' + cuEsc(whatsapp) + '</span></div>' +
-        '<div class="cu-review-row"><span class="cu-review-label">Website</span><span class="cu-review-value">' + cuEsc(url) + '</span></div>' +
-        '<div class="cu-review-row"><span class="cu-review-label">Update Type(s)</span><span class="cu-review-value">' + cuEsc(types) + '</span></div>' +
-        '<div class="cu-review-row"><span class="cu-review-label">Page / Section</span><span class="cu-review-value">' + cuEsc(pageSec) + '</span></div>' +
-        '<div class="cu-review-row"><span class="cu-review-label">Description</span><span class="cu-review-value" style="white-space:pre-wrap;text-align:left;max-width:320px">' + cuEsc(desc) + '</span></div>' +
-        '<div class="cu-review-row"><span class="cu-review-label">Priority</span><span class="cu-review-value"><span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold ' + priorityClass + '">' + cuEsc(priority) + '</span></span></div>' +
-        '<div class="cu-review-row"><span class="cu-review-label">Reference Link</span><span class="cu-review-value">' + cuEsc(refLink) + '</span></div>';
-    }
-
-    // Listen for name input to update URL bar live
-    document.addEventListener('DOMContentLoaded', function() {
-      var nameInput = document.getElementById('cuName');
-      if (nameInput) {
-        nameInput.addEventListener('input', function() {
-          if (currentPage === 'content-update') cuUpdateUrlBar();
-        });
-      }
-    });
-
-    document.getElementById('cuForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-
-      var btn = document.getElementById('cuSubmitBtn');
-      var originalHTML = btn.innerHTML;
-      btn.disabled = true;
-      btn.style.opacity = '0.7';
-      btn.style.pointerEvents = 'none';
-      btn.innerHTML = '<svg class="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Submitting...';
-
-      var formData = new FormData(this);
-
-      fetch(this.action, {
-        method: 'POST',
-        body: formData
-      })
-      .then(function() {
-        cuShowSuccess();
-      })
-      .catch(function() {
-        cuShowSuccess();
-      })
-      .finally(function() {
-        btn.disabled = false;
-        btn.style.opacity = '';
-        btn.style.pointerEvents = '';
-        btn.innerHTML = originalHTML;
-        lucide.createIcons();
-      });
-    });
-
-    function cuShowSuccess() {
-      document.getElementById('cuForm').classList.add('hidden');
-      document.getElementById('cuSuccessState').classList.remove('hidden');
-      document.getElementById('cuProgressSection').classList.add('hidden');
-      document.getElementById('cuUrlBar').style.display = 'none';
-
-      var dots = document.querySelectorAll('#cuStepDots .cu-step-dot');
-      dots.forEach(function(d) { d.classList.remove('active'); d.classList.add('completed'); });
-
-      lucide.createIcons();
-    }
-
-    function cuResetForm() {
-      document.getElementById('cuForm').reset();
-      document.getElementById('cuForm').classList.remove('hidden');
-      document.getElementById('cuSuccessState').classList.add('hidden');
-      document.getElementById('cuProgressSection').classList.remove('hidden');
-      document.getElementById('cuUrlBar').style.display = '';
-
-      document.querySelectorAll('#cuUpdateTypes .cu-check-card').forEach(function(c) { c.classList.remove('selected'); });
-      document.querySelectorAll('#cuPriorityGroup .cu-radio-card').forEach(function(c) { c.classList.remove('selected'); });
-      document.getElementById('cuPriorityInput').value = 'Normal';
-      document.querySelectorAll('.cu-error').forEach(function(e) { e.classList.remove('show'); });
-      
-      cuShowStep(1);
-      lucide.createIcons();
-    }
-
-    /* ============================================
-       OLD STEP FORM LOGIC — kept for reference
-       ============================================ */
-    var sfCurrentStep = 1;
-    var sfTotalSteps = 5;
+    let sfCurrentStep = 1;
+    const sfTotalSteps = 5;
 
     function sfUpdateProgress(step) {
-      var pct = (step / sfTotalSteps) * 100;
+      const pct = (step / sfTotalSteps) * 100;
       document.getElementById('sfProgressFill').style.width = pct + '%';
-      var dots = document.querySelectorAll('#sfStepDots .sf-dot');
-      dots.forEach(function(dot, i) {
+      const dots = document.querySelectorAll('#sfStepDots .sf-dot');
+      dots.forEach((dot, i) => {
         dot.classList.remove('active', 'completed');
         if (i < step - 1) dot.classList.add('completed');
         if (i === step - 1) dot.classList.add('active');
@@ -3057,8 +2107,8 @@
     }
 
     function sfShowStep(step) {
-      document.querySelectorAll('.sf-step').forEach(function(s) { s.classList.remove('active'); });
-      var target = document.querySelector('.sf-step[data-step="' + step + '"]');
+      document.querySelectorAll('.sf-step').forEach(s => s.classList.remove('active'));
+      const target = document.querySelector('.sf-step[data-step="' + step + '"]');
       if (target) {
         target.classList.add('active');
         target.style.animation = 'none';
@@ -3071,30 +2121,30 @@
     }
 
     function sfValidateStep(step) {
-      var valid = true;
-      document.querySelectorAll('.sf-error').forEach(function(e) { e.classList.remove('show'); });
+      let valid = true;
+      document.querySelectorAll('.sf-error').forEach(e => e.classList.remove('show'));
 
       if (step === 1) {
-        var name = document.getElementById('sfName').value.trim();
-        var email = document.getElementById('sfEmail').value.trim();
-        var url = document.getElementById('sfUrl').value.trim();
+        const name = document.getElementById('sfName').value.trim();
+        const email = document.getElementById('sfEmail').value.trim();
+        const url = document.getElementById('sfUrl').value.trim();
         if (!name) { document.getElementById('sfNameErr').classList.add('show'); valid = false; }
         if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { document.getElementById('sfEmailErr').classList.add('show'); valid = false; }
         if (!url) { document.getElementById('sfUrlErr').classList.add('show'); valid = false; }
       }
 
       if (step === 2) {
-        var selected = document.querySelectorAll('#sfUpdateTypes .sf-checkbox-card.selected');
+        const selected = document.querySelectorAll('#sfUpdateTypes .sf-checkbox-card.selected');
         if (selected.length === 0) { document.getElementById('sfTypesErr').classList.add('show'); valid = false; }
         else {
-          var vals = Array.from(selected).map(function(c) { return c.dataset.value; });
+          const vals = Array.from(selected).map(c => c.dataset.value);
           document.getElementById('sfUpdateTypesInput').value = vals.join(', ');
         }
       }
 
       if (step === 3) {
-        var pageSec = document.getElementById('sfPageSection').value.trim();
-        var desc = document.getElementById('sfDescription').value.trim();
+        const pageSec = document.getElementById('sfPageSection').value.trim();
+        const desc = document.getElementById('sfDescription').value.trim();
         if (!pageSec) { document.getElementById('sfPageErr').classList.add('show'); valid = false; }
         if (!desc) { document.getElementById('sfDescErr').classList.add('show'); valid = false; }
       }
@@ -3116,23 +2166,23 @@
     }
 
     function sfSelectRadio(card, groupId) {
-      var group = document.getElementById(groupId);
-      group.querySelectorAll('.sf-radio-card').forEach(function(c) { c.classList.remove('selected'); });
+      const group = document.getElementById(groupId);
+      group.querySelectorAll('.sf-radio-card').forEach(c => c.classList.remove('selected'));
       card.classList.add('selected');
       document.getElementById('sfPriorityInput').value = card.dataset.value;
     }
 
     function sfBuildReview() {
-      var container = document.getElementById('sfReviewContent');
-      var name = document.getElementById('sfName').value.trim();
-      var email = document.getElementById('sfEmail').value.trim();
-      var whatsapp = document.querySelector('input[name="WhatsApp"]').value.trim() || '—';
-      var url = document.getElementById('sfUrl').value.trim();
-      var types = document.getElementById('sfUpdateTypesInput').value || '—';
-      var pageSec = document.getElementById('sfPageSection').value.trim();
-      var desc = document.getElementById('sfDescription').value.trim();
-      var priority = document.getElementById('sfPriorityInput').value || 'Normal';
-      var refLink = document.querySelector('input[name="Reference Link"]').value.trim() || '—';
+      const container = document.getElementById('sfReviewContent');
+      const name = document.getElementById('sfName').value.trim();
+      const email = document.getElementById('sfEmail').value.trim();
+      const whatsapp = document.querySelector('input[name="WhatsApp"]').value.trim() || '—';
+      const url = document.getElementById('sfUrl').value.trim();
+      const types = document.getElementById('sfUpdateTypesInput').value || '—';
+      const pageSec = document.getElementById('sfPageSection').value.trim();
+      const desc = document.getElementById('sfDescription').value.trim();
+      const priority = document.getElementById('sfPriorityInput').value || 'Normal';
+      const refLink = document.querySelector('input[name="Reference Link"]').value.trim() || '—';
 
       container.innerHTML = '' +
         '<div class="sf-review-row"><span class="sf-review-label">Name</span><span class="sf-review-value">' + sfEsc(name) + '</span></div>' +
@@ -3147,31 +2197,49 @@
     }
 
     function sfEsc(str) {
-      var div = document.createElement('div');
+      const div = document.createElement('div');
       div.textContent = str;
       return div.innerHTML;
     }
 
-    document.getElementById('sfForm').addEventListener('submit', function(e) {
+document.getElementById('sfForm').addEventListener('submit', function(e) {
       e.preventDefault();
-      var btn = document.getElementById('sfSubmitBtn');
-      var originalHTML = btn.innerHTML;
+
+      const btn = document.getElementById('sfSubmitBtn');
+      const originalHTML = btn.innerHTML;
       btn.disabled = true;
       btn.style.opacity = '0.7';
       btn.style.pointerEvents = 'none';
       btn.innerHTML = '<svg class="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Submitting...';
-      var formData = new FormData(this);
-      fetch(this.action, { method: 'POST', body: formData })
-      .then(function() { sfShowSuccess(); })
-      .catch(function() { sfShowSuccess(); })
-      .finally(function() { btn.disabled = false; btn.style.opacity = ''; btn.style.pointerEvents = ''; btn.innerHTML = originalHTML; lucide.createIcons(); });
-    });
 
+      const formData = new FormData(this);
+
+      fetch(this.action, {
+        method: 'POST',
+        body: formData
+      })
+      .then(() => {
+        sfShowSuccess();
+      })
+      .catch(() => {
+        sfShowSuccess();
+      })
+      .finally(() => {
+        btn.disabled = false;
+        btn.style.opacity = '';
+        btn.style.pointerEvents = '';
+        btn.innerHTML = originalHTML;
+        lucide.createIcons();
+      });
+    });
     function sfShowSuccess() {
       document.getElementById('sfForm').classList.add('hidden');
       document.getElementById('sfSuccessState').classList.remove('hidden');
       document.getElementById('sfProgressFill').style.width = '100%';
-      document.querySelectorAll('#sfStepDots .sf-dot').forEach(function(d) { d.classList.remove('active'); d.classList.add('completed'); });
+      document.querySelectorAll('#sfStepDots .sf-dot').forEach(d => {
+        d.classList.remove('active');
+        d.classList.add('completed');
+      });
       lucide.createIcons();
     }
 
@@ -3179,10 +2247,10 @@
       document.getElementById('sfForm').reset();
       document.getElementById('sfForm').classList.remove('hidden');
       document.getElementById('sfSuccessState').classList.add('hidden');
-      document.querySelectorAll('#sfUpdateTypes .sf-checkbox-card').forEach(function(c) { c.classList.remove('selected'); });
-      document.querySelectorAll('#sfPriorityGroup .sf-radio-card').forEach(function(c) { c.classList.remove('selected'); });
+      document.querySelectorAll('#sfUpdateTypes .sf-checkbox-card').forEach(c => c.classList.remove('selected'));
+      document.querySelectorAll('#sfPriorityGroup .sf-radio-card').forEach(c => c.classList.remove('selected'));
       document.getElementById('sfPriorityInput').value = 'Normal';
-      document.querySelectorAll('.sf-error').forEach(function(e) { e.classList.remove('show'); });
+      document.querySelectorAll('.sf-error').forEach(e => e.classList.remove('show'));
       sfShowStep(1);
       lucide.createIcons();
     }
