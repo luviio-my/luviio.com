@@ -2410,25 +2410,25 @@ document.getElementById('sfForm').addEventListener('submit', function(e) {
     /* ============================================
        CODE EDITOR LOGIC
        ============================================ */
-    const codeLines=[
-      {num:1,html:`<span class="keyword">import</span> { createApp } <span class="keyword">from</span> <span class="string">'luviio'</span>;`,delay:40},
-      {num:2,html:``,delay:0},
-      {num:3,html:`<span class="keyword">const</span> <span class="var">app</span> = <span class="func">createApp</span>({`,delay:40},
-      {num:4,html:`  <span class="attr">name</span>: <span class="string">'my-business'</span>,`,delay:50},
-      {num:5,html:`  <span class="attr">theme</span>: <span class="string">'modern'</span>,`,delay:50},
-      {num:6,html:`  <span class="attr">responsive</span>: <span class="keyword">true</span>,`,delay:50},
-      {num:7,html:`  <span class="attr">seo</span>: { <span class="attr">optimized</span>: <span class="keyword">true</span> }`,delay:50,highlight:true},
-      {num:8,html:`});`,delay:40},
-      {num:9,html:``,delay:0},
-      {num:10,html:`<span class="comment">// Deploy to production</span>`,delay:35},
-      {num:11,html:`await <span class="var">app</span>.<span class="func">deploy</span>({`,delay:40},
-      {num:12,html:`  <span class="attr">hosting</span>: <span class="string">'secure'</span>,`,delay:50},
-      {num:13,html:`  <span class="attr">ssl</span>: <span class="keyword">true</span>,`,delay:50},
-      {num:14,html:`  <span class="attr">region</span>: <span class="string">'asia-southeast'</span>`,delay:50,highlight:true},
-      {num:15,html:`});`,delay:40},
-      {num:16,html:``,delay:0},
-      {num:17,html:`console.log(<span class="string">'🚀 Live at luviio.com'</span>);`,delay:45},
-    ];
+const codeLines=[
+  {num:1,html:`<span class="keyword">import</span> { createApp } <span class="keyword">from</span> <span class="string">'luviio'</span>;`,delay:15},
+  {num:2,html:``,delay:0},
+  {num:3,html:`<span class="keyword">const</span> <span class="var">app</span> = <span class="func">createApp</span>({`,delay:15},
+  {num:4,html:`  <span class="attr">name</span>: <span class="string">'my-business'</span>,`,delay:20},
+  {num:5,html:`  <span class="attr">theme</span>: <span class="string">'modern'</span>,`,delay:20},
+  {num:6,html:`  <span class="attr">responsive</span>: <span class="keyword">true</span>,`,delay:20},
+  {num:7,html:`  <span class="attr">seo</span>: { <span class="attr">optimized</span>: <span class="keyword">true</span> }`,delay:20,highlight:true},
+  {num:8,html:`});`,delay:15},
+  {num:9,html:``,delay:0},
+  {num:10,html:`<span class="comment">// Deploy to production</span>`,delay:12},
+  {num:11,html:`await <span class="var">app</span>.<span class="func">deploy</span>({`,delay:15},
+  {num:12,html:`  <span class="attr">hosting</span>: <span class="string">'secure'</span>,`,delay:20},
+  {num:13,html:`  <span class="attr">ssl</span>: <span class="keyword">true</span>,`,delay:20},
+  {num:14,html:`  <span class="attr">region</span>: <span class="string">'asia-southeast'</span>`,delay:20,highlight:true},
+  {num:15,html:`});`,delay:15},
+  {num:16,html:``,delay:0},
+  {num:17,html:`console.log(<span class="string">'🚀 Live at luviio.com'</span>);`,delay:18},
+];
 
     let editorLine = 0;
     let editorChar = 0;
@@ -2455,54 +2455,54 @@ document.getElementById('sfForm').addEventListener('submit', function(e) {
       document.querySelectorAll(".cursor").forEach(c=>c.remove());
     }
 
-    function type(){
-      const editor=document.getElementById("editor");
-      if(!editor) return;
-      
-      if(editorLine>=codeLines.length){
-        setTimeout(resetEditor,4000);
-        return;
-      }
+function type(){
+  const editor=document.getElementById("editor");
+  if(!editor) return;
+  
+  if(editorLine>=codeLines.length){
+    setTimeout(resetEditor,3000);
+    return;
+  }
 
-      const data=codeLines[editorLine];
-      const plain=strip(data.html);
+  const data=codeLines[editorLine];
+  const plain=strip(data.html);
 
-      const el=document.querySelector(`#line-${editorLine} .content`);
+  const el=document.querySelector(`#line-${editorLine} .content`);
 
-      if(!plain){
-        editorLine++;
-        editorChar=0;
-        setTimeout(type,120);
-        return;
-      }
+  if(!plain){
+    editorLine++;
+    editorChar=0;
+    setTimeout(type,50);       // was 120 → empty line skip (faster)
+    return;
+  }
 
-      clearCursor();
+  clearCursor();
 
-      if(editorChar<=plain.length){
-        el.innerHTML=
-          plain.slice(0,editorChar)+
-          '<span class="cursor"></span>';
+  if(editorChar<=plain.length){
+    el.innerHTML=
+      plain.slice(0,editorChar)+
+      '<span class="cursor"></span>';
 
-        editorChar++;
-        setTimeout(type,data.delay||40);
-      }else{
-        el.innerHTML=data.html;
-        editorLine++;
-        editorChar=0;
-        setTimeout(type,260);
-      }
+    editorChar++;
+    setTimeout(type,data.delay||15);  // fallback reduced from 40 → 15
+  }else{
+    el.innerHTML=data.html;
+    editorLine++;
+    editorChar=0;
+    setTimeout(type,80);       // was 260 → line break pause (faster)
+  }
 
-      editor.scrollTop=editor.scrollHeight;
-    }
+  editor.scrollTop=editor.scrollHeight;
+}
 
-    function resetEditor(){
-      editorLine=0;
-      editorChar=0;
-      setTimeout(()=>{
-        buildEditor();
-        type();
-      },2000);
-    }
+function resetEditor(){
+  editorLine=0;
+  editorChar=0;
+  setTimeout(()=>{
+    buildEditor();
+    type();
+  },800);   
+}
 
     function initCodeEditor() {
       if(editorInitialized) return;
