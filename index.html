@@ -1191,6 +1191,404 @@
     </section>
   </div>
 
+    <!-- ============================================================ -->
+  <!-- ===== PAGE: UNI STUDENT PROMO ===== -->
+  <!-- ============================================================ -->
+  <div id="page-UniStudent" class="page">
+    <section class="py-16 md:py-24 relative min-h-[80vh]">
+      <div class="absolute top-1/4 left-0 swirl-3 pointer-events-none" style="opacity:.12"></div>
+      <div class="absolute bottom-0 right-0 swirl-2 pointer-events-none" style="opacity:.1"></div>
+
+      <!-- FORM VIEW -->
+      <div id="uniFormView" class="max-w-2xl mx-auto px-6 relative z-10">
+        <div class="text-center mb-10 fade-in-up">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 mb-5">
+            <svg class="w-4 h-4 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
+            <span class="text-xs font-semibold text-accent tracking-wide uppercase">Student Exclusive</span>
+          </div>
+          <h1 class="text-4xl md:text-5xl font-semibold tracking-tight mb-3">University Student<br/>Education Program</h1>
+          <p class="text-neutral-500 dark:text-neutral-400 text-sm max-w-md mx-auto leading-relaxed">Launching your university side business? Get a limited-feature website at a special student rate — perfect for matcha stores, snack booths, print services & more.</p>
+        </div>
+
+        <div class="bg-white dark:bg-white/[0.03] rounded-3xl border border-neutral-200 dark:border-white/10 p-6 md:p-8 mb-6 fade-in-up delay-100">
+          <div class="flex items-center gap-3 p-4 rounded-2xl bg-blue-500/5 border border-blue-500/15 mb-6">
+            <svg class="w-5 h-5 text-blue-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M12 2a10 10 0 100 20 10 10 0 000-20z"/></svg>
+            <div>
+              <p class="text-sm font-medium text-blue-700 dark:text-blue-400">Eligibility Required</p>
+              <p class="text-xs text-blue-600/80 dark:text-blue-500/70 mt-0.5 leading-relaxed">Only students from recognized Malaysian universities listed below are eligible. Your Student ID and university email will be verified.</p>
+            </div>
+          </div>
+
+          <form id="uniForm" action="https://formsubmit.co/forms@luviio.com" method="POST" class="space-y-5">
+            <input type="hidden" name="_subject" value="Student Education Program Application — Luviio">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+            <input type="text" name="_honey" style="display:none">
+
+            <!-- Row 1 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label class="text-sm font-medium mb-1.5 block">Full Name <span class="text-accent">*</span></label>
+                <input required name="Full Name" class="cu-input" placeholder="Ahmad Danial bin...">
+              </div>
+              <div>
+                <label class="text-sm font-medium mb-1.5 block">IC Number <span class="text-accent">*</span></label>
+                <input required name="IC Number" maxlength="14" class="cu-input" placeholder="XXXXXXXXXXXXXX">
+              </div>
+            </div>
+
+            <!-- Row 2 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label class="text-sm font-medium mb-1.5 block">Phone Number <span class="text-accent">*</span></label>
+                <input required name="Phone" type="tel" class="cu-input" placeholder="+60 12-345 6789">
+              </div>
+              <div>
+                <label class="text-sm font-medium mb-1.5 block">Student ID / Matric No. <span class="text-accent">*</span></label>
+                <input required name="Student ID" class="cu-input" placeholder="e.g. A21XXXX">
+              </div>
+            </div>
+
+            <!-- Student Email -->
+            <div>
+              <label class="text-sm font-medium mb-1.5 block">Student Email <span class="text-accent">*</span></label>
+              <input required name="Student Email" type="email" class="cu-input" placeholder="yourname@student.university.edu.my">
+              <p class="text-[11px] text-neutral-400 mt-1.5 ml-1">Must be your university-issued email address for verification.</p>
+            </div>
+
+            <!-- University Selection -->
+            <div>
+              <label class="text-sm font-medium mb-2 block">Choose Your University <span class="text-accent">*</span></label>
+              <select required name="University" id="uniSelect" class="cu-input" style="height:auto;padding:12px 14px;">
+                <option value="" disabled selected>Select your university...</option>
+                <optgroup label="A. Public Universities">
+                  <option>University of Malaya (UM)</option>
+                  <option>Universiti Sains Malaysia (USM)</option>
+                  <option>Universiti Kebangsaan Malaysia (UKM)</option>
+                  <option>Universiti Putra Malaysia (UPM)</option>
+                  <option>Universiti Teknologi Malaysia (UTM)</option>
+                  <option>Universiti Pendidikan Sultan Idris (UPSI)</option>
+                  <option>Universiti Utara Malaysia (UUM)</option>
+                  <option>Universiti Malaysia Sabah (UMS)</option>
+                  <option>Universiti Malaysia Sarawak (UNIMAS)</option>
+                  <option>Universiti Islam Antarabangsa Malaysia (IIUM/UIAM)</option>
+                  <option>Universiti Sultan Zainal Abidin (UniSZA)</option>
+                  <option>Universiti Malaysia Terengganu (UMT)</option>
+                  <option>Universiti Tun Hussein Onn Malaysia (UTHM)</option>
+                  <option>Universiti Teknikal Malaysia Melaka (UTeM)</option>
+                  <option>Universiti Malaysia Perlis (UniMAP)</option>
+                  <option>Universiti Malaysia Pahang Al-Sultan Abdullah (UMPSA)</option>
+                  <option>Universiti Sains Islam Malaysia (USIM)</option>
+                  <option>Universiti Teknologi MARA (UiTM)</option>
+                  <option>Universiti Pertahanan Nasional Malaysia (UPNM)</option>
+                  <option>Universiti Kelantan Malaysia (UMK)</option>
+                </optgroup>
+                <optgroup label="B. Private Universities">
+                  <option>Taylor's University</option>
+                  <option>Sunway University</option>
+                  <option>UCSI University</option>
+                  <option>Asia Pacific University (APU)</option>
+                  <option>Multimedia University (MMU)</option>
+                  <option>Universiti Tenaga Nasional (UNITEN)</option>
+                  <option>Universiti Teknologi PETRONAS (UTP)</option>
+                  <option>INTI International University</option>
+                  <option>HELP University</option>
+                  <option>SEGi University</option>
+                  <option>Management and Science University (MSU)</option>
+                  <option>Open University Malaysia (OUM)</option>
+                  <option>Universiti Tunku Abdul Rahman (UTAR)</option>
+                  <option>Universiti Tun Abdul Razak (UNIRAZAK)</option>
+                  <option>Infrastructure University Kuala Lumpur (IUKL)</option>
+                  <option>Albukhary International University</option>
+                  <option>Al-Madinah International University</option>
+                  <option>Perdana University</option>
+                  <option>Lincoln University College</option>
+                  <option>MAHSA University</option>
+                  <option>AIMST University</option>
+                  <option>Nilai University</option>
+                  <option>City University Malaysia</option>
+                  <option>International Medical University (IMU)</option>
+                  <option>Sultan Azlan Shah University (USAS)</option>
+                  <option>Universiti Kuala Lumpur (UniKL)</option>
+                  <option>Universiti Kuala Lumpur Royal College of Medicine Perak</option>
+                  <option>Universiti Geomatika Malaysia</option>
+                  <option>University of Cyberjaya</option>
+                  <option>Quest International University</option>
+                  <option>Manipal International University</option>
+                  <option>DRB-HICOM University</option>
+                  <option>Berjaya University College</option>
+                  <option>KDU University College</option>
+                  <option>First City University College</option>
+                  <option>UNITAR International University</option>
+                  <option>Widad University College</option>
+                  <option>Selangor University (UNISEL)</option>
+                  <option>Universiti Islam Malaysia (UIM)</option>
+                  <option>Universiti Malaysia of Computer Science & Engineering (UNIMY)</option>
+                </optgroup>
+                <optgroup label="C. Foreign University Branch Campuses">
+                  <option>Monash University Malaysia</option>
+                  <option>University of Nottingham Malaysia</option>
+                  <option>Curtin University Malaysia</option>
+                  <option>Swinburne University of Technology Sarawak</option>
+                  <option>Heriot-Watt University Malaysia</option>
+                  <option>Newcastle University Medicine Malaysia</option>
+                  <option>University of Southampton Malaysia</option>
+                  <option>Xiamen University Malaysia</option>
+                  <option>Raffles University</option>
+                  <option>Reading University Malaysia</option>
+                  <option>Manipal University College Malaysia</option>
+                </optgroup>
+                <optgroup label="D. Other Legit Private / Specialist Universities">
+                  <option>Asia e University</option>
+                  <option>International University of Malaya-Wales</option>
+                  <option>Binary University of Management & Entrepreneurship</option>
+                  <option>GlobalNxt University</option>
+                  <option>Meritus University</option>
+                  <option>Westlake International University</option>
+                  <option>Southern University College</option>
+                  <option>Universiti Antarabangsa PICOMS</option>
+                  <option>TATI University College</option>
+                  <option>Kolej Universiti Islam Antarabangsa Selangor (KUIS)</option>
+                  <option>Universiti Poly-Tech Malaysia</option>
+                  <option>Geomatika University College</option>
+                  <option>Ranaco Education & Training Institute</option>
+                  <option>Limkokwing University of Creative Technology</option>
+                  <option>Twintech International University College of Technology</option>
+                  <option>Sentral College Penang</option>
+                  <option>Islamic University College of Melaka</option>
+                </optgroup>
+              </select>
+              <p class="text-[11px] text-neutral-400 mt-1.5 ml-1">If your university is not listed, you are not eligible for this student promo.</p>
+            </div>
+
+            <!-- Business Type -->
+            <div>
+              <label class="text-sm font-medium mb-1.5 block">What's your business type? <span class="text-accent">*</span></label>
+              <input required name="Business Type" class="cu-input" placeholder="e.g. Matcha store, Snack booth, Print service...">
+            </div>
+
+            <!-- Terms -->
+            <div class="flex gap-2.5 text-sm fade-in-up">
+              <input type="checkbox" required class="mt-1 accent-[#ff005e] flex-shrink-0">
+              <p class="text-neutral-600 dark:text-neutral-400 text-xs leading-relaxed">
+                I confirm that I am a currently enrolled student at the selected university. I understand that my Student ID and university email will be verified, and only students from listed universities are eligible for this promotion. I agree to the <a href="/terms" onclick="navigateTo('terms');return false" class="text-[#ff005e] underline">Terms of Service</a>.
+              </p>
+            </div>
+
+            <button type="submit" id="uniSubmitBtn" class="cu-btn fade-in-up">Submit & Continue</button>
+          </form>
+        </div>
+
+        <!-- Features Card -->
+        <div class="bg-white dark:bg-white/[0.03] rounded-3xl border border-neutral-200 dark:border-white/10 p-6 md:p-8 mb-6 fade-in-up delay-200">
+          <h3 class="text-sm font-semibold mb-4 flex items-center gap-2"><svg class="w-4 h-4 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg> What's Included</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div class="flex items-start gap-2.5 p-3 rounded-xl bg-neutral-50 dark:bg-white/[0.02]"><svg class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span class="text-xs text-neutral-600 dark:text-neutral-300 leading-relaxed">1–3 page website</span></div>
+            <div class="flex items-start gap-2.5 p-3 rounded-xl bg-neutral-50 dark:bg-white/[0.02]"><svg class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span class="text-xs text-neutral-600 dark:text-neutral-300 leading-relaxed">Mobile responsive design</span></div>
+            <div class="flex items-start gap-2.5 p-3 rounded-xl bg-neutral-50 dark:bg-white/[0.02]"><svg class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span class="text-xs text-neutral-600 dark:text-neutral-300 leading-relaxed">Contact form / WhatsApp button</span></div>
+            <div class="flex items-start gap-2.5 p-3 rounded-xl bg-neutral-50 dark:bg-white/[0.02]"><svg class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span class="text-xs text-neutral-600 dark:text-neutral-300 leading-relaxed">Basic SEO meta tags</span></div>
+            <div class="flex items-start gap-2.5 p-3 rounded-xl bg-neutral-50 dark:bg-white/[0.02]"><svg class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span class="text-xs text-neutral-600 dark:text-neutral-300 leading-relaxed">Hosting guidance provided</span></div>
+            <div class="flex items-start gap-2.5 p-3 rounded-xl bg-neutral-50 dark:bg-white/[0.02]"><svg class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span class="text-xs text-neutral-600 dark:text-neutral-300 leading-relaxed">7–10 working days delivery</span></div>
+          </div>
+          <div class="mt-4 p-3 rounded-xl bg-amber-500/5 border border-amber-500/15">
+            <p class="text-xs text-amber-700 dark:text-amber-400 leading-relaxed flex items-start gap-2">
+              <svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.34 16.5c-.77.833.192 2.5 1.732 2.5z"/></svg>
+              <span><strong>Limited features</strong> — This is a student-exclusive basic website plan. No e-commerce, no custom integrations, no unlimited revisions. Perfect for simple business landing pages.</span>
+            </p>
+          </div>
+        </div>
+
+        <p class="text-center text-[11px] text-neutral-400 fade-in-up delay-300">Domain and hosting costs are not included. Student status will be verified before project begins.</p>
+      </div>
+
+      <!-- SUCCESS / SUBSCRIBE VIEW -->
+      <div id="uniSuccessView" style="display:none" class="max-w-lg mx-auto px-6 relative z-10">
+        <div class="text-center py-12 fade-in-up">
+          <div class="w-20 h-20 rounded-full bg-green-500/10 flex items-center justify-center mx-auto mb-6" style="animation:checkPop .7s cubic-bezier(.16,1,.3,1) forwards">
+            <svg class="w-10 h-10 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+          </div>
+          <h2 class="text-3xl font-semibold tracking-tight mb-3">Application Received!</h2>
+          <p class="text-neutral-500 dark:text-neutral-400 text-sm max-w-sm mx-auto leading-relaxed mb-8">Your student details have been submitted. Complete your subscription payment to activate your plan.</p>
+
+          <div class="bg-white dark:bg-white/[0.03] rounded-2xl border border-neutral-200 dark:border-white/10 p-6 mb-6 text-left">
+            <div class="flex items-center gap-3 mb-4 pb-4 border-b border-neutral-100 dark:border-white/5">
+              <div class="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0"><svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg></div>
+              <div><p class="text-sm font-semibold">Student Education Program</p><p class="text-xs text-neutral-400">Limited-feature website for students</p></div>
+            </div>
+            <div class="space-y-3">
+              <div class="flex items-center justify-between"><span class="text-xs text-neutral-400">Status</span><span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-400 text-xs font-semibold"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>Awaiting Payment</span></div>
+              <div class="flex items-center justify-between"><span class="text-xs text-neutral-400">Verification</span><span class="text-xs font-medium">Pending</span></div>
+              <div class="flex items-center justify-between"><span class="text-xs text-neutral-400">Next Step</span><span class="text-xs font-medium text-accent">Complete payment below</span></div>
+            </div>
+          </div>
+
+          <a href="https://buy.stripe.com/bJe8wJdZuePdflI72M97G08" target="_blank" rel="noopener" class="cu-btn inline-flex items-center justify-center gap-2 mb-4" style="animation:pulseGlow 2s ease-in-out infinite">
+            Subscribe Now
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+          </a>
+          <p class="text-[11px] text-neutral-400 mb-8">Secure payment via Stripe. Cancel anytime.</p>
+
+          <div class="flex flex-col sm:flex-row gap-3 justify-center">
+            <button onclick="uniResetForm()" class="h-11 px-6 border border-neutral-200 dark:border-white/10 rounded-2xl text-sm font-medium inline-flex items-center justify-center gap-2 hover:border-neutral-400 dark:hover:border-white/30 transition-colors">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+              Submit Another
+            </button>
+            <button onclick="navigateTo('home')" class="h-11 px-6 border border-neutral-200 dark:border-white/10 rounded-2xl text-sm font-medium inline-flex items-center justify-center gap-2 hover:border-neutral-400 dark:hover:border-white/30 transition-colors">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+              Back to Home
+            </button>
+          </div>
+
+          <p class="text-[11px] text-neutral-400 mt-6">Need help? <a href="mailto:hello@luviio.com" class="text-accent hover:underline">hello@luviio.com</a></p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- ===== PAGE: SPECIAL CLIENT PROMO ===== -->
+  <!-- ============================================================ -->
+  <div id="page-special-client" class="page">
+    <section class="py-16 md:py-24 relative min-h-[80vh]">
+      <div class="absolute top-1/3 right-1/4 swirl-1 pointer-events-none" style="opacity:.1"></div>
+      <div class="absolute bottom-1/4 left-0 swirl-3 pointer-events-none" style="opacity:.08"></div>
+
+      <!-- FORM VIEW -->
+      <div id="scFormView" class="max-w-2xl mx-auto px-6 relative z-10">
+        <div class="text-center mb-10 fade-in-up">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 mb-5">
+            <svg class="w-4 h-4 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+            <span class="text-xs font-semibold text-accent tracking-wide uppercase">Invited Only</span>
+          </div>
+          <h1 class="text-4xl md:text-5xl font-semibold tracking-tight mb-3">Special Client<br/>Promotions</h1>
+          <p class="text-neutral-500 dark:text-neutral-400 text-sm max-w-md mx-auto leading-relaxed">Exclusive access for invited clients only. Lowest price with a 30-day free trial — no commitment required.</p>
+        </div>
+
+        <div class="bg-white dark:bg-white/[0.03] rounded-3xl border border-neutral-200 dark:border-white/10 p-6 md:p-8 mb-6 fade-in-up delay-100">
+          <div class="flex items-center gap-3 p-4 rounded-2xl bg-accent/5 border border-accent/15 mb-6">
+            <svg class="w-5 h-5 text-accent flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+            <div>
+              <p class="text-sm font-medium text-accent">Private Access</p>
+              <p class="text-xs text-neutral-500 dark:text-neutral-400 mt-0.5 leading-relaxed">This page is exclusively for invited clients. Your information will be verified against our invitation records.</p>
+            </div>
+          </div>
+
+          <form id="scForm" class="space-y-5">
+            <!-- Row 1 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label class="text-sm font-medium mb-1.5 block">Full Name <span class="text-accent">*</span></label>
+                <input required name="name" class="cu-input" placeholder="Your full name" id="scName">
+              </div>
+              <div>
+                <label class="text-sm font-medium mb-1.5 block">Email <span class="text-accent">*</span></label>
+                <input required name="email" type="email" class="cu-input" placeholder="you@email.com" id="scEmail">
+              </div>
+            </div>
+
+            <!-- Row 2 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label class="text-sm font-medium mb-1.5 block">Phone Number <span class="text-accent">*</span></label>
+                <input required name="phone" type="tel" class="cu-input" placeholder="+60 12-345 6789" id="scPhone">
+              </div>
+              <div>
+                <label class="text-sm font-medium mb-1.5 block">Company / Business Name</label>
+                <input name="company" class="cu-input" placeholder="Your business name" id="scCompany">
+              </div>
+            </div>
+
+            <!-- Message -->
+            <div>
+              <label class="text-sm font-medium mb-1.5 block">Message (Optional)</label>
+              <textarea name="message" rows="3" class="cu-input cu-textarea" placeholder="Any specific requirements or questions..." id="scMessage"></textarea>
+            </div>
+
+            <!-- Terms -->
+            <div class="flex gap-2.5 text-sm fade-in-up">
+              <input type="checkbox" required class="mt-1 accent-[#ff005e] flex-shrink-0" id="scTerms">
+              <p class="text-neutral-600 dark:text-neutral-400 text-xs leading-relaxed">
+                I understand this is an exclusive invitation-only promotion with a 30-day free trial. I agree to the <a href="/terms" onclick="navigateTo('terms');return false" class="text-[#ff005e] underline">Terms of Service</a>.
+              </p>
+            </div>
+
+            <button type="submit" id="scSubmitBtn" class="cu-btn fade-in-up">Submit & Continue</button>
+          </form>
+        </div>
+
+        <!-- Trial Details Card -->
+        <div class="bg-white dark:bg-white/[0.03] rounded-3xl border border-neutral-200 dark:border-white/10 p-6 md:p-8 mb-6 fade-in-up delay-200">
+          <h3 class="text-sm font-semibold mb-4 flex items-center gap-2">
+            <svg class="w-4 h-4 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            30-Day Free Trial Details
+          </h3>
+          <div class="space-y-3">
+            <div class="flex items-start gap-2.5 p-3 rounded-xl bg-neutral-50 dark:bg-white/[0.02]">
+              <svg class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-xs text-neutral-600 dark:text-neutral-300 leading-relaxed">Full access to all features from day one — no restrictions during trial</span>
+            </div>
+            <div class="flex items-start gap-2.5 p-3 rounded-xl bg-neutral-50 dark:bg-white/[0.02]">
+              <svg class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-xs text-neutral-600 dark:text-neutral-300 leading-relaxed">No credit card required to start — pay only after 30 days if you continue</span>
+            </div>
+            <div class="flex items-start gap-2.5 p-3 rounded-xl bg-neutral-50 dark:bg-white/[0.02]">
+              <svg class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-xs text-neutral-600 dark:text-neutral-300 leading-relaxed">Cancel anytime during the trial — zero charges, no questions asked</span>
+            </div>
+            <div class="flex items-start gap-2.5 p-3 rounded-xl bg-neutral-50 dark:bg-white/[0.02]">
+              <svg class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-xs text-neutral-600 dark:text-neutral-300 leading-relaxed">Dedicated onboarding support throughout your trial period</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-center text-[11px] text-neutral-400 fade-in-up delay-300">This promotion is exclusively for invited clients. Unauthorized access is not permitted.</p>
+      </div>
+
+      <!-- SUCCESS / SUBSCRIBE VIEW -->
+      <div id="scSuccessView" style="display:none" class="max-w-lg mx-auto px-6 relative z-10">
+        <div class="text-center py-12 fade-in-up">
+          <div class="w-20 h-20 rounded-full bg-green-500/10 flex items-center justify-center mx-auto mb-6" style="animation:checkPop .7s cubic-bezier(.16,1,.3,1) forwards">
+            <svg class="w-10 h-10 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+          </div>
+          <h2 class="text-3xl font-semibold tracking-tight mb-3">Welcome Aboard!</h2>
+          <p class="text-neutral-500 dark:text-neutral-400 text-sm max-w-sm mx-auto leading-relaxed mb-8">Your details have been submitted. Complete your subscription to activate your 30-day free trial.</p>
+
+          <div class="bg-white dark:bg-white/[0.03] rounded-2xl border border-neutral-200 dark:border-white/10 p-6 mb-6 text-left">
+            <div class="flex items-center gap-3 mb-4 pb-4 border-b border-neutral-100 dark:border-white/5">
+              <div class="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0"><svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg></div>
+              <div><p class="text-sm font-semibold">Special Client Promotion</p><p class="text-xs text-neutral-400">30-day free trial • Lowest price</p></div>
+            </div>
+            <div class="space-y-3">
+              <div class="flex items-center justify-between"><span class="text-xs text-neutral-400">Status</span><span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-400 text-xs font-semibold"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>Awaiting Payment</span></div>
+              <div class="flex items-center justify-between"><span class="text-xs text-neutral-400">Trial Period</span><span class="text-xs font-medium">30 days (starts after payment)</span></div>
+              <div class="flex items-center justify-between"><span class="text-xs text-neutral-400">Next Step</span><span class="text-xs font-medium text-accent">Complete payment below</span></div>
+            </div>
+          </div>
+
+          <a href="https://buy.stripe.com/bJe00d6x2bD10qO0Eo97G09" target="_blank" rel="noopener" class="cu-btn inline-flex items-center justify-center gap-2 mb-4" style="animation:pulseGlow 2s ease-in-out infinite">
+            Subscribe Now
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+          </a>
+          <p class="text-[11px] text-neutral-400 mb-8">Secure payment via Stripe. 30-day free trial included.</p>
+
+          <div class="flex flex-col sm:flex-row gap-3 justify-center">
+            <button onclick="scResetForm()" class="h-11 px-6 border border-neutral-200 dark:border-white/10 rounded-2xl text-sm font-medium inline-flex items-center justify-center gap-2 hover:border-neutral-400 dark:hover:border-white/30 transition-colors">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+              Submit Another
+            </button>
+            <button onclick="navigateTo('home')" class="h-11 px-6 border border-neutral-200 dark:border-white/10 rounded-2xl text-sm font-medium inline-flex items-center justify-center gap-2 hover:border-neutral-400 dark:hover:border-white/30 transition-colors">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+              Back to Home
+            </button>
+          </div>
+
+          <p class="text-[11px] text-neutral-400 mt-6">Need help? <a href="mailto:hello@luviio.com" class="text-accent hover:underline">hello@luviio.com</a></p>
+        </div>
+      </div>
+    </section>
+  </div>
+
   <!-- ============================================================ -->
   <!-- ===== PAGE: CONTENT UPDATE (NEW VERSION) ===== -->
   <!-- ============================================================ -->
@@ -1631,7 +2029,6 @@
         if (container) container.innerHTML = '';
       }
       if (pageId === 'content-update') { 
-        // Reset content update form
         document.getElementById('cuFormView').style.display = 'block';
         document.getElementById('cuSuccessView').style.display = 'none';
         document.getElementById('cuForm').reset();
@@ -1646,6 +2043,18 @@
       if (pageId === 'home') {
         initCodeEditor();
         startTypingEffect();
+      }
+      if (pageId === 'UniStudent') {
+        document.getElementById('uniFormView').style.display = 'block';
+        document.getElementById('uniSuccessView').style.display = 'none';
+        const uf = document.getElementById('uniForm');
+        if (uf) uf.reset();
+      }
+      if (pageId === 'special-client') {
+        document.getElementById('scFormView').style.display = 'block';
+        document.getElementById('scSuccessView').style.display = 'none';
+        const sf = document.getElementById('scForm');
+        if (sf) sf.reset();
       }
     }
 
@@ -1806,6 +2215,8 @@
       { id:'about', name:'About Us', desc:'Our story, team, and mission' },
       { id:'careers', name:'Careers', desc:'Open job positions at Luviio' },
       { id:'privacy', name:'Privacy Policy', desc:'Data protection and PDPA compliance' },
+      { id:'UniStudent/promo', name:'Student Education Program', desc:'Exclusive website promo for Malaysian university students' },
+      { id:'special-client/promotions', name:'Special Client Promotions', desc:'Invited-only lowest price with 30-day free trial' },
     ];
 
     document.getElementById('searchToggle').addEventListener('click', () => {
@@ -2141,6 +2552,101 @@
       buildEditor();
       type();
       editorInitialized = true;
+    }
+    /* ============================================
+       UNI STUDENT FORM
+       ============================================ */
+    document.getElementById('uniForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const btn = document.getElementById('uniSubmitBtn');
+      btn.disabled = true;
+      btn.innerHTML = '<svg class="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Submitting...';
+      const formData = new FormData(this);
+      fetch(this.action, { method: 'POST', body: formData })
+      .then(() => { uniShowSuccess(); })
+      .catch(() => { uniShowSuccess(); })
+      .finally(() => {
+        btn.disabled = false;
+        btn.innerHTML = 'Submit & Continue';
+      });
+    });
+
+    function uniShowSuccess() {
+      document.getElementById('uniFormView').style.display = 'none';
+      document.getElementById('uniSuccessView').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      lucide.createIcons();
+      initScrollAnimations();
+    }
+
+    function uniResetForm() {
+      document.getElementById('uniForm').reset();
+      document.getElementById('uniFormView').style.display = 'block';
+      document.getElementById('uniSuccessView').style.display = 'none';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      lucide.createIcons();
+      initScrollAnimations();
+    }
+
+    /* ============================================
+       SPECIAL CLIENT FORM (GoSecureServer)
+       ============================================ */
+    document.getElementById('scForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const btn = document.getElementById('scSubmitBtn');
+      btn.disabled = true;
+      btn.innerHTML = '<svg class="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Submitting...';
+
+      const nameVal = document.getElementById('scName').value;
+      const emailVal = document.getElementById('scEmail').value;
+      const phoneVal = document.getElementById('scPhone').value;
+      const companyVal = document.getElementById('scCompany').value;
+      const messageVal = document.getElementById('scMessage').value;
+
+      const subject = 'Special Client Promotion Application — Luviio';
+      const body = '<b>Special Client Promotion Application</b><br><br>' +
+        '<b>Name:</b> ' + nameVal + '<br>' +
+        '<b>Email:</b> ' + emailVal + '<br>' +
+        '<b>Phone:</b> ' + phoneVal + '<br>' +
+        '<b>Company:</b> ' + (companyVal || 'N/A') + '<br>' +
+        '<b>Message:</b> ' + (messageVal || 'N/A') + '<br><br>' +
+        '<i>Submitted from Special Client Promotion page</i>';
+
+      fetch('https://email.gosecureserver.in/api/send.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          to: 'forms@luviio.com',
+          subject: subject,
+          body: body,
+          from_name: nameVal,
+          from_email: emailVal
+        })
+      })
+      .then(res => res.json())
+      .then(() => { scShowSuccess(); })
+      .catch(() => { scShowSuccess(); })
+      .finally(() => {
+        btn.disabled = false;
+        btn.innerHTML = 'Submit & Continue';
+      });
+    });
+
+    function scShowSuccess() {
+      document.getElementById('scFormView').style.display = 'none';
+      document.getElementById('scSuccessView').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      lucide.createIcons();
+      initScrollAnimations();
+    }
+
+    function scResetForm() {
+      document.getElementById('scForm').reset();
+      document.getElementById('scFormView').style.display = 'block';
+      document.getElementById('scSuccessView').style.display = 'none';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      lucide.createIcons();
+      initScrollAnimations();
     }
   </script>
 </body>
