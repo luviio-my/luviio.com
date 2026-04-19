@@ -2267,12 +2267,21 @@
       });
     }, { threshold: 0.1 });
 
-    function initScrollAnimations() {
-      document.querySelectorAll('.page.active .fade-in-up, .page.active .scale-in').forEach(el => {
-        el.style.animationPlayState = 'paused';
-        observer.observe(el);
-      });
+function initScrollAnimations() {
+  document.querySelectorAll('.page.active .fade-in-up, .page.active .scale-in').forEach(el => {
+    const rect = el.getBoundingClientRect();
+    const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+
+    if (isVisible) {
+      // Already in viewport — play immediately, don't observe
+      el.style.animationPlayState = 'running';
+    } else {
+      // Below viewport — pause and observe for scroll trigger
+      el.style.animationPlayState = 'paused';
+      observer.observe(el);
     }
+  });
+}
 
     document.addEventListener('DOMContentLoaded', () => {
       lucide.createIcons();
