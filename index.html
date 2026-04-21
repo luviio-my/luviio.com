@@ -2844,7 +2844,7 @@ if(cuForm) {
         email: formElements.namedItem('Email').value,
         whatsapp: formElements.namedItem('WhatsApp').value,
         website: formElements.namedItem('Website').value,
-        types: Array.from(formElements.querySelectorAll('input[name="Type"]:checked')).map(cb => cb.value),
+        types: Array.from(cuForm.querySelectorAll('input[name="Type"]:checked')).map(cb => cb.value),
         section: formElements.namedItem('Section').value,
         details: formElements.namedItem('Details').value,
         imageUrls: cuImageUrlInput.value || '',
