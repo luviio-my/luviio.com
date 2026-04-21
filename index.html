@@ -15,8 +15,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/lucide@latest"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
 
 <meta name="description" content="luviio provides professional website development, mobile apps, and IT solutions for Malaysian businesses.">
 <meta name="keywords" content="Luviio, web development Malaysia, website design Malaysia, IT solutions Malaysia">
@@ -2229,697 +2233,820 @@
 
   <!-- ===== JAVASCRIPT ===== -->
   <script>
-    (function() {
-      const theme = localStorage.getItem('luviio-theme');
-      if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark');
-      }
-    })();
+// ===== FIREBASE INITIALIZATION =====
+let db = null;
+let firebaseReady = false;
 
-    let currentPage = 'home';
+// Initialize Firebase when SDK loads
+function initFirebase() {
+  try {
+    const firebaseConfig = {
+      apiKey: "AIzaSyCVwJ1JbJbv-Wlon78Emgszc4MBcO434Yk",
+      authDomain: "luviio.firebaseapp.com",
+      projectId: "luviio",
+      storageBucket: "luviio.firebasestorage.app",
+      messagingSenderId: "3939074932",
+      appId: "1:3939074932:web:89bb6167243b13f6d4e221",
+      measurementId: "G-7KNGY1MSQ1"
+    };
+    
+    if (typeof firebase === 'undefined') {
+      console.error('Firebase SDK not loaded');
+      return false;
+    }
+    
+    firebase.initializeApp(firebaseConfig);
+    db = firebase.firestore();
+    firebaseReady = true;
+    console.log('✅ Firebase initialized successfully');
+    return true;
+  } catch (error) {
+    console.error('❌ Firebase initialization error:', error);
+    return false;
+  }
+}
 
-    /* ============================================
-       TYPING EFFECT — NO LAYOUT SHIFT
-       ============================================ */
-    const typingWords = ['digital future.', 'brand.', 'startup.', 'website.', 'product.', 'idea.'];
-    let typingWordIndex = 0;
-    let typingCharIndex = 0;
-    let typingIsDeleting = false;
-    let typingStarted = false;
+// Image upload endpoint
+const IMAGE_UPLOAD_URL = "https://green-credit-0bcf.people-luviio.workers.dev/";
 
-    function startTypingEffect() {
-      if (typingStarted) return;
-      typingStarted = true;
-      typingWordIndex = 0;
-      typingCharIndex = 0;
+async function uploadImageToWorker(file) {
+  try {
+    const formData = new FormData();
+    formData.append('file', file);
+    const res = await fetch(IMAGE_UPLOAD_URL, { method: 'POST', body: formData });
+    if (!res.ok) throw new Error('Upload failed: ' + res.status);
+    const data = await res.json();
+    return data.url;
+  } catch (error) {
+    console.error('Image upload error:', error);
+    throw error;
+  }
+}
+
+async function saveToFirestore(collection, docData) {
+  if (!firebaseReady || !db) {
+    throw new Error('Firebase not initialized. Cannot save to Firestore.');
+  }
+  
+  try {
+    docData.createdAt = firebase.firestore.FieldValue.serverTimestamp();
+    docData.source = window.location.href; // Track which form submitted it
+    const docRef = await db.collection(collection).add(docData);
+    console.log(`✅ Document written to ${collection} with ID:`, docRef.id);
+    return docRef.id;
+  } catch (error) {
+    console.error(`❌ Error saving to ${collection}:`, error);
+    throw error;
+  }
+}
+
+// Initialize Firebase immediately if already loaded, otherwise wait for DOM
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => {
+    initFirebase();
+  });
+} else {
+  initFirebase();
+}
+
+// Also try again after window load in case scripts load late
+window.addEventListener('load', () => {
+  if (!firebaseReady) {
+    console.log('Retrying Firebase initialization...');
+    setTimeout(() => initFirebase(), 500);
+  }
+});
+
+(function() {      
+  const theme = localStorage.getItem('luviio-theme');
+  if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    document.documentElement.classList.add('dark');
+  }
+})();
+
+let currentPage = 'home';
+
+/* ============================================
+   TYPING EFFECT — NO LAYOUT SHIFT
+   ============================================ */
+const typingWords = ['digital future.', 'brand.', 'startup.', 'website.', 'product.', 'idea.'];
+let typingWordIndex = 0;
+let typingCharIndex = 0;
+let typingIsDeleting = false;
+let typingStarted = false;
+
+function startTypingEffect() {
+  if (typingStarted) return;
+  typingStarted = true;
+  typingWordIndex = 0;
+  typingCharIndex = 0;
+  typingIsDeleting = false;
+  typeNextChar();
+}
+
+function typeNextChar() {
+  const el = document.getElementById('heroTypedText');
+  if (!el) { typingStarted = false; return; }
+  const currentWord = typingWords[typingWordIndex];
+  if (!typingIsDeleting) {
+    typingCharIndex++;
+    if (typingCharIndex > currentWord.length) {
+      setTimeout(() => { typingIsDeleting = true; typeNextChar(); }, 2200);
+      return;
+    }
+    el.innerHTML = currentWord.slice(0, typingCharIndex) + '<span class="type-cursor"></span>';
+    setTimeout(typeNextChar, 90);
+  } else {
+    typingCharIndex--;
+    if (typingCharIndex < 0) {
       typingIsDeleting = false;
-      typeNextChar();
+      typingCharIndex = 0;
+      typingWordIndex = (typingWordIndex + 1) % typingWords.length;
+      setTimeout(typeNextChar, 400);
+      return;
     }
+    el.innerHTML = currentWord.slice(0, typingCharIndex) + '<span class="type-cursor"></span>';
+    setTimeout(typeNextChar, 50);
+  }
+}
 
-    function typeNextChar() {
-      const el = document.getElementById('heroTypedText');
-      if (!el) { typingStarted = false; return; }
-      const currentWord = typingWords[typingWordIndex];
-      if (!typingIsDeleting) {
-        typingCharIndex++;
-        if (typingCharIndex > currentWord.length) {
-          setTimeout(() => { typingIsDeleting = true; typeNextChar(); }, 2200);
-          return;
-        }
-        el.innerHTML = currentWord.slice(0, typingCharIndex) + '<span class="type-cursor"></span>';
-        setTimeout(typeNextChar, 90);
-      } else {
-        typingCharIndex--;
-        if (typingCharIndex < 0) {
-          typingIsDeleting = false;
-          typingCharIndex = 0;
-          typingWordIndex = (typingWordIndex + 1) % typingWords.length;
-          setTimeout(typeNextChar, 400);
-          return;
-        }
-        el.innerHTML = currentWord.slice(0, typingCharIndex) + '<span class="type-cursor"></span>';
-        setTimeout(typeNextChar, 50);
-      }
-    }
-
-    function navigateTo(pageId, hash = null) {
-      if (currentPage === pageId && !hash) return;
-      document.body.scrollTop = 0;
-      document.documentElement.scrollTop = 0;
-      const currentEl = document.getElementById('page-' + currentPage);
-      if (currentEl) { currentEl.classList.remove('active'); currentEl.classList.remove('page-enter'); }
-      const newEl = document.getElementById('page-' + pageId);
-      if (newEl) { newEl.classList.add('active'); void newEl.offsetWidth; newEl.classList.add('page-enter'); }
-      currentPage = pageId;
-      let urlPath = '/' + pageId;
-      if (hash) urlPath += '/' + hash.replace('#', '');
-      history.pushState(null, '', urlPath);
-      updateNavActive(pageId);
+function navigateTo(pageId, hash = null) {
+  if (currentPage === pageId && !hash) return;
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+  const currentEl = document.getElementById('page-' + currentPage);
+  if (currentEl) { currentEl.classList.remove('active'); currentEl.classList.remove('page-enter'); }
+  const newEl = document.getElementById('page-' + pageId);
+  if (newEl) { newEl.classList.add('active'); void newEl.offsetWidth; newEl.classList.add('page-enter'); }
+  currentPage = pageId;
+  let urlPath = '/' + pageId;
+  if (hash) urlPath += '/' + hash.replace('#', '');
+  history.pushState(null, '', urlPath);
+  updateNavActive(pageId);
+  setTimeout(() => {
+    lucide.createIcons(); 
+    initScrollAnimations(); 
+    updateNavState(); 
+    handlePageSpecific(pageId);
+    if (hash) {
       setTimeout(() => {
-        lucide.createIcons(); initScrollAnimations(); updateNavState(); handlePageSpecific(pageId);
-        if (hash) {
-          setTimeout(() => {
-            const targetElement = document.querySelector(hash);
-            if (targetElement) {
-              targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-              targetElement.style.transition = 'box-shadow 0.5s ease';
-              targetElement.style.boxShadow = '0 0 0 3px rgba(255, 0, 94, 0.3)';
-              setTimeout(() => { targetElement.style.boxShadow = ''; }, 2000);
-            }
-          }, 300);
+        const targetElement = document.querySelector(hash);
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          targetElement.style.transition = 'box-shadow 0.5s ease';
+          targetElement.style.boxShadow = '0 0 0 3px rgba(255, 0, 94, 0.3)';
+          setTimeout(() => { targetElement.style.boxShadow = ''; }, 2000);
         }
-      }, 50);
+      }, 300);
     }
+  }, 50);
+}
 
-    function handlePageSpecific(pageId) {
-      if (pageId === 'purchased-confirmed') {
-        generateOrderDetails();
-        setTimeout(launchConfetti, 400);
-      }
-      if (pageId !== 'purchased-confirmed') {
-        const container = document.getElementById('confettiContainer');
-        if (container) container.innerHTML = '';
-      }
-      if (pageId === 'content-update') { 
-        document.getElementById('cuFormView').style.display = 'block';
-        document.getElementById('cuSuccessView').style.display = 'none';
-        document.getElementById('cuForm').reset();
-        document.getElementById('cuPreviewGrid').innerHTML = '';
-        cuUploadQueue = [];
-      }
-      if (pageId === 'contact') {
-        const formWrapper = document.getElementById('contactFormWrapper');
-        const successWrapper = document.getElementById('contactSuccessWrapper');
-        if (formWrapper && successWrapper) { formWrapper.classList.remove('hidden'); successWrapper.classList.add('hidden'); }
-      }
-      if (pageId === 'home') {
-        initCodeEditor();
-        startTypingEffect();
-      }
-      if (pageId === 'UniStudent') {
-        document.getElementById('uniFormView').style.display = 'block';
-        document.getElementById('uniSuccessView').style.display = 'none';
-        const uf = document.getElementById('uniForm');
-        if (uf) uf.reset();
-      }
-      if (pageId === 'special-client') {
-        document.getElementById('scFormView').style.display = 'block';
-        document.getElementById('scSuccessView').style.display = 'none';
-        const sf = document.getElementById('scForm');
-        if (sf) sf.reset();
-      }
+function handlePageSpecific(pageId) {
+  if (pageId === 'purchased-confirmed') {
+    generateOrderDetails();
+    setTimeout(launchConfetti, 400);
+  }
+  if (pageId !== 'purchased-confirmed') {
+    const container = document.getElementById('confettiContainer');
+    if (container) container.innerHTML = '';
+  }
+  if (pageId === 'content-update') { 
+    document.getElementById('cuFormView').style.display = 'block';
+    document.getElementById('cuSuccessView').style.display = 'none';
+    document.getElementById('cuForm').reset();
+    document.getElementById('cuPreviewGrid').innerHTML = '';
+    cuUploadQueue = [];
+  }
+  if (pageId === 'contact') {
+    const formWrapper = document.getElementById('contactFormWrapper');
+    const successWrapper = document.getElementById('contactSuccessWrapper');
+    if (formWrapper && successWrapper) { formWrapper.classList.remove('hidden'); successWrapper.classList.add('hidden'); }
+  }
+  if (pageId === 'home') {
+    initCodeEditor();
+    startTypingEffect();
+  }
+  if (pageId === 'UniStudent') {
+    document.getElementById('uniFormView').style.display = 'block';
+    document.getElementById('uniSuccessView').style.display = 'none';
+    const uf = document.getElementById('uniForm');
+    if (uf) uf.reset();
+  }
+  if (pageId === 'special-client') {
+    document.getElementById('scFormView').style.display = 'block';
+    document.getElementById('scSuccessView').style.display = 'none';
+    const sf = document.getElementById('scForm');
+    if (sf) sf.reset();
+  }
+}
+
+function generateOrderDetails() {
+  const dateEl = document.getElementById('orderDate');
+  if (dateEl) {
+    const now = new Date();
+    dateEl.textContent = now.toLocaleDateString('en-MY', { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+  }
+}
+
+function launchConfetti() {
+  const container = document.getElementById('confettiContainer');
+  if (!container) return;
+  container.innerHTML = '';
+  const colors = ['#ff005e', '#7c3aed', '#3b82f6', '#22c55e', '#f59e0b', '#ec4899', '#06b6d4', '#f97316'];
+  const shapes = ['50%', '2px', '0'];
+  const centerX = window.innerWidth / 2;
+  const centerY = window.innerHeight * 0.18;
+  for (let i = 0; i < 60; i++) {
+    const piece = document.createElement('div');
+    const size = 5 + Math.random() * 8;
+    const angle = (Math.random() * 360) * (Math.PI / 180);
+    const velocity = 120 + Math.random() * 280;
+    const driftX = Math.cos(angle) * velocity * (0.4 + Math.random() * 0.6);
+    const fallY = Math.sin(angle) * velocity * 0.5 + 200 + Math.random() * 300;
+    const spin = (Math.random() - 0.5) * 1080;
+    piece.className = 'confetti-piece';
+    piece.style.left = centerX + 'px';
+    piece.style.top = centerY + 'px';
+    piece.style.width = size + 'px';
+    piece.style.height = size * (0.5 + Math.random() * 0.8) + 'px';
+    piece.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+    piece.style.borderRadius = shapes[Math.floor(Math.random() * shapes.length)];
+    piece.style.opacity = '1';
+    piece.style.setProperty('--drift-x', driftX + 'px');
+    piece.style.setProperty('--fall-y', fallY + 'px');
+    piece.style.setProperty('--spin', spin + 'deg');
+    piece.style.animationDelay = (Math.random() * 0.3) + 's';
+    piece.style.animationDuration = (1.2 + Math.random() * 1) + 's';
+    container.appendChild(piece);
+  }
+  setTimeout(() => { if (container) container.innerHTML = ''; }, 3500);
+}
+
+function parseInitialRoute() {
+  const path = window.location.pathname;
+  const parts = path.split('/').filter(Boolean);
+  let pageId = 'home';
+  let hash = null;
+  if (parts.length > 0) { pageId = parts[0]; if (parts.length > 1) { hash = '#' + parts[1]; } }
+  if (!document.getElementById('page-' + pageId)) { pageId = 'home'; hash = null; }
+  return { pageId, hash };
+}
+
+window.addEventListener('popstate', () => {
+  const { pageId, hash } = parseInitialRoute();
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+  const currentEl = document.getElementById('page-' + currentPage);
+  if (currentEl) { currentEl.classList.remove('active'); currentEl.classList.remove('page-enter'); }
+  const newEl = document.getElementById('page-' + pageId);
+  if (newEl) { newEl.classList.add('active'); newEl.classList.add('page-enter'); }
+  currentPage = pageId;
+  updateNavActive(pageId);
+  updateNavState();
+  setTimeout(() => {
+    lucide.createIcons(); 
+    initScrollAnimations(); 
+    handlePageSpecific(pageId);
+    if (hash) { const targetElement = document.querySelector(hash); if (targetElement) { setTimeout(() => { targetElement.scrollIntoView({ behavior: 'auto', block: 'start' }); }, 100); } }
+  }, 50);
+});
+
+function updateNavActive(pageId) {
+  document.querySelectorAll('.nav-link').forEach(link => {
+    if (link.dataset.page === pageId) { link.classList.remove('text-neutral-600','dark:text-neutral-400'); link.classList.add('text-neutral-900','dark:text-white'); }
+    else { link.classList.remove('text-neutral-900','dark:text-white'); link.classList.add('text-neutral-600','dark:text-neutral-400'); }
+  });
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  const { pageId, hash } = parseInitialRoute();
+  if (pageId !== 'home') {
+    document.getElementById('page-home').classList.remove('active');
+    const targetEl = document.getElementById('page-' + pageId);
+    if (targetEl) { targetEl.classList.add('active'); currentPage = pageId; updateNavActive(pageId);
+      if (hash) { setTimeout(() => { const te = document.querySelector(hash); if (te) te.scrollIntoView({ behavior: 'auto', block: 'start' }); }, 150); }
     }
+  } else { updateNavActive('home'); }
+  updateNavState();
+  setTimeout(() => { handlePageSpecific(currentPage); initCodeEditor(); startTypingEffect(); }, 100);
+});
 
-    function generateOrderDetails() {
-      const dateEl = document.getElementById('orderDate');
-      if (dateEl) {
-        const now = new Date();
-        dateEl.textContent = now.toLocaleDateString('en-MY', { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' });
-      }
+const announcementBar = document.getElementById('announcementBar');
+const mainNav = document.getElementById('mainNav');
+
+function updateNavState() {
+  const scrollY = window.scrollY || window.pageYOffset;
+  if (scrollY > 40) {
+    announcementBar.classList.add('hidden-bar');
+    mainNav.classList.remove('nav-top');
+    mainNav.classList.add('nav-scrolled');
+  } else {
+    announcementBar.classList.remove('hidden-bar');
+    mainNav.classList.remove('nav-scrolled');
+    mainNav.classList.add('nav-top');
+  }
+}
+
+window.addEventListener('scroll', updateNavState, { passive: true });
+
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const answer = item.querySelector('.faq-answer');
+  const chevron = item.querySelector('.faq-chevron');
+  const isOpen = answer.classList.contains('open');
+  document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+  document.querySelectorAll('.faq-chevron').forEach(c => c.classList.remove('open'));
+  if (!isOpen) { answer.classList.add('open'); chevron.classList.add('open'); }
+}
+
+const mobileMenu = document.getElementById('mobileMenu');
+const mobileOverlay = document.getElementById('mobileOverlay');
+
+function closeMobileMenu() {
+  mobileMenu.classList.remove('open');
+  mobileOverlay.classList.remove('active');
+  document.documentElement.classList.remove('menu-open');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('menuToggle').addEventListener('click', () => {
+  mobileMenu.classList.add('open');
+  mobileOverlay.classList.add('active');
+  document.documentElement.classList.add('menu-open');
+  document.body.style.overflow = 'hidden';
+  mobileMenu.scrollTop = 0;
+});
+document.getElementById('menuClose').addEventListener('click', closeMobileMenu);
+mobileOverlay.addEventListener('click', closeMobileMenu);
+
+function toggleTheme() {
+  document.documentElement.classList.toggle('dark');
+  const isDark = document.documentElement.classList.contains('dark');
+  localStorage.setItem('luviio-theme', isDark ? 'dark' : 'light');
+  lucide.createIcons();
+}
+document.getElementById('mobileThemeToggle').addEventListener('click', toggleTheme);
+document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+
+const searchablePages = [
+  { id:'home', name:'Home', desc:'Main page with hero, services, features, portfolio, reviews' },
+  { id:'pricing', name:'Pricing', desc:'View all service packages from RM150/month' },
+  { id:'pricing/benefits', name:'Plan Benefits', desc:'Plan benefits comparison at a glance' },
+  { id:'faq', name:'FAQ', desc:'Frequently asked questions about our services' },
+  { id:'process', name:'Process', desc:'How we work — our 5-step process' },
+  { id:'terms', name:'Terms of Service', desc:'Legal terms and conditions for subscriptions' },
+  { id:'contact', name:'Contact Us', desc:'Get in touch via form, email, WhatsApp' },
+  { id:'about', name:'About Us', desc:'Our story, team, and mission' },
+  { id:'careers', name:'Careers', desc:'Open job positions at Luviio' },
+  { id:'privacy', name:'Privacy Policy', desc:'Data protection and PDPA compliance' },
+  { id:'UniStudent/promo', name:'Student Education Program', desc:'Exclusive website promo for Malaysian university students' },
+  { id:'special-client/promotions', name:'Special Client Promotions', desc:'Invited-only lowest price with 30-day free trial' },
+];
+
+document.getElementById('searchToggle').addEventListener('click', () => {
+  const bar = document.getElementById('searchBar');
+  bar.classList.toggle('hidden');
+  if (!bar.classList.contains('hidden')) bar.querySelector('input').focus();
+  else document.getElementById('searchResults').classList.add('hidden');
+});
+
+function handleSearch(query) {
+  const resultsEl = document.getElementById('searchResults');
+  if (!query.trim()) { resultsEl.classList.add('hidden'); return; }
+  const matches = searchablePages.filter(p => p.name.toLowerCase().includes(query.toLowerCase()) || p.desc.toLowerCase().includes(query.toLowerCase()));
+  if (matches.length === 0) { resultsEl.innerHTML = '<div class="p-4 text-sm text-neutral-400">No results found</div>'; }
+  else {
+    resultsEl.innerHTML = matches.map(p => {
+      const navParts = p.id.split('/');
+      const pagePart = navParts[0];
+      const hashPart = navParts.length > 1 ? navParts[1] : null;
+      let clickAction = "navigateTo('" + pagePart + "'" + (hashPart ? ", '" + hashPart + "'" : '') + ")";
+      let closeAction = "document.getElementById('searchBar').classList.add('hidden');document.getElementById('searchResults').classList.add('hidden')";
+      return '<button onclick="' + clickAction + ';' + closeAction + '" class="w-full text-left p-4 hover:bg-neutral-50 dark:hover:bg-white/5 transition-colors border-b border-neutral-100 dark:border-white/5 last:border-0"><p class="text-sm font-medium">' + p.name + '</p><p class="text-xs text-neutral-400 mt-0.5">' + p.desc + '</p></button>';
+    }).join('');
+  }
+  resultsEl.classList.remove('hidden');
+}
+
+document.addEventListener('click', (e) => {
+  const bar = document.getElementById('searchBar');
+  if (!bar.classList.contains('hidden') && !bar.contains(e.target) && !document.getElementById('searchToggle').contains(e.target)) {
+    bar.classList.add('hidden');
+    document.getElementById('searchResults').classList.add('hidden');
+  }
+});
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) { entry.target.style.animationPlayState = 'running'; observer.unobserve(entry.target); }
+  });
+}, { threshold: 0.1 });
+
+function initScrollAnimations() {
+  document.querySelectorAll('.page.active .fade-in-up, .page.active .scale-in').forEach(el => {
+    el.style.animationPlayState = 'paused';
+    observer.observe(el);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  lucide.createIcons();
+  setTimeout(initScrollAnimations, 100);
+});
+
+// NEWSLETTER FORM - Save to Firestore
+document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const form = this;
+  const originalBtn = form.querySelector('button[type="submit"]');
+  originalBtn.innerHTML = '<svg class="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Subscribing...';
+  originalBtn.disabled = true;
+  const emailInput = form.querySelector('input[name="email"]');
+  
+  saveToFirestore('newsletter_subscribers', { email: emailInput.value })
+  .then(() => { showNewsletterSuccess(); })
+  .catch(error => { 
+    console.error('Newsletter save error:', error);
+    alert('Error saving to database. Please try again or contact support.');
+  })
+  .finally(() => {
+    form.reset();
+    originalBtn.disabled = false;
+    originalBtn.innerHTML = 'Subscribe <i data-lucide="arrow-right" class="w-4 h-4"></i>';
+    lucide.createIcons();
+  });
+});
+
+function showNewsletterSuccess() {
+  document.querySelector('.nl-form-original').classList.add('hidden');
+  document.getElementById('newsletterSuccess').classList.add('show');
+}
+
+function resetNewsletter() {
+  document.querySelector('.nl-form-original').classList.remove('hidden');
+  document.getElementById('newsletterSuccess').classList.remove('show');
+}
+
+// CONTACT FORM - Keep Formsubmit for now (or change to Firestore like others)
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const btn = document.getElementById('contactSubmitBtn');
+  btn.disabled = true;
+  btn.innerHTML = '<svg class="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Sending...';
+  
+  const formData = new FormData(this);
+  fetch(this.action, { method: 'POST', body: formData })
+  .then(() => { contactShowSuccess(); })
+  .catch(() => { contactShowSuccess(); })
+  .finally(() => {
+    btn.disabled = false;
+    btn.innerHTML = 'Send Message <svg class="w-4 h-4" data-lucide="send" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>';
+    lucide.createIcons();
+  });
+});
+
+function contactShowSuccess() {
+  document.getElementById('contactFormWrapper').classList.add('hidden');
+  document.getElementById('contactSuccessWrapper').classList.remove('hidden');
+  const dateEl = document.getElementById('contactSentDate');
+  if (dateEl) {
+    const now = new Date();
+    dateEl.textContent = now.toLocaleDateString('en-MY', { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+  }
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+  lucide.createIcons();
+  initScrollAnimations();
+}
+
+function contactResetForm() {
+  document.getElementById('contactForm').reset();
+  document.getElementById('contactFormWrapper').classList.remove('hidden');
+  document.getElementById('contactSuccessWrapper').classList.add('hidden');
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+  lucide.createIcons();
+}
+
+/* ============================================
+   CONTENT UPDATE FORM LOGIC (NEW VERSION)
+   ============================================ */
+let cuUploadQueue = [];
+
+const cuDropZone = document.getElementById('cuDropZone');
+const cuFileInput = document.getElementById('cuFileInput');
+const cuPreviewGrid = document.getElementById('cuPreviewGrid');
+const cuForm = document.getElementById('cuForm');
+const cuSubmitBtn = document.getElementById('cuSubmitBtn');
+const cuImageUrlInput = document.getElementById('cuImageUrlInput');
+
+if(cuDropZone) {
+  cuDropZone.addEventListener("click", () => cuFileInput.click());
+  cuDropZone.addEventListener("dragover", (e) => {
+    e.preventDefault();
+    cuDropZone.classList.add("drag-over");
+  });
+  cuDropZone.addEventListener("dragleave", () => {
+    cuDropZone.classList.remove("drag-over");
+  });
+  cuDropZone.addEventListener("drop", (e) => {
+    e.preventDefault();
+    cuDropZone.classList.remove("drag-over");
+    cuHandleFiles(e.dataTransfer.files);
+  });
+  cuFileInput.addEventListener("change", () => {
+    cuHandleFiles(cuFileInput.files);
+    cuFileInput.value = "";
+  });
+}
+
+function cuHandleFiles(files) {
+  for (let i = 0; i < files.length; i++) {
+    const file = files[i];
+    if (!["image/jpeg", "image/png"].includes(file.type)) {
+      alert(`"${file.name}" is not a valid format. Only JPG, JPEG, PNG allowed.`);
+      continue;
     }
-
-    function launchConfetti() {
-      const container = document.getElementById('confettiContainer');
-      if (!container) return;
-      container.innerHTML = '';
-      const colors = ['#ff005e', '#7c3aed', '#3b82f6', '#22c55e', '#f59e0b', '#ec4899', '#06b6d4', '#f97316'];
-      const shapes = ['50%', '2px', '0'];
-      const centerX = window.innerWidth / 2;
-      const centerY = window.innerHeight * 0.18;
-      for (let i = 0; i < 60; i++) {
-        const piece = document.createElement('div');
-        const size = 5 + Math.random() * 8;
-        const angle = (Math.random() * 360) * (Math.PI / 180);
-        const velocity = 120 + Math.random() * 280;
-        const driftX = Math.cos(angle) * velocity * (0.4 + Math.random() * 0.6);
-        const fallY = Math.sin(angle) * velocity * 0.5 + 200 + Math.random() * 300;
-        const spin = (Math.random() - 0.5) * 1080;
-        piece.className = 'confetti-piece';
-        piece.style.left = centerX + 'px';
-        piece.style.top = centerY + 'px';
-        piece.style.width = size + 'px';
-        piece.style.height = size * (0.5 + Math.random() * 0.8) + 'px';
-        piece.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-        piece.style.borderRadius = shapes[Math.floor(Math.random() * shapes.length)];
-        piece.style.opacity = '1';
-        piece.style.setProperty('--drift-x', driftX + 'px');
-        piece.style.setProperty('--fall-y', fallY + 'px');
-        piece.style.setProperty('--spin', spin + 'deg');
-        piece.style.animationDelay = (Math.random() * 0.3) + 's';
-        piece.style.animationDuration = (1.2 + Math.random() * 1) + 's';
-        container.appendChild(piece);
-      }
-      setTimeout(() => { if (container) container.innerHTML = ''; }, 3500);
+    if (file.size > 5 * 1024 * 1024) {
+      alert(`"${file.name}" exceeds the 5MB limit.`);
+      continue;
     }
-
-    function parseInitialRoute() {
-      const path = window.location.pathname;
-      const parts = path.split('/').filter(Boolean);
-      let pageId = 'home';
-      let hash = null;
-      if (parts.length > 0) { pageId = parts[0]; if (parts.length > 1) { hash = '#' + parts[1]; } }
-      if (!document.getElementById('page-' + pageId)) { pageId = 'home'; hash = null; }
-      return { pageId, hash };
+    if (cuUploadQueue.length >= 10) {
+      alert("You can upload a maximum of 10 images.");
+      break;
     }
+    const fileId = Date.now() + "-" + Math.random().toString(36).substr(2, 9);
+    cuUploadQueue.push({ id: fileId, file: file });
+    cuRenderPreview(file, fileId);
+  }
+}
 
-    window.addEventListener('popstate', () => {
-      const { pageId, hash } = parseInitialRoute();
-      document.body.scrollTop = 0;
-      document.documentElement.scrollTop = 0;
-      const currentEl = document.getElementById('page-' + currentPage);
-      if (currentEl) { currentEl.classList.remove('active'); currentEl.classList.remove('page-enter'); }
-      const newEl = document.getElementById('page-' + pageId);
-      if (newEl) { newEl.classList.add('active'); newEl.classList.add('page-enter'); }
-      currentPage = pageId;
-      updateNavActive(pageId);
-      updateNavState();
-      setTimeout(() => {
-        lucide.createIcons(); initScrollAnimations(); handlePageSpecific(pageId);
-        if (hash) { const targetElement = document.querySelector(hash); if (targetElement) { setTimeout(() => { targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 100); } }
-      }, 50);
+function cuRenderPreview(file, fileId) {
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    const div = document.createElement("div");
+    div.className = "cu-preview-item";
+    div.id = fileId;
+    div.innerHTML = `
+      <img src="${e.target.result}" alt="Preview">
+      <button type="button" class="remove-btn">&times;</button>
+    `;
+    div.querySelector(".remove-btn").addEventListener("click", (ev) => {
+      ev.stopPropagation();
+      cuUploadQueue = cuUploadQueue.filter(item => item.id !== fileId);
+      div.remove();
     });
+    cuPreviewGrid.appendChild(div);
+  };
+  reader.readAsDataURL(file);
+}
 
-    function updateNavActive(pageId) {
-      document.querySelectorAll('.nav-link').forEach(link => {
-        if (link.dataset.page === pageId) { link.classList.remove('text-neutral-600','dark:text-neutral-400'); link.classList.add('text-neutral-900','dark:text-white'); }
-        else { link.classList.remove('text-neutral-900','dark:text-white'); link.classList.add('text-neutral-600','dark:text-neutral-400'); }
-      });
+// CONTENT UPDATE FORM SUBMISSION - Fixed
+if(cuForm) {
+  cuForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    if (!cuForm.checkValidity()) {
+      cuForm.reportValidity();
+      return;
     }
 
-    window.addEventListener('DOMContentLoaded', () => {
-      const { pageId, hash } = parseInitialRoute();
-      if (pageId !== 'home') {
-        document.getElementById('page-home').classList.remove('active');
-        const targetEl = document.getElementById('page-' + pageId);
-        if (targetEl) { targetEl.classList.add('active'); currentPage = pageId; updateNavActive(pageId);
-          if (hash) { setTimeout(() => { const te = document.querySelector(hash); if (te) te.scrollIntoView({ behavior: 'auto', block: 'start' }); }, 150); }
+    // Check Firebase readiness
+    if (!firebaseReady) {
+      alert('System not ready. Please wait a moment and try again.');
+      return;
+    }
+
+    cuSubmitBtn.disabled = true;
+    cuSubmitBtn.innerHTML = "Processing...";
+
+    try {
+      // Upload images first if any
+      if (cuUploadQueue.length > 0) {
+        cuSubmitBtn.innerHTML = `Uploading images (0/${cuUploadQueue.length})...`;
+        const uploadedUrls = [];
+        
+        for (let i = 0; i < cuUploadQueue.length; i++) {
+          cuSubmitBtn.innerHTML = `Uploading images (${i + 1}/${cuUploadQueue.length})...`;
+          const url = await uploadImageToWorker(cuUploadQueue[i].file);
+          uploadedUrls.push(url);
         }
-      } else { updateNavActive('home'); }
-      updateNavState();
-      setTimeout(() => { handlePageSpecific(currentPage); initCodeEditor(); startTypingEffect(); }, 100);
-    });
-
-    const announcementBar = document.getElementById('announcementBar');
-    const mainNav = document.getElementById('mainNav');
-
-    function updateNavState() {
-      const scrollY = window.scrollY || window.pageYOffset;
-      if (scrollY > 40) {
-        announcementBar.classList.add('hidden-bar');
-        mainNav.classList.remove('nav-top');
-        mainNav.classList.add('nav-scrolled');
-      } else {
-        announcementBar.classList.remove('hidden-bar');
-        mainNav.classList.remove('nav-scrolled');
-        mainNav.classList.add('nav-top');
+        cuImageUrlInput.value = uploadedUrls.join(", ");
       }
-    }
 
-    window.addEventListener('scroll', updateNavState, { passive: true });
+      cuSubmitBtn.innerHTML = "Saving to database...";
 
-    function toggleFaq(btn) {
-      const item = btn.closest('.faq-item');
-      const answer = item.querySelector('.faq-answer');
-      const chevron = item.querySelector('.faq-chevron');
-      const isOpen = answer.classList.contains('open');
-      document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
-      document.querySelectorAll('.faq-chevron').forEach(c => c.classList.remove('open'));
-      if (!isOpen) { answer.classList.add('open'); chevron.classList.add('open'); }
-    }
-
-    const mobileMenu = document.getElementById('mobileMenu');
-    const mobileOverlay = document.getElementById('mobileOverlay');
-
-    function closeMobileMenu() {
-      mobileMenu.classList.remove('open');
-      mobileOverlay.classList.remove('active');
-      document.documentElement.classList.remove('menu-open');
-      document.body.style.overflow = '';
-    }
-
-    document.getElementById('menuToggle').addEventListener('click', () => {
-      mobileMenu.classList.add('open');
-      mobileOverlay.classList.add('active');
-      document.documentElement.classList.add('menu-open');
-      document.body.style.overflow = 'hidden';
-      mobileMenu.scrollTop = 0;
-    });
-    document.getElementById('menuClose').addEventListener('click', closeMobileMenu);
-    mobileOverlay.addEventListener('click', closeMobileMenu);
-
-    function toggleTheme() {
-      document.documentElement.classList.toggle('dark');
-      const isDark = document.documentElement.classList.contains('dark');
-      localStorage.setItem('luviio-theme', isDark ? 'dark' : 'light');
-      lucide.createIcons();
-    }
-    document.getElementById('mobileThemeToggle').addEventListener('click', toggleTheme);
-    document.getElementById('themeToggle').addEventListener('click', toggleTheme);
-
-    const searchablePages = [
-      { id:'home', name:'Home', desc:'Main page with hero, services, features, portfolio, reviews' },
-      { id:'pricing', name:'Pricing', desc:'View all service packages from RM150/month' },
-      { id:'pricing/benefits', name:'Plan Benefits', desc:'Plan benefits comparison at a glance' },
-      { id:'faq', name:'FAQ', desc:'Frequently asked questions about our services' },
-      { id:'process', name:'Process', desc:'How we work — our 5-step process' },
-      { id:'terms', name:'Terms of Service', desc:'Legal terms and conditions for subscriptions' },
-      { id:'contact', name:'Contact Us', desc:'Get in touch via form, email, WhatsApp' },
-      { id:'about', name:'About Us', desc:'Our story, team, and mission' },
-      { id:'careers', name:'Careers', desc:'Open job positions at Luviio' },
-      { id:'privacy', name:'Privacy Policy', desc:'Data protection and PDPA compliance' },
-      { id:'UniStudent/promo', name:'Student Education Program', desc:'Exclusive website promo for Malaysian university students' },
-      { id:'special-client/promotions', name:'Special Client Promotions', desc:'Invited-only lowest price with 30-day free trial' },
-    ];
-
-    document.getElementById('searchToggle').addEventListener('click', () => {
-      const bar = document.getElementById('searchBar');
-      bar.classList.toggle('hidden');
-      if (!bar.classList.contains('hidden')) bar.querySelector('input').focus();
-      else document.getElementById('searchResults').classList.add('hidden');
-    });
-
-    function handleSearch(query) {
-      const resultsEl = document.getElementById('searchResults');
-      if (!query.trim()) { resultsEl.classList.add('hidden'); return; }
-      const matches = searchablePages.filter(p => p.name.toLowerCase().includes(query.toLowerCase()) || p.desc.toLowerCase().includes(query.toLowerCase()));
-      if (matches.length === 0) { resultsEl.innerHTML = '<div class="p-4 text-sm text-neutral-400">No results found</div>'; }
-      else {
-        resultsEl.innerHTML = matches.map(p => {
-          const navParts = p.id.split('/');
-          const pagePart = navParts[0];
-          const hashPart = navParts.length > 1 ? navParts[1] : null;
-          let clickAction = "navigateTo('" + pagePart + "'" + (hashPart ? ", '" + hashPart + "'" : '') + ")";
-          let closeAction = "document.getElementById('searchBar').classList.add('hidden');document.getElementById('searchResults').classList.add('hidden')";
-          return '<button onclick="' + clickAction + ';' + closeAction + '" class="w-full text-left p-4 hover:bg-neutral-50 dark:hover:bg-white/5 transition-colors border-b border-neutral-100 dark:border-white/5 last:border-0"><p class="text-sm font-medium">' + p.name + '</p><p class="text-xs text-neutral-400 mt-0.5">' + p.desc + '</p></button>';
-        }).join('');
-      }
-      resultsEl.classList.remove('hidden');
-    }
-
-    document.addEventListener('click', (e) => {
-      const bar = document.getElementById('searchBar');
-      if (!bar.classList.contains('hidden') && !bar.contains(e.target) && !document.getElementById('searchToggle').contains(e.target)) {
-        bar.classList.add('hidden');
-        document.getElementById('searchResults').classList.add('hidden');
-      }
-    });
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) { entry.target.style.animationPlayState = 'running'; observer.unobserve(entry.target); }
-      });
-    }, { threshold: 0.1 });
-
-    function initScrollAnimations() {
-      document.querySelectorAll('.page.active .fade-in-up, .page.active .scale-in').forEach(el => {
-        el.style.animationPlayState = 'paused';
-        observer.observe(el);
-      });
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      lucide.createIcons();
-      setTimeout(initScrollAnimations, 100);
-    });
-
-    document.getElementById('newsletterForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const form = this;
-      const originalBtn = form.querySelector('button[type="submit"]');
-      originalBtn.innerHTML = '<svg class="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Subscribing...';
-      originalBtn.disabled = true;
-      const formData = new FormData(form);
-      fetch(form.action, { method: 'POST', body: formData })
-      .then(response => { showNewsletterSuccess(); })
-      .catch(error => { showNewsletterSuccess(); })
-      .finally(() => {
-        form.reset();
-        originalBtn.disabled = false;
-        originalBtn.innerHTML = 'Subscribe <i data-lucide="arrow-right" class="w-4 h-4"></i>';
-        lucide.createIcons();
-      });
-    });
-
-    function showNewsletterSuccess() {
-      document.querySelector('.nl-form-original').classList.add('hidden');
-      document.getElementById('newsletterSuccess').classList.add('show');
-    }
-
-    function resetNewsletter() {
-      document.querySelector('.nl-form-original').classList.remove('hidden');
-      document.getElementById('newsletterSuccess').classList.remove('show');
-    }
-
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const btn = document.getElementById('contactSubmitBtn');
-      btn.disabled = true;
-      btn.innerHTML = '<svg class="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Sending...';
-      const formData = new FormData(this);
-      fetch(this.action, { method: 'POST', body: formData })
-      .then(() => { contactShowSuccess(); })
-      .catch(() => { contactShowSuccess(); })
-      .finally(() => {
-        btn.disabled = false;
-        btn.innerHTML = 'Send Message <svg class="w-4 h-4" data-lucide="send" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>';
-        lucide.createIcons();
-      });
-    });
-
-    function contactShowSuccess() {
-      document.getElementById('contactFormWrapper').classList.add('hidden');
-      document.getElementById('contactSuccessWrapper').classList.remove('hidden');
-      const dateEl = document.getElementById('contactSentDate');
-      if (dateEl) {
-        const now = new Date();
-        dateEl.textContent = now.toLocaleDateString('en-MY', { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' });
-      }
-      document.body.scrollTop = 0;
-      document.documentElement.scrollTop = 0;
-      lucide.createIcons();
-      initScrollAnimations();
-    }
-
-    function contactResetForm() {
-      document.getElementById('contactForm').reset();
-      document.getElementById('contactFormWrapper').classList.remove('hidden');
-      document.getElementById('contactSuccessWrapper').classList.add('hidden');
-      document.body.scrollTop = 0;
-      document.documentElement.scrollTop = 0;
-      lucide.createIcons();
-    }
-
-    /* ============================================
-       CONTENT UPDATE FORM LOGIC (NEW VERSION)
-       ============================================ */
-    const cuAPI = "b71c4d815f32121f479535866ad1de1c";
-    let cuUploadQueue = [];
-
-    const cuDropZone = document.getElementById('cuDropZone');
-    const cuFileInput = document.getElementById('cuFileInput');
-    const cuPreviewGrid = document.getElementById('cuPreviewGrid');
-    const cuForm = document.getElementById('cuForm');
-    const cuSubmitBtn = document.getElementById('cuSubmitBtn');
-    const cuImageUrlInput = document.getElementById('cuImageUrlInput');
-
-    // Click to open file dialog
-    if(cuDropZone) {
-      cuDropZone.addEventListener("click", () => cuFileInput.click());
-
-      // Drag and Drop events
-      cuDropZone.addEventListener("dragover", (e) => {
-        e.preventDefault();
-        cuDropZone.classList.add("drag-over");
-      });
-
-      cuDropZone.addEventListener("dragleave", () => {
-        cuDropZone.classList.remove("drag-over");
-      });
-
-      cuDropZone.addEventListener("drop", (e) => {
-        e.preventDefault();
-        cuDropZone.classList.remove("drag-over");
-        cuHandleFiles(e.dataTransfer.files);
-      });
-
-      // File input change
-      cuFileInput.addEventListener("change", () => {
-        cuHandleFiles(cuFileInput.files);
-        cuFileInput.value = "";
-      });
-    }
-
-    function cuHandleFiles(files) {
-      for (let i = 0; i < files.length; i++) {
-        const file = files[i];
-
-        if (!["image/jpeg", "image/png"].includes(file.type)) {
-          alert(`"${file.name}" is not a valid format. Only JPG, JPEG, PNG allowed.`);
-          continue;
-        }
-
-        if (file.size > 5 * 1024 * 1024) {
-          alert(`"${file.name}" exceeds the 5MB limit.`);
-          continue;
-        }
-
-        if (cuUploadQueue.length >= 10) {
-          alert("You can upload a maximum of 10 images.");
-          break;
-        }
-
-        const fileId = Date.now() + "-" + Math.random().toString(36).substr(2, 9);
-        cuUploadQueue.push({ id: fileId, file: file });
-        cuRenderPreview(file, fileId);
-      }
-    }
-
-    function cuRenderPreview(file, fileId) {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        const div = document.createElement("div");
-        div.className = "cu-preview-item";
-        div.id = fileId;
-        div.innerHTML = `
-          <img src="${e.target.result}" alt="Preview">
-          <button type="button" class="remove-btn">&times;</button>
-        `;
-        div.querySelector(".remove-btn").addEventListener("click", (ev) => {
-          ev.stopPropagation();
-          cuUploadQueue = cuUploadQueue.filter(item => item.id !== fileId);
-          div.remove();
-        });
-        cuPreviewGrid.appendChild(div);
+      // Collect form data
+      const formElements = cuForm.elements;
+      const updateData = {
+        name: formElements.namedItem('Name').value,
+        email: formElements.namedItem('Email').value,
+        whatsapp: formElements.namedItem('WhatsApp').value,
+        website: formElements.namedItem('Website').value,
+        types: Array.from(formElements.querySelectorAll('input[name="Type"]:checked')).map(cb => cb.value),
+        section: formElements.namedItem('Section').value,
+        details: formElements.namedItem('Details').value,
+        imageUrls: cuImageUrlInput.value || '',
+        priority: formElements.namedItem('Priority').value,
       };
-      reader.readAsDataURL(file);
-    }
 
-    // Form submission
-    if(cuForm) {
-      cuForm.addEventListener("submit", async (e) => {
-        e.preventDefault();
+      // Save to Firestore
+      await saveToFirestore('content_updates', updateData);
 
-        if (!cuForm.checkValidity()) {
-          cuForm.reportValidity();
-          return;
-        }
-
-        cuSubmitBtn.disabled = true;
-        cuSubmitBtn.innerHTML = "Processing...";
-
-        try {
-          if (cuUploadQueue.length > 0) {
-            cuSubmitBtn.innerHTML = `Uploading images (0/${cuUploadQueue.length})...`;
-            
-            const uploadedUrls = [];
-            
-            for (let i = 0; i < cuUploadQueue.length; i++) {
-              cuSubmitBtn.innerHTML = `Uploading images (${i + 1}/${cuUploadQueue.length})...`;
-              
-              const fd = new FormData();
-              fd.append("image", cuUploadQueue[i].file);
-
-              const res = await fetch(`https://api.imgbb.com/1/upload?key=${cuAPI}`, {
-                method: "POST",
-                body: fd
-              });
-
-              const data = await res.json();
-              if (data.success) {
-                uploadedUrls.push(data.data.url);
-              }
-            }
-
-            cuImageUrlInput.value = uploadedUrls.join(", ");
-          }
-
-          cuSubmitBtn.innerHTML = "Submitting request...";
-
-          await fetch(cuForm.action, {
-            method: "POST",
-            body: new FormData(cuForm)
-          });
-
-          // Show success
-          document.getElementById("cuFormView").style.display = "none";
-          document.getElementById("cuSuccessView").style.display = "block";
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-          lucide.createIcons();
-          initScrollAnimations();
-
-        } catch (error) {
-          console.error("Error:", error);
-          alert("Something went wrong. Please try again.");
-          cuSubmitBtn.disabled = false;
-          cuSubmitBtn.innerHTML = "Submit Request";
-        }
-      });
-    }
-
-    /* ============================================
-       CODE EDITOR LOGIC
-       ============================================ */
-    const codeLines=[
-      {num:1,html:`<span class="keyword">import</span> { createApp } <span class="keyword">from</span> <span class="string">'luviio'</span>;`,delay:15},
-      {num:2,html:``,delay:0},
-      {num:3,html:`<span class="keyword">const</span> <span class="var">app</span> = <span class="func">createApp</span>({`,delay:15},
-      {num:4,html:`  <span class="attr">name</span>: <span class="string">'my-business'</span>,`,delay:20},
-      {num:5,html:`  <span class="attr">theme</span>: <span class="string">'modern'</span>,`,delay:20},
-      {num:6,html:`  <span class="attr">responsive</span>: <span class="keyword">true</span>,`,delay:20},
-      {num:7,html:`  <span class="attr">seo</span>: { <span class="attr">optimized</span>: <span class="keyword">true</span> }`,delay:20,highlight:true},
-      {num:8,html:`});`,delay:15},
-      {num:9,html:``,delay:0},
-      {num:10,html:`<span class="comment">// Deploy to production</span>`,delay:12},
-      {num:11,html:`await <span class="var">app</span>.<span class="func">deploy</span>({`,delay:15},
-      {num:12,html:`  <span class="attr">hosting</span>: <span class="string">'secure'</span>,`,delay:20},
-      {num:13,html:`  <span class="attr">ssl</span>: <span class="keyword">true</span>,`,delay:20},
-      {num:14,html:`  <span class="attr">region</span>: <span class="string">'asia-southeast'</span>`,delay:20,highlight:true},
-      {num:15,html:`});`,delay:15},
-      {num:16,html:``,delay:0},
-      {num:17,html:`console.log(<span class="string">'🚀 Live at luviio.com'</span>);`,delay:18},
-    ];
-
-    let editorLine = 0;
-    let editorChar = 0;
-    let editorInitialized = false;
-
-    function strip(html){ const tmp=document.createElement("div"); tmp.innerHTML=html; return tmp.textContent; }
-
-    function buildEditor(){
-      const editor=document.getElementById("editor");
-      if(!editor) return;
-      editor.innerHTML=codeLines.map((l,i)=>`<div class="code-line ${l.highlight?'highlight':''}" id="line-${i}"><span class="linenum">${l.num}</span><span class="content"></span></div>`).join("");
-    }
-
-    function clearCursor(){ document.querySelectorAll(".cursor").forEach(c=>c.remove()); }
-
-    function type(){
-      const editor=document.getElementById("editor");
-      if(!editor) return;
-      if(editorLine>=codeLines.length){ setTimeout(resetEditor,3000); return; }
-      const data=codeLines[editorLine];
-      const plain=strip(data.html);
-      const el=document.querySelector(`#line-${editorLine} .content`);
-      if(!plain){ editorLine++; editorChar=0; setTimeout(type,50); return; }
-      clearCursor();
-      if(editorChar<=plain.length){
-        el.innerHTML=plain.slice(0,editorChar)+'<span class="cursor"></span>';
-        editorChar++;
-        setTimeout(type,data.delay||15);
-      }else{
-        el.innerHTML=data.html;
-        editorLine++; editorChar=0;
-        setTimeout(type,80);
-      }
-      editor.scrollTop=editor.scrollHeight;
-    }
-
-    function resetEditor(){
-      editorLine=0; editorChar=0;
-      setTimeout(()=>{ buildEditor(); type(); },800);
-    }
-
-    function initCodeEditor() {
-      if(editorInitialized) return;
-      buildEditor();
-      type();
-      editorInitialized = true;
-    }
-    /* ============================================
-       UNI STUDENT FORM (Formsubmit)
-       ============================================ */
-    document.getElementById('uniForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const btn = document.getElementById('uniSubmitBtn');
-      btn.disabled = true;
-      btn.innerHTML = '<svg class="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Submitting...';
-
-      this.querySelector('input[name="_next"]').value = window.location.href;
-
-      const formData = new FormData(this);
-      fetch(this.action, { method: 'POST', body: formData })
-      .then(() => { uniShowSuccess(); })
-      .catch(() => { uniShowSuccess(); })
-      .finally(() => {
-        btn.disabled = false;
-        btn.innerHTML = 'Submit & Continue';
-      });
-    });
-
-    function uniShowSuccess() {
-      document.getElementById('uniFormView').style.display = 'none';
-      document.getElementById('uniSuccessView').style.display = 'block';
+      // Show success
+      document.getElementById("cuFormView").style.display = "none";
+      document.getElementById("cuSuccessView").style.display = "block";
       window.scrollTo({ top: 0, behavior: 'smooth' });
       lucide.createIcons();
       initScrollAnimations();
+
+    } catch (error) {
+      console.error("Content Update Error:", error);
+      alert("Error: " + error.message + "\nPlease try again or contact support.");
+      cuSubmitBtn.disabled = false;
+      cuSubmitBtn.innerHTML = "Submit Request";
     }
+  });
+}
 
-    function uniResetForm() {
-      document.getElementById('uniForm').reset();
-      document.getElementById('uniFormView').style.display = 'block';
-      document.getElementById('uniSuccessView').style.display = 'none';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      lucide.createIcons();
-      initScrollAnimations();
-    }
+/* ============================================
+   CODE EDITOR LOGIC
+   ============================================ */
+const codeLines=[
+  {num:1,html:`<span class="keyword">import</span> { createApp } <span class="keyword">from</span> <span class="string">'luviio'</span>;`,delay:15},
+  {num:2,html:``,delay:0},
+  {num:3,html:`<span class="keyword">const</span> <span class="var">app</span> = <span class="func">createApp</span>({`,delay:15},
+  {num:4,html:`  <span class="attr">name</span>: <span class="string">'my-business'</span>,`,delay:20},
+  {num:5,html:`  <span class="attr">theme</span>: <span class="string">'modern'</span>,`,delay:20},
+  {num:6,html:`  <span class="attr">responsive</span>: <span class="keyword">true</span>,`,delay:20},
+  {num:7,html:`  <span class="attr">seo</span>: { <span class="attr">optimized</span>: <span class="keyword">true</span> }`,delay:20,highlight:true},
+  {num:8,html:`});`,delay:15},
+  {num:9,html:``,delay:0},
+  {num:10,html:`<span class="comment">// Deploy to production</span>`,delay:12},
+  {num:11,html:`await <span class="var">app</span>.<span class="func">deploy</span>({`,delay:15},
+  {num:12,html:`  <span class="attr">hosting</span>: <span class="string">'secure'</span>,`,delay:20},
+  {num:13,html:`  <span class="attr">ssl</span>: <span class="keyword">true</span>,`,delay:20},
+  {num:14,html:`  <span class="attr">region</span>: <span class="string">'asia-southeast'</span>`,delay:20,highlight:true},
+  {num:15,html:`});`,delay:15},
+  {num:16,html:``,delay:0},
+  {num:17,html:`console.log(<span class="string">'🚀 Live at luviio.com'</span>);`,delay:18},
+];
 
-    /* ============================================
-       SPECIAL CLIENT FORM (Formsubmit)
-       ============================================ */
-    document.getElementById('scForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const btn = document.getElementById('scSubmitBtn');
-      btn.disabled = true;
-      btn.innerHTML = '<svg class="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Submitting...';
+let editorLine = 0;
+let editorChar = 0;
+let editorInitialized = false;
 
-      this.querySelector('input[name="_next"]').value = window.location.href;
+function strip(html){ const tmp=document.createElement("div"); tmp.innerHTML=html; return tmp.textContent; }
 
-      const formData = new FormData(this);
-      fetch(this.action, { method: 'POST', body: formData })
-      .then(() => { scShowSuccess(); })
-      .catch(() => { scShowSuccess(); })
-      .finally(() => {
-        btn.disabled = false;
-        btn.innerHTML = 'Submit & Continue';
-      });
-    });
+function buildEditor(){
+  const editor=document.getElementById("editor");
+  if(!editor) return;
+  editor.innerHTML=codeLines.map((l,i)=>`<div class="code-line ${l.highlight?'highlight':''}" id="line-${i}"><span class="linenum">${l.num}</span><span class="content"></span></div>`).join("");
+}
 
-    function scShowSuccess() {
-      document.getElementById('scFormView').style.display = 'none';
-      document.getElementById('scSuccessView').style.display = 'block';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      lucide.createIcons();
-      initScrollAnimations();
-    }
+function clearCursor(){ document.querySelectorAll(".cursor").forEach(c=>c.remove()); }
 
-    function scResetForm() {
-      document.getElementById('scForm').reset();
-      document.getElementById('scFormView').style.display = 'block';
-      document.getElementById('scSuccessView').style.display = 'none';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      lucide.createIcons();
-      initScrollAnimations();
-    }
+function type(){
+  const editor=document.getElementById("editor");
+  if(!editor) return;
+  if(editorLine>=codeLines.length){ setTimeout(resetEditor,3000); return; }
+  const data=codeLines[editorLine];
+  const plain=strip(data.html);
+  const el=document.querySelector(`#line-${editorLine} .content`);
+  if(!plain){ editorLine++; editorChar=0; setTimeout(type,50); return; }
+  clearCursor();
+  if(editorChar<=plain.length){
+    el.innerHTML=plain.slice(0,editorChar)+'<span class="cursor"></span>';
+    editorChar++;
+    setTimeout(type,data.delay||15);
+  }else{
+    el.innerHTML=data.html;
+    editorLine++; editorChar=0;
+    setTimeout(type,80);
+  }
+  editor.scrollTop=editor.scrollHeight;
+}
+
+function resetEditor(){
+  editorLine=0; editorChar=0;
+  setTimeout(()=>{ buildEditor(); type(); },800);
+}
+
+function initCodeEditor() {
+  if(editorInitialized) return;
+  buildEditor();
+  type();
+  editorInitialized = true;
+}
+
+/* ============================================
+   UNI STUDENT FORM - Save to Firestore
+   ============================================ */
+document.getElementById('uniForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  if (!firebaseReady) {
+    alert('System not ready. Please wait a moment and try again.');
+    return;
+  }
+
+  const btn = document.getElementById('uniSubmitBtn');
+  btn.disabled = true;
+  btn.innerHTML = '<svg class="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Submitting...';
+
+  const formElements = this.elements;
+  const studentData = {
+    fullName: formElements.namedItem('Full Name').value,
+    icNumber: formElements.namedItem('IC Number').value,
+    phone: formElements.namedItem('Phone').value,
+    studentId: formElements.namedItem('Student ID').value,
+    studentEmail: formElements.namedItem('Student Email').value,
+    university: formElements.namedItem('University').value,
+    businessType: formElements.namedItem('Business Type').value,
+  };
+  
+  saveToFirestore('uni_student_applications', studentData)
+  .then(() => { uniShowSuccess(); })
+  .catch(error => { 
+    console.error('Uni Student save error:', error);
+    alert('Error submitting application: ' + error.message);
+  })
+  .finally(() => {
+    btn.disabled = false;
+    btn.innerHTML = 'Submit & Continue';
+  });
+});
+
+function uniShowSuccess() {
+  document.getElementById('uniFormView').style.display = 'none';
+  document.getElementById('uniSuccessView').style.display = 'block';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  lucide.createIcons();
+  initScrollAnimations();
+}
+
+function uniResetForm() {
+  document.getElementById('uniForm').reset();
+  document.getElementById('uniFormView').style.display = 'block';
+  document.getElementById('uniSuccessView').style.display = 'none';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  lucide.createIcons();
+  initScrollAnimations();
+}
+
+/* ============================================
+   SPECIAL CLIENT FORM - Save to Firestore
+   ============================================ */
+document.getElementById('scForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  if (!firebaseReady) {
+    alert('System not ready. Please wait a moment and try again.');
+    return;
+  }
+
+  const btn = document.getElementById('scSubmitBtn');
+  btn.disabled = true;
+  btn.innerHTML = '<svg class="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Submitting...';
+
+  const formElements = this.elements;
+  const clientData = {
+    name: formElements.namedItem('name').value,
+    email: formElements.namedItem('email').value,
+    phone: formElements.namedItem('phone').value,
+    company: formElements.namedItem('company').value,
+    message: formElements.namedItem('message').value,
+  };
+  
+  saveToFirestore('special_client_applications', clientData)
+  .then(() => { scShowSuccess(); })
+  .catch(error => { 
+    console.error('Special Client save error:', error);
+    alert('Error submitting application: ' + error.message);
+  })
+  .finally(() => {
+    btn.disabled = false;
+    btn.innerHTML = 'Submit & Continue';
+  });
+});
+
+function scShowSuccess() {
+  document.getElementById('scFormView').style.display = 'none';
+  document.getElementById('scSuccessView').style.display = 'block';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  lucide.createIcons();
+  initScrollAnimations();
+}
+
+function scResetForm() {
+  document.getElementById('scForm').reset();
+  document.getElementById('scFormView').style.display = 'block';
+  document.getElementById('scSuccessView').style.display = 'none';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  lucide.createIcons();
+  initScrollAnimations();
+}
   </script>
 </body>
 </html>
