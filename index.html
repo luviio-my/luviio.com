@@ -2870,7 +2870,7 @@ if(cuForm) {
 }
 
 /* ============================================
-   CODE EDITOR LOGIC
+   CODE EDITOR LOGIC — RUNS ONCE, NO LOOP
    ============================================ */
 const codeLines=[
   {num:1,html:`<span class="keyword">import</span> { createApp } <span class="keyword">from</span> <span class="string">'luviio'</span>;`,delay:15},
@@ -2895,8 +2895,13 @@ const codeLines=[
 let editorLine = 0;
 let editorChar = 0;
 let editorInitialized = false;
+let editorCompleted = false;
 
-function strip(html){ const tmp=document.createElement("div"); tmp.innerHTML=html; return tmp.textContent; }
+function strip(html){ 
+  const tmp=document.createElement("div"); 
+  tmp.innerHTML=html; 
+  return tmp.textContent || tmp.innerText || ""; 
+}
 
 function buildEditor(){
   const editor=document.getElementById("editor");
@@ -2904,16 +2909,32 @@ function buildEditor(){
   editor.innerHTML=codeLines.map((l,i)=>`<div class="code-line ${l.highlight?'highlight':''}" id="line-${i}"><span class="linenum">${l.num}</span><span class="content"></span></div>`).join("");
 }
 
-function clearCursor(){ document.querySelectorAll(".cursor").forEach(c=>c.remove()); }
+function clearCursor(){ 
+  document.querySelectorAll(".cursor").forEach(c=>c.remove()); 
+}
 
 function type(){
   const editor=document.getElementById("editor");
   if(!editor) return;
-  if(editorLine>=codeLines.length){ setTimeout(resetEditor,3000); return; }
+  
+  // When finished, stop completely (no loop)
+  if(editorLine>=codeLines.length){
+    editorCompleted = true;
+    clearCursor();
+    return; 
+  }
+  
   const data=codeLines[editorLine];
   const plain=strip(data.html);
   const el=document.querySelector(`#line-${editorLine} .content`);
-  if(!plain){ editorLine++; editorChar=0; setTimeout(type,50); return; }
+  
+  if(!plain){ 
+    editorLine++; 
+    editorChar=0; 
+    setTimeout(type,50); 
+    return; 
+  }
+  
   clearCursor();
   if(editorChar<=plain.length){
     el.innerHTML=plain.slice(0,editorChar)+'<span class="cursor"></span>';
@@ -2927,12 +2948,19 @@ function type(){
   editor.scrollTop=editor.scrollHeight;
 }
 
-function resetEditor(){
-  editorLine=0; editorChar=0;
-  setTimeout(()=>{ buildEditor(); type(); },800);
-}
-
 function initCodeEditor() {
+  // If already completed, show final state without re-animating
+  if(editorCompleted){
+    buildEditor();
+    codeLines.forEach((data, i) => {
+      const el = document.querySelector(`#line-${i} .content`);
+      if(el && data.html) {
+        el.innerHTML = data.html;
+      }
+    });
+    return;
+  }
+  
   if(editorInitialized) return;
   buildEditor();
   type();
