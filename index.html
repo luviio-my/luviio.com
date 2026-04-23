@@ -2294,8 +2294,10 @@ let firebaseReady = false;
 let editorLine = 0;
 let editorChar = 0;
 let editorInitialized = false;
-let typingWordIndex = 0;
-let typingCharIndex = 0;
+// ===== THEME PERSISTENCE =====
+(function(){const t=localStorage.getItem('luviio-theme');if(t==='light'){document.documentElement.classList.remove('dark')}else{document.documentElement.classList.add('dark')}})();
+
+let typingWordIndex = 0;let typingCharIndex = 0;
 let typingIsDeleting = false;
 let typingStarted = false;
 let lastScrollTop = 0;
@@ -2809,6 +2811,11 @@ function toggleTheme() {
   const isDark = document.documentElement.classList.contains('dark');
   localStorage.setItem('luviio-theme', isDark ? 'dark' : 'light');
   lucide.createIcons();
+}
+
+if (!localStorage.getItem('luviio-theme')) {
+  localStorage.setItem('luviio-theme', 'dark');
+  document.documentElement.classList.add('dark');
 }
 
 if (document.getElementById('mobileThemeToggle')) {
