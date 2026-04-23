@@ -2469,32 +2469,6 @@ function typeNextChar() {
 function navigateTo(pageId, hash = null) {
   if (currentPage === pageId && !hash) return;
   
-  // ===== SEO TITLE UPDATER (luviio) =====
-  const seoTitles = {
-    'home':              'luviio — Professional Website & IT Solutions for Malaysian Businesses',
-    'pricing':           'luviio — Affordable Pricing Plans | Websites from RM150/mo',
-    'UniStudent':        'luviio — University Student Program | Special Student Website Promo',
-    'about':             'About luviio — Our Story, Mission & Team',
-    'contact':           'Contact luviio — Get a Free Consultation Today',
-    'privacy':           'Privacy Policy — luviio',
-    'terms':             'Terms of Service — luviio',
-    'faq':               'FAQ — Frequently Asked Questions | luviio',
-    'order-verify':      'Verify Your Order — luviio',
-    'purchased-confirmed': 'Order Confirmed! — luviio',
-    'special-client':    'Special Client Promotions — luviio',
-    'content-update':    'Request Content Update — luviio',
-    'process':           'Our Process — How We Work | luviio',
-    'careers':           'Careers at luviio — Join Our Team'
-  };
-  
-  // Update the browser tab title
-  if (seoTitles[pageId]) {
-    document.title = seoTitles[pageId];
-  } else {
-    document.title = 'luviio'; // Fallback for unknown pages
-  }
-  // ===== END SEO TITLE UPDATER =====
-
   // Reset scroll
   requestAnimationFrame(() => {
     window.scrollTo(0, 0);
@@ -2546,57 +2520,6 @@ function navigateTo(pageId, hash = null) {
     }
   }, 50);
 }
-  
-  // Reset scroll
-  requestAnimationFrame(() => {
-    window.scrollTo(0, 0);
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
-    void document.body.offsetHeight;
-    updateScrollState();
-  });
-
-  // Hide current page
-  const currentEl = document.getElementById('page-' + currentPage);
-  if (currentEl) { 
-    currentEl.classList.remove('active'); 
-    currentEl.classList.remove('page-enter'); 
-  }
-  
-  // Show new page
-  const newEl = document.getElementById('page-' + pageId);
-  if (newEl) { 
-    newEl.classList.add('active'); 
-    void newEl.offsetWidth; 
-    newEl.classList.add('page-enter'); 
-  }
-  
-  currentPage = pageId;
-  
-  let urlPath = '/' + pageId;
-  if (hash) urlPath += '/' + hash.replace('#', '');
-  history.pushState(null, '', urlPath);
-  
-  updateNavActive(pageId);
-  
-  setTimeout(() => {
-    lucide.createIcons(); 
-    initScrollAnimations(); 
-    updateNavState(); 
-    handlePageSpecific(pageId);
-    
-    if (hash) {
-      setTimeout(() => {
-        const targetElement = document.querySelector(hash);
-        if (targetElement) {
-          targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          targetElement.style.transition = 'box-shadow 0.5s ease';
-          targetElement.style.boxShadow = '0 0 0 3px rgba(255, 0, 94, 0.3)';
-          setTimeout(() => { targetElement.style.boxShadow = ''; }, 2000);
-        }
-      }, 300);
-    }
-  }, 50);
 
 function handlePageSpecific(pageId) {
   if (pageId === 'purchased-confirmed') {
@@ -2769,10 +2692,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 150); 
       }
     }
-} else { 
-  updateNavActive('home'); 
-  document.title = 'luviio — Professional Website & IT Solutions for Malaysian Businesses'; // <-- ADD THIS
-}
+  } else { 
+    updateNavActive('home'); 
+  }
   
   updateNavState();
   
