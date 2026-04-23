@@ -7,7 +7,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="google-site-verification" content="g8rDbfJ8Tv90TAUTOuB80dkwNJgnq-B4Yb2928VwTFQ" />
   <meta property="og:site_name" content="luviio">
-  <title>luviio</title>
+  <title id="pageTitle">luviio</title>
   <link rel="icon" type="image/png" href="https://i.ibb.co/tw6B1xLp/cropped-luviio.png" />
   <link rel="apple-touch-icon" href="https://i.ibb.co/tw6B1xLp/cropped-luviio.png" />
 
@@ -22,11 +22,31 @@
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "luviio",
+  "url": "https://luviio.com",
+  "logo": "https://i.ibb.co/tw6B1xLp/cropped-luviio.png",
+  "description": "luviio provides professional website development, mobile apps, and IT solutions for Malaysian businesses.",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+60-12-260-0969",
+    "contactType": "customer service",
+    "areaServed": "MY",
+    "availableLanguage": ["English", "Malay"]
+  },
+  "sameAs": []
+}
+</script>
+
 <meta name="description" content="luviio provides professional website development, mobile apps, and IT solutions for Malaysian businesses.">
-<meta name="keywords" content="Luviio, web development Malaysia, website design Malaysia, IT solutions Malaysia">
+<meta name="keywords" content="luviio, web development Malaysia, website design Malaysia, IT solutions Malaysia">
+<meta id="metaDesc" name="description" content="luviio provides professional website development, mobile apps, and IT solutions for Malaysian businesses.">
+<meta id="metaOgTitle" property="og:title" content="luviio — Website & IT Solutions">
+<meta id="metaOgDesc" property="og:description" content="Professional websites, apps, and IT solutions tailored for Malaysian businesses.">
 <meta name="author" content="Luviio">
-<meta property="og:title" content="Luviio — Website & IT Solutions">
-<meta property="og:description" content="Professional websites, apps, and IT solutions tailored for Malaysian businesses.">
 <meta property="og:image" content="https://i.ibb.co/tw6B1xLp/cropped-luviio.png">
 <meta property="og:type" content="website">
 
@@ -2499,6 +2519,7 @@ function navigateTo(pageId, hash = null) {
   if (hash) urlPath += '/' + hash.replace('#', '');
   history.pushState(null, '', urlPath);
   
+  updatePageSEO(pageId);
   updateNavActive(pageId);
   
   setTimeout(() => {
@@ -2643,6 +2664,7 @@ window.addEventListener('popstate', () => {
   }
   currentPage = pageId;
   updateNavActive(pageId);
+    updatePageSEO(pageId);
   updateNavState();
   setTimeout(() => {
     lucide.createIcons(); 
@@ -2658,6 +2680,79 @@ window.addEventListener('popstate', () => {
     }
   }, 50);
 });
+
+// ===== PAGE SEO TITLES & META =====
+const pageSEO = {
+  'home': {
+    title: 'luviio — Website & IT Solutions Malaysia',
+    desc: 'luviio provides professional website development, mobile apps, and IT solutions for Malaysian businesses. Subscription plans from RM150/month.'
+  },
+  'pricing': {
+    title: 'Pricing — luviio | Website Plans from RM150/month',
+    desc: 'Affordable website & IT subscription plans by luviio. Starter RM150/mo, Growth RM300/mo, Pro IT Services RM1,900/mo. No contract, cancel anytime.'
+  },
+  'UniStudent': {
+    title: 'University Student Program — luviio | Student Website Promo',
+    desc: 'Exclusive website promo for Malaysian university students by luviio. Get a basic website at a special student rate. Verified students only.'
+  },
+  'about': {
+    title: 'About Us — luviio | Our Story & Team',
+    desc: 'Learn about luviio — a Malaysian IT company building professional websites, apps, and digital solutions for businesses since 2025.'
+  },
+  'contact': {
+    title: 'Contact Us — luviio | Get in Touch',
+    desc: 'Contact luviio for website development, IT support, or custom projects. Email, WhatsApp, or fill out our form — we reply within 24 hours.'
+  },
+  'privacy': {
+    title: 'Privacy Policy — luviio',
+    desc: 'luviio Privacy Policy — how we collect, use, and protect your personal data in compliance with Malaysia PDPA 2010.'
+  },
+  'terms': {
+    title: 'Terms of Service — luviio',
+    desc: 'luviio Terms of Service — subscription plans, billing, cancellation, intellectual property, and legal terms for our website & IT services.'
+  },
+  'faq': {
+    title: 'FAQ — luviio | Frequently Asked Questions',
+    desc: 'Common questions about luviio services: delivery time, pricing, payment methods, maintenance, cancellation, technologies, and more.'
+  },
+  'process': {
+    title: 'Our Process — luviio | How We Work',
+    desc: 'luviio 5-step process: Discovery, Proposal, Design & Development, Review & Revisions, Launch & Handover. Clear and transparent.'
+  },
+  'careers': {
+    title: 'Careers — luviio | Join Our Team',
+    desc: 'Open positions at luviio — Frontend Developer, UI/UX Designer, Backend Developer, IT Support, Project Manager. Apply now.'
+  },
+  'order-verify': {
+    title: 'Verify Your Order — luviio',
+    desc: 'Confirm your luviio payment status after subscribing to a plan via Stripe.'
+  },
+  'purchased-confirmed': {
+    title: 'Order Confirmed — luviio',
+    desc: 'Your luviio order has been confirmed. View next steps and what to expect after subscribing.'
+  },
+  'content-update': {
+    title: 'Request a Content Update — luviio',
+    desc: 'Submit a content update request for your luviio website — text, images, branding, pricing, design changes and more.'
+  },
+  'special-client': {
+    title: 'Special Client Promotions — luviio',
+    desc: 'Exclusive invitation-only promotion by luviio with 30-day free trial and lowest pricing.'
+  }
+};
+
+function updatePageSEO(pageId) {
+  const seo = pageSEO[pageId] || pageSEO['home'];
+  const titleEl = document.getElementById('pageTitle');
+  const descEl = document.getElementById('metaDesc');
+  const ogTitleEl = document.getElementById('metaOgTitle');
+  const ogDescEl = document.getElementById('metaOgDesc');
+
+  if (titleEl) titleEl.textContent = seo.title;
+  if (descEl) descEl.setAttribute('content', seo.desc);
+  if (ogTitleEl) ogTitleEl.setAttribute('content', seo.title);
+  if (ogDescEl) ogDescEl.setAttribute('content', seo.desc);
+}
 
 function updateNavActive(pageId) {
   document.querySelectorAll('.nav-link').forEach(link => {
@@ -2695,6 +2790,7 @@ document.addEventListener('DOMContentLoaded', () => {
   } else { 
     updateNavActive('home'); 
   }
+  updatePageSEO(currentPage);
   
   updateNavState();
   
