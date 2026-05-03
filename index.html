@@ -67,6 +67,9 @@
 }
 </script>
 
+  <!-- Safari Address Bar Theme Color -->
+  <meta name="theme-color" id="metaThemeColor" content="#000000">
+
 <!-- BreadcrumbList Structured Data for Blog -->
 <script type="application/ld+json">
 {
@@ -3650,7 +3653,19 @@ if (mobileOverlay) {
 function toggleTheme() {
   document.documentElement.classList.toggle('dark');
   const isDark = document.documentElement.classList.contains('dark');
+  
+  // Save preference
   localStorage.setItem('luviio-theme', isDark ? 'dark' : 'light');
+  
+  // Update Safari/Chrome address bar color
+  const metaTheme = document.getElementById('metaThemeColor');
+  if (metaTheme) {
+    metaTheme.setAttribute('content', isDark ? '#000000' : '#fafafa');
+  }
+  
+  // Update HTML background to fill safe area (prevents transparency gap)
+  document.documentElement.style.backgroundColor = isDark ? '#000000' : '#fafafa';
+  
   lucide.createIcons();
 }
 
@@ -3658,6 +3673,17 @@ if (!localStorage.getItem('luviio-theme')) {
   localStorage.setItem('luviio-theme', 'dark');
   document.documentElement.classList.add('dark');
 }
+
+// Set initial theme-color on page load (before DOM ready if possible)
+(function() {
+  const isDark = localStorage.getItem('luviio-theme') !== 'light';
+  const metaTheme = document.getElementById('metaThemeColor');
+  if (metaTheme) {
+    metaTheme.setAttribute('content', isDark ? '#000000' : '#fafafa');
+  }
+  // Ensure html background covers safe area immediately
+  document.documentElement.style.backgroundColor = isDark ? '#000000' : '#fafafa';
+})();
 
 if (document.getElementById('mobileThemeToggle')) {
   document.getElementById('mobileThemeToggle').addEventListener('click', toggleTheme);
