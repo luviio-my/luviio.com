@@ -3265,14 +3265,15 @@ let firebaseInitialized = false;
 // ==================== FIREBASE INITIALIZATION ====================
 function initFirebase() {
   try {
-    const firebaseConfig = {
-      apiKey: "AIzaSyDSp-HX00hZaJwTFaZ4X06pU7pARGjhl1M",
-      authDomain: "auth.luviio.com",
-      projectId: "appluviio",
-      storageBucket: "appluviio.firebasestorage.app",
-      messagingSenderId: "598571208819",
-      appId: "1:598571208819:web:1a91c501b49b3e604d5a06"
-    };
+const firebaseConfig = {
+  apiKey: "AIzaSyDSp-HX00hZaJwTFaZ4X06pU7pARGjhl1M",
+  authDomain: "auth-luviio.web.app",
+  projectId: "appluviio",
+  storageBucket: "appluviio.firebasestorage.app",
+  messagingSenderId: "598571208819",
+  appId: "1:598571208819:web:a648033586a76b8f4d5a06",
+  measurementId: "G-VG2X2B9HBK"
+};
 
     if (!firebase.apps.length) {
       firebase.initializeApp(firebaseConfig);
