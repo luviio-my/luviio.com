@@ -2859,7 +2859,16 @@ function router() {
     case '/signup': renderSignup(app); break;
     case '/contact': renderContact(app); break;
     case '/profile': renderProfile(app); break;
-    case '/checkout': renderCheckout(app); break;
+    case '/checkout': 
+  // Pre-check: Even before rendering, verify session exists
+  const preCheckSession = getCheckoutSession();
+  if (!preCheckSession && !selectedPlan) {
+    // No session and no in-memory plan, redirect immediately
+    navigate('/pricing');
+    break;
+  }
+  renderCheckout(app); 
+  break;
     default: renderHome(app); break;
   }
 
@@ -3363,6 +3372,16 @@ function selectPlanAndCheckout(planId) {
   if (!plans[planId]) { showToast('Invalid plan selected', 'error'); return; }
   selectedPlan = planId;
   
+  // 💾 SAVE CHECKOUT SESSION (5-minute window)
+  const checkoutSession = {
+    planId: planId,
+    timestamp: Date.now(),
+    expiresAt: Date.now() + (5 * 60 * 1000), // 5 minutes from now
+    userId: currentUser.uid || null,
+    formData: null // Will be populated when form is submitted
+  };
+  sessionStorage.setItem('luviio_checkout_session', JSON.stringify(checkoutSession));
+  
   if (!isLoggedIn && !currentUser.uid) {
     showToast('Please sign in to continue with your purchase', 'error');
     setTimeout(() => navigate('/login'), 1000);
@@ -3370,6 +3389,43 @@ function selectPlanAndCheckout(planId) {
   }
   
   navigate('/checkout');
+}
+
+// ===== CHECKOUT SESSION HELPERS =====
+function getCheckoutSession() {
+  try {
+    const sessionStr = sessionStorage.getItem('luviio_checkout_session');
+    if (!sessionStr) return null;
+    
+    const session = JSON.parse(sessionStr);
+    
+    // Check if expired (5 minutes)
+    if (Date.now() > session.expiresAt) {
+      console.log('[Checkout] Session expired, clearing...');
+      sessionStorage.removeItem('luviio_checkout_session');
+      return null;
+    }
+    
+    return session;
+  } catch (e) {
+    console.error('[Checkout] Error reading session:', e);
+    return null;
+  }
+}
+
+function updateCheckoutSessionFormData(formData) {
+  const session = getCheckoutSession();
+  if (session) {
+    session.formData = formData;
+    session.timestamp = Date.now(); // Refresh timestamp on activity
+    sessionStorage.setItem('luviio_checkout_session', JSON.stringify(session));
+  }
+}
+
+function clearCheckoutSession() {
+  sessionStorage.removeItem('luviio_checkout_session');
+  selectedPlan = null;
+  currentOrderId = null;
 }
 
 // ===== MEMBER JOIN HANDLER =====
@@ -4651,8 +4707,186 @@ async function handleContactPageSubmit(e) {
 // CHECKOUT PAGE — CLEAN & PROFESSIONAL REDESIGN
 // ==========================================
 function renderCheckout(el) {
-  if (!selectedPlan || !plans[selectedPlan]) { navigate('/pricing'); return; }
+  // 🔒 SESSION CHECK: Try to restore from sessionStorage first
+  const session = getCheckoutSession();
+  
+  if (!selectedPlan && session && session.planId && plans[session.planId]) {
+    // Restore selectedPlan from valid session
+    selectedPlan = session.planId;
+    console.log('[Checkout] Restored plan from session:', selectedPlan);
+  }
+  
+  // If still no valid plan after session check, redirect to pricing
+  if (!selectedPlan || !plans[selectedPlan]) {
+    console.log('[Checkout] No valid plan/session, redirecting to pricing');
+    navigate('/pricing');
+    return;
+  }
+  
   const plan = plans[selectedPlan];
+  const savedFormData = session ? session.formData : null;
+  
+  el.innerHTML = `
+  <div class="checkout-page">
+    <div class="checkout-container">
+      <!-- Back Link -->
+      <div class="checkout-back-wrapper">
+        <a href="#" class="checkout-back-link" onclick="navigate('/pricing');return false">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          Back to Pricing
+        </a>
+      </div>
+
+      <!-- Minimal Progress Dots -->
+      <div class="checkout-progress-minimal">
+        <div class="progress-dot active" id="progressDot1"></div>
+        <div class="progress-line-mini" id="progressLineMini"></div>
+        <div class="progress-dot" id="progressDot2"></div>
+      </div>
+
+      <!-- Main Card -->
+      <div class="checkout-card">
+        <!-- Header with Plan Info -->
+        <div class="checkout-card-header">
+          <div class="checkout-plan-info">
+            <div class="checkout-plan-label">Selected Plan</div>
+            <div class="checkout-plan-name">${plan.name} Plan</div>
+            <div class="checkout-plan-meta">
+              <span>Monthly billing</span>
+              <span style="width:4px;height:4px;background:#D0D0CA;border-radius:50%"></span>
+              <span>Cancel anytime</span>
+            </div>
+          </div>
+          <div class="checkout-plan-price-large">
+            <span class="checkout-price-value">${plan.price.split(' ')[0]}</span>
+            <span class="checkout-price-period">/${plan.price.split(' ')[1]}</span>
+          </div>
+        </div>
+
+        <!-- Step 1: Form Body -->
+        <div class="checkout-card-body" id="checkoutStep1Body">
+          <div class="checkout-section-title">
+            <span class="step-number">1</span>
+            Your Details
+          </div>
+
+          <form id="checkoutFormClean" onsubmit="handleCheckoutSubmitClean(event)">
+            <div class="checkout-form-grid">
+              <div class="checkout-form-field">
+                <label class="checkout-label">First Name <span class="required">*</span></label>
+                <input type="text" name="firstName" class="checkout-input" required placeholder="John" value="${savedFormData ? (savedFormData.firstName || '') : (currentUser.name ? currentUser.name.split(' ')[0] : '')}">
+              </div>
+              <div class="checkout-form-field">
+                <label class="checkout-label">Last Name <span class="required">*</span></label>
+                <input type="text" name="lastName" class="checkout-input" required placeholder="Doe" value="${savedFormData ? (savedFormData.lastName || '') : (currentUser.name ? currentUser.name.split(' ').slice(1).join('') : '')}">
+              </div>
+            </div>
+
+            <div class="checkout-form-field">
+              <label class="checkout-label">Email Address <span class="required">*</span></label>
+              <input type="email" name="email" class="checkout-input ${currentUser.email ? 'readonly' : ''}" required placeholder="john@example.com" value="${savedFormData ? (savedFormData.email || '') : (currentUser.email || '')}" ${currentUser.email && !savedFormData ? 'readonly' : ''}>
+            </div>
+
+            <div class="checkout-form-field">
+              <label class="checkout-label">Phone Number <span class="required">*</span></label>
+              <input type="tel" name="phone" class="checkout-input" required placeholder="+60 12 345 6789" value="${savedFormData ? (savedFormData.phone || '') : ''}">
+            </div>
+
+            <div class="checkout-form-field">
+              <label class="checkout-label">Company Name</label>
+              <input type="text" name="company" class="checkout-input" placeholder="Your Company (optional)" value="${savedFormData ? (savedFormData.company || '') : ''}">
+            </div>
+
+            <div class="checkout-form-field">
+              <label class="checkout-label">Project Notes</label>
+              <textarea name="notes" class="checkout-input checkout-textarea" rows="3" placeholder="Tell us about your project goals or timeline...">${savedFormData ? (savedFormData.notes || '') : ''}</textarea>
+            </div>
+
+            <div class="checkout-error-banner" id="checkoutErrorBanner"></div>
+
+            <div class="checkout-actions">
+              <button type="submit" class="btn-primary checkout-submit-btn" id="cleanSubmitBtn">
+                Continue to Payment →
+              </button>
+              <button type="button" class="btn-secondary checkout-cancel-btn" onclick="abortCheckout()">Cancel</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Step 2: Payment View with Status Buttons -->
+        <div class="checkout-payment-view" id="checkoutPaymentView">
+          <div class="payment-success-circle">
+            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </div>
+          <h3 class="payment-heading">Details Confirmed! ✨</h3>
+          <p class="payment-subheading">Your information has been saved securely.</p>
+          
+          <div class="payment-plan-confirm-box">
+            <strong>Plan:</strong> ${plan.name} — <strong>${plan.price}/month</strong>
+          </div>
+
+          <a href="${plan.stripeUrl}" target="_blank" rel="noopener noreferrer" class="stripe-button-clean" onclick="handleStripeRedirect('${selectedPlan}')">
+            Pay with Stripe — Secure Checkout
+          </a>
+
+          <p class="payment-note-small">
+            You will be redirected to Stripe's secure payment page to complete your purchase. All major credit cards accepted.
+          </p>
+
+          <!-- Payment Status Selection Buttons -->
+          <div class="payment-status-buttons">
+            <button type="button" class="payment-status-btn payment-success-btn" onclick="handlePaymentSuccess()">
+              ✓ Payment Successful — Complete Order
+            </button>
+            <button type="button" class="payment-status-btn payment-failed-btn" onclick="handlePaymentFailed()">
+              ✗ Payment Failed — Try Again Later
+            </button>
+          </div>
+
+          <button class="edit-details-btn" onclick="resetCheckoutClean()">
+            ← Edit my details
+          </button>
+        </div>
+      </div>
+
+      <!-- Trust Footer -->
+      <div class="checkout-trust-footer">
+        <div class="trust-item-mini">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+          Secure
+        </div>
+        <div class="trust-item-mini">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 12l2 2 4-4"></path></svg>
+          Protected
+        </div>
+        <div class="trust-item-mini">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 12l2 2 4-4"></path></svg>
+          Guaranteed
+        </div>
+      </div>
+      
+      <!-- Session Timer Warning (shows when < 1 min left) -->
+      <div id="sessionExpiryWarning" style="display:none;margin-top:20px;padding:16px;background:#fef3c7;border:1px solid #fcd34d;border-radius:12px;text-align:center;color:#92400e;font-size:13px;font-weight:600;">
+        ⏰ Session expires soon! Complete your purchase or data will be lost.
+      </div>
+    </div>
+  </div>`;
+  
+  // ⏱️ START SESSION TIMER IF EXISTS
+  if (session) {
+    startCheckoutTimer(session.expiresAt);
+  }
+  
+  // If session has form data and was on step 2 (payment view), restore that state
+  if (session && session.formData && session.currentStep === 'payment') {
+    document.getElementById('checkoutStep1Body').style.display = 'none';
+    document.getElementById('checkoutPaymentView').classList.add('visible');
+    document.getElementById('progressDot1').classList.remove('active');
+    document.getElementById('progressDot1').classList.add('completed');
+    document.getElementById('progressLineMini').classList.add('filled');
+    document.getElementById('progressDot2').classList.add('active');
+  }
+}
   
   el.innerHTML = `
   <div class="checkout-page">
@@ -4794,7 +5028,7 @@ function renderCheckout(el) {
       </div>
     </div>
   </div>`;
-}
+
 
 // ===== Handle Clean Checkout Form Submit =====
 async function handleCheckoutSubmitClean(e) {
@@ -4820,6 +5054,19 @@ async function handleCheckoutSubmitClean(e) {
   submitBtn.innerHTML = 'Saving...';
   submitBtn.disabled = true;
 
+  // 💾 COLLECT FORM DATA FOR SESSION PERSISTENCE
+  const formDataSet = {
+    firstName: formData.get('firstName'),
+    lastName: formData.get('lastName'),
+    email: formData.get('email'),
+    phone: formData.get('phone'),
+    company: formData.get('company'),
+    notes: formData.get('notes')
+  };
+
+  // Update session with form data (so it survives refresh)
+  updateCheckoutSessionFormData(formDataSet);
+
   const orderData = {
     planId: selectedPlan,
     planName: plans[selectedPlan].name,
@@ -4843,6 +5090,15 @@ async function handleCheckoutSubmitClean(e) {
     
     // Store the document ID globally for later use
     currentOrderId = docRef.id;
+    
+    // 💾 UPDATE SESSION: Mark as being on payment step
+    const session = getCheckoutSession();
+    if (session) {
+      session.currentStep = 'payment';
+      session.orderId = currentOrderId;
+      session.timestamp = Date.now(); // Reset timer on progress
+      sessionStorage.setItem('luviio_checkout_session', JSON.stringify(session));
+    }
     
     // Update progress dots
     document.getElementById('progressDot1').classList.remove('active');
@@ -4962,6 +5218,58 @@ function resetCheckoutClean() {
   document.getElementById('checkoutStep1Body').style.display = 'block';
   document.getElementById('checkoutPaymentView').classList.remove('visible');
 }
+
+// ===== ABORT CHECKOUT (Clears session) =====
+function abortCheckout() {
+  clearCheckoutSession();
+  navigate('/pricing');
+}
+
+// ===== CHECKOUT TIMER =====
+let checkoutTimerInterval = null;
+
+function startCheckoutTimer(expiresAt) {
+  // Clear any existing timer
+  if (checkoutTimerInterval) {
+    clearInterval(checkoutTimerInterval);
+  }
+  
+  const warningEl = document.getElementById('sessionExpiryWarning');
+  
+  checkoutTimerInterval = setInterval(() => {
+    const now = Date.now();
+    const remaining = expiresAt - now;
+    
+    // Show warning when less than 60 seconds left
+    if (remaining <= 60000 && remaining > 0 && warningEl) {
+      warningEl.style.display = 'block';
+      const seconds = Math.ceil(remaining / 1000);
+      warningEl.innerHTML = `⏰ Session expires in ${seconds} seconds! Complete your purchase.`;
+    }
+    
+    // Auto-redirect when expired
+    if (remaining <= 0) {
+      clearInterval(checkoutTimerInterval);
+      checkoutTimerInterval = null;
+      
+      showToast('⏰ Checkout session expired. Redirecting to pricing...', 'error');
+      clearCheckoutSession();
+      
+      setTimeout(() => {
+        navigate('/pricing');
+      }, 1500);
+    }
+  }, 1000); // Check every second
+}
+
+// ===== CLEANUP ON PAYMENT SUCCESS/FAILURE =====
+// Modify these existing functions to clear checkout session:
+
+// In handlePaymentSuccess function, ADD at the beginning (before the try block):
+// clearCheckoutSession(); // Don't clear immediately - let success page use it briefly
+
+// Actually, keep the session until success page loads, then clear it there.
+// The payment-successful page has its own 5-minute session.
 
 // ==========================================
 // PAYMENT SUCCESSFUL PAGE RENDERER
