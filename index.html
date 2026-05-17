@@ -4725,7 +4725,17 @@ async function handleCheckoutSubmitClean(e) {
     
     // Store the document ID globally for payment flow
     currentOrderDocId = docRef.id;
-    
+
+    // CRITICAL FIX: Persist to sessionStorage so it survives Stripe redirects & refreshes
+    try {
+      sessionStorage.setItem('luviio_pending_order_id', docRef.id);
+      sessionStorage.setItem('luviio_pending_order_uid', currentUser.uid);
+      sessionStorage.setItem('luviio_pending_order_time', Date.now().toString());
+      console.log('[Checkout] Order ID persisted to sessionStorage:', docRef.id);
+    } catch(e) { 
+      console.warn('[SessionStorage] Could not save order ID:', e); 
+    }
+        
     // Update progress dots
     document.getElementById('progressDot1').classList.remove('active');
     document.getElementById('progressDot1').classList.add('completed');
@@ -4825,13 +4835,40 @@ function resetCheckoutClean() {
 
 // Main renderer for /payment-successful route
 async function renderPaymentSuccessful(el, params = {}) {
+  
+  // ===== NEW: Session Storage Recovery =====
+  // If no URL params, check sessionStorage (handles Stripe redirects & refreshes)
+  if ((!params.userId || !params.docId) && isLoggedIn && currentUser.uid) {
+    try {
+      const storedId = sessionStorage.getItem('luviio_pending_order_id');
+      const storedUid = sessionStorage.getItem('luviio_pending_order_uid');
+      
+      if (storedId && storedUid === currentUser.uid) {
+        console.log('[Payment Success] ✅ Recovered order ID from sessionStorage:', storedId);
+        
+        // Inject into params so the rest of the function works normally
+        params.userId = currentUser.uid;
+        params.docId = storedId;
+        
+        // Optional: Clear immediately to prevent reuse on next accidental visit
+        // (Comment out if you want to keep it for "back button" scenarios)
+        // sessionStorage.removeItem('luviio_pending_order_id');
+      } else {
+        console.log('[Payment Success] No valid session storage data found');
+      }
+    } catch(e) { 
+      console.warn('[Payment Success] Session recovery failed:', e); 
+    }
+  }
+  // ===== END Session Storage Recovery =====
+
   // Check if we have params from URL (/payment-successful/:userId/:docId)
   const urlUserId = params.userId || null;
   const urlDocId = params.docId || null;
   
   let orderData = null;
   let isFromFailedSession = false;
-  
+    
   // If we have URL params, fetch the specific order
   if (urlUserId && urlDocId && isLoggedIn && currentUser.uid === urlUserId) {
     try {
@@ -4885,6 +4922,20 @@ async function renderPaymentSuccessful(el, params = {}) {
   if (isFailed && orderData && orderData.failedAt) {
     startFailedCountdown(orderData.failedAt);
   }
+
+  // ===== REPLACEMENT #4: Cleanup session storage after successful display =====
+  // Prevents stale data from showing wrong order on next visit
+  if ((urlDocId || params.docId) && (isSuccess || orderData?.status === 'payment_made' || orderData?.status === 'paid' || orderData?.status === 'completed')) {
+    try {
+      sessionStorage.removeItem('luviio_pending_order_id');
+      sessionStorage.removeItem('luviio_pending_order_uid');
+      sessionStorage.removeItem('luviio_pending_order_time');
+      console.log('[Payment Success] ✅ Session storage cleaned up successfully');
+    } catch(e) {
+      console.warn('[Payment Success] Cleanup error (non-critical):', e);
+    }
+  }
+  // ===== END REPLACEMENT #4 =====
 }
 
 // Build the HTML for Payment Successful Page
@@ -5308,19 +5359,95 @@ function isPaymentSessionValid() {
 function checkAndRedirectToParametrizedURL() {
   // Only run if we're on base /payment-successful without params
   const path = getRoute();
-  if (path !== '/payment-successful') return;
-  
-  // Check if we have a valid session and stored doc ID
-  if (isPaymentSessionValid() && currentOrderDocId && isLoggedIn && currentUser.uid) {
-    console.log('[Auto-Redirect] Valid session found. Redirecting to parameterized URL...');
-    
-    // Redirect to the full URL with params
-    const targetURL = `/payment-successful/${currentUser.uid}/${currentOrderDocId}`;
-    window.history.replaceState({ route: targetURL }, '', basePath + targetURL);
-    router(); // Re-render with new params
-    return true;
+  if (path !== '/payment-successful') {
+    return false;
   }
   
+  // Must be logged in
+  if (!isLoggedIn || !currentUser.uid) {
+    console.log('[Auto-Redirect] Not logged in, skipping');
+    return false;
+  }
+
+  let orderId = null;
+
+  // PRIORITY 1: Check sessionStorage (set during checkout, survives Stripe popups)
+  try {
+    const storedId = sessionStorage.getItem('luviio_pending_order_id');
+    const storedUid = sessionStorage.getItem('luviio_pending_order_uid');
+    const storedTime = parseInt(sessionStorage.getItem('luviio_pending_order_time') || '0');
+
+    // Validate session is recent (within 30 minutes)
+    if (storedId && storedUid === currentUser.uid && (Date.now() - storedTime < 1800000)) {
+      orderId = storedId;
+      console.log('[Auto-Redirect] Found order in sessionStorage:', orderId);
+    } else if (storedId) {
+      console.log('[Auto-Redirect] SessionStorage data found but expired or UID mismatch');
+      // Clean up stale data
+      sessionStorage.removeItem('luviio_pending_order_id');
+      sessionStorage.removeItem('luviio_pending_order_uid');
+      sessionStorage.removeItem('luviio_pending_order_time');
+    }
+  } catch(e) { 
+    console.warn('[SessionStorage] Read error:', e); 
+  }
+
+  // PRIORITY 2: Check in-memory variable (same tab, no refresh)
+  if (!orderId && currentOrderDocId) {
+    orderId = currentOrderDocId;
+    console.log('[Auto-Redirect] Found order in memory:', orderId);
+  }
+
+  // PRIORITY 3: Query Firestore for most recent pending or paid order
+  // (Handles case where user closes tab completely and returns later)
+  if (!orderId) {
+    console.log('[Auto-Redirect] No session/memory data. Querying Firestore...');
+    
+    // Async fallback - don't block rendering, redirect when ready
+    db.collection('orders')
+      .where('userId', '==', currentUser.uid)
+      .where('status', 'in', ['payment_made', 'pending_payment', 'retrying'])
+      .orderBy('createdAt', 'desc')
+      .limit(1)
+      .get()
+      .then((snapshot) => {
+        // Double-check we're still on the right page and user is still logged in
+        if (!snapshot.empty && authInitialized && isLoggedIn && currentUser.uid) {
+          const latestOrder = snapshot.docs[0];
+          const latestOrderId = latestOrder.id;
+          const latestStatus = latestOrder.data().status;
+          
+          console.log(`[Auto-Redirect] Found recent order in Firestore: ${latestOrderId} (${latestStatus})`);
+          
+          // Redirect to parameterized URL
+          const targetURL = `/payment-successful/${currentUser.uid}/${latestOrderId}`;
+          console.log('[Auto-Redirect] Redirecting to:', targetURL);
+          
+          // Use replaceState to prevent back-button loops
+          window.history.replaceState({ route: targetURL, from: 'firestore_fallback' }, '', basePath + targetURL);
+          router(); // Re-render with new params
+        } else {
+          console.log('[Auto-Redirect] No recent orders found or auth state changed');
+        }
+      })
+      .catch(err => {
+        console.error('[Auto-Redirect] Firestore query error:', err);
+      });
+    
+    return false; // Let initial render happen, async will redirect later
+  }
+
+  // If we have an orderId, redirect immediately
+  if (orderId) {
+    const targetURL = `/payment-successful/${currentUser.uid}/${orderId}`;
+    console.log('[Auto-Redirect] Redirecting to parameterized URL:', targetURL);
+    
+    // Use replaceState to prevent back-button loops
+    window.history.replaceState({ route: targetURL, from: 'session_redirect' }, '', basePath + targetURL);
+    return true; // Signal that redirect happened
+  }
+
+  console.log('[Auto-Redirect] No order ID found anywhere. Showing generic page.');
   return false;
 }
 
