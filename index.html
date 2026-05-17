@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
 
 <!-- CRITICAL: Site Identity for Google & Browsers -->
 <title>Luviio · Build Interfaces That Grow</title>
@@ -121,19 +121,41 @@
   .mono{font-family:"Space Mono",SFMono-Regular,"Courier New",monospace}
   .container{max-width:1200px;margin:0 auto;padding:0 40px;width:100%;position:relative}
 
-  /* MOBILE INPUT ZOOM PREVENTION */
+  /* MOBILE ZOOM CONTROL — Allows page zoom, blocks input auto-zoom */
   @supports (-webkit-touch-callout: none) {
+    html {
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+      touch-action: pan-x pan-y pinch-zoom;
+    }
+    
     input[type="text"], 
     input[type="email"], 
     input[type="password"], 
     input[type="tel"], 
     input[type="number"], 
     input[type="search"],
+    input[type="url"],
+    input[type="date"],
     textarea,
     select {
       font-size: 16px !important;
+      line-height: 1.5 !important;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+      touch-action: manipulation;
       -webkit-transform: translateZ(0);
       transform: translateZ(0);
+    }
+
+    .btn-primary,
+    .btn-secondary,
+    .btn-ghost,
+    button[type="submit"],
+    .nav-cta,
+    .auth-social-btn,
+    .stripe-button-clean {
+      touch-action: manipulation;
     }
   }
 
