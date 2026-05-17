@@ -166,6 +166,18 @@
     from{opacity:0;transform:translateY(-10px)}
     to{opacity:1;transform:translateY(0)}
   }
+  @keyframes confetti-fall{
+    0%{transform:translateY(-100%) rotate(0deg);opacity:1}
+    100%{transform:translateY(100vh) rotate(720deg);opacity:0}
+  }
+  @keyframes checkmark-draw{
+    0%{stroke-dashoffset:50}
+    100%{stroke-dashoffset:0}
+  }
+  @keyframes pulse-glow{
+    0%,100%{box-shadow:0 0 20px rgba(171,21,9,0.3)}
+    50%{box-shadow:0 0 40px rgba(171,21,9,0.6)}
+  }
   
   .animate-on-scroll{
     opacity:0;
@@ -1082,6 +1094,393 @@
   }
 
   /* ========================================== */
+  /* PAYMENT SUCCESSFUL PAGE                   */
+  /* ========================================== */
+  .payment-success-page {
+    min-height: calc(100vh - 73px);
+    background: linear-gradient(180deg, #FAFAF8 0%, #F5F5F0 100%);
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0;
+  }
+
+  .payment-success-page::before {
+    content: '';
+    position: absolute;
+    top: -150px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(171,21,9,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .payment-success-container {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 56px 24px 80px;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1;
+  }
+
+  .success-checkmark-wrapper {
+    width: 96px;
+    height: 96px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 28px;
+    animation: pulse-glow 2s ease-in-out infinite;
+    box-shadow: 0 8px 32px rgba(171,21,9,0.3);
+  }
+
+  .success-checkmark-svg {
+    width: 48px;
+    height: 48px;
+    stroke: #ffffff;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+    stroke-dasharray: 50;
+    stroke-dashoffset: 50;
+    animation: checkmark-draw 0.6s ease forwards 0.3s;
+  }
+
+  .success-heading {
+    font-size: 36px;
+    font-weight: 900;
+    text-align: center;
+    color: var(--text);
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+
+  .success-subheading {
+    font-size: 17px;
+    text-align: center;
+    color: #8B8B7A;
+    margin-bottom: 40px;
+    line-height: 1.5;
+  }
+
+  .purchase-details-card {
+    background: #FFFFFF;
+    border: 2px solid var(--text);
+    border-radius: 20px;
+    box-shadow: var(--shadow-btn);
+    padding: 32px;
+    margin-bottom: 36px;
+    transition: all 0.3s ease;
+  }
+
+  .purchase-details-card:hover {
+    box-shadow: var(--shadow-btn-hover);
+    transform: translateY(-2px);
+  }
+
+  .purchase-details-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed var(--warm-light);
+    flex-wrap: wrap;
+  }
+
+  .purchase-plan-info h3 {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .purchase-plan-info p {
+    font-size: 14px;
+    color: #8B8B7A;
+  }
+
+  .purchase-price-display {
+    text-align: right;
+  }
+
+  .purchase-price-big {
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--primary);
+    line-height: 1;
+  }
+
+  .purchase-price-period {
+    font-size: 14px;
+    color: #8B8B7A;
+    font-weight: 500;
+  }
+
+  .purchase-details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .purchase-detail-item {
+    padding: 12px 0;
+  }
+
+  .purchase-detail-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: #8B8B7A;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 4px;
+  }
+
+  .purchase-detail-value {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .purchase-detail-value.mono {
+    font-family: "Space Mono", monospace;
+    font-size: 13px;
+  }
+
+  .status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .status-badge.success {
+    background: #ECFDF5;
+    color: #059669;
+    border: 1px solid #A7F3D0;
+  }
+
+  .status-badge.pending {
+    background: #FFFBEB;
+    color: #D97706;
+    border: 1px solid #FDE68A;
+  }
+
+  .status-badge.failed {
+    background: #FEF2F2;
+    color: var(--error);
+    border: 1px solid #FECACA;
+  }
+
+  /* Support Section */
+  .support-section {
+    background: #FFFFFF;
+    border: 1px solid var(--warm-light);
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 32px;
+    box-shadow: var(--shadow-card);
+  }
+
+  .support-section h3 {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .support-contact-list {
+    list-style: none;
+  }
+
+  .support-contact-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--warm-light);
+    font-size: 14px;
+    color: var(--text);
+    transition: all 0.2s;
+  }
+
+  .support-contact-item:last-child {
+    border-bottom: none;
+  }
+
+  .support-contact-item:hover {
+    color: var(--primary);
+    padding-left: 4px;
+  }
+
+  .support-contact-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--primary-tint);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    flex-shrink: 0;
+  }
+
+  /* FAQ Section */
+  .faq-section {
+    background: #FFFFFF;
+    border: 1px solid var(--warm-light);
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 32px;
+    box-shadow: var(--shadow-card);
+  }
+
+  .faq-section h3 {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 20px;
+  }
+
+  .faq-item {
+    border: 1px solid var(--warm-light);
+    border-radius: 12px;
+    margin-bottom: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .faq-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .faq-question {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    text-align: left;
+    transition: all 0.2s;
+  }
+
+  .faq-question:hover {
+    background: var(--primary-tint);
+  }
+
+  .faq-question.active {
+    background: var(--primary-tint);
+    color: var(--primary);
+  }
+
+  .faq-arrow {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+  }
+
+  .faq-question.active .faq-arrow {
+    transform: rotate(180deg);
+  }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+  }
+
+  .faq-answer.open {
+    max-height: 300px;
+    padding: 0 20px 16px;
+  }
+
+  .faq-answer p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #5C5C4F;
+  }
+
+  .faq-answer a {
+    color: var(--primary);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .faq-answer a:hover {
+    color: var(--primary-dark);
+  }
+
+  .action-buttons-row {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+  }
+
+  .action-buttons-row .btn-primary,
+  .action-buttons-row .btn-secondary {
+    flex: 1;
+    min-width: 160px;
+    justify-content: center;
+  }
+
+  /* Payment Failed State */
+  .failed-state-icon {
+    width: 96px;
+    height: 96px;
+    background: linear-gradient(135deg, #FEF2F2, #FEE2E2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 28px;
+    animation: shake 0.6s ease;
+  }
+
+  .failed-state-icon svg {
+    width: 48px;
+    height: 48px;
+    color: var(--error);
+  }
+
+  .retry-countdown {
+    font-family: "Space Mono", monospace;
+    font-size: 13px;
+    color: var(--error);
+    background: #FEF2F2;
+    padding: 8px 16px;
+    border-radius: 8px;
+    display: inline-block;
+    margin-top: 12px;
+  }
+
+  /* ========================================== */
   /* MOBILE-FIRST RESPONSIVE                   */
   /* ========================================== */
 
@@ -1196,6 +1595,17 @@
     .checkout-form-grid {
       grid-template-columns: 1fr;
       gap: 0;
+    }
+
+    /* Payment Success Page Mobile */
+    .payment-success-container {
+      padding: 40px 20px 60px;
+    }
+    .success-heading {
+      font-size: 28px;
+    }
+    .purchase-details-grid {
+      grid-template-columns: 1fr;
     }
   }
 
@@ -1486,6 +1896,51 @@
     .company-stat-item{padding:24px 16px !important}
     .stat-big-num{font-size:36px !important}
     .stat-label-text{font-size:11px !important;letter-spacing:.03em !important}
+
+    /* Payment Success Page Mobile */
+    .payment-success-container {
+      padding: 32px 16px 48px;
+    }
+    .success-checkmark-wrapper {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 24px;
+    }
+    .success-checkmark-svg {
+      width: 40px;
+      height: 40px;
+    }
+    .success-heading {
+      font-size: 26px;
+    }
+    .success-subheading {
+      font-size: 15px;
+      margin-bottom: 32px;
+    }
+    .purchase-details-card {
+      padding: 24px 20px;
+    }
+    .purchase-plan-info h3 {
+      font-size: 18px;
+    }
+    .purchase-price-big {
+      font-size: 26px;
+    }
+    .support-section,
+    .faq-section {
+      padding: 20px;
+    }
+    .support-section h3,
+    .faq-section h3 {
+      font-size: 16px;
+    }
+    .action-buttons-row {
+      flex-direction: column;
+    }
+    .action-buttons-row .btn-primary,
+    .action-buttons-row .btn-secondary {
+      width: 100%;
+    }
   }
 
   @media(max-width:479px){
@@ -1837,6 +2292,59 @@
     .company-value{padding:18px 14px !important;border-radius:12px !important}
     .company-value h3{font-size:16px !important;margin-bottom:4px !important}
     .company-value p{font-size:13px !important;line-height:1.5 !important}
+
+    /* Payment Success Page Extra Small */
+    .payment-success-container {
+      padding: 24px 12px 40px;
+    }
+    .success-checkmark-wrapper {
+      width: 72px;
+      height: 72px;
+      margin-bottom: 20px;
+    }
+    .success-checkmark-svg {
+      width: 36px;
+      height: 36px;
+    }
+    .success-heading {
+      font-size: 22px;
+    }
+    .success-subheading {
+      font-size: 14px;
+      margin-bottom: 28px;
+    }
+    .purchase-details-card {
+      padding: 20px 16px;
+      border-radius: 14px;
+    }
+    .purchase-details-header {
+      flex-direction: column;
+      gap: 12px;
+    }
+    .purchase-price-display {
+      text-align: left;
+    }
+    .purchase-plan-info h3 {
+      font-size: 17px;
+    }
+    .purchase-price-big {
+      font-size: 24px;
+    }
+    .purchase-detail-item {
+      padding: 10px 0;
+    }
+    .support-section,
+    .faq-section {
+      padding: 16px;
+      border-radius: 12px;
+    }
+    .faq-question {
+      padding: 14px 16px;
+      font-size: 14px;
+    }
+    .faq-answer p {
+      font-size: 13px;
+    }
   }
 
   /* Touch-friendly improvements */
@@ -1845,6 +2353,7 @@
     .feature-card,.pricing-card,.service-card,.product-feature,.company-value,.team-card,.contact-item,.order-summary,.checkout-card{touch-action:manipulation}
     nav a{padding:8px 0}
     .footer-col a{padding:8px 0}
+    .faq-question{min-height:48px}
   }
 
   /* Landscape phone fixes */
@@ -1945,36 +2454,27 @@ let isLoggedIn = false;
 let currentUser = { name: '', email: '', initials: '', bio: '', uid: null, photoURL: '' };
 let selectedPlan = null;
 let authInitialized = false;
+let currentOrderDocId = null; // Store the order document ID for payment flow
+let paymentSessionExpiry = null; // Store session expiry timestamp
 
 // ===== CLOUDFLARE WORKERS API CONFIGURATION =====
 const LUVIIO_API_URL = 'https://luviio-api.luviio.com';
 
 // ===== API HELPER FUNCTION =====
-// Handles authentication token injection and error handling
 async function callLuviioAPI(type, data) {
   try {
-    const headers = {
-      'Content-Type': 'application/json'
-    };
-    
-    // Attach Firebase Auth token if user is logged in (for optional auth)
+    const headers = { 'Content-Type': 'application/json' };
     if (auth.currentUser) {
       const token = await auth.currentUser.getIdToken();
       headers['Authorization'] = `Bearer ${token}`;
     }
-    
     const response = await fetch(LUVIIO_API_URL, {
       method: 'POST',
       headers: headers,
       body: JSON.stringify({ type, ...data })
     });
-    
     const result = await response.json();
-    
-    if (!response.ok) {
-      throw new Error(result.error || `API Error: ${response.status}`);
-    }
-    
+    if (!response.ok) throw new Error(result.error || `API Error: ${response.status}`);
     return result;
   } catch (error) {
     console.error('[Luviio API] Error:', error);
@@ -2032,19 +2532,14 @@ function getFriendlyErrorMessage(error) {
 
 // ===== AUTH STATE LISTENER =====
 auth.onAuthStateChanged(async (user) => {
-  authInitialized = true;  // Mark as ready
-  
+  authInitialized = true;
   const currentRoute = getRoute();
   
   if (user) {
-    // ==========================================
-    // USER IS LOGGED IN - Set all state immediately
-    // ==========================================
     isLoggedIn = true;
     currentUser.uid = user.uid;
     currentUser.email = user.email;
     
-    // Set defaults from Firebase Auth immediately so UI doesn't show blank
     currentUser.name = user.displayName || user.email.split('@')[0];
     currentUser.initials = (user.displayName || user.email).split(' ').map(w => w[0]).join('').toUpperCase().slice(0, 2);
     currentUser.photoURL = user.photoURL || '';
@@ -2066,40 +2561,25 @@ auth.onAuthStateChanged(async (user) => {
         });
         currentUser.initials = currentUser.name.split(' ').map(w => w[0]).join('').toUpperCase().slice(0, 2);
       }
-    } catch (error) {
-      // Silently handle fetch errors
-    }
+    } catch (error) {}
     
-    // Update Header Button IMMEDIATELY (Login → My Profile)
     updateAuthUI();
     
-    // ==========================================
-    // CRITICAL: Re-render if on a protected route
-    // This handles the refresh scenario where router showed loading skeleton
-    // ==========================================
     if (PROTECTED_ROUTES.includes(currentRoute)) {
-      router();  // This will now pass the auth check and render real content
+      router();
     }
     
-    // Also handle edge case: if user was on login page but is now logged in
     if (currentRoute === '/login' || currentRoute === '/signup') {
-      // Optional: redirect to profile if they land on login while logged in
-      // Uncomment next line if you want this behavior:
-      // navigate('/profile'); 
+      // Optional redirect
     }
     
   } else {
-    // ==========================================
-    // NO USER - Reset everything
-    // ==========================================
     isLoggedIn = false;
     currentUser = { name: '', email: '', initials: '', bio: '', uid: null, photoURL: '' };
     updateAuthUI();
     
-    // If on protected route and no user, router() will handle redirect
-    // (because authInitialized is now true, the guard in router will trigger)
     if (PROTECTED_ROUTES.includes(currentRoute)) {
-      router();  // Triggers the redirect logic in router()
+      router();
     }
   }
 });
@@ -2201,7 +2681,8 @@ const pageTitles = {
   '/signup': 'Create Account · Luviio',
   '/profile': 'My Profile · Luviio',
   '/contact': 'Contact Us · Luviio',
-  '/checkout': 'Complete Purchase · Luviio'
+  '/checkout': 'Complete Purchase · Luviio',
+  '/payment-successful': 'Payment Successful · Luviio'
 };
 
 // Protected routes that require authentication
@@ -2211,8 +2692,25 @@ function setPageTitle(route) {
   document.title = pageTitles[route] || 'Luviio';
 }
 
+// Parse dynamic routes like /payment-successful/:userId/:docId
+function parseDynamicRoute(pathname) {
+  // Check for payment-successful with params
+  const paymentMatch = pathname.match(/^\/payment-successful\/([^/]+)\/([^/]+)$/);
+  if (paymentMatch) {
+    return { route: '/payment-successful', params: { userId: paymentMatch[1], docId: paymentMatch[2] } };
+  }
+  
+  // Check base payment-successful route
+  if (pathname === '/payment-successful' || pathname.startsWith('/payment-successful')) {
+    return { route: '/payment-successful', params: {} };
+  }
+  
+  return { route: pathname, params: {} };
+}
+
 function router() {
-  const route = getRoute();
+  const rawPath = window.location.pathname.replace(basePath, '') || '/';
+  const { route, params } = parseDynamicRoute(rawPath);
   const app = document.getElementById('app');
   const navLinks = document.querySelectorAll('#mainNav .nav-link');
 
@@ -2223,12 +2721,7 @@ function router() {
     link.style.color = (href === '#' + route || (route === '/' && href === '/')) ? 'var(--primary)' : '';
   });
 
-  // ==========================================
-  // AUTH GUARD: Handle Protected Routes
-  // ==========================================
-  
-  // CASE A: Protected route accessed BEFORE auth is initialized
-  // Show elegant loading skeleton to prevent flash of wrong content
+  // AUTH GUARD
   if (PROTECTED_ROUTES.includes(route) && !authInitialized) {
     app.innerHTML = `
       <div style="display:flex;align-items:center;justify-content:center;min-height:calc(100vh - 73px);background:var(--bg);padding:20px">
@@ -2240,39 +2733,23 @@ function router() {
         </div>
       </div>
     `;
-    // DON'T return yet - let auth listener call router() again when ready
-    // This prevents the login form from ever flashing
     return;
   }
 
-  // CASE B: Protected route accessed AFTER auth initialized, but NOT logged in
-  // Force redirect to login immediately (replace history to prevent back-button return)
   if (PROTECTED_ROUTES.includes(route) && authInitialized && (!isLoggedIn || !currentUser.uid)) {
-    // Replace current history entry so back button doesn't return to protected page
     window.history.replaceState({ route: '/login' }, '', basePath + '/login');
-    
-    // Show toast explaining why
-    if (route === '/profile') {
-      showToast('🔒 Please sign in to view your profile', 'error');
-    } else if (route === '/checkout') {
-      showToast('🔒 Please sign in to complete your purchase', 'error');
-    }
-    
-    // Navigate to login after a tiny delay to allow state update
+    if (route === '/profile') showToast('🔒 Please sign in to view your profile', 'error');
+    else if (route === '/checkout') showToast('🔒 Please sign in to complete your purchase', 'error');
     setTimeout(() => navigate('/login'), 100);
     return;
   }
 
-  // CASE C: Checkout specific validation (plan selection)
   if (route === '/checkout' && selectedPlan && !plans[selectedPlan]) {
     navigate('/pricing');
     return;
   }
 
-  // ==========================================
-  // ROUTE RENDERING (Only reached if authorized or public)
-  // ==========================================
-  
+  // ROUTE RENDERING
   switch (route) {
     case '/': case '/home': renderHome(app); break;
     case '/product': renderProduct(app); break;
@@ -2283,17 +2760,14 @@ function router() {
     case '/terms': renderTerms(app); break;
     case '/policy': renderPolicy(app); break;
     case '/login': 
-      // If already logged in and hit login page, send to profile
-      if (isLoggedIn && currentUser.uid) {
-        navigate('/profile');
-        return;
-      }
+      if (isLoggedIn && currentUser.uid) { navigate('/profile'); return; }
       renderLogin(app); 
       break;
     case '/signup': renderSignup(app); break;
     case '/contact': renderContact(app); break;
     case '/profile': renderProfile(app); break;
     case '/checkout': renderCheckout(app); break;
+    case '/payment-successful': renderPaymentSuccessful(app, params); break;
     default: renderHome(app); break;
   }
 
@@ -2305,40 +2779,23 @@ function router() {
 
 window.addEventListener('DOMContentLoaded', router);
 
-// ==========================================
-// INITIAL UI SYNC
-// Prevents "Login" button flash for returning users
-// by checking localStorage/session for cached auth hint
-// ==========================================
+// ===== INITIAL UI SYNC =====
 (function() {
-  // Check if we have a recent Firebase auth token (indicates likely logged in)
   const hasFirebaseToken = () => {
     try {
-      // Firebase stores tokens in IndexedDB/localStorage
-      // This is a heuristic check
       for (let i = 0; i < localStorage.length; i++) {
         const key = localStorage.key(i);
-        if (key && key.includes('firebase:authUser:')) {
-          return true;
-        }
+        if (key && key.includes('firebase:authUser:')) return true;
       }
     } catch(e) {}
     return false;
   };
 
-  // If we detect a stored token, optimistically update UI before Firebase confirms
-  // This eliminates the 200ms "Login"→"My Profile" flicker on refresh
   if (hasFirebaseToken()) {
     const authBtn = document.getElementById('authBtn');
     const mobileAuthLink = document.getElementById('mobileAuthLink');
-    if (authBtn) { 
-      authBtn.href = '/profile'; 
-      authBtn.textContent = 'My Profile'; 
-    }
-    if (mobileAuthLink) { 
-      mobileAuthLink.href = '/profile'; 
-      mobileAuthLink.textContent = 'My Profile'; 
-    }
+    if (authBtn) { authBtn.href = '/profile'; authBtn.textContent = 'My Profile'; }
+    if (mobileAuthLink) { mobileAuthLink.href = '/profile'; mobileAuthLink.textContent = 'My Profile'; }
   }
 })();
 
@@ -2427,7 +2884,10 @@ const icons = {
   star: '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>',
   pencil: '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"></path><path d="m15 5 4 4"></path></svg>',
   logOut: '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>',
-  arrowLeft: '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>'
+  arrowLeft: '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>',
+  chevronDown: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>',
+  alertCircle: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>',
+  refreshCw: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>'
 };
 
 // ===== STANDARD FOOTER =====
@@ -2644,7 +3104,7 @@ function renderHome(el) {
             <li><span class="svc-check">${icons.check}</span>Cloud infrastructure management (AWS, GCP)</li>
             <li><span class="svc-check">${icons.check}</span>Security audits & vulnerability patches</li>
           </ul>
-          <div class="service-action"><a href="/services" class="btn-ghost">${icons.arrowRight} View plans</a></div>
+          <div class="service-action"><a href="/pricing" class="btn-ghost">${icons.arrowRight} View plans</a></div>
         </div>
       </div>
       <div style="text-align:center;margin-top:36px" class="animate-on-scroll"><a href="/services" class="btn-primary">${icons.zap} View All Services</a></div>
@@ -2809,17 +3269,15 @@ function selectPlanAndCheckout(planId) {
   navigate('/checkout');
 }
 
-// ===== MEMBER JOIN HANDLER (UPDATED TO USE CLOUDFLARE API) =====
+// ===== MEMBER JOIN HANDLER =====
 async function handleMemberJoin() {
   const emailInput = document.getElementById('memberEmail');
   if (emailInput && emailInput.value && emailInput.value.includes('@')) {
     try {
-      // Call Cloudflare Workers API instead of direct Firestore write
       await callLuviioAPI('newsletter', {
         email: emailInput.value,
         source: 'homepage_membership'
       });
-      
       showToast(`🎉 Welcome aboard! Confirmation sent to ${emailInput.value}`, 'success');
       emailInput.value = '';
     } catch (error) {
@@ -2836,7 +3294,7 @@ async function handleMemberJoin() {
   }
 }
 
-// ===== CONTACT FORM HANDLER (FIXED) =====
+// ===== CONTACT FORM HANDLER =====
 async function handleContactSubmit(e) {
   e.preventDefault();
   const form = document.getElementById('contactForm');
@@ -2849,11 +3307,10 @@ async function handleContactSubmit(e) {
   btn.disabled = true;
 
   try {
-    // FIX: Combine firstName + lastName into "name" field that API expects
     const fullName = `${formData.get('firstName') || ''} ${formData.get('lastName') || ''}`.trim();
     
     await callLuviioAPI('contact', {
-      name: fullName,                    // ← API expects "name", not firstName/lastName
+      name: fullName,
       email: formData.get('email'),
       phone: formData.get('phone'),
       service: formData.get('service'),
@@ -3690,7 +4147,6 @@ function handleEmailLogin() {
 function handleGoogleSignIn() {
   const provider = new firebase.auth.GoogleAuthProvider();
   
-  // UNIFIED: Use Popup on ALL devices (desktop + mobile + tablet)
   auth.signInWithPopup(provider)
     .then((result) => {
       const user = result.user;
@@ -3725,7 +4181,6 @@ function handleGoogleSignIn() {
       if (friendlyMsg && friendlyMsg !== '') {
         showToast(friendlyMsg, 'error');
       }
-      // Specific handling for popup blocked
       if (err.code === 'auth/popup-blocked' || err.code === 'auth/popup-closed-by-user') {
         showToast('Popup was blocked. Please allow popups for this site and try again.', 'error');
       }
@@ -3822,7 +4277,6 @@ function handleEmailSignup() {
 function handleGoogleSignUp() {
   const provider = new firebase.auth.GoogleAuthProvider();
   
-  // UNIFIED: Use Popup on ALL devices (desktop + mobile + tablet)
   auth.signInWithPopup(provider)
     .then((result) => {
       const user = result.user;
@@ -3857,7 +4311,6 @@ function handleGoogleSignUp() {
       if (friendlyMsg && friendlyMsg !== '') {
         showToast(friendlyMsg, 'error');
       }
-      // Specific handling for popup blocked
       if (err.code === 'auth/popup-blocked' || err.code === 'auth/popup-closed-by-user') {
         showToast('Popup was blocked. Please allow popups for this site and try again.', 'error');
       }
@@ -3866,37 +4319,18 @@ function handleGoogleSignUp() {
 
 // ===== PROFILE PAGE (Hardened - No Guest Access) =====
 function renderProfile(el) {
-  // ==========================================
-  // ABSOLUTE SECURITY CHECK
-  // If this function runs and user isn't valid, something went wrong.
-  // Force emergency redirect.
-  // ==========================================
   if (!isLoggedIn || !currentUser.uid || !auth.currentUser) {
     console.warn('[Security] Profile page accessed without valid session. Redirecting.');
-    
-    // Clear sensitive content immediately
     el.innerHTML = '';
-    
-    // Force redirect using replaceState (prevents browser back-button bypass)
     if (window.location.pathname !== '/login' && window.location.pathname !== basePath + '/login') {
       window.history.replaceState({ route: '/login', forced: true }, '', basePath + '/login');
-      
-      // Immediate navigation
-      setTimeout(() => {
-        navigate('/login');
-      }, 10);
+      setTimeout(() => { navigate('/login'); }, 10);
     } else {
-      // Fallback: If stuck, render login directly
       renderLogin(el);
     }
     return;
   }
 
-  // ==========================================
-  // USER IS AUTHENTICATED - RENDER PROFILE IMMEDIATELY
-  // No login forms, no delays, no guest views
-  // ==========================================
-  
   const displayName = currentUser.name || 'User';
   const displayEmail = currentUser.email || '';
   const displayInitials = currentUser.initials || '?';
@@ -4010,7 +4444,7 @@ function handleLogout() {
   }).catch((err) => showToast('Logout error', 'error'));
 }
 
-// ===== CONTACT PAGE (UPDATED TO USE CLOUDFLARE API) =====
+// ===== CONTACT PAGE =====
 function renderContact(el) {
   el.innerHTML = `
   <div class="page-hero">
@@ -4067,7 +4501,7 @@ function renderContact(el) {
   ${standardFooter}`;
 }
 
-// ===== CONTACT PAGE SUBMIT HANDLER (FIXED) =====
+// ===== CONTACT PAGE SUBMIT HANDLER =====
 async function handleContactPageSubmit(e) {
   e.preventDefault();
   const form = document.getElementById('contactFormPage');
@@ -4080,11 +4514,10 @@ async function handleContactPageSubmit(e) {
   btn.disabled = true;
 
   try {
-    // FIX: Combine firstName + lastName into "name" field that API expects
     const fullName = `${formData.get('firstName') || ''} ${formData.get('lastName') || ''}`.trim();
 
     await callLuviioAPI('contact', {
-      name: fullName,                    // ← API expects "name"
+      name: fullName,
       email: formData.get('email'),
       phone: formData.get('phone'),
       service: formData.get('service'),
@@ -4118,7 +4551,7 @@ function renderCheckout(el) {
       <!-- Back Link -->
       <div class="checkout-back-wrapper">
         <a href="#" class="checkout-back-link" onclick="navigate('/pricing');return false">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          ${icons.arrowLeft}
           Back to Pricing
         </a>
       </div>
@@ -4211,9 +4644,10 @@ function renderCheckout(el) {
             <strong>Plan:</strong> ${plan.name} — <strong>${plan.price}/month</strong>
           </div>
 
-          <a href="${plan.stripeUrl}" target="_blank" rel="noopener noreferrer" class="stripe-button-clean" onclick="handleStripeRedirect('${selectedPlan}')">
+          <!-- UPDATED STRIPE BUTTON: Updates DB status to payment_made and redirects -->
+          <button class="stripe-button-clean" onclick="handleStripePaymentAndRedirect('${selectedPlan}')">
             Pay with Stripe — Secure Checkout
-          </a>
+          </button>
 
           <p class="payment-note-small">
             You will be redirected to Stripe's secure payment page to complete your purchase. All major credit cards accepted.
@@ -4228,15 +4662,15 @@ function renderCheckout(el) {
       <!-- Trust Footer -->
       <div class="checkout-trust-footer">
         <div class="trust-item-mini">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+          ${icons.shield}
           Secure
         </div>
         <div class="trust-item-mini">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 12l2 2 4-4"></path></svg>
+          ${icons.shield}
           Protected
         </div>
         <div class="trust-item-mini">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 12l2 2 4-4"></path></svg>
+          ${icons.shield}
           Guaranteed
         </div>
       </div>
@@ -4287,7 +4721,10 @@ async function handleCheckoutSubmitClean(e) {
 
   try {
     // Save to Firestore (orders collection for internal tracking)
-    await db.collection('orders').add(orderData);
+    const docRef = await db.collection('orders').add(orderData);
+    
+    // Store the document ID globally for payment flow
+    currentOrderDocId = docRef.id;
     
     // Update progress dots
     document.getElementById('progressDot1').classList.remove('active');
@@ -4314,7 +4751,45 @@ async function handleCheckoutSubmitClean(e) {
   }
 }
 
-// ===== Handle Stripe Redirect =====
+// ===== HANDLE STRIPE PAYMENT AND REDIRECT =====
+// This function is called when user clicks "Pay with Stripe"
+// It updates the database status to 'payment_made' and redirects to /payment-successful
+async function handleStripePaymentAndRedirect(planId) {
+  if (!currentOrderDocId || !currentUser.uid) {
+    showToast('Order information missing. Please try again.', 'error');
+    return;
+  }
+
+  try {
+    // Step 1: Update order status to 'payment_made'
+    await db.collection('orders').doc(currentOrderDocId).update({
+      status: 'payment_made',
+      clickedPayAt: firebase.firestore.FieldValue.serverTimestamp(),
+      paymentInitiatedAt: firebase.firestore.FieldValue.serverTimestamp()
+    });
+
+    // Step 2: Show immediate feedback
+    showToast('💳 Processing payment... Redirecting to secure checkout', 'success');
+
+    // Step 3: Open Stripe in new tab (background redirect)
+    const stripeUrl = plans[planId]?.stripeUrl;
+    if (stripeUrl) {
+      window.open(stripeUrl, '_blank');
+    }
+
+    // Step 4: Redirect current tab to /payment-successful in background
+    // Using replaceState so user can't go back to checkout easily
+    setTimeout(() => {
+      navigate(`/payment-successful/${currentUser.uid}/${currentOrderDocId}`);
+    }, 500);
+
+  } catch (error) {
+    console.error('[Stripe Redirect Error]', error);
+    showToast('Error initiating payment. Please try again.', 'error');
+  }
+}
+
+// ===== Handle Stripe Redirect (old function - kept for compatibility) =====
 function handleStripeRedirect(planId) {
   db.collection('orders')
     .where('planId', '==', planId)
@@ -4343,6 +4818,527 @@ function resetCheckoutClean() {
   document.getElementById('checkoutStep1Body').style.display = 'block';
   document.getElementById('checkoutPaymentView').classList.remove('visible');
 }
+
+// ==========================================
+// PAYMENT SUCCESSFUL PAGE — NEW FEATURE
+// ==========================================
+
+// Main renderer for /payment-successful route
+async function renderPaymentSuccessful(el, params = {}) {
+  // Check if we have params from URL (/payment-successful/:userId/:docId)
+  const urlUserId = params.userId || null;
+  const urlDocId = params.docId || null;
+  
+  let orderData = null;
+  let isFromFailedSession = false;
+  
+  // If we have URL params, fetch the specific order
+  if (urlUserId && urlDocId && isLoggedIn && currentUser.uid === urlUserId) {
+    try {
+      const docSnap = await db.collection('orders').doc(urlDocId).get();
+      if (docSnap.exists) {
+        orderData = { id: docSnap.id, ...docSnap.data() };
+        
+        // Check if this is from a failed payment session (within 5 min window)
+        if (orderData.status === 'pending_payment' && orderData.failedAt) {
+          const failedTime = orderData.failedAt.toDate ? orderData.failedAt.toDate().getTime() : 0;
+          const now = Date.now();
+          const timeDiff = now - failedTime;
+          
+          // 5 minutes = 300000 ms
+          if (timeDiff <= 300000) {
+            isFromFailedSession = true;
+            // Auto-update status since they're returning within the window
+            await db.collection('orders').doc(urlDocId).update({
+              status: 'retry_attempted',
+              lastRetryAt: firebase.firestore.FieldValue.serverTimestamp()
+            });
+          }
+        }
+      }
+    } catch (err) {
+      console.error('[Payment Success] Error fetching order:', err);
+    }
+  } else if (!urlUserId && !urlDocId && isLoggedIn && currentOrderDocId) {
+    // Fallback: use the in-memory order ID if available (from same session)
+    try {
+      const docSnap = await db.collection('orders').doc(currentOrderDocId).get();
+      if (docSnap.exists) {
+        orderData = { id: docSnap.id, ...docSnap.data() };
+      }
+    } catch (err) {
+      console.error('[Payment Success] Error fetching current order:', err);
+    }
+  }
+
+  // Determine display state based on order data
+  const isSuccess = orderData && (orderData.status === 'payment_made' || orderData.status === 'paid' || orderData.status === 'completed');
+  const isFailed = orderData && (orderData.status === 'pending_payment' || orderData.status === 'failed' || orderData.status === 'payment_failed');
+  
+  // Render the page
+  el.innerHTML = buildPaymentSuccessHTML(orderData, isSuccess, isFailed, isFromFailedSession);
+  
+  // Initialize FAQ accordions after render
+  initFAQAccordions();
+  
+  // Start countdown timer if failed state
+  if (isFailed && orderData && orderData.failedAt) {
+    startFailedCountdown(orderData.failedAt);
+  }
+}
+
+// Build the HTML for Payment Successful Page
+function buildPaymentSuccessHTML(orderData, isSuccess, isFailed, isFromFailedSession) {
+  const plan = orderData ? plans[orderData.planId] : null;
+  const displayName = orderData ? `${orderData.firstName || ''} ${orderData.lastName || ''}`.trim() : (currentUser.name || 'Valued Customer');
+  const displayEmail = orderData?.email || currentUser.email || '';
+
+  if (isSuccess) {
+    // SUCCESS STATE
+    return `
+    <div class="payment-success-page">
+      <div class="payment-success-container">
+        
+        <!-- Success Icon -->
+        <div class="success-checkmark-wrapper animate-on-scroll">
+          <svg class="success-checkmark-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+
+        <h1 class="success-heading animate-on-scroll animate-delay-1">Payment Successful! 🎉</h1>
+        <p class="success-subheading animate-on-scroll animate-delay-2">
+          Thank you, <strong>${displayName}</strong>! Your payment has been processed successfully.
+        </p>
+
+        <!-- Purchase Details Card -->
+        <div class="purchase-details-card animate-on-scroll animate-delay-2">
+          <div class="purchase-details-header">
+            <div class="purchase-plan-info">
+              <h3>${plan ? plan.name : (orderData?.planName || 'Selected Plan')}</h3>
+              <p>Monthly subscription · Active</p>
+            </div>
+            <div class="purchase-price-display">
+              <div class="purchase-price-big">${orderData ? `MYR ${orderData.planPrice || plan?.priceNum || '—'}` : '—'}</div>
+              <div class="purchase-price-period">per month</div>
+            </div>
+          </div>
+          
+          <div class="status-badge success">
+            ${icons.check} Payment Confirmed
+          </div>
+
+          <div class="purchase-details-grid">
+            <div class="purchase-detail-item">
+              <div class="purchase-detail-label">Order ID</div>
+              <div class="purchase-detail-value mono">#${orderData?.id?.toUpperCase()?.slice(-8) || 'N/A'}</div>
+            </div>
+            <div class="purchase-detail-item">
+              <div class="purchase-detail-label">Date</div>
+              <div class="purchase-detail-value">${new Date().toLocaleDateString('en-MY', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</div>
+            </div>
+            <div class="purchase-detail-item">
+              <div class="purchase-detail-label">Email</div>
+              <div class="purchase-detail-value">${displayEmail}</div>
+            </div>
+            <div class="purchase-detail-item">
+              <div class="purchase-detail-label">Phone</div>
+              <div class="purchase-detail-value">${orderData?.phone || '—'}</div>
+            </div>
+            ${orderData?.company ? `
+            <div class="purchase-detail-item">
+              <div class="purchase-detail-label">Company</div>
+              <div class="purchase-detail-value">${orderData.company}</div>
+            </div>
+            ` : ''}
+          </div>
+        </div>
+
+        <!-- Support Section -->
+        <div class="support-section animate-on-scroll animate-delay-3">
+          <h3>${icons.mail} Need Help?</h3>
+          <ul class="support-contact-list">
+            <li class="support-contact-item">
+              <div class="support-contact-icon">${icons.mail}</div>
+              <div>
+                <strong>Email Support</strong><br>
+                <span>care@luviio.com</span> — Response within 24 hours
+              </div>
+            </li>
+            <li class="support-contact-item">
+              <div class="support-contact-icon">${icons.phone}</div>
+              <div>
+                <strong>Phone Support</strong><br>
+                <span>+60 12 260 0969</span> — Mon-Fri, 9AM-6PM MYT
+              </div>
+            </li>
+            <li class="support-contact-item">
+              <div class="support-contact-icon">${icons.mapPin}</div>
+              <div>
+                <strong>Office</strong><br>
+                <span>Kedah, Malaysia</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="faq-section animate-on-scroll animate-delay-4">
+          <h3>Frequently Asked Questions</h3>
+          
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFAQ(this)">
+              I've already paid but don't see confirmation
+              <svg class="faq-arrow" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="faq-answer">
+              <p>If you've completed payment on Stripe but were redirected here, don't worry! Sometimes there's a slight delay in payment processing. Please check your email at <strong>${displayEmail}</strong> for a receipt from Stripe. If you don't receive it within 10 minutes, please contact us at <a href="mailto:care@luviio.com">care@luviio.com</a> with your order ID #${orderData?.id?.toUpperCase()?.slice(-8) || 'N/A'}.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFAQ(this)">
+              Can I upgrade my plan later?
+              <svg class="faq-arrow" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="faq-answer">
+              <p>Absolutely! You can upgrade at any time by contacting our support team or visiting your account settings. We'll prorate any unused time from your current plan.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFAQ(this)">
+              How do I cancel my subscription?
+              <svg class="faq-arrow" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="faq-answer">
+              <p>You can cancel anytime from your account dashboard or by emailing <a href="mailto:care@luviio.com">care@luviio.com</a>. No questions asked, no hidden fees. Your access will continue until the end of your billing period.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons-row animate-on-scroll">
+          <button class="btn-primary" onclick="navigate('/')">
+            ${icons.rocket} Go to Dashboard
+          </button>
+          <button class="btn-secondary" onclick="window.print()">
+            ${icons.settings} Download Receipt
+          </button>
+        </div>
+
+      </div>
+    </div>`;
+    
+  } else if (isFailed) {
+    // FAILED STATE
+    const failedTime = orderData?.failedAt ? orderData.failedAt.toDate() : new Date();
+    const expiryTime = new Date(failedTime.getTime() + 5 * 60 * 1000); // 5 minutes
+    
+    return `
+    <div class="payment-success-page">
+      <div class="payment-success-container">
+        
+        <!-- Failed Icon -->
+        <div class="failed-state-icon animate-on-scroll">
+          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="15" y1="9" x2="9" y2="15"></line>
+            <line x1="9" y1="9" x2="15" y2="15"></line>
+          </svg>
+        </div>
+
+        <h1 class="success-heading animate-on-scroll animate-delay-1" style="color: var(--text)">Payment Issue Detected</h1>
+        <p class="success-subheading animate-on-scroll animate-delay-2">
+          We noticed an issue with your payment for <strong>${plan ? plan.name : 'your plan'}</strong>. 
+          Don't worry — your order is saved and you can retry.
+        </p>
+
+        <!-- Purchase Details Card (Read-only) -->
+        <div class="purchase-details-card animate-on-scroll animate-delay-2">
+          <div class="purchase-details-header">
+            <div class="purchase-plan-info">
+              <h3>${plan ? plan.name : (orderData?.planName || 'Selected Plan')}</h3>
+              <p>Awaiting payment</p>
+            </div>
+            <div class="purchase-price-display">
+              <div class="purchase-price-big" style="color: var(--text)">${orderData ? `MYR ${orderData.planPrice || plan?.priceNum || '—'}` : '—'}</div>
+              <div class="purchase-price-period">per month</div>
+            </div>
+          </div>
+          
+          <div class="status-badge failed">
+            ${icons.alertCircle} Payment Pending
+          </div>
+
+          <div class="purchase-details-grid">
+            <div class="purchase-detail-item">
+              <div class="purchase-detail-label">Order Reference</div>
+              <div class="purchase-detail-value mono">#${orderData?.id?.toUpperCase()?.slice(-8) || 'N/A'}</div>
+            </div>
+            <div class="purchase-detail-item">
+              <div class="purchase-detail-label">Email</div>
+              <div class="purchase-detail-value">${displayEmail}</div>
+            </div>
+          </div>
+
+          <div style="margin-top: 16px; padding: 14px; background: #FFFBEB; border: 1px solid #FDE68A; border-radius: 10px;">
+            <p style="font-size: 13px; color: #92400E; margin: 0; display: flex; align-items: center; gap: 8px;">
+              ${icons.alertCircle}
+              <strong>Session Active:</strong> You can retry payment within 
+              <span class="retry-countdown" id="failedCountdownTimer">05:00</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Retry Action -->
+        <div style="text-align: center; margin-top: 28px;" class="animate-on-scroll animate-delay-3">
+          <button class="stripe-button-clean" onclick="handleRetryPayment('${orderData?.id}', '${orderData?.planId}')">
+            ${icons.refreshCw} Retry Payment with Stripe
+          </button>
+          <p style="font-size: 12px; color: #8B8B7A; margin-top: 12px;">
+            This will open Stripe in a new tab. After successful payment, return to this page.
+          </p>
+        </div>
+
+        <!-- Support Section -->
+        <div class="support-section animate-on-scroll animate-delay-4">
+          <h3>${icons.mail} Need Help Completing Payment?</h3>
+          <ul class="support-contact-list">
+            <li class="support-contact-item">
+              <div class="support-contact-icon">${icons.mail}</div>
+              <div>
+                <strong>Email Support</strong><br>
+                <span>care@luviio.com</span> — We can help you complete payment manually
+              </div>
+            </li>
+            <li class="support-contact-item">
+              <div class="support-contact-icon">${icons.phone}</div>
+              <div>
+                <strong>Call Us</strong><br>
+                <span>+60 12 260 0969</span> — Have your order ID ready
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="faq-section animate-on-scroll">
+          <h3>Common Payment Issues</h3>
+          
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFAQ(this)">
+              My card was charged but this shows as failed
+              <svg class="faq-arrow" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="faq-answer">
+              <p>Sometimes there's a delay between Stripe charging your card and our system updating. Please wait 5-10 minutes and refresh this page. If it still shows as failed, contact us with the date/time of your charge and we'll resolve it immediately.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFAQ(this)">
+              I want to use a different payment method
+              <svg class="faq-arrow" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="faq-answer">
+              <p>You can retry with any card via the Stripe link above. Alternatively, contact us at <a href="mailto:care@luviio.com">care@luviio.com</a> for bank transfer instructions or other payment methods available in Malaysia (FPX, GrabPay, etc.).</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFAQ(this)">
+              Can I change my plan before paying?
+              <svg class="faq-arrow" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="faq-answer">
+              <p>Yes! Go back to <a href="/pricing" onclick="event.stopPropagation(); navigate('/pricing')">Pricing</a>, select your preferred plan, and start a new checkout. Your previous order will remain as pending and can be ignored.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>`;
+    
+  } else {
+    // NO ORDER DATA FOUND (Generic state or loading)
+    return `
+    <div class="payment-success-page">
+      <div class="payment-success-container" style="min-height: 60vh; display: flex; flex-direction: column; justify-content: center;">
+        <div class="success-checkmark-wrapper" style="background: linear-gradient(135deg, #E0E0DC, #D0D0CA);">
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </div>
+        <h1 class="success-heading" style="font-size: 24px;">Order Information Not Found</h1>
+        <p class="success-subheading">
+          We couldn't locate your order details. This might happen if the link expired or the order doesn't exist.
+        </p>
+        <div style="display: flex; gap: 12px; justify-content: center; margin-top: 32px;">
+          <button class="btn-primary" onclick="navigate('/pricing')">
+            ${icons.zap} Browse Plans
+          </button>
+          <button class="btn-secondary" onclick="navigate('/contact')">
+            ${icons.mail} Contact Support
+          </button>
+        </div>
+      </div>
+    </div>`;
+  }
+}
+
+// ===== Initialize FAQ Accordions =====
+function initFAQAccordions() {
+  // Handled inline with onclick handlers on each button
+}
+
+// ===== Toggle FAQ Answer =====
+function toggleFAQ(button) {
+  const answer = button.nextElementSibling;
+  const isOpen = answer.classList.contains('open');
+  
+  // Close all other FAQs first (accordion behavior)
+  document.querySelectorAll('.faq-answer.open').forEach(el => {
+    el.classList.remove('open');
+    el.previousElementSibling.classList.remove('active');
+  });
+  
+  // Toggle current
+  if (!isOpen) {
+    answer.classList.add('open');
+    button.classList.add('active');
+  }
+}
+
+// ===== Handle Retry Payment (from failed state) =====
+async function handleRetryPayment(docId, planId) {
+  if (!docId || !planId) {
+    showToast('Missing order information. Please try again.', 'error');
+    return;
+  }
+
+  try {
+    // Update status to indicate retry
+    await db.collection('orders').doc(docId).update({
+      status: 'retrying',
+      lastRetryAt: firebase.firestore.FieldValue.serverTimestamp()
+    });
+
+    // Open Stripe
+    const stripeUrl = plans[planId]?.stripeUrl;
+    if (stripeUrl) {
+      window.open(stripeUrl, '_blank');
+      showToast('Opening Stripe for payment...', 'success');
+    }
+
+  } catch (error) {
+    console.error('[Retry Payment Error]', error);
+    showToast('Error initiating retry. Please contact support.', 'error');
+  }
+}
+
+// ===== Start Countdown Timer for Failed State =====
+function startFailedCountdown(failedAtTimestamp) {
+  const timerEl = document.getElementById('failedCountdownTimer');
+  if (!timerEl || !failedAtTimestamp) return;
+
+  const failedTime = failedAtTimestamp.toDate ? failedAtTimestamp.toDate().getTime() : new Date(failedAtTimestamp).getTime();
+  const expiryTime = failedTime + (5 * 60 * 1000); // 5 minutes
+
+  function updateTimer() {
+    const now = Date.now();
+    const diff = expiryTime - now;
+
+    if (diff <= 0) {
+      timerEl.textContent = '00:00';
+      timerEl.parentElement.style.background = '#FEF2F2';
+      timerEl.parentElement.style.borderColor = '#FECACA';
+      timerEl.parentElement.style.color = '#991B1B';
+      timerEl.previousElementSibling.innerHTML = '<strong>Session Expired:</strong>';
+      return;
+    }
+
+    const minutes = Math.floor(diff / 60000);
+    const seconds = Math.floor((diff % 60000) / 1000);
+    timerEl.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+  }
+
+  updateTimer();
+  const interval = setInterval(updateTimer, 1000);
+
+  // Store interval reference for cleanup if needed
+  window._countdownInterval = interval;
+}
+
+// ===== PAYMENT FAILURE HANDLER =====
+// Call this when payment fails (e.g., from Stripe webhook simulation or manual trigger)
+// This sets up the 5-minute session and stores the doc ID
+async function handlePaymentFailure(docId) {
+  if (!docId) return;
+
+  try {
+    // Update order status to pending_payment (or keep it if already pending)
+    await db.collection('orders').doc(docId).update({
+      status: 'pending_payment',
+      failedAt: firebase.firestore.FieldValue.serverTimestamp(),
+      failureCount: firebase.firestore.FieldValue.increment(1),
+      lastFailureReason: 'payment_processing_error'
+    });
+
+    // Set the global order doc ID for potential redirect
+    currentOrderDocId = docId;
+
+    // Set session expiry (stored in memory for this session)
+    paymentSessionExpiry = Date.now() + (5 * 60 * 1000);
+
+    console.log(`[Payment Failure] Session created for order ${docId}. Expires in 5 minutes.`);
+
+  } catch (error) {
+    console.error('[Payment Failure Handler Error]', error);
+  }
+}
+
+// ===== CHECK PAYMENT SESSION VALIDITY =====
+// Returns true if within 5-minute window, false otherwise
+function isPaymentSessionValid() {
+  if (!paymentSessionExpiry) return false;
+  return Date.now() < paymentSessionExpiry;
+}
+
+// ===== AUTO-REDIRECT LOGIC FOR /payment-successful =====
+// This runs when user visits /payment-successful without params during active session
+function checkAndRedirectToParametrizedURL() {
+  // Only run if we're on base /payment-successful without params
+  const path = getRoute();
+  if (path !== '/payment-successful') return;
+  
+  // Check if we have a valid session and stored doc ID
+  if (isPaymentSessionValid() && currentOrderDocId && isLoggedIn && currentUser.uid) {
+    console.log('[Auto-Redirect] Valid session found. Redirecting to parameterized URL...');
+    
+    // Redirect to the full URL with params
+    const targetURL = `/payment-successful/${currentUser.uid}/${currentOrderDocId}`;
+    window.history.replaceState({ route: targetURL }, '', basePath + targetURL);
+    router(); // Re-render with new params
+    return true;
+  }
+  
+  return false;
+}
+
+// Override router to check for auto-redirect on /payment-successful visits
+const originalRouter = router;
+router = function() {
+  // First check if we need to auto-redirect to parametrized URL
+  const didRedirect = checkAndRedirectToParametrizedURL();
+  if (didRedirect) return; // Stop here, router will be called again with new URL
+  
+  // Otherwise proceed with normal routing
+  originalRouter.apply(this, arguments);
+};
+
+// Make sure to expose the handler globally for external calls
+window.handlePaymentFailure = handlePaymentFailure;
+window.renderPaymentSuccessful = renderPaymentSuccessful;
+
 </script>
 
 </body>
