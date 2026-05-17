@@ -166,6 +166,18 @@
     from{opacity:0;transform:translateY(-10px)}
     to{opacity:1;transform:translateY(0)}
   }
+  @keyframes confetti-fall{
+    0%{transform:translateY(-100%) rotate(0deg);opacity:1}
+    100%{transform:translateY(100vh) rotate(720deg);opacity:0}
+  }
+  @keyframes pulse-glow{
+    0%,100%{box-shadow:0 0 20px rgba(171,21,9,0.3)}
+    50%{box-shadow:0 0 40px rgba(171,21,9,0.6)}
+  }
+  @keyframes checkmark-draw{
+    0%{stroke-dashoffset:50}
+    100%{stroke-dashoffset:0}
+  }
   
   .animate-on-scroll{
     opacity:0;
@@ -627,7 +639,7 @@
   .contact-info h2 .accent{color:var(--primary)}
   .contact-info > p{font-size:17px;line-height:27.2px;color:#5C5C4F;margin-bottom:32px}
   .contact-details{display:flex;flex-direction:column;gap:20px}
-  .contact-item{display:flex;align-items:center;gap:14px;padding:16px;background:#fff;border-radius:var(--radius-md);border:1px solid var(--warm-light);transition:all .3px;flex-wrap:wrap}
+  .contact-item{display:flex;align-items:center;gap:14px;padding:16px;background:#fff;border-radius:var(--radius-md);border:1px solid var(--warm-light);transition:all .3s;flex-wrap:wrap}
   .contact-item:hover{transform:translateX(4px);box-shadow:var(--shadow-card)}
   .contact-item-icon{width:44px;height:44px;background:var(--primary-tint);border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;color:var(--primary);flex-shrink:0}
   .contact-item-text strong{display:block;font-size:14px;color:var(--text);margin-bottom:2px}
@@ -1048,6 +1060,33 @@
     transform: translateX(-4px);
   }
 
+  /* Payment Failed Button */
+  .payment-failed-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: transparent;
+    color: var(--error);
+    font-family: "DM Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 12px 24px;
+    border-radius: 10px;
+    border: 1px dashed var(--error);
+    cursor: pointer;
+    transition: all 0.25s ease;
+    text-decoration: none;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto 12px;
+  }
+  .payment-failed-btn:hover {
+    background: #fef2f2;
+    border-style: solid;
+    transform: translateY(-1px);
+  }
+
   .checkout-trust-footer {
     margin-top: 32px;
     padding-top: 24px;
@@ -1079,6 +1118,287 @@
     gap:24px;
     margin-top:56px;
     width:100%;
+  }
+
+  /* ========================================== */
+  /* PAYMENT SUCCESSFUL PAGE                   */
+  /* ========================================== */
+  .payment-success-page {
+    min-height: calc(100vh - 73px);
+    background: linear-gradient(180deg, #FAFAF8 0%, #F5F5F0 100%);
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 60px 0 80px;
+  }
+
+  .payment-success-container {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 24px;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1;
+  }
+
+  .success-confetti {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    overflow: hidden;
+  }
+
+  .confetti-piece {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: var(--primary);
+    opacity: 0.8;
+    animation: confetti-fall 3s ease-out forwards;
+  }
+
+  .success-hero {
+    text-align: center;
+    margin-bottom: 48px;
+    animation: fadeInUp 0.6s ease both;
+  }
+
+  .success-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #DCFCE7, #BBF7D0);
+    color: #166534;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 8px 20px;
+    border-radius: 9999px;
+    margin-bottom: 24px;
+    border: 1px solid rgba(22,101,52,0.2);
+  }
+
+  .success-icon-large {
+    width: 96px;
+    height: 96px;
+    background: linear-gradient(135deg, var(--primary-tint), rgba(171,21,9,0.1));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+    color: var(--primary);
+    animation: pulse-glow 2s ease-in-out infinite;
+    box-shadow: 0 0 0 0 rgba(171,21,9,0);
+  }
+
+  .success-icon-large svg {
+    width: 48px;
+    height: 48px;
+    stroke-dasharray: 50;
+    stroke-dashoffset: 50;
+    animation: checkmark-draw 0.6s ease-out 0.3s forwards;
+  }
+
+  .success-hero h1 {
+    font-size: 42px;
+    font-weight: 900;
+    color: var(--text);
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+
+  .success-hero p {
+    font-size: 17px;
+    color: #8B8B7A;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  .order-summary-card {
+    background: #FFFFFF;
+    border-radius: 20px;
+    border: 1px solid rgba(0,0,0,0.06);
+    box-shadow: 
+      0 4px 6px -1px rgba(0,0,0,0.04),
+      0 20px 40px -12px rgba(0,0,0,0.06);
+    padding: 32px;
+    margin-bottom: 32px;
+    animation: fadeInUp 0.6s ease 0.2s both;
+  }
+
+  .order-summary-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #F0F0EB;
+  }
+
+  .order-summary-title {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--text);
+  }
+
+  .order-id-badge {
+    font-family: "Space Mono", monospace;
+    font-size: 12px;
+    font-weight: 600;
+    color: #8B8B7A;
+    background: #F5F5F0;
+    padding: 6px 12px;
+    border-radius: 8px;
+    letter-spacing: 0.02em;
+  }
+
+  .order-detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px dashed #F0F0EB;
+    font-size: 15px;
+  }
+
+  .order-detail-row:last-child {
+    border-bottom: none;
+    padding-top: 16px;
+    margin-top: 8px;
+    border-top: 2px solid var(--text);
+    font-weight: 800;
+    font-size: 18px;
+  }
+
+  .order-detail-label {
+    color: #8B8B7A;
+    font-weight: 500;
+  }
+
+  .order-detail-value {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .order-detail-value.highlight {
+    color: var(--primary);
+    font-size: 20px;
+  }
+
+  .support-section {
+    background: #FFFFFF;
+    border-radius: 20px;
+    border: 1px solid rgba(0,0,0,0.06);
+    box-shadow: 
+      0 4px 6px -1px rgba(0,0,0,0.04),
+      0 20px 40px -12px rgba(0,0,0,0.06);
+    padding: 32px;
+    margin-bottom: 32px;
+    animation: fadeInUp 0.6s ease 0.4s both;
+  }
+
+  .support-section h3 {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .support-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .support-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    background: #FAFAF8;
+    border-radius: 12px;
+    border: 1px solid #F0F0EB;
+    transition: all 0.2s;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .support-option:hover {
+    background: var(--primary-tint);
+    border-color: rgba(171,21,9,0.2);
+    transform: translateY(-2px);
+  }
+
+  .support-option-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--primary-tint);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    flex-shrink: 0;
+  }
+
+  .support-option-text {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .support-option-sub {
+    font-size: 12px;
+    color: #8B8B7A;
+    margin-top: 2px;
+  }
+
+  .session-expiry-warning {
+    background: #FFFBEB;
+    border: 1px solid #FDE68A;
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    color: #92400E;
+    animation: fadeInUp 0.4s ease;
+  }
+
+  .session-timer {
+    font-family: "Space Mono", monospace;
+    font-weight: 700;
+    color: var(--primary);
+    background: #FFF;
+    padding: 4px 10px;
+    border-radius: 6px;
+    margin-left: auto;
+  }
+
+  .success-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 32px;
+    animation: fadeInUp 0.6s ease 0.6s both;
+  }
+
+  .success-actions .btn-primary,
+  .success-actions .btn-secondary {
+    flex: 1;
+    justify-content: center;
   }
 
   /* ========================================== */
@@ -1196,6 +1516,20 @@
     .checkout-form-grid {
       grid-template-columns: 1fr;
       gap: 0;
+    }
+
+    /* Payment Success Responsive */
+    .payment-success-container {
+      padding: 0 20px;
+    }
+    .success-hero h1 {
+      font-size: 32px;
+    }
+    .support-options {
+      grid-template-columns: 1fr;
+    }
+    .success-actions {
+      flex-direction: column;
     }
   }
 
@@ -1486,6 +1820,33 @@
     .company-stat-item{padding:24px 16px !important}
     .stat-big-num{font-size:36px !important}
     .stat-label-text{font-size:11px !important;letter-spacing:.03em !important}
+
+    /* Payment Success Mobile */
+    .payment-success-page {
+      padding: 40px 0 60px;
+    }
+    .success-hero h1 {
+      font-size: 28px;
+    }
+    .success-icon-large {
+      width: 72px;
+      height: 72px;
+    }
+    .order-summary-card,
+    .support-section {
+      padding: 24px;
+    }
+    .order-detail-row {
+      font-size: 14px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+    }
+    .order-detail-row:last-child {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
   }
 
   @media(max-width:479px){
@@ -1837,14 +2198,75 @@
     .company-value{padding:18px 14px !important;border-radius:12px !important}
     .company-value h3{font-size:16px !important;margin-bottom:4px !important}
     .company-value p{font-size:13px !important;line-height:1.5 !important}
+
+    /* Payment Success - Extra Small */
+    .payment-success-page {
+      padding: 32px 0 48px;
+    }
+    .payment-success-container {
+      padding: 0 16px;
+    }
+    .success-hero h1 {
+      font-size: 24px;
+      line-height: 32px;
+    }
+    .success-icon-large {
+      width: 64px;
+      height: 64px;
+      margin-bottom: 16px;
+    }
+    .success-badge {
+      font-size: 11px;
+      padding: 6px 16px;
+      margin-bottom: 16px;
+    }
+    .order-summary-card,
+    .support-section {
+      padding: 20px 16px;
+      border-radius: 14px;
+    }
+    .order-summary-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .order-summary-title {
+      font-size: 16px;
+    }
+    .support-section h3 {
+      font-size: 17px;
+    }
+    .support-options {
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    .support-option {
+      padding: 12px;
+    }
+    .session-expiry-warning {
+      flex-direction: column;
+      text-align: center;
+      gap: 8px;
+      padding: 12px 16px;
+      font-size: 13px;
+    }
+    .session-timer {
+      margin-left: 0;
+    }
+    .success-actions {
+      flex-direction: column;
+      margin-top: 24px;
+    }
   }
 
   /* Touch-friendly improvements */
   @media(hover:none) and (pointer:coarse){
-    .btn-primary,.btn-secondary,.btn-ghost,.nav-cta,.social-btn,.hamburger,.mobile-close,.test-btn,.stripe-pay-btn,.checkout-back-btn,.payment-back-btn,.stripe-button-clean,.edit-details-btn{min-height:44px;min-width:44px}
-    .feature-card,.pricing-card,.service-card,.product-feature,.company-value,.team-card,.contact-item,.order-summary,.checkout-card{touch-action:manipulation}
+    .btn-primary,.btn-secondary,.btn-ghost,.nav-cta,.social-btn,.hamburger,.mobile-close,.test-btn,.stripe-pay-btn,.checkout-back-btn,.payment-back-btn,.stripe-button-clean,.edit-details-btn,.payment-failed-btn{min-height:44px;min-width:44px}
+    .feature-card,.pricing-card,.service-card,.product-feature,.company-value,.team-card,.contact-item,.order-summary,.checkout-card,.order-summary-card,.support-section{touch-action:manipulation}
     nav a{padding:8px 0}
     .footer-col a{padding:8px 0}
+    .support-option{min-height:52px}
   }
 
   /* Landscape phone fixes */
@@ -1854,6 +2276,7 @@
     .checkout-page{padding:0}
     .checkout-main{margin:16px auto;gap:20px}
     .checkout-form-section,.order-summary{max-height:70vh;overflow-y:auto}
+    .payment-success-page{padding: 20px 0}
   }
 
   /* Extra small height devices */
@@ -1946,18 +2369,95 @@ let currentUser = { name: '', email: '', initials: '', bio: '', uid: null, photo
 let selectedPlan = null;
 let authInitialized = false;
 
+// ===== DEVICE SESSION MANAGEMENT =====
+// Uses localStorage (persists across tabs) but tied to device fingerprint + timestamp
+const DEVICE_SESSION_KEY = 'luviio_device_session';
+const SESSION_DURATION_MS = 5 * 60 * 1000; // 5 minutes
+
+function getDeviceFingerprint() {
+  // Simple device fingerprint using available browser properties
+  const canvas = document.createElement('canvas');
+  const ctx = canvas.getContext('2d');
+  ctx.textBaseline = 'top';
+  ctx.font = '14px Arial';
+  ctx.fillText('LuviioDeviceFingerprint', 2, 2);
+  
+  const components = [
+    navigator.userAgent,
+    navigator.language,
+    screen.width + 'x' + screen.height,
+    screen.colorDepth,
+    new Date().getTimezoneOffset(),
+    canvas.toDataURL()
+  ];
+  
+  return btoa(components.join('|||')).substring(0, 64);
+}
+
+function createDeviceSession(orderDocId, userId, planId) {
+  const sessionData = {
+    docId: orderDocId,
+    userId: userId,
+    planId: planId,
+    createdAt: Date.now(),
+    expiresAt: Date.now() + SESSION_DURATION_MS,
+    deviceFingerprint: getDeviceFingerprint()
+  };
+  
+  localStorage.setItem(DEVICE_SESSION_KEY, JSON.stringify(sessionData));
+  return sessionData;
+}
+
+function getDeviceSession() {
+  try {
+    const raw = localStorage.getItem(DEVICE_SESSION_KEY);
+    if (!raw) return null;
+    
+    const session = JSON.parse(raw);
+    
+    // Verify device fingerprint matches (prevents session theft across devices)
+    if (session.deviceFingerprint !== getDeviceFingerprint()) {
+      clearDeviceSession();
+      return null;
+    }
+    
+    // Check if expired
+    if (Date.now() > session.expiresAt) {
+      clearDeviceSession();
+      return null;
+    }
+    
+    return session;
+  } catch (e) {
+    clearDeviceSession();
+    return null;
+  }
+}
+
+function clearDeviceSession() {
+  localStorage.removeItem(DEVICE_SESSION_KEY);
+}
+
+function isCheckoutSessionActive() {
+  const session = getDeviceSession();
+  return session !== null && session.planId !== undefined;
+}
+
+function isPaymentSessionActive() {
+  const session = getDeviceSession();
+  return session !== null && session.docId !== undefined && session.paymentStatus === 'payment_made';
+}
+
 // ===== CLOUDFLARE WORKERS API CONFIGURATION =====
 const LUVIIO_API_URL = 'https://luviio-api.luviio.com';
 
 // ===== API HELPER FUNCTION =====
-// Handles authentication token injection and error handling
 async function callLuviioAPI(type, data) {
   try {
     const headers = {
       'Content-Type': 'application/json'
     };
     
-    // Attach Firebase Auth token if user is logged in (for optional auth)
     if (auth.currentUser) {
       const token = await auth.currentUser.getIdToken();
       headers['Authorization'] = `Bearer ${token}`;
@@ -2032,19 +2532,15 @@ function getFriendlyErrorMessage(error) {
 
 // ===== AUTH STATE LISTENER =====
 auth.onAuthStateChanged(async (user) => {
-  authInitialized = true;  // Mark as ready
+  authInitialized = true;
   
   const currentRoute = getRoute();
   
   if (user) {
-    // ==========================================
-    // USER IS LOGGED IN - Set all state immediately
-    // ==========================================
     isLoggedIn = true;
     currentUser.uid = user.uid;
     currentUser.email = user.email;
     
-    // Set defaults from Firebase Auth immediately so UI doesn't show blank
     currentUser.name = user.displayName || user.email.split('@')[0];
     currentUser.initials = (user.displayName || user.email).split(' ').map(w => w[0]).join('').toUpperCase().slice(0, 2);
     currentUser.photoURL = user.photoURL || '';
@@ -2066,40 +2562,25 @@ auth.onAuthStateChanged(async (user) => {
         });
         currentUser.initials = currentUser.name.split(' ').map(w => w[0]).join('').toUpperCase().slice(0, 2);
       }
-    } catch (error) {
-      // Silently handle fetch errors
-    }
+    } catch (error) {}
     
-    // Update Header Button IMMEDIATELY (Login → My Profile)
     updateAuthUI();
     
-    // ==========================================
-    // CRITICAL: Re-render if on a protected route
-    // This handles the refresh scenario where router showed loading skeleton
-    // ==========================================
     if (PROTECTED_ROUTES.includes(currentRoute)) {
-      router();  // This will now pass the auth check and render real content
+      router();
     }
     
-    // Also handle edge case: if user was on login page but is now logged in
     if (currentRoute === '/login' || currentRoute === '/signup') {
-      // Optional: redirect to profile if they land on login while logged in
-      // Uncomment next line if you want this behavior:
-      // navigate('/profile'); 
+      // Optional redirect
     }
     
   } else {
-    // ==========================================
-    // NO USER - Reset everything
-    // ==========================================
     isLoggedIn = false;
     currentUser = { name: '', email: '', initials: '', bio: '', uid: null, photoURL: '' };
     updateAuthUI();
     
-    // If on protected route and no user, router() will handle redirect
-    // (because authInitialized is now true, the guard in router will trigger)
     if (PROTECTED_ROUTES.includes(currentRoute)) {
-      router();  // Triggers the redirect logic in router()
+      router();
     }
   }
 });
@@ -2201,7 +2682,8 @@ const pageTitles = {
   '/signup': 'Create Account · Luviio',
   '/profile': 'My Profile · Luviio',
   '/contact': 'Contact Us · Luviio',
-  '/checkout': 'Complete Purchase · Luviio'
+  '/checkout': 'Complete Purchase · Luviio',
+  '/payment-successful': 'Payment Successful · Luviio'
 };
 
 // Protected routes that require authentication
@@ -2224,11 +2706,68 @@ function router() {
   });
 
   // ==========================================
+  // PAYMENT SUCCESSFUL ROUTE CORRECTION LOGIC
+  // ==========================================
+  if (route.startsWith('/payment-successful')) {
+    const session = getDeviceSession();
+    
+    // Case A: User has valid payment session - check if URL matches expected format
+    if (session && session.docId && session.userId) {
+      const expectedPath = `/payment-successful/${session.userId}/${session.docId}`;
+      
+      // If user accessed bare /payment-successful or wrong params, correct it
+      if (route === '/payment-successful' || route !== expectedPath) {
+        console.log('[Router] Correcting payment-successful route to:', expectedPath);
+        window.history.replaceState({ route: expectedPath }, '', basePath + expectedPath);
+        renderPaymentSuccessful(app, session);
+        window.scrollTo(0, 0);
+        initScrollAnimations();
+        if (typeof lucide !== 'undefined') lucide.createIcons();
+        startConfetti();
+        startSessionTimer();
+        return;
+      }
+      
+      // Route matches, render normally
+      renderPaymentSuccessful(app, session);
+      window.scrollTo(0, 0);
+      initScrollAnimations();
+      if (typeof lucide !== 'undefined') lucide.createIcons();
+      startConfetti();
+      startSessionTimer();
+      return;
+    }
+    
+    // Case B: No valid session but trying to access payment-successful
+    // Redirect to pricing or home
+    navigate('/pricing');
+    return;
+  }
+
+  // ==========================================
+  // CHECKOUT ROUTE - DEVICE SESSION CHECK
+  // ==========================================
+  if (route === '/checkout') {
+    // Check if there's an active checkout device session
+    if (isCheckoutSessionActive()) {
+      const session = getDeviceSession();
+      // Restore plan from session if needed
+      if (!selectedPlan && session.planId) {
+        selectedPlan = session.planId;
+      }
+      // Allow access - render checkout
+    } else if (!selectedPlan || !plans[selectedPlan]) {
+      // No session and no plan selected - redirect to pricing
+      navigate('/pricing');
+      return;
+    }
+    // If we have selectedPlan in memory (just clicked from pricing), allow through
+  }
+
+  // ==========================================
   // AUTH GUARD: Handle Protected Routes
   // ==========================================
   
-  // CASE A: Protected route accessed BEFORE auth is initialized
-  // Show elegant loading skeleton to prevent flash of wrong content
   if (PROTECTED_ROUTES.includes(route) && !authInitialized) {
     app.innerHTML = `
       <div style="display:flex;align-items:center;justify-content:center;min-height:calc(100vh - 73px);background:var(--bg);padding:20px">
@@ -2240,37 +2779,29 @@ function router() {
         </div>
       </div>
     `;
-    // DON'T return yet - let auth listener call router() again when ready
-    // This prevents the login form from ever flashing
     return;
   }
 
-  // CASE B: Protected route accessed AFTER auth initialized, but NOT logged in
-  // Force redirect to login immediately (replace history to prevent back-button return)
   if (PROTECTED_ROUTES.includes(route) && authInitialized && (!isLoggedIn || !currentUser.uid)) {
-    // Replace current history entry so back button doesn't return to protected page
     window.history.replaceState({ route: '/login' }, '', basePath + '/login');
     
-    // Show toast explaining why
     if (route === '/profile') {
       showToast('🔒 Please sign in to view your profile', 'error');
     } else if (route === '/checkout') {
       showToast('🔒 Please sign in to complete your purchase', 'error');
     }
     
-    // Navigate to login after a tiny delay to allow state update
     setTimeout(() => navigate('/login'), 100);
     return;
   }
 
-  // CASE C: Checkout specific validation (plan selection)
   if (route === '/checkout' && selectedPlan && !plans[selectedPlan]) {
     navigate('/pricing');
     return;
   }
 
   // ==========================================
-  // ROUTE RENDERING (Only reached if authorized or public)
+  // ROUTE RENDERING
   // ==========================================
   
   switch (route) {
@@ -2283,7 +2814,6 @@ function router() {
     case '/terms': renderTerms(app); break;
     case '/policy': renderPolicy(app); break;
     case '/login': 
-      // If already logged in and hit login page, send to profile
       if (isLoggedIn && currentUser.uid) {
         navigate('/profile');
         return;
@@ -2307,15 +2837,10 @@ window.addEventListener('DOMContentLoaded', router);
 
 // ==========================================
 // INITIAL UI SYNC
-// Prevents "Login" button flash for returning users
-// by checking localStorage/session for cached auth hint
 // ==========================================
 (function() {
-  // Check if we have a recent Firebase auth token (indicates likely logged in)
   const hasFirebaseToken = () => {
     try {
-      // Firebase stores tokens in IndexedDB/localStorage
-      // This is a heuristic check
       for (let i = 0; i < localStorage.length; i++) {
         const key = localStorage.key(i);
         if (key && key.includes('firebase:authUser:')) {
@@ -2326,8 +2851,6 @@ window.addEventListener('DOMContentLoaded', router);
     return false;
   };
 
-  // If we detect a stored token, optimistically update UI before Firebase confirms
-  // This eliminates the 200ms "Login"→"My Profile" flicker on refresh
   if (hasFirebaseToken()) {
     const authBtn = document.getElementById('authBtn');
     const mobileAuthLink = document.getElementById('mobileAuthLink');
@@ -2427,7 +2950,10 @@ const icons = {
   star: '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>',
   pencil: '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"></path><path d="m15 5 4 4"></path></svg>',
   logOut: '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>',
-  arrowLeft: '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>'
+  arrowLeft: '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>',
+  xCircle: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>',
+  alertCircle: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>',
+  clockIcon: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>'
 };
 
 // ===== STANDARD FOOTER =====
@@ -2644,7 +3170,7 @@ function renderHome(el) {
             <li><span class="svc-check">${icons.check}</span>Cloud infrastructure management (AWS, GCP)</li>
             <li><span class="svc-check">${icons.check}</span>Security audits & vulnerability patches</li>
           </ul>
-          <div class="service-action"><a href="/services" class="btn-ghost">${icons.arrowRight} View plans</a></div>
+          <div class="service-action"><a href="/pricing" class="btn-ghost">${icons.arrowRight} View plans</a></div>
         </div>
       </div>
       <div style="text-align:center;margin-top:36px" class="animate-on-scroll"><a href="/services" class="btn-primary">${icons.zap} View All Services</a></div>
@@ -2806,15 +3332,17 @@ function selectPlanAndCheckout(planId) {
     return;
   }
   
+  // Create/update device session for checkout
+  createDeviceSession(null, currentUser.uid, planId);
+  
   navigate('/checkout');
 }
 
-// ===== MEMBER JOIN HANDLER (UPDATED TO USE CLOUDFLARE API) =====
+// ===== MEMBER JOIN HANDLER =====
 async function handleMemberJoin() {
   const emailInput = document.getElementById('memberEmail');
   if (emailInput && emailInput.value && emailInput.value.includes('@')) {
     try {
-      // Call Cloudflare Workers API instead of direct Firestore write
       await callLuviioAPI('newsletter', {
         email: emailInput.value,
         source: 'homepage_membership'
@@ -2836,7 +3364,7 @@ async function handleMemberJoin() {
   }
 }
 
-// ===== CONTACT FORM HANDLER (FIXED) =====
+// ===== CONTACT FORM HANDLER =====
 async function handleContactSubmit(e) {
   e.preventDefault();
   const form = document.getElementById('contactForm');
@@ -2849,11 +3377,10 @@ async function handleContactSubmit(e) {
   btn.disabled = true;
 
   try {
-    // FIX: Combine firstName + lastName into "name" field that API expects
     const fullName = `${formData.get('firstName') || ''} ${formData.get('lastName') || ''}`.trim();
     
     await callLuviioAPI('contact', {
-      name: fullName,                    // ← API expects "name", not firstName/lastName
+      name: fullName,
       email: formData.get('email'),
       phone: formData.get('phone'),
       service: formData.get('service'),
@@ -3686,11 +4213,10 @@ function handleEmailLogin() {
     });
 }
 
-// ===== Google Sign In (UNIFIED - Popup on ALL Devices) =====
+// ===== Google Sign In =====
 function handleGoogleSignIn() {
   const provider = new firebase.auth.GoogleAuthProvider();
   
-  // UNIFIED: Use Popup on ALL devices (desktop + mobile + tablet)
   auth.signInWithPopup(provider)
     .then((result) => {
       const user = result.user;
@@ -3725,7 +4251,6 @@ function handleGoogleSignIn() {
       if (friendlyMsg && friendlyMsg !== '') {
         showToast(friendlyMsg, 'error');
       }
-      // Specific handling for popup blocked
       if (err.code === 'auth/popup-blocked' || err.code === 'auth/popup-closed-by-user') {
         showToast('Popup was blocked. Please allow popups for this site and try again.', 'error');
       }
@@ -3818,11 +4343,10 @@ function handleEmailSignup() {
     });
 }
 
-// ===== Google Sign Up (UNIFIED - Popup on ALL Devices) =====
+// ===== Google Sign Up =====
 function handleGoogleSignUp() {
   const provider = new firebase.auth.GoogleAuthProvider();
   
-  // UNIFIED: Use Popup on ALL devices (desktop + mobile + tablet)
   auth.signInWithPopup(provider)
     .then((result) => {
       const user = result.user;
@@ -3857,46 +4381,31 @@ function handleGoogleSignUp() {
       if (friendlyMsg && friendlyMsg !== '') {
         showToast(friendlyMsg, 'error');
       }
-      // Specific handling for popup blocked
       if (err.code === 'auth/popup-blocked' || err.code === 'auth/popup-closed-by-user') {
         showToast('Popup was blocked. Please allow popups for this site and try again.', 'error');
       }
     });
 }
 
-// ===== PROFILE PAGE (Hardened - No Guest Access) =====
+// ===== PROFILE PAGE =====
 function renderProfile(el) {
-  // ==========================================
-  // ABSOLUTE SECURITY CHECK
-  // If this function runs and user isn't valid, something went wrong.
-  // Force emergency redirect.
-  // ==========================================
   if (!isLoggedIn || !currentUser.uid || !auth.currentUser) {
     console.warn('[Security] Profile page accessed without valid session. Redirecting.');
     
-    // Clear sensitive content immediately
     el.innerHTML = '';
     
-    // Force redirect using replaceState (prevents browser back-button bypass)
     if (window.location.pathname !== '/login' && window.location.pathname !== basePath + '/login') {
       window.history.replaceState({ route: '/login', forced: true }, '', basePath + '/login');
       
-      // Immediate navigation
       setTimeout(() => {
         navigate('/login');
       }, 10);
     } else {
-      // Fallback: If stuck, render login directly
       renderLogin(el);
     }
     return;
   }
 
-  // ==========================================
-  // USER IS AUTHENTICATED - RENDER PROFILE IMMEDIATELY
-  // No login forms, no delays, no guest views
-  // ==========================================
-  
   const displayName = currentUser.name || 'User';
   const displayEmail = currentUser.email || '';
   const displayInitials = currentUser.initials || '?';
@@ -4005,12 +4514,15 @@ function handleProfileSave(e) {
 // ===== Logout =====
 function handleLogout() {
   auth.signOut().then(() => {
+    // Clear device session on logout
+    clearDeviceSession();
+    selectedPlan = null;
     showToast('👋 Logged out successfully', 'success');
     navigate('/');
   }).catch((err) => showToast('Logout error', 'error'));
 }
 
-// ===== CONTACT PAGE (UPDATED TO USE CLOUDFLARE API) =====
+// ===== CONTACT PAGE =====
 function renderContact(el) {
   el.innerHTML = `
   <div class="page-hero">
@@ -4067,7 +4579,7 @@ function renderContact(el) {
   ${standardFooter}`;
 }
 
-// ===== CONTACT PAGE SUBMIT HANDLER (FIXED) =====
+// ===== CONTACT PAGE SUBMIT HANDLER =====
 async function handleContactPageSubmit(e) {
   e.preventDefault();
   const form = document.getElementById('contactFormPage');
@@ -4080,11 +4592,10 @@ async function handleContactPageSubmit(e) {
   btn.disabled = true;
 
   try {
-    // FIX: Combine firstName + lastName into "name" field that API expects
     const fullName = `${formData.get('firstName') || ''} ${formData.get('lastName') || ''}`.trim();
 
     await callLuviioAPI('contact', {
-      name: fullName,                    // ← API expects "name"
+      name: fullName,
       email: formData.get('email'),
       phone: formData.get('phone'),
       service: formData.get('service'),
@@ -4164,7 +4675,7 @@ function renderCheckout(el) {
               </div>
               <div class="checkout-form-field">
                 <label class="checkout-label">Last Name <span class="required">*</span></label>
-                <input type="text" name="lastName" class="checkout-input" required placeholder="Doe" value="${currentUser.name ? currentUser.name.split(' ').slice(1).join(' ') : ''}">
+                <input type="text" name="lastName" class="checkout-input" required placeholder="Doe" value="${currentUser.name ? currentUser.name.split(' ').slice(1).join('') : ''}">
               </div>
             </div>
 
@@ -4211,12 +4722,20 @@ function renderCheckout(el) {
             <strong>Plan:</strong> ${plan.name} — <strong>${plan.price}/month</strong>
           </div>
 
-          <a href="${plan.stripeUrl}" target="_blank" rel="noopener noreferrer" class="stripe-button-clean" onclick="handleStripeRedirect('${selectedPlan}')">
+          <a href="${plan.stripeUrl}" target="_blank" rel="noopener noreferrer" class="stripe-button-clean" onclick="handlePaymentSuccess('${selectedPlan}')">
             Pay with Stripe — Secure Checkout
           </a>
 
           <p class="payment-note-small">
             You will be redirected to Stripe's secure payment page to complete your purchase. All major credit cards accepted.
+          </p>
+
+          <button class="payment-failed-btn" onclick="handlePaymentFailed()">
+            ${icons.xCircle} Payment Failed / Cancelled
+          </button>
+
+          <p class="payment-note-small" style="margin-top:16px;color:#999;font-size:11px">
+            If you encountered an issue during payment, click the button above to return to pricing.
           </p>
 
           <button class="edit-details-btn" onclick="resetCheckoutClean()">
@@ -4245,6 +4764,8 @@ function renderCheckout(el) {
 }
 
 // ===== Handle Clean Checkout Form Submit =====
+let currentOrderDocId = null; // Store the order doc ID globally
+
 async function handleCheckoutSubmitClean(e) {
   e.preventDefault();
   
@@ -4286,8 +4807,14 @@ async function handleCheckoutSubmitClean(e) {
   };
 
   try {
-    // Save to Firestore (orders collection for internal tracking)
-    await db.collection('orders').add(orderData);
+    // Save to Firestore and get the document reference
+    const docRef = await db.collection('orders').add(orderData);
+    currentOrderDocId = docRef.id; // Store for later use
+    
+    console.log('[Order Created] Document ID:', currentOrderDocId);
+    
+    // Update device session with the order ID
+    createDeviceSession(currentOrderDocId, currentUser.uid, selectedPlan);
     
     // Update progress dots
     document.getElementById('progressDot1').classList.remove('active');
@@ -4314,8 +4841,91 @@ async function handleCheckoutSubmitClean(e) {
   }
 }
 
-// ===== Handle Stripe Redirect =====
+// ===== HANDLE PAYMENT SUCCESS =====
+function handlePaymentSuccess(planId) {
+  if (!currentOrderDocId) {
+    console.error('[Payment Success] No order document ID found!');
+    showToast('Error: Order not found. Please try again.', 'error');
+    return;
+  }
+  
+  // Update Firestore status to payment_made
+  db.collection('orders').doc(currentOrderDocId).update({
+    status: 'payment_made',
+    paidAt: firebase.firestore.FieldValue.serverTimestamp(),
+    paymentMethod: 'stripe'
+  })
+  .then(() => {
+    console.log('[Payment Success] Status updated to payment_made for:', currentOrderDocId);
+    
+    // Update device session with payment status
+    const session = getDeviceSession();
+    if (session) {
+      session.paymentStatus = 'payment_made';
+      session.docId = currentOrderDocId;
+      localStorage.setItem(DEVICE_SESSION_KEY, JSON.stringify(session));
+    }
+    
+    // Redirect to payment successful page in background
+    const redirectPath = `/payment-successful/${currentUser.uid}/${currentOrderDocId}`;
+    console.log('[Redirecting to]:', redirectPath);
+    
+    // Use replaceState so user can't go back to checkout via browser back
+    window.history.replaceState({ route: redirectPath, orderId: currentOrderDocId }, '', basePath + redirectPath);
+    
+    // Trigger router to render payment success page
+    router();
+  })
+  .catch((err) => {
+    console.error('[Payment Status Update Error]', err);
+    // Still redirect even if update fails - user has paid
+    const redirectPath = `/payment-successful/${currentUser.uid}/${currentOrderDocId}`;
+    window.history.replaceState({ route: redirectPath }, '', basePath + redirectPath);
+    router();
+  });
+}
+
+// ===== HANDLE PAYMENT FAILED =====
+function handlePaymentFailed() {
+  if (!currentOrderDocId) {
+    navigate('/pricing');
+    return;
+  }
+  
+  // Update Firestore status back to pending_payment
+  db.collection('orders').doc(currentOrderDocId).update({
+    status: 'pending_payment',
+    paymentFailedAt: firebase.firestore.FieldValue.serverTimestamp()
+  })
+  .then(() => {
+    console.log('[Payment Failed] Status reset to pending_payment for:', currentOrderDocId);
+    
+    // Clear device session completely
+    clearDeviceSession();
+    selectedPlan = null;
+    currentOrderDocId = null;
+    
+    showToast('Payment cancelled. You can try again anytime.', 'error');
+    
+    // Redirect to pricing
+    setTimeout(() => {
+      navigate('/pricing');
+    }, 500);
+  })
+  .catch((err) => {
+    console.error('[Payment Failed Update Error]', err);
+    // Force redirect anyway
+    clearDeviceSession();
+    selectedPlan = null;
+    currentOrderDocId = null;
+    navigate('/pricing');
+  });
+}
+
+// ===== Handle Stripe Redirect Tracking =====
 function handleStripeRedirect(planId) {
+  if (!currentOrderDocId) return;
+  
   db.collection('orders')
     .where('planId', '==', planId)
     .where('userId', '==', currentUser.uid || null)
@@ -4343,6 +4953,253 @@ function resetCheckoutClean() {
   document.getElementById('checkoutStep1Body').style.display = 'block';
   document.getElementById('checkoutPaymentView').classList.remove('visible');
 }
+
+// ==========================================
+// PAYMENT SUCCESSFUL PAGE RENDERER
+// ==========================================
+function renderPaymentSuccessful(el, session) {
+  // Fetch order data from Firestore using stored docId
+  db.collection('orders').doc(session.docId).get()
+    .then((doc) => {
+      if (!doc.exists) {
+        el.innerHTML = `
+          <div class="payment-success-page">
+            <div class="payment-success-container">
+              <div class="success-hero">
+                <div class="success-badge">
+                  ${icons.alertCircle} Order Not Found
+                </div>
+                <h1>Order Details Unavailable</h1>
+                <p>We couldn't find your order information. This might be because the session has expired or the order was deleted.</p>
+              </div>
+              <div class="success-actions">
+                <button class="btn-primary" onclick="navigate('/pricing')">Return to Pricing</button>
+                <button class="btn-secondary" onclick="navigate('/contact')">Contact Support</button>
+              </div>
+            </div>
+          </div>`;
+        return;
+      }
+
+      const orderData = doc.data();
+      const planInfo = plans[orderData.planId] || { name: orderData.planName || 'Custom Plan', price: orderData.planPriceDisplay || 'Contact Us' };
+      
+      el.innerHTML = `
+      <div class="payment-success-page">
+        <!-- Confetti Container -->
+        <div class="success-confetti" id="confettiContainer"></div>
+        
+        <div class="payment-success-container">
+          <!-- Session Expiry Warning -->
+          <div class="session-expiry-warning" id="sessionExpiryWarning" style="display:none">
+            ${icons.clockIcon}
+            <span>This page will expire in: <span class="session-timer" id="sessionTimerDisplay">05:00</span></span>
+          </div>
+
+          <!-- Hero Section -->
+          <div class="success-hero">
+            <div class="success-badge">
+              ${icons.check} Payment Successful
+            </div>
+            <div class="success-icon-large">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <h1>Thank you for<br>your purchase!</h1>
+            <p>Your order has been confirmed and we'll start working on your project right away.</p>
+          </div>
+
+          <!-- Order Summary Card -->
+          <div class="order-summary-card">
+            <div class="order-summary-header">
+              <div class="order-summary-title">Order Summary</div>
+              <div class="order-id-badge">#${session.docId.substring(0, 8).toUpperCase()}</div>
+            </div>
+            
+            <div class="order-detail-row">
+              <span class="order-detail-label">Plan Selected</span>
+              <span class="order-detail-value">${planInfo.name}</span>
+            </div>
+            <div class="order-detail-row">
+              <span class="order-detail-label">Customer Name</span>
+              <span class="order-detail-value">${orderData.firstName || ''} ${orderData.lastName || ''}</span>
+            </div>
+            <div class="order-detail-row">
+              <span class="order-detail-label">Email Address</span>
+              <span class="order-detail-value">${orderData.email || ''}</span>
+            </div>
+            <div class="order-detail-row">
+              <span class="order-detail-label">Phone Number</span>
+              <span class="order-detail-value">${orderData.phone || 'Not provided'}</span>
+            </div>
+            ${orderData.company ? `
+            <div class="order-detail-row">
+              <span class="order-detail-label">Company</span>
+              <span class="order-detail-value">${orderData.company}</span>
+            </div>
+            ` : ''}
+            <div class="order-detail-row">
+              <span class="order-detail-label">Order Date</span>
+              <span class="order-detail-value">${new Date(orderData.createdAt?.seconds * 1000 || Date.now()).toLocaleDateString('en-MY', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+            </div>
+            <div class="order-detail-row">
+              <span class="order-detail-label">Total Amount</span>
+              <span class="order-detail-value highlight">${planInfo.price}<span style="font-size:14px;font-weight:400;color:#8B8B7A;margin-left:4px">/month</span></span>
+            </div>
+            <div class="order-detail-row">
+              <span class="order-detail-label">Status</span>
+              <span class="order-detail-value" style="color:var(--primary);font-weight:700">✓ Payment Confirmed</span>
+            </div>
+            ${orderData.notes ? `
+            <div class="order-detail-row" style="flex-direction:column;align-items:flex-start;">
+              <span class="order-detail-label">Notes</span>
+              <span class="order-detail-value" style="margin-top:4px;background:#FAFAF8;padding:8px 12px;border-radius:8px;font-size:13px">${orderData.notes}</span>
+            </div>
+            ` : ''}
+          </div>
+
+          <!-- Support Section -->
+          <div class="support-section">
+            <h3>${icons.mail} Need Help?</h3>
+            <p style="font-size:14px;color:#8B8B7A;margin-bottom:20px">Our team is here to assist you with any questions about your order.</p>
+            
+            <div class="support-options">
+              <a href="mailto:hello@luviio.com?subject=Order%20${session.docId.substring(0,8)}%20-%20Support" class="support-option">
+                <div class="support-option-icon">${icons.mail}</div>
+                <div>
+                  <div class="support-option-text">Email Support</div>
+                  <div class="support-option-sub">hello@luviio.com</div>
+                </div>
+              </a>
+              
+              <a href="https://wa.me/60122600969?text=Hi%20Luviio,%20I%20need%20help%20with%20my%20order%20${session.docId.substring(0,8)}" target="_blank" rel="noopener noreferrer" class="support-option">
+                <div class="support-option-icon">${icons.phone}</div>
+                <div>
+                  <div class="support-option-text">WhatsApp</div>
+                  <div class="support-option-sub">+60 12 260 0969</div>
+                </div>
+              </a>
+              
+              <a href="/contact" class="support-option">
+                <div class="support-option-icon">${icons.mapPin}</div>
+                <div>
+                  <div class="support-option-text">Visit Office</div>
+                  <div class="support-option-sub">Kedah, Malaysia</div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="success-actions">
+            <button class="btn-primary" onclick="navigate('/')">
+              ${icons.home} Back to Home
+            </button>
+            <button class="btn-secondary" onclick="navigate('/pricing')">
+              ${icons.arrowRight} View Other Plans
+            </button>
+          </div>
+        </div>
+      </div>`;
+    })
+    .catch((err) => {
+      console.error('[Fetch Order Error]', err);
+      el.innerHTML = `
+        <div class="payment-success-page">
+          <div class="payment-success-container">
+            <div class="success-hero">
+              <h1>Loading your order...</h1>
+            </div>
+          </div>
+        </div>`;
+    });
+}
+
+// ===== CONFETTI EFFECT =====
+function startConfetti() {
+  const container = document.getElementById('confettiContainer');
+  if (!container) return;
+  
+  const colors = ['#AB1509', '#C2A68C', '#E6D8C3', '#F5F5F0', '#000000'];
+  const shapes = ['square', 'circle'];
+  
+  for (let i = 0; i < 50; i++) {
+    const piece = document.createElement('div');
+    piece.className = 'confetti-piece';
+    piece.style.left = Math.random() * 100 + '%';
+    piece.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+    piece.style.width = (Math.random() * 8 + 6) + 'px';
+    piece.style.height = piece.style.width;
+    piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+    piece.style.animationDelay = (Math.random() * 2) + 's';
+    piece.style.animationDuration = (Math.random() * 2 + 2) + 's';
+    container.appendChild(piece);
+  }
+  
+  // Remove confetti after animation
+  setTimeout(() => {
+    if (container) container.innerHTML = '';
+  }, 5000);
+}
+
+// ===== SESSION TIMER =====
+let sessionTimerInterval = null;
+
+function startSessionTimer() {
+  const warningEl = document.getElementById('sessionExpiryWarning');
+  const timerEl = document.getElementById('sessionTimerDisplay');
+  
+  if (!warningEl || !timerEl) return;
+  
+  // Show warning after 30 seconds
+  setTimeout(() => {
+    const session = getDeviceSession();
+    if (session && isPaymentSessionActive()) {
+      warningEl.style.display = 'flex';
+    }
+  }, 30000);
+  
+  // Update timer every second
+  sessionTimerInterval = setInterval(() => {
+    const session = getDeviceSession();
+    if (!session || !isPaymentSessionActive()) {
+      clearInterval(sessionTimerInterval);
+      // Session expired - could redirect here if desired
+      return;
+    }
+    
+    const remaining = Math.max(0, session.expiresAt - Date.now());
+    const minutes = Math.floor(remaining / 60000);
+    const seconds = Math.floor((remaining % 60000) / 1000);
+    
+    timerEl.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+    
+    // Warn when less than 1 minute left
+    if (remaining < 60000) {
+      warningEl.style.background = '#FEF2F2';
+      warningEl.style.borderColor = '#FECACA';
+      warningEl.style.color = '#DC2626';
+    }
+    
+    // When expired
+    if (remaining <= 0) {
+      clearInterval(sessionTimerInterval);
+      timerEl.textContent = '00:00';
+      warningEl.innerHTML = `${icons.alertCircle} Session expired. Returning to home...`;
+      setTimeout(() => {
+        clearDeviceSession();
+        navigate('/');
+      }, 2000);
+    }
+  }, 1000);
+}
+
+// Stop timer when leaving page
+window.addEventListener('beforeunload', () => {
+  if (sessionTimerInterval) {
+    clearInterval(sessionTimerInterval);
+  }
+});
+
 </script>
 
 </body>
