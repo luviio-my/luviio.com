@@ -121,41 +121,112 @@
   .mono{font-family:"Space Mono",SFMono-Regular,"Courier New",monospace}
   .container{max-width:1200px;margin:0 auto;padding:0 40px;width:100%;position:relative}
 
-  /* MOBILE ZOOM CONTROL — Allows page zoom, blocks input auto-zoom */
+  /* ========================================== */
+  /* MOBILE ZOOM CONTROL                       */
+  /* Allows pinch-to-zoom for accessibility     */
+  /* Prevents auto-zoom when focusing inputs    */
+  /* ========================================== */
+  
+  /* STEP 1: Allow pinch-zoom on the whole page */
   @supports (-webkit-touch-callout: none) {
     html {
-      -webkit-text-size-adjust: 100%;
-      text-size-adjust: 100%;
+      /* CRITICAL: Must be 100% to allow user zoom */
+      -webkit-text-size-adjust: 100% !important;
+      text-size-adjust: 100% !important;
+      
+      /* Allow pinch gestures for zooming */
       touch-action: pan-x pan-y pinch-zoom;
+      
+      /* Prevent overscroll bounce but keep zoom */
+      overflow-x: hidden;
+      width: 100%;
+      max-width: 100vw;
     }
-    
-    input[type="text"], 
-    input[type="email"], 
-    input[type="password"], 
-    input[type="tel"], 
-    input[type="number"], 
+
+    body {
+      /* Ensure body doesn't restrict zoom */
+      width: 100%;
+      max-width: 100vw;
+      overflow-x: hidden;
+      position: relative;
+    }
+  }
+
+  /* STEP 2: Block auto-zoom on ALL form inputs */
+  /* iOS auto-zooms when font-size < 16px. 
+     We set it to 16px exactly to prevent that behavior 
+     while still allowing manual pinch-zoom. */
+  @supports (-webkit-touch-callout: none) {
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="tel"],
+    input[type="number"],
     input[type="search"],
     input[type="url"],
     input[type="date"],
     textarea,
     select {
+      /* THE KEY FIX: 16px prevents iOS auto-zoom */
       font-size: 16px !important;
       line-height: 1.5 !important;
-      -webkit-text-size-adjust: 100%;
-      text-size-adjust: 100%;
+      
+      /* Don't let inputs change text size on zoom */
+      -webkit-text-size-adjust: 100% !important;
+      text-size-adjust: 100% !important;
+      
+      /* Keep normal touch behavior (scroll/tap) */
       touch-action: manipulation;
+      
+      /* Hardware acceleration for smooth focus */
       -webkit-transform: translateZ(0);
       transform: translateZ(0);
+      
+      /* Prevent iOS from adding extra padding on focus */
+      padding: 12px 14px !important;
     }
 
+    /* Special handling for buttons - prevent double-tap zoom delay */
     .btn-primary,
     .btn-secondary,
     .btn-ghost,
     button[type="submit"],
     .nav-cta,
     .auth-social-btn,
-    .stripe-button-clean {
+    .stripe-button-clean,
+    .hamburger,
+    .mobile-close {
       touch-action: manipulation;
+      min-height: 44px; /* Apple recommended minimum */
+    }
+  }
+
+  /* STEP 3: Fix viewport meta tag behavior via CSS */
+  /* This ensures maximum-scale=5.0 from your meta tag works */
+  @media screen and (max-width: 767px) {
+    @supports (-webkit-touch-callout: none) {
+      /* Ensure container doesn't break zoom layout */
+      .container {
+        width: 100%;
+        max-width: 100vw;
+        padding-left: 20px;
+        padding-right: 20px;
+        box-sizing: border-box;
+      }
+      
+      /* Fix header on zoom */
+      header {
+        width: 100vw;
+        max-width: 100vw;
+        left: 0;
+        right: 0;
+      }
+      
+      /* Fix fixed elements during zoom */
+      .toast-container {
+        position: fixed;
+        z-index: 10000; /* Above everything even when zoomed */
+      }
     }
   }
 
