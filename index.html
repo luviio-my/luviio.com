@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, viewport-fit=cover">
 
 <!-- CRITICAL: Site Identity for Google & Browsers -->
 <title>Luviio · Build Interfaces That Grow</title>
@@ -123,10 +123,26 @@
     white-space: nowrap;
   }
 
-  html{scroll-behavior:smooth}
-  body{font-family:"DM Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text);font-size:16px;font-weight:400;line-height:24px;-webkit-font-smoothing:antialiased;overflow-x:hidden;width:100%;max-width:100vw}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}
+  body{font-family:"DM Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text);font-size:16px;font-weight:400;line-height:24px;-webkit-font-smoothing:antialiased;overflow-x:hidden;width:100%;max-width:100vw;touch-action:pan-x pan-y}
   .mono{font-family:"Space Mono",SFMono-Regular,"Courier New",monospace}
   .container{max-width:1200px;margin:0 auto;padding:0 40px;width:100%;position:relative}
+
+  /* MOBILE INPUT ZOOM PREVENTION */
+  @supports (-webkit-touch-callout: none) {
+    input[type="text"], 
+    input[type="email"], 
+    input[type="password"], 
+    input[type="tel"], 
+    input[type="number"], 
+    input[type="search"],
+    textarea,
+    select {
+      font-size: 16px !important;
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+    }
+  }
 
   /* ===== ANIMATIONS ===== */
   @keyframes fadeInUp{
@@ -536,12 +552,28 @@
   .profile-info p{font-size:14px;color:#8B8B7A}
   .profile-form{display:flex;flex-direction:column;gap:18px}
   .profile-form label{display:block;font-size:13px;font-weight:600;color:var(--text);margin-bottom:5px}
-  .profile-form input,.profile-form textarea{width:100%;font-family:"DM Sans",sans-serif;font-size:15px;padding:13px 16px;border-radius:var(--radius-md);border:2px solid var(--warm-light);background:var(--bg);outline:none;transition:all .25s;box-sizing:border-box}
+  .profile-form input,.profile-form textarea{width:100%;font-family:"DM Sans",sans-serif;font-size:15px;padding:13px 16px;border-radius:var(--radius-md);border:2px solid var(--warm-light);background:var(--bg);outline:none;transition:all .25px;box-sizing:border-box}
   .profile-form input:focus,.profile-form textarea:focus{border-color:var(--primary);box-shadow:rgba(171,21,9,.08) 0 0 0 4px}
   .profile-form input[readonly]{background:#f8f8f5;color:#8B8B7A;cursor:not-allowed}
   .profile-form textarea{resize:vertical;min-height:85px}
   .profile-actions{display:flex;gap:12px;margin-top:8px;flex-wrap:wrap}
   .profile-actions button{flex:1;min-width:140px}
+
+  /* ========== PROFILE PORTAL CARD ========== */
+  .portal-section{margin-top:28px;padding-top:28px;border-top:2px dashed var(--warm-light)}
+  .portal-card{background:linear-gradient(135deg,#FDF0EE 0%,#FFF 100%);border:2px solid rgba(171,21,9,0.15);border-radius:var(--radius-lg);padding:24px;transition:all .3s;position:relative;overflow:hidden}
+  .portal-card::before{content:'';position:absolute;top:-50%;right:-50%;width:200px;height:200px;background:radial-gradient(circle,rgba(171,21,9,0.06) 0%,transparent 70%);pointer-events:none}
+  .portal-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(171,21,9,0.12);border-color:rgba(171,21,9,0.3)}
+  .portal-header{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+  .portal-icon{width:48px;height:48px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;color:#fff;flex-shrink:0;box-shadow:0 4px 12px rgba(171,21,9,0.2)}
+  .portal-title{font-size:18px;font-weight:800;color:var(--text)}
+  .portal-subtitle{font-size:13px;color:#8B8B7A;margin-top:2px}
+  .portal-features{list-style:none;margin:0 0 20px 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .portal-features li{font-size:13px;color:var(--text);display:flex;align-items:center;gap:8px;padding:6px 10px;background:rgba(255,255,255,0.6);border-radius:8px}
+  .portal-features li svg{width:14px;height:14px;color:var(--primary);flex-shrink:0}
+  .portal-btn{width:100%;justify-content:center;padding:14px 24px;font-size:14px;background:linear-gradient(135deg,#635BFF,#5851EA);border-color:#5851EA;color:#fff;box-shadow:0 4px 14px rgba(99,91,255,0.25)}
+  .portal-btn:hover{background:linear-gradient(135deg,#5851EA,#4840DB);box-shadow:0 8px 24px rgba(99,91,255,0.35);transform:translateY(-2px)}
+  .portal-note{font-size:11px;color:#8B8B7A;text-align:center;margin-top:12px}
 
   /* ========== STATIC CONTENT PAGES ========== */
   .content-page{padding:80px 0;width:100%}
@@ -883,7 +915,7 @@
   .checkout-input {
     width: 100%;
     font-family: "DM Sans", sans-serif;
-    font-size: 15px;
+    font-size: 16px;
     padding: 14px 16px;
     border-radius: 12px;
     border: 1.5px solid #E5E5E0;
@@ -1531,6 +1563,11 @@
     .success-actions {
       flex-direction: column;
     }
+    
+    /* Profile Portal Responsive */
+    .portal-features {
+      grid-template-columns: 1fr;
+    }
   }
 
   @media(max-width:767px){
@@ -1694,9 +1731,9 @@
     
     .content-page{padding:48px 0}
     .content-page .container{padding:0 20px}
-    .content-page h1{font-size:28px;line-height:36px}
-    .content-page h2{font-size:22px;margin:32px 0 12px;padding-bottom:10px}
-    .content-page h3{font-size:18px;margin:24px 0 8px}
+    .content-page h1{font-size:36px;line-height:42px}
+    .content-page h2{font-size:26px;margin:36px 0 14px;padding-bottom:10px}
+    .content-page h3{font-size:20px;margin:24px 0 8px}
     .content-page p{font-size:14px;line-height:24px;margin-bottom:16px}
     .content-page ul,.content-page ol{font-size:14px;line-height:24px;margin:0 0 16px 20px}
     .content-page blockquote{padding:12px 18px;font-size:14px;line-height:22px}
@@ -1768,7 +1805,7 @@
     }
     .checkout-input {
       padding: 12px 14px;
-      font-size: 15px;
+      font-size: 16px;
     }
     .checkout-actions {
       flex-direction: column;
@@ -1846,6 +1883,23 @@
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
+    }
+    
+    /* Profile Portal Mobile */
+    .portal-section {
+      margin-top: 24px;
+      padding-top: 24px;
+    }
+    .portal-card {
+      padding: 20px;
+    }
+    .portal-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .portal-title {
+      font-size: 16px;
     }
   }
 
@@ -2111,7 +2165,7 @@
     }
     .checkout-input {
       padding: 11px 13px;
-      font-size: 14px;
+      font-size: 16px;
       border-radius: 10px;
     }
     .checkout-actions {
@@ -2258,6 +2312,26 @@
       flex-direction: column;
       margin-top: 24px;
     }
+
+    /* Profile Portal Extra Small */
+    .portal-section {
+      margin-top: 20px;
+      padding-top: 20px;
+    }
+    .portal-card {
+      padding: 16px;
+    }
+    .portal-icon {
+      width: 40px;
+      height: 40px;
+    }
+    .portal-title {
+      font-size: 15px;
+    }
+    .portal-btn {
+      padding: 12px 20px;
+      font-size: 13px;
+    }
   }
 
   /* Touch-friendly improvements */
@@ -2372,10 +2446,9 @@ let authInitialized = false;
 // ===== DEVICE SESSION MANAGEMENT =====
 // Uses localStorage (persists across tabs) but tied to device fingerprint + timestamp
 const DEVICE_SESSION_KEY = 'luviio_device_session';
-const SESSION_DURATION_MS = 5 * 60 * 1000; // 5 minutes
+const SESSION_DURATION_MS = 10 * 60 * 1000; // 10 minutes
 
 function getDeviceFingerprint() {
-  // Simple device fingerprint using available browser properties
   const canvas = document.createElement('canvas');
   const ctx = canvas.getContext('2d');
   ctx.textBaseline = 'top';
@@ -2694,7 +2767,7 @@ function setPageTitle(route) {
 }
 
 function router() {
-  let route = getRoute(); // Changed to let so we can override it below
+  let route = getRoute();
   const app = document.getElementById('app');
   const navLinks = document.querySelectorAll('#mainNav .nav-link');
 
@@ -2706,7 +2779,7 @@ function router() {
     if (justLoggedOut) {
       sessionStorage.removeItem('luviio_just_logged_out');
       window.history.replaceState({ route: '/' }, '', basePath + '/');
-      route = '/'; // Override to render home page instead of login
+      route = '/';
     }
   }
 
@@ -2714,6 +2787,132 @@ function router() {
     const href = link.getAttribute('href');
     link.style.color = (href === '#' + route || (route === '/' && href === '/')) ? 'var(--primary)' : '';
   });
+
+  // ==========================================
+  // CHECKOUT ROUTE WITH DOCUMENT ID HANDLING
+  // ==========================================
+  if (route.startsWith('/checkout')) {
+    // Extract potential document ID from URL
+    const urlParts = route.split('/');
+    const potentialDocId = urlParts[2] || null; // /checkout/[docId]
+    
+    // Case A: User accessed /checkout/[docId] directly (refresh or direct link)
+    if (potentialDocId && potentialDocId.length > 5) {
+      // Check if we have a matching active session
+      const session = getDeviceSession();
+      
+      if (session && session.docId === potentialDocId) {
+        // Valid session with matching doc ID - restore state
+        if (!selectedPlan && session.planId) {
+          selectedPlan = session.planId;
+        }
+        // Allow through to render checkout with existing order
+      } else {
+        // No matching session but have docId in URL
+        // Try to verify order exists in Firestore and belongs to this user
+        if (isLoggedIn && currentUser.uid) {
+          db.collection('orders').doc(potentialDocId).get()
+            .then((doc) => {
+              if (doc.exists && doc.data().userId === currentUser.uid) {
+                // Order exists and belongs to user - restore session
+                const orderData = doc.data();
+                selectedPlan = orderData.planId;
+                currentOrderDocId = potentialDocId;
+                
+                // Recreate device session
+                createDeviceSession(potentialDocId, currentUser.uid, orderData.planId);
+                
+                // Update URL to match
+                if (route !== `/checkout/${potentialDocId}`) {
+                  window.history.replaceState({ route: `/checkout/${potentialDocId}` }, '', basePath + `/checkout/${potentialDocId}`);
+                }
+                
+                renderCheckout(app);
+                window.scrollTo(0, 0);
+                initScrollAnimations();
+                if (typeof lucide !== 'undefined') lucide.createIcons();
+              } else {
+                // Invalid docId or doesn't belong to user
+                navigate('/pricing');
+              }
+            })
+            .catch(() => {
+              navigate('/pricing');
+            });
+          return; // Exit early while async check happens
+        } else {
+          // Not logged in but trying to access specific checkout
+          showToast('Please sign in to continue with your purchase', 'error');
+          setTimeout(() => navigate('/login'), 1000);
+          return;
+        }
+      }
+    }
+    
+    // Case B: User accessed bare /checkout without docId
+    if (route === '/checkout' || route === '/checkout/') {
+      const session = getDeviceSession();
+      
+      if (session && session.docId) {
+        // Have active session with docId - correct URL
+        console.log('[Router] Correcting checkout route to:', `/checkout/${session.docId}`);
+        window.history.replaceState({ route: `/checkout/${session.docId}` }, '', basePath + `/checkout/${session.docId}`);
+        
+        if (!selectedPlan && session.planId) {
+          selectedPlan = session.planId;
+        }
+        if (session.docId) {
+          currentOrderDocId = session.docId;
+        }
+        
+        renderCheckout(app);
+        window.scrollTo(0, 0);
+        initScrollAnimations();
+        if (typeof lucide !== 'undefined') lucide.createIcons();
+        return;
+      } else if (!selectedPlan || !plans[selectedPlan]) {
+        // No session and no plan - redirect to pricing
+        navigate('/pricing');
+        return;
+      }
+      // If we have selectedPlan in memory (just clicked from pricing), allow through
+    }
+    
+    // Auth guard for checkout
+    if (PROTECTED_ROUTES.includes(route) && !authInitialized) {
+      app.innerHTML = `
+        <div style="display:flex;align-items:center;justify-content:center;min-height:calc(100vh - 73px);background:var(--bg);padding:20px">
+          <div style="text-align:center;width:100%;max-width:320px">
+            <div class="skeleton" style="width:64px;height:64px;border-radius:50%;margin:0 auto 20px;border-radius:50%"></div>
+            <div class="skeleton" style="width:60%;height:20px;margin:0 auto 12px;border-radius:10px"></div>
+            <div class="skeleton" style="width:40%;height:14px;margin:0 auto;border-radius:8px"></div>
+            <p style="font-size:13px;color:#8B8B7A;margin-top:24px;font-family:'Space Mono',monospace;letter-spacing:0.05em">VERIFYING SESSION...</p>
+          </div>
+        </div>
+      `;
+      return;
+    }
+
+    if (PROTECTED_ROUTES.includes(route) && authInitialized && (!isLoggedIn || !currentUser.uid)) {
+      window.history.replaceState({ route: '/login' }, '', basePath + '/login');
+      showToast('🔒 Please sign in to complete your purchase', 'error');
+      setTimeout(() => navigate('/login'), 100);
+      return;
+    }
+
+    if (route === '/checkout' && selectedPlan && !plans[selectedPlan]) {
+      navigate('/pricing');
+      return;
+    }
+
+    // Render checkout normally
+    renderCheckout(app);
+    window.scrollTo(0, 0);
+    initScrollAnimations();
+    initCardMouseTracking();
+    if (typeof lucide !== 'undefined') lucide.createIcons();
+    return;
+  }
 
   // ==========================================
   // PAYMENT SUCCESSFUL ROUTE CORRECTION LOGIC
@@ -2749,29 +2948,8 @@ function router() {
     }
     
     // Case B: No valid session but trying to access payment-successful
-    // Redirect to pricing or home
     navigate('/pricing');
     return;
-  }
-
-  // ==========================================
-  // CHECKOUT ROUTE - DEVICE SESSION CHECK
-  // ==========================================
-  if (route === '/checkout') {
-    // Check if there's an active checkout device session
-    if (isCheckoutSessionActive()) {
-      const session = getDeviceSession();
-      // Restore plan from session if needed
-      if (!selectedPlan && session.planId) {
-        selectedPlan = session.planId;
-      }
-      // Allow access - render checkout
-    } else if (!selectedPlan || !plans[selectedPlan]) {
-      // No session and no plan selected - redirect to pricing
-      navigate('/pricing');
-      return;
-    }
-    // If we have selectedPlan in memory (just clicked from pricing), allow through
   }
 
   // ==========================================
@@ -2963,7 +3141,9 @@ const icons = {
   arrowLeft: '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>',
   xCircle: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>',
   alertCircle: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>',
-  clockIcon: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>'
+  clockIcon: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>',
+  creditCard: '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>',
+  home: '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>'
 };
 
 // ===== STANDARD FOOTER =====
@@ -3342,7 +3522,7 @@ function selectPlanAndCheckout(planId) {
     return;
   }
   
-  // Create/update device session for checkout
+  // Create/update device session for checkout (without docId yet)
   createDeviceSession(null, currentUser.uid, planId);
   
   navigate('/checkout');
@@ -4397,7 +4577,7 @@ function handleGoogleSignUp() {
     });
 }
 
-// ===== PROFILE PAGE =====
+// ===== PROFILE PAGE WITH CUSTOMER PORTAL =====
 function renderProfile(el) {
   if (!isLoggedIn || !currentUser.uid || !auth.currentUser) {
     console.warn('[Security] Profile page accessed without valid session. Redirecting.');
@@ -4464,6 +4644,36 @@ function renderProfile(el) {
           <button type="button" class="btn-secondary" onclick="handleLogout()">${icons.logOut} Logout</button>
         </div>
       </form>
+
+      <!-- ========== CUSTOMER PORTAL SECTION ========== -->
+      <div class="portal-section">
+        <div class="portal-card">
+          <div class="portal-header">
+            <div class="portal-icon">
+              ${icons.creditCard}
+            </div>
+            <div>
+              <div class="portal-title">Customer Portal</div>
+              <div class="portal-subtitle">Manage billing, invoices & subscriptions</div>
+            </div>
+          </div>
+          
+          <ul class="portal-features">
+            <li>${icons.check} View & download invoices</li>
+            <li>${icons.check} Update payment methods</li>
+            <li>${icons.check} Manage subscription plans</li>
+            <li>${icons.check} View payment history</li>
+            <li>${icons.check} Update billing information</li>
+            <li>${icons.check} Cancel or pause subscriptions</li>
+          </ul>
+          
+          <a href="https://billing.stripe.com/p/login/fZubIV3kQgXl3D072M97G00" target="_blank" rel="noopener noreferrer" class="btn-primary portal-btn">
+            ${icons.externalLink} Open Customer Portal
+          </a>
+          
+          <p class="portal-note">Secure Stripe-hosted portal. You'll be redirected to manage your account.</p>
+        </div>
+      </div>
     </div>
   </div>`;
 }
@@ -4580,7 +4790,7 @@ function renderContact(el) {
           
           <div class="contact-details">
             <div class="contact-item"><div class="contact-item-icon">${icons.mail}</div><div class="contact-item-text"><strong>Email Us</strong><span>hello@luviio.com</span></div></div>
-            <div class="contact-item"><div class="contact-item-icon">${icons.phone}</div><div class="contact-item-text"><strong>Call Us</strong><span>+60 12 345 6789</span></div></div>
+            <div class="contact-item"><div class="contact-item-icon">${icons.phone}</div><div class="contact-item-text"><strong>Call Us</strong><span>+60 12 260 0969</span></div></div>
             <div class="contact-item"><div class="contact-item-icon">${icons.mapPin}</div><div class="contact-item-text"><strong>Visit Us</strong><span>Kedah, Malaysia</span></div></div>
             <div class="contact-item"><div class="contact-item-icon">${icons.clock}</div><div class="contact-item-text"><strong>Working Hours</strong><span>Mon - Fri: 9AM - 6PM (MYT)</span></div></div>
           </div>
@@ -4657,9 +4867,15 @@ async function handleContactPageSubmit(e) {
 // ==========================================
 // CHECKOUT PAGE — CLEAN & PROFESSIONAL REDESIGN
 // ==========================================
+let currentOrderDocId = null; // Store the order doc ID globally
+
 function renderCheckout(el) {
   if (!selectedPlan || !plans[selectedPlan]) { navigate('/pricing'); return; }
   const plan = plans[selectedPlan];
+  
+  // Determine if we're showing payment view (order already created)
+  const session = getDeviceSession();
+  const isPaymentView = session && session.docId && currentOrderDocId === session.docId;
   
   el.innerHTML = `
   <div class="checkout-page">
@@ -4674,9 +4890,9 @@ function renderCheckout(el) {
 
       <!-- Minimal Progress Dots -->
       <div class="checkout-progress-minimal">
-        <div class="progress-dot active" id="progressDot1"></div>
-        <div class="progress-line-mini" id="progressLineMini"></div>
-        <div class="progress-dot" id="progressDot2"></div>
+        <div class="progress-dot ${isPaymentView ? 'completed' : 'active'}" id="progressDot1"></div>
+        <div class="progress-line-mini ${isPaymentView ? 'filled' : ''}" id="progressLineMini"></div>
+        <div class="progress-dot ${isPaymentView ? 'active' : ''}" id="progressDot2"></div>
       </div>
 
       <!-- Main Card -->
@@ -4698,8 +4914,8 @@ function renderCheckout(el) {
           </div>
         </div>
 
-        <!-- Step 1: Form Body -->
-        <div class="checkout-card-body" id="checkoutStep1Body">
+        <!-- Step 1: Form Body (hidden if payment view) -->
+        <div class="checkout-card-body" id="checkoutStep1Body" style="${isPaymentView ? 'display:none' : ''}">
           <div class="checkout-section-title">
             <span class="step-number">1</span>
             Your Details
@@ -4749,7 +4965,7 @@ function renderCheckout(el) {
         </div>
 
         <!-- Step 2: Payment View -->
-        <div class="checkout-payment-view" id="checkoutPaymentView">
+        <div class="checkout-payment-view ${isPaymentView ? 'visible' : ''}" id="checkoutPaymentView">
           <div class="payment-success-circle">
             <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
           </div>
@@ -4799,11 +5015,12 @@ function renderCheckout(el) {
       </div>
     </div>
   </div>`;
+  
+  // Scroll to top after render
+  window.scrollTo(0, 0);
 }
 
 // ===== Handle Clean Checkout Form Submit =====
-let currentOrderDocId = null; // Store the order doc ID globally
-
 async function handleCheckoutSubmitClean(e) {
   e.preventDefault();
   
@@ -4821,6 +5038,8 @@ async function handleCheckoutSubmitClean(e) {
       errorBanner.classList.add('show');
     }
     showToast('Please fill in all required fields', 'error');
+    // Scroll to top to show error
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     return;
   }
 
@@ -4854,6 +5073,10 @@ async function handleCheckoutSubmitClean(e) {
     // Update device session with the order ID
     createDeviceSession(currentOrderDocId, currentUser.uid, selectedPlan);
     
+    // Update URL to include document ID
+    const newRoute = `/checkout/${currentOrderDocId}`;
+    window.history.replaceState({ route: newRoute, orderId: currentOrderDocId }, '', basePath + newRoute);
+    
     // Update progress dots
     document.getElementById('progressDot1').classList.remove('active');
     document.getElementById('progressDot1').classList.add('completed');
@@ -4864,6 +5087,9 @@ async function handleCheckoutSubmitClean(e) {
     document.getElementById('checkoutStep1Body').style.display = 'none';
     const paymentView = document.getElementById('checkoutPaymentView');
     paymentView.classList.add('visible');
+    
+    // Scroll to top to show payment view
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     
     showToast('✅ Details saved! Proceeding to payment...', 'success');
   } catch (err) {
@@ -4990,6 +5216,9 @@ function resetCheckoutClean() {
   
   document.getElementById('checkoutStep1Body').style.display = 'block';
   document.getElementById('checkoutPaymentView').classList.remove('visible');
+  
+  // Scroll to top when going back to edit
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 // ==========================================
@@ -5031,7 +5260,7 @@ function renderPaymentSuccessful(el, session) {
           <!-- Session Expiry Warning -->
           <div class="session-expiry-warning" id="sessionExpiryWarning" style="display:none">
             ${icons.clockIcon}
-            <span>This page will expire in: <span class="session-timer" id="sessionTimerDisplay">05:00</span></span>
+            <span>This page will expire in: <span class="session-timer" id="sessionTimerDisplay">09:59</span></span>
           </div>
 
           <!-- Hero Section -->
