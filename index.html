@@ -33,18 +33,11 @@
 <meta name="twitter:image" content="https://images.luviio.com/og-image-luviio-red.png">
 
 <!-- ========== FAVICON: RED LUVIIO BRAND ICON ========== -->
-<!-- Primary Red Favicon (as requested) -->
 <link rel="icon" type="image/png" sizes="192x192" href="https://images.luviio.com/favicon-luviio-red.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://images.luviio.com/favicon-luviio-red.png">
 <link rel="icon" type="image/png" sizes="16x16" href="https://images.luviio.com/favicon-luviio-red.png">
-
-<!-- Apple Touch Icon (iOS Home Screen) -->
 <link rel="apple-touch-icon" sizes="180x180" href="https://images.luviio.com/favicon-luviio-red.png">
-
-<!-- Android Chrome Manifest -->
 <link rel="manifest" href="/site.webmanifest">
-
-<!-- Legacy IE fallback -->
 <link rel="shortcut icon" href="https://images.luviio.com/favicon-luviio-red.ico" type="image/x-icon">
 
 <!-- STRUCTURED DATA: Google Knowledge Graph -->
@@ -145,70 +138,22 @@
   }
 
   /* ===== ANIMATIONS ===== */
-  @keyframes fadeInUp{
-    from{opacity:0;transform:translateY(30px)}
-    to{opacity:1;transform:translateY(0)}
-  }
-  @keyframes scaleIn{
-    from{opacity:0;transform:scale(0.95)}
-    to{opacity:1;transform:scale(1)}
-  }
-  @keyframes float{
-    0%,100%{transform:translateY(0)}
-    50%{transform:translateY(-10px)}
-  }
-  @keyframes shimmer{
-    0%{background-position:-200% 0}
-    100%{background-position:200% 0}
-  }
-  @keyframes pulse-ring{
-    0%{transform:scale(0.95);opacity:1}
-    100%{transform:scale(1.3);opacity:0}
-  }
-  @keyframes shake{
-    0%,100%{transform:translateX(0)}
-    25%{transform:translateX(-6px)}
-    75%{transform:translateX(6px)}
-  }
-  @keyframes toast-slide-in{
-    from{opacity:0;transform:translateX(40px) scale(.9)}
-    to{opacity:1;transform:translateX(0) scale(1)}
-  }
-  @keyframes toast-out{
-    from{opacity:1;transform:translateX(0) scale(1)}
-    to{opacity:0;transform:translateX(-20px) scale(.95)}
-  }
-  @keyframes slideDown{
-    from{opacity:0;transform:translateY(-10px)}
-    to{opacity:1;transform:translateY(0)}
-  }
-  @keyframes confetti-fall{
-    0%{transform:translateY(-100%) rotate(0deg);opacity:1}
-    100%{transform:translateY(100vh) rotate(720deg);opacity:0}
-  }
-  @keyframes pulse-glow{
-    0%,100%{box-shadow:0 0 20px rgba(171,21,9,0.3)}
-    50%{box-shadow:0 0 40px rgba(171,21,9,0.6)}
-  }
-  @keyframes checkmark-draw{
-    0%{stroke-dashoffset:50}
-    100%{stroke-dashoffset:0}
-  }
+  @keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes scaleIn{from{opacity:0;transform:scale(0.95)}to{opacity:1;transform:scale(1)}}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+  @keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+  @keyframes pulse-ring{0%{transform:scale(0.95);opacity:1}100%{transform:scale(1.3);opacity:0}}
+  @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+  @keyframes toast-slide-in{from{opacity:0;transform:translateX(40px) scale(.9)}to{opacity:1;transform:translateX(0) scale(1)}}
+  @keyframes toast-out{from{opacity:1;transform:translateX(0) scale(1)}to{opacity:0;transform:translateX(-20px) scale(.95)}}
+  @keyframes slideDown{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes confetti-fall{0%{transform:translateY(-100%) rotate(0deg);opacity:1}100%{transform:translateY(100vh) rotate(720deg);opacity:0}}
+  @keyframes pulse-glow{0%,100%{box-shadow:0 0 20px rgba(171,21,9,0.3)}50%{box-shadow:0 0 40px rgba(171,21,9,0.6)}}
+  @keyframes checkmark-draw{0%{stroke-dashoffset:50}100%{stroke-dashoffset:0}}
   
-  .animate-on-scroll{
-    opacity:0;
-    transform:translateY(30px);
-    transition:all 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-  .animate-on-scroll.visible{
-    opacity:1;
-    transform:translateY(0);
-  }
-  .animate-delay-1{transition-delay:0.1s}
-  .animate-delay-2{transition-delay:0.2s}
-  .animate-delay-3{transition-delay:0.3s}
-  .animate-delay-4{transition-delay:0.4s}
-  .animate-delay-5{transition-delay:0.5s}
+  .animate-on-scroll{opacity:0;transform:translateY(30px);transition:all 0.7s cubic-bezier(0.22, 1, 0.36, 1)}
+  .animate-on-scroll.visible{opacity:1;transform:translateY(0)}
+  .animate-delay-1{transition-delay:0.1s}.animate-delay-2{transition-delay:0.2s}.animate-delay-3{transition-delay:0.3s}.animate-delay-4{transition-delay:0.4s}.animate-delay-5{transition-delay:0.5s}
 
   /* HEADER */
   header{background:var(--bg);border-bottom:1px solid var(--warm-light);padding:16px 40px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100;transition:box-shadow 0.3s, background 0.3s;width:100%;max-width:100vw;left:0;right:0}
@@ -222,31 +167,16 @@
   nav a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:2px;background:var(--primary);transition:width .3s cubic-bezier(0.22, 1, 0.36, 1)}
   nav a:hover::after{width:100%}
   
-  /* ===== PRESS-STYLE HOVER EFFECT FOR ALL BUTTONS & CARDS ===== */
+  /* PRESS-STYLE HOVER EFFECT FOR ALL BUTTONS & CARDS */
   .nav-cta{font-size:13px!important;font-weight:700!important;background:var(--primary);color:#fff!important;padding:8px 18px;border-radius:var(--radius-md);border:2px solid var(--text);box-shadow:var(--shadow-btn);transition:all .15s cubic-bezier(0.22, 1, 0.36, 1);cursor:pointer;position:relative;overflow:hidden;text-decoration:none;display:inline-flex;align-items:center;gap:6px;white-space:nowrap;flex-shrink:0}
   .nav-cta::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.15),transparent);transition:left 0.5s}
   .nav-cta:hover::before{left:100%}
   .nav-cta:hover{background:var(--primary-dark);box-shadow:var(--shadow-btn-active);transform:translate(1px,1px);color:#fff!important}
   .nav-cta:active{box-shadow:var(--shadow-btn-active);transform:translate(2px,2px)}
-  .nav-cta::after{display:none!important}
 
-  /* HAMBURGER BUTTON — Hidden by default, shown only on mobile */
-  .hamburger{
-    display:none;
-    background:none;
-    border:none;
-    cursor:pointer;
-    padding:8px;
-    border-radius:var(--radius-md);
-    transition:all 0.2s;
-    align-items:center;
-    justify-content:center;
-  }
-  .hamburger:hover{
-    background:var(--warm-light);
-    transform:scale(0.95);
-  }
-
+  /* HAMBURGER BUTTON */
+  .hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;border-radius:var(--radius-md);transition:all 0.2s;align-items:center;justify-content:center}
+  .hamburger:hover{background:var(--warm-light);transform:scale(0.95)}
 
   /* BUTTONS WITH PRESS EFFECT */
   .btn-primary{display:inline-flex;align-items:center;gap:6px;background:var(--primary);color:#fff;font-family:"DM Sans",sans-serif;font-size:13px;font-weight:700;line-height:19.5px;padding:10px 22px;border-radius:var(--radius-md);border:2px solid var(--text);box-shadow:var(--shadow-btn);cursor:pointer;transition:all .18s cubic-bezier(0.22, 1, 0.36, 1);text-decoration:none;position:relative;overflow:hidden;text-align:center;justify-content:center}
@@ -338,71 +268,18 @@
   .membership-btn{width:100%;justify-content:center;padding:14px 24px;font-size:15px}
 
 /* PRICING CARDS WITH PRESS EFFECT */
-.pricing-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:28px;
-  align-items:start;
-  width:100%;
-  padding:40px 0 20px 0;
-  overflow:visible !important;
-}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;align-items:start;width:100%;padding:40px 0 20px 0;overflow:visible !important}
 
-.pricing-card{
-  background:var(--bg);
-  border:1px solid var(--warm-light);
-  border-radius:var(--radius-lg);
-  box-shadow:var(--shadow-card);
-  padding:36px 28px;
-  display:flex;
-  flex-direction:column;
-  transition:all .35s cubic-bezier(0.22, 1, 0.36, 1);
-  position:relative;
-  overflow:hidden;
-  width:100%;
-  margin-top:8px;
-  z-index:1;
-  cursor:default;
-}
+.pricing-card{background:var(--bg);border:1px solid var(--warm-light);border-radius:var(--radius-lg);box-shadow:var(--shadow-card);padding:36px 28px;display:flex;flex-direction:column;transition:all .35s cubic-bezier(0.22, 1, 0.36, 1);position:relative;overflow:hidden;width:100%;margin-top:8px;z-index:1;cursor:default}
 
-.pricing-card::before{
-  content:'';
-  position:absolute;
-  top:0;
-  left:0;
-  right:0;
-  height:0;
-  background:linear-gradient(180deg,rgba(171,21,9,0.04),transparent);
-  transition:height .4s;
-  z-index:0;
-}
+.pricing-card::before{content:'';position:absolute;top:0;left:0;right:0;height:0;background:linear-gradient(180deg,rgba(171,21,9,0.04),transparent);transition:height .4s;z-index:0}
+.pricing-card:hover::before{height:120px}
+.pricing-card:hover{transform:translateY(4px) scale(0.99);box-shadow:rgba(171,21,9,0.12) 0px 8px 32px 0px, rgba(0,0,0,0.06) 0px 2px 8px 0px;z-index:10}
 
-.pricing-card:hover::before{
-  height:120px;
-}
+.pricing-card.featured{border:2px solid var(--text);box-shadow:var(--shadow-btn);position:relative;z-index:2}
+.pricing-card.featured:hover{box-shadow:var(--shadow-btn-active), rgba(171,21,9,0.12) 0px 8px 32px 0px;transform:translate(1px,4px) scale(0.99);z-index:11}
 
-.pricing-card:hover{
-  transform:translateY(4px) scale(0.99);
-  box-shadow:rgba(171,21,9,0.12) 0px 8px 32px 0px, rgba(0,0,0,0.06) 0px 2px 8px 0px;
-  z-index:10;
-}
-
-.pricing-card.featured{
-  border:2px solid var(--text);
-  box-shadow:var(--shadow-btn);
-  position:relative;
-  z-index:2;
-}
-
-.pricing-card.featured:hover{
-  box-shadow:var(--shadow-btn-active), rgba(171,21,9,0.12) 0px 8px 32px 0px;
-  transform:translate(1px,4px) scale(0.99);
-  z-index:11;
-}
-
-#pricing{
-  overflow:visible !important;
-}
+#pricing{overflow:visible !important}
   .pricing-badge{position:absolute;top:12px;right:16px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;font-size:11px;font-weight:600;padding:5px 16px;border-radius:9999px;border:2px solid var(--text);white-space:nowrap;z-index:1;animation:fadeInUp 0.4s ease}
   .pricing-name{font-size:11px;font-weight:600;color:#8B8B7A;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
   .pricing-price{font-size:48px;font-weight:900;color:var(--text);line-height:1;margin-bottom:6px;transition:transform .3s}
@@ -564,420 +441,55 @@
   /* ========================================== */
   /* PROFILE PAGE — STRIPE-INSPIRED REDESIGN   */
   /* ========================================== */
-  .profile-page{
-    min-height: calc(100vh - 73px);
-    background: linear-gradient(180deg, #FAFAF8 0%, #F5F5F0 100%);
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    box-sizing: border-box;
-    padding: 60px 0 80px;
-  }
-
-  .profile-page::before {
-    content: '';
-    position: absolute;
-    top: -150px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(171,21,9,0.04) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .profile-container {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 0 24px;
-    width: 100%;
-    box-sizing: border-box;
-    position: relative;
-    z-index: 1;
-  }
-
-  .profile-header-card {
-    background: #FFFFFF;
-    border-radius: 20px;
-    border: 1px solid rgba(0,0,0,0.06);
-    box-shadow: 
-      0 4px 6px -1px rgba(0,0,0,0.04),
-      0 20px 40px -12px rgba(0,0,0,0.06);
-    padding: 40px 36px;
-    margin-bottom: 24px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    animation: fadeInUp 0.6s ease both;
-  }
-
-  .profile-header-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 120px;
-    background: linear-gradient(135deg, var(--primary-tint) 0%, rgba(171,21,9,0.05) 100%);
-    pointer-events: none;
-  }
-
-  .profile-avatar-wrapper {
-    position: relative;
-    display: inline-block;
-    margin-bottom: 20px;
-    margin-top: 20px;
-  }
-
-  .profile-avatar-large {
-    width: 88px;
-    height: 88px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 900;
-    font-size: 32px;
-    box-shadow: 0 8px 24px rgba(171,21,9,0.25);
-    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-    position: relative;
-    z-index: 1;
-    object-fit: cover;
-    overflow: hidden;
-    border: 4px solid #fff;
-  }
-
-  .profile-avatar-large img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .profile-avatar-large:hover {
-    transform: scale(1.05) translateY(-2px);
-    box-shadow: 0 12px 32px rgba(171,21,9,0.3);
-  }
-
-  .profile-status-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: linear-gradient(135deg, #DCFCE7, #BBF7D0);
-    color: #166534;
-    font-size: 12px;
-    font-weight: 700;
-    padding: 6px 16px;
-    border-radius: 9999px;
-    margin-bottom: 16px;
-    border: 1px solid rgba(22,101,52,0.15);
-  }
-
-  .profile-status-dot {
-    width: 8px;
-    height: 8px;
-    background: #22c55e;
-    border-radius: 50%;
-    animation: pulse-dot 2s ease-in-out infinite;
-  }
-
-  .profile-name-display {
-    font-size: 28px;
-    font-weight: 900;
-    color: var(--text);
-    margin-bottom: 4px;
-    letter-spacing: -0.5px;
-  }
-
-  .profile-email-display {
-    font-size: 15px;
-    color: #8B8B7A;
-    font-weight: 500;
-  }
-
-  .profile-main-card {
-    background: #FFFFFF;
-    border-radius: 20px;
-    border: 1px solid rgba(0,0,0,0.06);
-    box-shadow: 
-      0 4px 6px -1px rgba(0,0,0,0.04),
-      0 20px 40px -12px rgba(0,0,0,0.06);
-    padding: 36px;
-    margin-bottom: 24px;
-    animation: fadeInUp 0.6s ease 0.1s both;
-  }
-
-  .profile-section-title {
-    font-size: 18px;
-    font-weight: 800;
-    color: var(--text);
-    margin-bottom: 24px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .profile-section-title .icon-circle {
-    width: 32px;
-    height: 32px;
-    background: var(--primary-tint);
-    color: var(--primary);
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-
-  .profile-form-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin-bottom: 16px;
-  }
-
-  .profile-form-group {
-    margin-bottom: 16px;
-  }
-
-  .profile-form-group.full-width {
-    grid-column: 1 / -1;
-  }
-
-  .profile-label {
-    display: block;
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 8px;
-  }
-
-  .profile-input {
-    width: 100%;
-    font-family: "DM Sans", sans-serif;
-    font-size: 15px;
-    padding: 14px 16px;
-    border-radius: 12px;
-    border: 1.5px solid #E5E5E0;
-    background: #FAFAF8;
-    outline: none;
-    transition: all 0.25s ease;
-    box-sizing: border-box;
-    color: var(--text);
-  }
-
-  .profile-input:hover {
-    border-color: #D0D0CA;
-  }
-
-  .profile-input:focus {
-    border-color: var(--primary);
-    background: #FFFFFF;
-    box-shadow: 0 0 0 3px rgba(171,21,9,0.08);
-    transform: translateY(-1px);
-  }
-
-  .profile-input::placeholder {
-    color: #B0B0A8;
-  }
-
-  .profile-input.readonly {
-    background: #F5F5F0;
-    color: #8B8B7A;
-    cursor: not-allowed;
-  }
-
-  .profile-textarea {
-    resize: vertical;
-    min-height: 100px;
-    line-height: 1.5;
-  }
-
-  .profile-actions-row {
-    display: flex;
-    gap: 12px;
-    margin-top: 24px;
-    padding-top: 20px;
-    border-top: 1px solid #F0F0EB;
-  }
-
-  .profile-save-btn {
-    flex: 1;
-    justify-content: center;
-    min-height: 48px;
-  }
-
-  .profile-logout-btn {
-    padding: 14px 24px;
-    min-height: 48px;
-  }
-
-  /* Portal Card - Stripe Style */
-  .portal-section {
-    margin-top: 0;
-    padding-top: 0;
-    border-top: none;
-  }
-
-  .portal-card {
-    background: #FFFFFF;
-    border-radius: 20px;
-    border: 1px solid rgba(0,0,0,0.06);
-    box-shadow: 
-      0 4px 6px -1px rgba(0,0,0,0.04),
-      0 20px 40px -12px rgba(0,0,0,0.06);
-    padding: 28px;
-    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .portal-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, #635BFF, #5851EA);
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
-
-  .portal-card:hover {
-    transform: translateY(2px);
-    box-shadow: 0 8px 32px rgba(99,91,255,0.12);
-    border-color: rgba(99,91,255,0.2);
-  }
-
-  .portal-card:hover::before {
-    opacity: 1;
-  }
-
-  .portal-header {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    margin-bottom: 20px;
-  }
-
-  .portal-icon {
-    width: 48px;
-    height: 48px;
-    background: linear-gradient(135deg, #635BFF, #5851EA);
-    border-radius: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    flex-shrink: 0;
-    box-shadow: 0 4px 12px rgba(99,91,255,0.25);
-  }
-
-  .portal-title {
-    font-size: 18px;
-    font-weight: 800;
-    color: var(--text);
-  }
-
-  .portal-subtitle {
-    font-size: 13px;
-    color: #8B8B7A;
-    margin-top: 2px;
-  }
-
-  .portal-features {
-    list-style: none;
-    margin: 0 0 24px 0;
-    padding: 0;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-  }
-
-  .portal-features li {
-    font-size: 13px;
-    color: var(--text);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 12px;
-    background: #FAFAF8;
-    border-radius: 10px;
-    transition: all 0.2s;
-  }
-
-  .portal-features li:hover {
-    background: var(--primary-tint);
-    transform: translateX(2px);
-  }
-
-  .portal-features li svg {
-    width: 14px;
-    height: 14px;
-    color: var(--primary);
-    flex-shrink: 0;
-  }
-
-  .portal-btn {
-    width: 100%;
-    justify-content: center;
-    padding: 14px 24px;
-    font-size: 14px;
-    background: linear-gradient(135deg, #635BFF, #5851EA);
-    border-color: #5851EA;
-    color: #fff;
-    box-shadow: 0 4px 14px rgba(99,91,255,0.25);
-  }
-
-  .portal-btn:hover {
-    background: linear-gradient(135deg, #5851EA, #4840DB);
-    box-shadow: 0 6px 20px rgba(99,91,255,0.35);
-    transform: translateY(2px);
-  }
-
-  .portal-note {
-    font-size: 11px;
-    color: #8B8B7A;
-    text-align: center;
-    margin-top: 12px;
-  }
-
-  /* Photo remove button */
-  .photo-remove-wrapper {
-    margin: 16px 0 0;
-    padding: 12px;
-    background: var(--primary-tint);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
-
-  .photo-remove-text {
-    font-size: 13px;
-    color: var(--text);
-  }
-
-  .photo-remove-btn {
-    background: none;
-    border: none;
-    color: var(--primary);
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
-    padding: 6px 12px;
-    border-radius: 8px;
-    transition: all 0.2s;
-  }
-
-  .photo-remove-btn:hover {
-    background: rgba(171,21,9,0.1);
-    transform: translateY(1px);
-  }
+  .profile-page{min-height:calc(100vh - 73px);background:linear-gradient(180deg,#FAFAF8 0%,#F5F5F0 100%);position:relative;overflow:hidden;width:100%;box-sizing:border-box;padding:60px 0 80px}
+  .profile-page::before{content:'';position:absolute;top:-150px;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(171,21,9,0.04) 0%,transparent 70%);pointer-events:none}
+  .profile-container{max-width:720px;margin:0 auto;padding:0 24px;width:100%;box-sizing:border-box;position:relative;z-index:1}
+  .profile-header-card{background:#FFFFFF;border-radius:20px;border:1px solid rgba(0,0,0,0.06);box-shadow:0 4px 6px -1px rgba(0,0,0,0.04),0 20px 40px -12px rgba(0,0,0,0.06);padding:40px 36px;margin-bottom:24px;text-align:center;position:relative;overflow:hidden;animation:fadeInUp 0.6s ease both}
+  .profile-header-card::before{content:'';position:absolute;top:0;left:0;right:0;height:120px;background:linear-gradient(135deg,var(--primary-tint),rgba(171,21,9,0.05) 100%);pointer-events:none}
+  .profile-avatar-wrapper{position:relative;display:inline-block;margin-bottom:20px;margin-top:20px}
+  .profile-avatar-large{width:88px;height:88px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:32px;box-shadow:0 8px 24px rgba(171,21,9,0.25);transition:all 0.3s cubic-bezier(0.22, 1, 0.36, 1);position:relative;z-index:1;object-fit:cover;overflow:hidden;border:4px solid #fff}
+  .profile-avatar-large img{width:100%;height:100%;object-fit:cover}
+  .profile-avatar-large:hover{transform:scale(1.05) translateY(-2px);box-shadow:0 12px 32px rgba(171,21,9,0.3)}
+  .profile-status-badge{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,#DCFCE7,#BBF7D0);color:#166534;font-size:12px;font-weight:700;padding:6px 16px;border-radius:9999px;margin-bottom:16px;border:1px solid rgba(22,101,52,0.15)}
+  .profile-status-dot{width:8px;height:8px;background:#22c55e;border-radius:50%;animation:pulse-dot 2s ease-in-out infinite}
+  .profile-name-display{font-size:28px;font-weight:900;color:var(--text);margin-bottom:4px;letter-spacing:-0.5px}
+  .profile-email-display{font-size:15px;color:#8B8B7A;font-weight:500}
+  .profile-main-card{background:#FFFFFF;border-radius:20px;border:1px solid rgba(0,0,0,0.06);box-shadow:0 4px 6px -1px rgba(0,0,0,0.04),0 20px 40px -12px rgba(0,0,0,0.06);padding:36px;margin-bottom:24px;animation:fadeInUp 0.6s ease 0.1s both}
+  .profile-section-title{font-size:18px;font-weight:800;color:var(--text);margin-bottom:24px;display:flex;align-items:center;gap:10px}
+  .profile-section-title .icon-circle{width:32px;height:32px;background:var(--primary-tint);color:var(--primary);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .profile-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+  .profile-form-group{margin-bottom:16px}
+  .profile-form-group.full-width{grid-column:1 / -1}
+  .profile-label{display:block;font-size:13px;font-weight:600;color:var(--text);margin-bottom:8px}
+  .profile-input{width:100%;font-family:"DM Sans",sans-serif;font-size:15px;padding:14px 16px;border-radius:12px;border:1.5px solid #E5E5E0;background:#FAFAF8;outline:none;transition:all 0.25s ease;box-sizing:border-box;color:var(--text)}
+  .profile-input:hover{border-color:#D0D0CA}
+  .profile-input:focus{border-color:var(--primary);background:#FFFFFF;box-shadow:0 0 0 3px rgba(171,21,9,0.08);transform:translateY(-1px)}
+  .profile-input::placeholder{color:#B0B0A8}
+  .profile-input.readonly{background:#F5F5F0;color:#8B8B7A;cursor:not-allowed}
+  .profile-textarea{resize:vertical;min-height:100px;line-height:1.5}
+  .profile-actions-row{display:flex;gap:12px;margin-top:24px;padding-top:20px;border-top:1px solid #F0F0EB}
+  .profile-save-btn{flex:1;justify-content:center;min-height:48px}
+  .profile-logout-btn{padding:14px 24px;min-height:48px}
+  .portal-section{margin-top:0;padding-top:0;border-top:none}
+  .portal-card{background:#FFFFFF;border-radius:20px;border:1px solid rgba(0,0,0,0.06);box-shadow:0 4px 6px -1px rgba(0,0,0,0.04),0 20px 40px -12px rgba(0,0,0,0.06);padding:28px;transition:all 0.3s cubic-bezier(0.22, 1, 0.36, 1);position:relative;overflow:hidden}
+  .portal-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#635BFF,#5851EA);opacity:0;transition:opacity 0.3s}
+  .portal-card:hover{transform:translateY(2px);box-shadow:0 8px 32px rgba(99,91,255,0.12);border-color:rgba(99,91,255,0.2)}
+  .portal-card:hover::before{opacity:1}
+  .portal-header{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+  .portal-icon{width:48px;height:48px;background:linear-gradient(135deg,#635BFF,#5851EA);border-radius:14px;display:flex;align-items:center;justify-content:center;color:#fff;flex-shrink:0;box-shadow:0 4px 12px rgba(99,91,255,0.25)}
+  .portal-title{font-size:18px;font-weight:800;color:var(--text)}
+  .portal-subtitle{font-size:13px;color:#8B8B7A;margin-top:2px}
+  .portal-features{list-style:none;margin:0 0 24px 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .portal-features li{font-size:13px;color:var(--text);display:flex;align-items:center;gap:8px;padding:10px 12px;background:#FAFAF8;border-radius:10px;transition:all 0.2s}
+  .portal-features li:hover{background:var(--primary-tint);transform:translateX(2px)}
+  .portal-features li svg{width:14px;height:14px;color:var(--primary);flex-shrink:0}
+  .portal-btn{width:100%;justify-content:center;padding:14px 24px;font-size:14px;background:linear-gradient(135deg,#635BFF,#5851EA);border-color:#5851EA;color:#fff;box-shadow:0 4px 14px rgba(99,91,255,0.25)}
+  .portal-btn:hover{background:linear-gradient(135deg,#5851EA,#4840DB);box-shadow:0 6px 20px rgba(99,91,255,0.35);transform:translateY(2px)}
+  .portal-note{font-size:11px;color:#8B8B7A;text-align:center;margin-top:12px}
+  .photo-remove-wrapper{margin:16px 0 0;padding:12px;background:var(--primary-tint);border-radius:12px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .photo-remove-text{font-size:13px;color:var(--text)}
+  .photo-remove-btn{background:none;border:none;color:var(--primary);font-size:13px;font-weight:600;cursor:pointer;padding:6px 12px;border-radius:8px;transition:all 0.2s}
+  .photo-remove-btn:hover{background:rgba(171,21,9,0.1);transform:translateY(1px)}
 
   /* ========== STATIC CONTENT PAGES ========== */
   .content-page{padding:80px 0;width:100%}
@@ -1024,8 +536,6 @@
   .tool-title{font-size:18px;font-weight:800}
   .tool-body{padding:24px}
   .tool-desc{font-size:14px;color:#5C5C4F;margin-bottom:18px;line-height:1.6}
-  
-  /* Color Picker Tool */
   .color-picker-wrapper{display:flex;flex-direction:column;gap:16px}
   .color-display{display:flex;align-items:center;gap:16px;padding:16px;border-radius:var(--radius-md);border:2px solid var(--warm-light);background:var(--bg);transition:border-color .3px;flex-wrap:wrap}
   .color-swatch{width:56px;height:56px;border-radius:var(--radius-md);border:2px solid var(--text);box-shadow:var(--shadow-btn);transition:transform .3s;flex-shrink:0}
@@ -1037,8 +547,6 @@
   .color-presets{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
   .color-preset{width:32px;height:32px;border-radius:8px;border:2px solid transparent;cursor:pointer;transition:all .2s;flex-shrink:0}
   .color-preset:hover{transform:scale(0.9);border-color:var(--text)}
-
-  /* External Tool Card */
   .external-tool-link{display:block;text-decoration:none;color:inherit}
   .external-tool-content{padding:24px}
   .external-tool-title{font-size:18px;font-weight:800;margin-bottom:8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
@@ -1048,7 +556,7 @@
   .external-tool-arrow{display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-size:13px;font-weight:600;color:var(--primary);transition:all .2s}
   .external-tool-link:hover .external-tool-arrow{transform:translateX(2px);gap:8px}
 
-  /* ========== SERVICES PAGE WITH PRESS EFFECT ========== */
+  /* ========== SERVICES PAGE ========== */
   .services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;margin-bottom:68px;width:100%}
   .service-card{background:#fff;border:1px solid var(--warm-light);border-radius:var(--radius-lg);padding:36px 28px;box-shadow:var(--shadow-card);transition:all .35s;position:relative;overflow:hidden;display:flex;flex-direction:column;width:100%;box-sizing:border-box;cursor:default}
   .service-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--primary),var(--warm-mid));transform:scaleX(0);transition:transform .4s}
@@ -1083,7 +591,7 @@
   .team-card h4{font-size:16px;font-weight:700;margin-bottom:3px}
   .team-card p{font-size:13px;color:#8B8B7A}
 
-  /* CONTACT FORM WITH PRESS EFFECT */
+  /* CONTACT FORM */
   .contact-section{background:linear-gradient(180deg,#EDEDE8 0%,#F5F5F0 100%);border-top:1px solid var(--warm-light);border-bottom:1px solid var(--warm-light);padding:80px 0;width:100%}
   .contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:48px;align-items:start;width:100%}
   .contact-info h2{font-size:42px;font-weight:900;line-height:48px;color:var(--text);margin-bottom:16px;word-wrap:break-word}
@@ -1112,731 +620,105 @@
   /* ========================================== */
   /* CHECKOUT PAGE — CLEAN & PROFESSIONAL      */
   /* ========================================== */
-  .checkout-page{
-    min-height: calc(100vh - 73px);
-    background: #FAFAF8;
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    box-sizing: border-box;
-    padding: 0;
-  }
-
-  .checkout-page::before {
-    content: '';
-    position: absolute;
-    top: -200px;
-    right: -200px;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(171,21,9,0.04) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .checkout-container {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 48px 24px 80px;
-    width: 100%;
-    box-sizing: border-box;
-    position: relative;
-    z-index: 1;
-  }
-
-  .checkout-back-wrapper {
-    margin-bottom: 32px;
-  }
-  .checkout-back-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    color: #8B8B7A;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 600;
-    padding: 8px 0;
-    transition: all 0.2s;
-  }
-  .checkout-back-link:hover {
-    color: var(--primary);
-    transform: translateX(-2px) translateY(1px);
-  }
-  .checkout-back-link svg {
-    width: 18px;
-    height: 18px;
-    transition: transform 0.2s;
-  }
-  .checkout-back-link:hover svg {
-    transform: translateX(-1px);
-  }
-
-  .checkout-progress-minimal {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    margin-bottom: 48px;
-  }
-  .progress-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: #E0E0DC;
-    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-    position: relative;
-  }
-  .progress-dot.active {
-    background: var(--primary);
-    box-shadow: 0 0 0 4px rgba(171,21,9,0.15);
-    transform: scale(1.2);
-  }
-  .progress-dot.completed {
-    background: var(--primary);
-  }
-  .progress-line-mini {
-    width: 48px;
-    height: 2px;
-    background: #E0E0DC;
-    border-radius: 1px;
-    transition: background 0.4s;
-  }
-  .progress-line-mini.filled {
-    background: var(--primary);
-  }
-
-  .checkout-card {
-    background: #FFFFFF;
-    border-radius: 20px;
-    border: 1px solid rgba(0,0,0,0.06);
-    box-shadow: 
-      0 4px 6px -1px rgba(0,0,0,0.04),
-      0 20px 40px -12px rgba(0,0,0,0.06);
-    overflow: hidden;
-    transition: all 0.3s ease;
-  }
-
-  .checkout-card-header {
-    padding: 32px 36px;
-    background: linear-gradient(135deg, #FAFAF8 0%, #F0F0EB 100%);
-    border-bottom: 1px solid rgba(0,0,0,0.04);
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
-  .checkout-plan-info {
-    flex: 1;
-    min-width: 200px;
-  }
-  .checkout-plan-label {
-    font-size: 12px;
-    font-weight: 600;
-    color: #8B8B7A;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    margin-bottom: 6px;
-  }
-  .checkout-plan-name {
-    font-size: 26px;
-    font-weight: 800;
-    color: var(--text);
-    line-height: 1.2;
-    margin-bottom: 4px;
-  }
-  .checkout-plan-meta {
-    font-size: 14px;
-    color: #8B8B7A;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .checkout-plan-price-large {
-    text-align: right;
-  }
-  .checkout-price-value {
-    font-size: 36px;
-    font-weight: 900;
-    color: var(--primary);
-    line-height: 1;
-    letter-spacing: -1px;
-  }
-  .checkout-price-period {
-    font-size: 14px;
-    color: #8B8B7A;
-    font-weight: 500;
-  }
-
-  .checkout-card-body {
-    padding: 36px;
-  }
-
-  .checkout-section-title {
-    font-size: 18px;
-    font-weight: 800;
-    color: var(--text);
-    margin-bottom: 24px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .checkout-section-title .step-number {
-    width: 28px;
-    height: 28px;
-    background: var(--primary-tint);
-    color: var(--primary);
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 13px;
-    font-weight: 700;
-    font-family: "Space Mono", monospace;
-  }
-
-  .checkout-form-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin-bottom: 20px;
-  }
-  .checkout-form-field {
-    margin-bottom: 20px;
-  }
-  .checkout-form-field.full-width {
-    grid-column: 1 / -1;
-  }
-  .checkout-label {
-    display: block;
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 8px;
-  }
-  .checkout-label .required {
-    color: var(--error);
-    margin-left: 2px;
-  }
-  .checkout-input {
-    width: 100%;
-    font-family: "DM Sans", sans-serif;
-    font-size: 16px;
-    padding: 14px 16px;
-    border-radius: 12px;
-    border: 1.5px solid #E5E5E0;
-    background: #FAFAF8;
-    outline: none;
-    transition: all 0.25s ease;
-    box-sizing: border-box;
-    color: var(--text);
-  }
-  .checkout-input:hover {
-    border-color: #D0D0CA;
-  }
-  .checkout-input:focus {
-    border-color: var(--primary);
-    background: #FFFFFF;
-    box-shadow: 0 0 0 3px rgba(171,21,9,0.08);
-    transform: translateY(-1px);
-  }
-  .checkout-input::placeholder {
-    color: #B0B0A8;
-  }
-  .checkout-input.readonly {
-    background: #F5F5F0;
-    color: #8B8B7A;
-    cursor: not-allowed;
-  }
-  .checkout-textarea {
-    resize: vertical;
-    min-height: 100px;
-    line-height: 1.5;
-  }
-
-  .checkout-error-banner {
-    background: #FEF2F2;
-    border: 1px solid #FECACA;
-    color: var(--error);
-    padding: 14px 18px;
-    border-radius: 12px;
-    font-size: 13px;
-    font-weight: 600;
-    margin-bottom: 24px;
-    display: none;
-    animation: shake 0.4s ease;
-    align-items: center;
-    gap: 8px;
-  }
-  .checkout-error-banner.show {
-    display: flex;
-  }
-
-  .checkout-actions {
-    display: flex;
-    gap: 12px;
-    margin-top: 32px;
-    padding-top: 24px;
-    border-top: 1px solid #F0F0EB;
-  }
-  .checkout-submit-btn {
-    flex: 1;
-    padding: 16px 24px;
-    font-size: 15px;
-    font-weight: 700;
-    justify-content: center;
-    min-height: 52px;
-  }
-  .checkout-cancel-btn {
-    padding: 16px 24px;
-    font-size: 14px;
-    min-height: 52px;
-  }
-
-  .checkout-payment-view {
-    display: none;
-    text-align: center;
-    padding: 48px 36px;
-    animation: fadeInUp 0.5s ease;
-  }
-  .checkout-payment-view.visible {
-    display: block;
-  }
-  .payment-success-circle {
-    width: 72px;
-    height: 72px;
-    background: linear-gradient(135deg, var(--primary-tint), rgba(171,21,9,0.15));
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 24px;
-    color: var(--primary);
-  }
-  .payment-success-circle svg {
-    width: 36px;
-    height: 36px;
-  }
-  .payment-heading {
-    font-size: 24px;
-    font-weight: 800;
-    color: var(--text);
-    margin-bottom: 8px;
-  }
-  .payment-subheading {
-    font-size: 15px;
-    color: #8B8B7A;
-    margin-bottom: 24px;
-  }
-  .payment-plan-confirm-box {
-    display: inline-block;
-    background: var(--primary-tint);
-    border: 1px solid rgba(171,21,9,0.15);
-    padding: 16px 24px;
-    border-radius: 12px;
-    margin-bottom: 32px;
-    font-size: 14px;
-    color: var(--text);
-    font-weight: 600;
-  }
-  .payment-plan-confirm-box strong {
-    color: var(--primary);
-  }
-  .stripe-button-clean {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    background: #635BFF;
-    color: #FFFFFF;
-    font-family: "DM Sans", sans-serif;
-    font-size: 16px;
-    font-weight: 700;
-    padding: 18px 48px;
-    border-radius: 12px;
-    border: none;
-    cursor: pointer;
-    transition: all 0.25s ease;
-    text-decoration: none;
-    width: 100%;
-    max-width: 400px;
-    box-shadow: 0 4px 14px rgba(99,91,255,0.25);
-    margin-bottom: 16px;
-  }
-  .stripe-button-clean:hover {
-    background: #5851EA;
-    transform: translateY(2px);
-    box-shadow: 0 4px 10px rgba(99,91,255,0.35);
-  }
-  .stripe-button-clean:active {
-    transform: translateY(3px) scale(0.98);
-  }
-  .payment-note-small {
-    font-size: 13px;
-    color: #8B8B7A;
-    max-width: 360px;
-    margin: 0 auto 28px;
-    line-height: 1.6;
-  }
-  .edit-details-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    color: var(--primary);
-    font-weight: 600;
-    font-size: 14px;
-    cursor: pointer;
-    padding: 10px 20px;
-    border-radius: 10px;
-    border: 1px solid var(--warm-light);
-    background: transparent;
-    transition: all 0.2s;
-    font-family: inherit;
-  }
-  .edit-details-btn:hover {
-    background: var(--primary-tint);
-    transform: translateY(1px);
-  }
-
-  /* Payment Failed Button */
-  .payment-failed-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    background: transparent;
-    color: var(--error);
-    font-family: "DM Sans", sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    padding: 12px 24px;
-    border-radius: 10px;
-    border: 1px dashed var(--error);
-    cursor: pointer;
-    transition: all 0.25s ease;
-    text-decoration: none;
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto 12px;
-  }
-  .payment-failed-btn:hover {
-    background: #fef2f2;
-    border-style: solid;
-    transform: translateY(1px);
-  }
-
-  .checkout-trust-footer {
-    margin-top: 32px;
-    padding-top: 24px;
-    border-top: 1px solid #F0F0EB;
-    display: flex;
-    justify-content: center;
-    gap: 24px;
-    flex-wrap: wrap;
-  }
-  .trust-item-mini {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 12px;
-    color: #B0B0A8;
-    font-weight: 500;
-  }
-  .trust-item-mini svg {
-    width: 16px;
-    height: 16px;
-    color: var(--primary);
-    opacity: 0.7;
-  }
+  .checkout-page{min-height:calc(100vh - 73px);background:#FAFAF8;position:relative;overflow:hidden;width:100%;box-sizing:border-box;padding:0}
+  .checkout-page::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(171,21,9,0.04) 0%,transparent 70%);pointer-events:none}
+  .checkout-container{max-width:720px;margin:0 auto;padding:48px 24px 80px;width:100%;box-sizing:border-box;position:relative;z-index:1}
+  .checkout-back-wrapper{margin-bottom:32px}
+  .checkout-back-link{display:inline-flex;align-items:center;gap:8px;color:#8B8B7A;text-decoration:none;font-size:14px;font-weight:600;padding:8px 0;transition:all 0.2s}
+  .checkout-back-link:hover{color:var(--primary);transform:translateX(-2px) translateY(1px)}
+  .checkout-back-link svg{width:18px;height:18px;transition:transform 0.2s}
+  .checkout-back-link:hover svg{transform:translateX(-1px)}
+  .checkout-progress-minimal{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:48px}
+  .progress-dot{width:10px;height:10px;border-radius:50%;background:#E0E0DC;transition:all 0.4s cubic-bezier(0.22, 1, 0.36, 1);position:relative}
+  .progress-dot.active{background:var(--primary);box-shadow:0 0 0 4px rgba(171,21,9,0.15);transform:scale(1.2)}
+  .progress-dot.completed{background:var(--primary)}
+  .progress-line-mini{width:48px;height:2px;background:#E0E0DC;border-radius:1px;transition:background 0.4s}
+  .progress-line-mini.filled{background:var(--primary)}
+  .checkout-card{background:#FFFFFF;border-radius:20px;border:1px solid rgba(0,0,0,0.06);box-shadow:0 4px 6px -1px rgba(0,0,0,0.04),0 20px 40px -12px rgba(0,0,0,0.06);overflow:hidden;transition:all 0.3s ease}
+  .checkout-card-header{padding:32px 36px;background:linear-gradient(135deg,#FAFAF8 0%,#F0F0EB 100%);border-bottom:1px solid rgba(0,0,0,0.04);display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap}
+  .checkout-plan-info{flex:1;min-width:200px}
+  .checkout-plan-label{font-size:12px;font-weight:600;color:#8B8B7A;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px}
+  .checkout-plan-name{font-size:26px;font-weight:800;color:var(--text);line-height:1.2;margin-bottom:4px}
+  .checkout-plan-meta{font-size:14px;color:#8B8B7A;display:flex;align-items:center;gap:8px}
+  .checkout-plan-price-large{text-align:right}
+  .checkout-price-value{font-size:36px;font-weight:900;color:var(--primary);line-height:1;letter-spacing:-1px}
+  .checkout-price-period{font-size:14px;color:#8B8B7A;font-weight:500}
+  .checkout-card-body{padding:36px}
+  .checkout-section-title{font-size:18px;font-weight:800;color:var(--text);margin-bottom:24px;display:flex;align-items:center;gap:10px}
+  .checkout-section-title .step-number{width:28px;height:28px;background:var(--primary-tint);color:var(--primary);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;font-family:"Space Mono",monospace}
+  .checkout-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px}
+  .checkout-form-field{margin-bottom:20px}
+  .checkout-form-field.full-width{grid-column:1 / -1}
+  .checkout-label{display:block;font-size:13px;font-weight:600;color:var(--text);margin-bottom:8px}
+  .checkout-label .required{color:var(--error);margin-left:2px}
+  .checkout-input{width:100%;font-family:"DM Sans",sans-serif;font-size:16px;padding:14px 16px;border-radius:12px;border:1.5px solid #E5E5E0;background:#FAFAF8;outline:none;transition:all 0.25s ease;box-sizing:border-box;color:var(--text)}
+  .checkout-input:hover{border-color:#D0D0CA}
+  .checkout-input:focus{border-color:var(--primary);background:#FFFFFF;box-shadow:0 0 0 3px rgba(171,21,9,0.08);transform:translateY(-1px)}
+  .checkout-input::placeholder{color:#B0B0A8}
+  .checkout-input.readonly{background:#F5F5F0;color:#8B8B7A;cursor:not-allowed}
+  .checkout-textarea{resize:vertical;min-height:100px;line-height:1.5}
+  .checkout-error-banner{background:#FEF2F2;border:1px solid #FECACA;color:var(--error);padding:14px 18px;border-radius:12px;font-size:13px;font-weight:600;margin-bottom:24px;display:none;animation:shake 0.4s ease;align-items:center;gap:8px}
+  .checkout-error-banner.show{display:flex}
+  .checkout-actions{display:flex;gap:12px;margin-top:32px;padding-top:24px;border-top:1px solid #F0F0EB}
+  .checkout-submit-btn{flex:1;padding:16px 24px;font-size:15px;font-weight:700;justify-content:center;min-height:52px}
+  .checkout-cancel-btn{padding:16px 24px;font-size:14px;min-height:52px}
+  .checkout-payment-view{display:none;text-align:center;padding:48px 36px;animation:fadeInUp 0.5s ease}
+  .checkout-payment-view.visible{display:block}
+  .payment-success-circle{width:72px;height:72px;background:linear-gradient(135deg,var(--primary-tint),rgba(171,21,9,0.15));border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;color:var(--primary)}
+  .payment-success-circle svg{width:36px;height:36px}
+  .payment-heading{font-size:24px;font-weight:800;color:var(--text)}
+  .payment-subheading{font-size:15px;color:#8B8B7A;margin-bottom:24px}
+  .payment-plan-confirm-box{display:inline-block;background:var(--primary-tint);border:1px solid rgba(171,21,9,0.15);padding:16px 24px;border-radius:12px;margin-bottom:32px;font-size:14px;color:var(--text);font-weight:600}
+  .payment-plan-confirm-box strong{color:var(--primary)}
+  .stripe-button-clean{display:inline-flex;align-items:center;justify-content:center;gap:12px;background:#635BFF;color:#FFFFFF;font-family:"DM Sans",sans-serif;font-size:16px;font-weight:700;padding:18px 48px;border-radius:12px;border:none;cursor:pointer;transition:all 0.25s ease;text-decoration:none;width:100%;max-width:400px;box-shadow:0 4px 14px rgba(99,91,255,0.25);margin-bottom:16px}
+  .stripe-button-clean:hover{background:#5851EA;transform:translateY(2px);box-shadow:0 4px 10px rgba(99,91,255,0.35)}
+  .stripe-button-clean:active{transform:translateY(3px) scale(0.98)}
+  .payment-note-small{font-size:13px;color:#8B8B7A;max-width:360px;margin:0 auto 28px;line-height:1.6}
+  .edit-details-btn{display:inline-flex;align-items:center;gap:6px;color:var(--primary);font-weight:600;font-size:14px;cursor:pointer;padding:10px 20px;border-radius:10px;border:1px solid var(--warm-light);background:transparent;transition:all 0.2s;font-family:inherit}
+  .edit-details-btn:hover{background:var(--primary-tint);transform:translateY(1px)}
+  .payment-failed-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:transparent;color:var(--error);font-family:"DM Sans",sans-serif;font-size:14px;font-weight:600;padding:12px 24px;border-radius:10px;border:1px dashed var(--error);cursor:pointer;transition:all 0.25s ease;text-decoration:none;width:100%;max-width:400px;margin:0 auto 12px}
+  .payment-failed-btn:hover{background:#fef2f2;border-style:solid;transform:translateY(1px)}
+  .checkout-trust-footer{margin-top:32px;padding-top:24px;border-top:1px solid #F0F0EB;display:flex;justify-content:center;gap:24px;flex-wrap:wrap}
+  .trust-item-mini{display:flex;align-items:center;gap:6px;font-size:12px;color:#B0B0A8;font-weight:500}
+  .trust-item-mini svg{width:16px;height:16px;color:var(--primary);opacity:0.7}
 
   /* Company Stats Responsive */
-  .company-stats-grid{
-    display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap:24px;
-    margin-top:56px;
-    width:100%;
-  }
+  .company-stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:24px;margin-top:56px;width:100%}
 
   /* ========================================== */
   /* PAYMENT SUCCESSFUL PAGE                   */
   /* ========================================== */
-  .payment-success-page {
-    min-height: calc(100vh - 73px);
-    background: linear-gradient(180deg, #FAFAF8 0%, #F5F5F0 100%);
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    box-sizing: border-box;
-    padding: 60px 0 80px;
-  }
-
-  .payment-success-container {
-    max-width: 680px;
-    margin: 0 auto;
-    padding: 0 24px;
-    width: 100%;
-    box-sizing: border-box;
-    position: relative;
-    z-index: 1;
-  }
-
-  .success-confetti {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 9999;
-    overflow: hidden;
-  }
-
-  .confetti-piece {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    background: var(--primary);
-    opacity: 0.8;
-    animation: confetti-fall 3s ease-out forwards;
-  }
-
-  .success-hero {
-    text-align: center;
-    margin-bottom: 48px;
-    animation: fadeInUp 0.6s ease both;
-  }
-
-  .success-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: linear-gradient(135deg, #DCFCE7, #BBF7D0);
-    color: #166534;
-    font-size: 13px;
-    font-weight: 700;
-    padding: 8px 20px;
-    border-radius: 9999px;
-    margin-bottom: 24px;
-    border: 1px solid rgba(22,101,52,0.2);
-  }
-
-  .success-icon-large {
-    width: 96px;
-    height: 96px;
-    background: linear-gradient(135deg, var(--primary-tint), rgba(171,21,9,0.1));
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 24px;
-    color: var(--primary);
-    animation: pulse-glow 2s ease-in-out infinite;
-    box-shadow: 0 0 0 0 rgba(171,21,9,0);
-  }
-
-  .success-icon-large svg {
-    width: 48px;
-    height: 48px;
-    stroke-dasharray: 50;
-    stroke-dashoffset: 50;
-    animation: checkmark-draw 0.6s ease-out 0.3s forwards;
-  }
-
-  .success-hero h1 {
-    font-size: 42px;
-    font-weight: 900;
-    color: var(--text);
-    margin-bottom: 12px;
-    line-height: 1.2;
-  }
-
-  .success-hero p {
-    font-size: 17px;
-    color: #8B8B7A;
-    max-width: 420px;
-    margin: 0 auto;
-  }
-
-  .order-summary-card {
-    background: #FFFFFF;
-    border-radius: 20px;
-    border: 1px solid rgba(0,0,0,0.06);
-    box-shadow: 
-      0 4px 6px -1px rgba(0,0,0,0.04),
-      0 20px 40px -12px rgba(0,0,0,0.06);
-    padding: 32px;
-    margin-bottom: 32px;
-    animation: fadeInUp 0.6s ease 0.2s both;
-  }
-
-  .order-summary-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 24px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #F0F0EB;
-  }
-
-  .order-summary-title {
-    font-size: 18px;
-    font-weight: 800;
-    color: var(--text);
-  }
-
-  .order-id-badge {
-    font-family: "Space Mono", monospace;
-    font-size: 12px;
-    font-weight: 600;
-    color: #8B8B7A;
-    background: #F5F5F0;
-    padding: 6px 12px;
-    border-radius: 8px;
-    letter-spacing: 0.02em;
-  }
-
-  .order-detail-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 0;
-    border-bottom: 1px dashed #F0F0EB;
-    font-size: 15px;
-  }
-
-  .order-detail-row:last-child {
-    border-bottom: none;
-    padding-top: 16px;
-    margin-top: 8px;
-    border-top: 2px solid var(--text);
-    font-weight: 800;
-    font-size: 18px;
-  }
-
-  .order-detail-label {
-    color: #8B8B7A;
-    font-weight: 500;
-  }
-
-  .order-detail-value {
-    color: var(--text);
-    font-weight: 600;
-  }
-
-  .order-detail-value.highlight {
-    color: var(--primary);
-    font-size: 20px;
-  }
-
-  .support-section {
-    background: #FFFFFF;
-    border-radius: 20px;
-    border: 1px solid rgba(0,0,0,0.06);
-    box-shadow: 
-      0 4px 6px -1px rgba(0,0,0,0.04),
-      0 20px 40px -12px rgba(0,0,0,0.06);
-    padding: 32px;
-    margin-bottom: 32px;
-    animation: fadeInUp 0.6s ease 0.4s both;
-  }
-
-  .support-section h3 {
-    font-size: 20px;
-    font-weight: 800;
-    color: var(--text);
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .support-options {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin-bottom: 24px;
-  }
-
-  .support-option {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 16px;
-    background: #FAFAF8;
-    border-radius: 12px;
-    border: 1px solid #F0F0EB;
-    transition: all 0.2s;
-    cursor: pointer;
-    text-decoration: none;
-    color: inherit;
-  }
-
-  .support-option:hover {
-    background: var(--primary-tint);
-    border-color: rgba(171,21,9,0.2);
-    transform: translateY(2px);
-  }
-
-  .support-option-icon {
-    width: 40px;
-    height: 40px;
-    background: var(--primary-tint);
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--primary);
-    flex-shrink: 0;
-  }
-
-  .support-option-text {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--text);
-  }
-
-  .support-option-sub {
-    font-size: 12px;
-    color: #8B8B7A;
-    margin-top: 2px;
-  }
-
-  .session-expiry-warning {
-    background: #FFFBEB;
-    border: 1px solid #FDE68A;
-    border-radius: 12px;
-    padding: 16px 20px;
-    margin-bottom: 24px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 14px;
-    color: #92400E;
-    animation: fadeInUp 0.4s ease;
-  }
-
-  .session-timer {
-    font-family: "Space Mono", monospace;
-    font-weight: 700;
-    color: var(--primary);
-    background: #FFF;
-    padding: 4px 10px;
-    border-radius: 6px;
-    margin-left: auto;
-  }
-
-  .success-actions {
-    display: flex;
-    gap: 12px;
-    margin-top: 32px;
-    animation: fadeInUp 0.6s ease 0.6s both;
-  }
-
-  .success-actions .btn-primary,
-  .success-actions .btn-secondary {
-    flex: 1;
-    justify-content: center;
-  }
+  .payment-success-page{min-height:calc(100vh - 73px);background:linear-gradient(180deg,#FAFAF8 0%,#F5F5F0 100%);position:relative;overflow:hidden;width:100%;box-sizing:border-box;padding:60px 0 80px}
+  .payment-success-container{max-width:680px;margin:0 auto;padding:0 24px;width:100%;box-sizing:border-box;position:relative;z-index:1}
+  .success-confetti{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999;overflow:hidden}
+  .confetti-piece{position:absolute;width:10px;height:10px;background:var(--primary);opacity:0.8;animation:confetti-fall 3s ease-out forwards}
+  .success-hero{text-align:center;margin-bottom:48px;animation:fadeInUp 0.6s ease both}
+  .success-badge{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#DCFCE7,#BBF7D0);color:#166534;font-size:13px;font-weight:700;padding:8px 20px;border-radius:9999px;margin-bottom:24px;border:1px solid rgba(22,101,52,0.2)}
+  .success-icon-large{width:96px;height:96px;background:linear-gradient(135deg,var(--primary-tint),rgba(171,21,9,0.1));border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;color:var(--primary);animation:pulse-glow 2s ease-in-out infinite;box-shadow:0 0 0 0 rgba(171,21,9,0)}
+  .success-icon-large svg{width:48px;height:48px;stroke-dasharray:50;stroke-dashoffset:50;animation:checkmark-draw 0.6s ease-out 0.3s forwards}
+  .success-hero h1{font-size:42px;font-weight:900;color:var(--text);margin-bottom:12px;line-height:1.2}
+  .success-hero p{font-size:17px;color:#8B8B7A;max-width:420px;margin:0 auto}
+  .order-summary-card{background:#FFFFFF;border-radius:20px;border:1px solid rgba(0,0,0,0.06);box-shadow:0 4px 6px -1px rgba(0,0,0,0.04),0 20px 40px -12px rgba(0,0,0,0.06);padding:32px;margin-bottom:32px;animation:fadeInUp 0.6s ease 0.2s both}
+  .order-summary-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid #F0F0EB}
+  .order-summary-title{font-size:18px;font-weight:800;color:var(--text)}
+  .order-id-badge{font-family:"Space Mono",monospace;font-size:12px;font-weight:600;color:#8B8B7A;background:#F5F5F0;padding:6px 12px;border-radius:8px;letter-spacing:0.02em}
+  .order-detail-row{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px dashed #F0F0EB;font-size:15px}
+  .order-detail-row:last-child{border-bottom:none;padding-top:16px;margin-top:8px;border-top:2px solid var(--text);font-weight:800;font-size:18px}
+  .order-detail-label{color:#8B8B7A;font-weight:500}
+  .order-detail-value{color:var(--text);font-weight:600}
+  .order-detail-value.highlight{color:var(--primary);font-size:20px}
+  .support-section{background:#FFFFFF;border-radius:20px;border:1px solid rgba(0,0,0,0.06);box-shadow:0 4px 6px -1px rgba(0,0,0,0.04),0 20px 40px -12px rgba(0,0,0,0.06);padding:32px;margin-bottom:32px;animation:fadeInUp 0.6s ease 0.4s both}
+  .support-section h3{font-size:20px;font-weight:800;color:var(--text);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+  .support-options{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px}
+  .support-option{display:flex;align-items:center;gap:12px;padding:16px;background:#FAFAF8;border-radius:12px;border:1px solid #F0F0EB;transition:all 0.2s;cursor:pointer;text-decoration:none;color:inherit}
+  .support-option:hover{background:var(--primary-tint);border-color:rgba(171,21,9,0.2);transform:translateY(2px)}
+  .support-option-icon{width:40px;height:40px;background:var(--primary-tint);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--primary);flex-shrink:0}
+  .support-option-text{font-size:14px;font-weight:600;color:var(--text)}
+  .support-option-sub{font-size:12px;color:#8B8B7A;margin-top:2px}
+  .session-expiry-warning{background:#FFFBEB;border:1px solid #FDE68A;border-radius:12px;padding:16px 20px;margin-bottom:24px;display:flex;align-items:center;gap:12px;font-size:14px;color:#92400E;animation:fadeInUp 0.4s ease}
+  .session-timer{font-family:"Space Mono",monospace;font-weight:700;color:var(--primary);background:#FFF;padding:4px 10px;border-radius:6px;margin-left:auto}
+  .success-actions{display:flex;gap:12px;margin-top:32px;animation:fadeInUp 0.6s ease 0.6s both}
+  .success-actions .btn-primary,.success-actions .btn-secondary{flex:1;justify-content:center}
 
   /* ========================================== */
   /* MOBILE-FIRST RESPONSIVE                   */
@@ -1933,46 +815,20 @@
     
     .compare-section h2{font-size:30px}
     
-    .checkout-container {
-      padding: 36px 20px 60px;
-    }
-    .checkout-card-header {
-      padding: 28px 28px;
-      flex-direction: column;
-      align-items: stretch;
-    }
-    .checkout-plan-price-large {
-      text-align: left;
-      display: flex;
-      align-items: baseline;
-      gap: 8px;
-    }
-    .checkout-card-body {
-      padding: 28px;
-    }
-    .checkout-form-grid {
-      grid-template-columns: 1fr;
-      gap: 0;
-    }
+    .checkout-container{padding:36px 20px 60px}
+    .checkout-card-header{padding:28px 28px;flex-direction:column;align-items:stretch}
+    .checkout-plan-price-large{text-align:left;display:flex;align-items:baseline;gap:8px}
+    .checkout-card-body{padding:28px}
+    .checkout-form-grid{grid-template-columns:1fr;gap:0}
 
     /* Payment Success Responsive */
-    .payment-success-container {
-      padding: 0 20px;
-    }
-    .success-hero h1 {
-      font-size: 32px;
-    }
-    .support-options {
-      grid-template-columns: 1fr;
-    }
-    .success-actions {
-      flex-direction: column;
-    }
+    .payment-success-container{padding:0 20px}
+    .success-hero h1{font-size:32px}
+    .support-options{grid-template-columns:1fr}
+    .success-actions{flex-direction:column}
     
     /* Profile Portal Responsive */
-    .portal-features {
-      grid-template-columns: 1fr;
-    }
+    .portal-features{grid-template-columns:1fr}
   }
 
   @media(max-width:767px){
@@ -1981,14 +837,14 @@
     .logo{font-size:17px}
     .logo-img{height:28px}
     #demoFont{font-size:20px}
+    .hamburger{padding:6px}
     
     .hero{padding:60px 0 48px}
     .hero h1{font-size:36px;line-height:44px}
     .hero h1 .accent::after{height:6px}
     .hero p{font-size:14px;line-height:22px;max-width:100%}
     .hero-actions{flex-direction:column;align-items:stretch;gap:10px}
-    .hero-actions .btn-primary,
-    .hero-actions .btn-secondary{width:100%;justify-content:center;padding:12px 20px;font-size:14px}
+    .hero-actions .btn-primary,.hero-actions .btn-secondary{width:100%;justify-content:center;padding:12px 20px;font-size:14px}
     
     .hero-stats{flex-direction:column;gap:20px;align-items:center}
     .hero-stat{min-width:auto}
@@ -2034,8 +890,7 @@
     .pricing-features{margin-bottom:20px}
     .pricing-features li{font-size:13px;padding:5px 0;gap:8px}
     .pricing-features li .check{width:18px;height:18px}
-    .pricing-card .btn-primary,
-    .pricing-card .btn-secondary{padding:11px 20px;font-size:13px}
+    .pricing-card .btn-primary,.pricing-card .btn-secondary{padding:11px 20px;font-size:13px}
     
     .cta-section{padding:64px 0}
     .cta-card{padding:40px 24px;border-radius:14px}
@@ -2068,6 +923,7 @@
     .test-person-role{font-size:11px}
     .test-bottom{flex-direction:column;gap:14px;margin-top:32px}
     .test-pill{padding:12px 16px;font-size:13px}
+    .test-pill-emoji{width:30px;height:30px;font-size:14px}
     .test-rating{font-size:13px}
     .test-stars{font-size:15px;letter-spacing:2px}
     .test-btn{padding:12px 18px;font-size:13px;width:100%;justify-content:center}
@@ -2122,9 +978,7 @@
     .contact-form-card{padding:24px 20px;border-radius:14px}
     .form-group{margin-bottom:16px}
     .form-group label{font-size:11px;margin-bottom:6px;letter-spacing:.03em}
-    .form-group input,
-    .form-group textarea,
-    .form-group select{padding:12px 14px;font-size:15px}
+    .form-group input,.form-group textarea,.form-group select{padding:12px 14px;font-size:15px}
     .form-group textarea{min-height:100px}
     
     .page-hero{padding:48px 0 32px}
@@ -2160,135 +1014,41 @@
     .auth-error{font-size:12px;padding:10px 14px}
     .auth-success{font-size:12px;padding:10px 14px}
     
-    /* Profile Page Mobile - Stripe Inspired */
-    .profile-page {
-      padding: 40px 0 60px;
-    }
-    .profile-container {
-      padding: 0 16px;
-    }
-    .profile-header-card {
-      padding: 32px 24px;
-      margin-bottom: 16px;
-    }
-    .profile-avatar-large {
-      width: 72px;
-      height: 72px;
-      font-size: 28px;
-    }
-    .profile-name-display {
-      font-size: 22px;
-    }
-    .profile-main-card {
-      padding: 24px 20px;
-      margin-bottom: 16px;
-    }
-    .profile-section-title {
-      font-size: 16px;
-      margin-bottom: 20px;
-    }
-    .profile-form-grid {
-      grid-template-columns: 1fr;
-      gap: 0;
-    }
-    .profile-input {
-      padding: 12px 14px;
-      font-size: 16px;
-    }
-    .profile-actions-row {
-      flex-direction: column;
-      margin-top: 20px;
-      padding-top: 16px;
-      gap: 8px;
-    }
-    .profile-save-btn,
-    .profile-logout-btn {
-      width: 100%;
-      order: unset;
-    }
-    .portal-card {
-      padding: 20px;
-    }
-    .portal-header {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 10px;
-    }
-    .portal-features {
-      grid-template-columns: 1fr;
-    }
+    /* Profile Page Mobile */
+    .profile-page{padding:40px 0 60px}
+    .profile-container{padding:0 16px}
+    .profile-header-card{padding:32px 24px;margin-bottom:16px}
+    .profile-avatar-large{width:72px;height:72px;font-size:28px}
+    .profile-name-display{font-size:22px}
+    .profile-main-card{padding:24px 20px;margin-bottom:16px}
+    .profile-section-title{font-size:16px;margin-bottom:20px}
+    .profile-form-grid{grid-template-columns:1fr;gap:0}
+    .profile-input{padding:12px 14px;font-size:16px}
+    .profile-actions-row{flex-direction:column;margin-top:20px;padding-top:16px;gap:8px}
+    .profile-save-btn,.profile-logout-btn{width:100%;order:unset}
+    .portal-card{padding:20px}
+    .portal-header{flex-direction:column;align-items:flex-start;gap:10px}
+    .portal-features{grid-template-columns:1fr}
     
-    .checkout-container {
-      padding: 24px 20px 60px;
-    }
-    .checkout-back-wrapper {
-      margin-bottom: 24px;
-    }
-    .checkout-progress-minimal {
-      margin-bottom: 32px;
-    }
-    .checkout-card-header {
-      padding: 24px 20px;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .checkout-plan-name {
-      font-size: 20px;
-    }
-    .checkout-price-value {
-      font-size: 28px;
-    }
-    .checkout-card-body {
-      padding: 24px 20px;
-    }
-    .checkout-section-title {
-      font-size: 16px;
-      margin-bottom: 20px;
-    }
-    .checkout-form-grid {
-      grid-template-columns: 1fr;
-      gap: 0;
-    }
-    .checkout-form-field {
-      margin-bottom: 16px;
-    }
-    .checkout-input {
-      padding: 12px 14px;
-      font-size: 16px;
-    }
-    .checkout-actions {
-      flex-direction: column;
-      margin-top: 24px;
-      padding-top: 20px;
-    }
-    .checkout-submit-btn {
-      width: 100%;
-      order: 1;
-    }
-    .checkout-cancel-btn {
-      width: 100%;
-      order: 2;
-      justify-content: center;
-    }
-    .checkout-trust-footer {
-      gap: 16px;
-      margin-top: 24px;
-      padding-top: 20px;
-    }
-    .checkout-payment-view {
-      padding: 36px 20px;
-    }
-    .payment-heading {
-      font-size: 20px;
-    }
-    .stripe-button-clean {
-      padding: 16px 32px;
-      font-size: 15px;
-    }
-    .payment-note-small {
-      font-size: 12px;
-    }
+    .checkout-container{padding:36px 20px 60px}
+    .checkout-back-wrapper{margin-bottom:24px}
+    .checkout-progress-minimal{margin-bottom:32px}
+    .checkout-card-header{padding:28px 28px;flex-direction:row;align-items:center;justify-content:space-between}
+    .checkout-plan-name{font-size:20px}
+    .checkout-price-value{font-size:28px}
+    .checkout-card-body{padding:28px 20px}
+    .checkout-section-title{font-size:16px;margin-bottom:20px}
+    .checkout-form-grid{grid-template-columns:1fr;gap:0}
+    .checkout-form-field{margin-bottom:16px}
+    .checkout-input{padding:12px 14px;font-size:16px}
+    .checkout-actions{flex-direction:column;margin-top:24px;padding-top:20px}
+    .checkout-submit-btn{width:100%;order:1}
+    .checkout-cancel-btn{width:100%;order:2;justify-content:center}
+    .checkout-trust-footer{gap:16px;margin-top:24px;padding-top:20px}
+    .checkout-payment-view{padding:36px 20px}
+    .payment-heading{font-size:20px}
+    .stripe-button-clean{padding:16px 32px;font-size:15px}
+    .payment-note-small{font-size:12px}
     
     .compare-section{padding:48px 0}
     .compare-section h2{font-size:24px}
@@ -2303,37 +1063,18 @@
     .toast-container{left:16px;right:16px;bottom:16px}
     .toast{max-width:calc(100vw - 32px);font-size:13px;padding:12px 16px;border-radius:10px}
     
-    .company-stats-grid{gap:16px;margin-top:40px;grid-template-columns: repeat(2, 1fr)}
+    .company-stats-grid{gap:16px;margin-top:40px;grid-template-columns:repeat(2,1fr)}
     .company-stat-item{padding:24px 16px !important}
     .stat-big-num{font-size:36px !important}
     .stat-label-text{font-size:11px !important;letter-spacing:.03em !important}
 
     /* Payment Success Mobile */
-    .payment-success-page {
-      padding: 40px 0 60px;
-    }
-    .success-hero h1 {
-      font-size: 28px;
-    }
-    .success-icon-large {
-      width: 72px;
-      height: 72px;
-    }
-    .order-summary-card,
-    .support-section {
-      padding: 24px;
-    }
-    .order-detail-row {
-      font-size: 14px;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 4px;
-    }
-    .order-detail-row:last-child {
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-    }
+    .payment-success-page{padding:40px 0 60px}
+    .success-hero h1{font-size:28px}
+    .success-icon-large{width:72px;height:72px}
+    .order-summary-card,.support-section{padding:24px}
+    .order-detail-row{font-size:14px;flex-direction:column;align-items:flex-start;gap:4px}
+    .order-detail-row:last-child{flex-direction:row;align-items:center;justify-content:space-between}
   }
 
   @media(max-width:479px){
@@ -2397,8 +1138,7 @@
     .pricing-features li{font-size:12px;padding:4px 0;gap:8px}
     .pricing-features li .check{width:16px;height:16px}
     .pricing-features li .check svg{width:9px;height:9px}
-    .pricing-card .btn-primary,
-    .pricing-card .btn-secondary{padding:10px 18px;font-size:12px}
+    .pricing-card .btn-primary,.pricing-card .btn-secondary{padding:10px 18px;font-size:12px}
     
     .cta-section{padding:48px 0}
     .cta-card{padding:32px 20px;border-radius:12px}
@@ -2496,9 +1236,7 @@
     .contact-form-card{padding:20px 16px;border-radius:12px}
     .form-group{margin-bottom:14px}
     .form-group label{font-size:10px;margin-bottom:5px;letter-spacing:.02em}
-    .form-group input,
-    .form-group textarea,
-    .form-group select{padding:11px 12px;font-size:14px}
+    .form-group input,.form-group textarea,.form-group select{padding:11px 12px;font-size:14px}
     .form-group textarea{min-height:90px}
     
     .page-hero{padding:40px 0 28px}
@@ -2534,190 +1272,55 @@
     .auth-error{font-size:11px;padding:8px 12px}
     .auth-success{font-size:11px;padding:8px 12px}
     
-    /* Profile Page Extra Small - Stripe Inspired */
-    .profile-page {
-      padding: 32px 0 48px;
-    }
-    .profile-container {
-      padding: 0 16px;
-    }
-    .profile-header-card {
-      padding: 24px 18px;
-    }
-    .profile-avatar-large {
-      width: 64px;
-      height: 64px;
-      font-size: 24px;
-      border-width: 3px;
-    }
-    .profile-name-display {
-      font-size: 20px;
-    }
-    .profile-email-display {
-      font-size: 13px;
-    }
-    .profile-main-card {
-      padding: 20px 16px;
-    }
-    .profile-section-title {
-      font-size: 15px;
-      margin-bottom: 16px;
-    }
-    .profile-section-title .icon-circle {
-      width: 28px;
-      height: 28px;
-    }
-    .profile-label {
-      font-size: 12px;
-    }
-    .profile-input {
-      padding: 11px 13px;
-      font-size: 15px;
-      border-radius: 10px;
-    }
-    .photo-remove-wrapper {
-      margin-top: 12px;
-      padding: 10px;
-    }
-    .portal-section {
-      margin-top: 0;
-    }
-    .portal-card {
-      padding: 16px;
-    }
-    .portal-header {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 8px;
-    }
-    .portal-icon {
-      width: 40px;
-      height: 40px;
-    }
-    .portal-title {
-      font-size: 15px;
-    }
-    .portal-btn {
-      padding: 12px 20px;
-      font-size: 13px;
-    }
+    /* Profile Page Extra Small */
+    .profile-page{padding:32px 0 48px}
+    .profile-container{padding:0 16px}
+    .profile-header-card{padding:24px 18px}
+    .profile-avatar-large{width:64px;height:64px;font-size:24px;border-width:3px}
+    .profile-name-display{font-size:20px}
+    .profile-email-display{font-size:13px}
+    .profile-main-card{padding:20px 16px}
+    .profile-section-title{font-size:15px;margin-bottom:16px}
+    .profile-section-title .icon-circle{width:28px;height:28px}
+    .profile-label{font-size:12px}
+    .profile-input{padding:11px 13px;font-size:15px;border-radius:10px}
+    .photo-remove-wrapper{margin-top:12px;padding:10px}
+    .portal-section{margin-top:0;padding-top:0}
+    .portal-card{padding:16px}
+    .portal-header{flex-direction:column;align-items:flex-start;gap:8px}
+    .portal-icon{width:40px;height:40px}
+    .portal-title{font-size:15px}
+    .portal-btn{padding:12px 20px;font-size:13px}
     
-    .checkout-container {
-      padding: 20px 12px 40px;
-    }
-    .checkout-back-wrapper {
-      margin-bottom: 20px;
-    }
-    .checkout-progress-minimal {
-      margin-bottom: 24px;
-      gap: 8px;
-    }
-    .progress-line-mini {
-      width: 32px;
-    }
-    .checkout-card {
-      border-radius: 16px;
-    }
-    .checkout-card-header {
-      padding: 20px 16px;
-      flex-direction: column;
-      align-items: stretch;
-      gap: 12px;
-    }
-    .checkout-plan-name {
-      font-size: 18px;
-    }
-    .checkout-plan-price-large {
-      text-align: left;
-    }
-    .checkout-price-value {
-      font-size: 24px;
-    }
-    .checkout-card-body {
-      padding: 20px 16px;
-    }
-    .checkout-section-title {
-      font-size: 15px;
-      margin-bottom: 16px;
-    }
-    .checkout-section-title .step-number {
-      width: 24px;
-      height: 24px;
-      font-size: 12px;
-    }
-    .checkout-form-field {
-      margin-bottom: 14px;
-    }
-    .checkout-label {
-      font-size: 12px;
-      margin-bottom: 6px;
-    }
-    .checkout-input {
-      padding: 11px 13px;
-      font-size: 16px;
-      border-radius: 10px;
-    }
-    .checkout-actions {
-      flex-direction: column;
-      margin-top: 20px;
-      padding-top: 16px;
-      gap: 8px;
-    }
-    .checkout-submit-btn {
-      padding: 14px 20px;
-      font-size: 14px;
-      min-height: 48px;
-    }
-    .checkout-cancel-btn {
-      padding: 12px 16px;
-      font-size: 13px;
-      min-height: 44px;
-    }
-    .checkout-trust-footer {
-      gap: 12px;
-      margin-top: 20px;
-      padding-top: 16px;
-    }
-    .trust-item-mini {
-      font-size: 11px;
-    }
-    .checkout-payment-view {
-      padding: 32px 16px;
-    }
-    .payment-success-circle {
-      width: 60px;
-      height: 60px;
-      margin-bottom: 20px;
-    }
-    .payment-success-circle svg {
-      width: 30px;
-      height: 30px;
-    }
-    .payment-heading {
-      font-size: 18px;
-    }
-    .payment-subheading {
-      font-size: 14px;
-      margin-bottom: 20px;
-    }
-    .payment-plan-confirm-box {
-      padding: 14px 18px;
-      font-size: 13px;
-      margin-bottom: 24px;
-    }
-    .stripe-button-clean {
-      padding: 14px 24px;
-      font-size: 14px;
-      border-radius: 10px;
-    }
-    .payment-note-small {
-      font-size: 11px;
-      margin-bottom: 20px;
-    }
-    .edit-details-btn {
-      font-size: 13px;
-      padding: 8px 16px;
-    }
+    .checkout-container{padding:24px 20px 60px}
+    .checkout-back-wrapper{margin-bottom:20px}
+    .checkout-progress-minimal{margin-bottom:24px;gap:8px}
+    .progress-line-mini{width:32px}
+    .checkout-card{border-radius:16px}
+    .checkout-card-header{padding:20px 16px;flex-direction:column;align-items:stretch;gap:12px}
+    .checkout-plan-name{font-size:18px}
+    .checkout-plan-price-large{text-align:left}
+    .checkout-price-value{font-size:24px}
+    .checkout-card-body{padding:20px 16px}
+    .checkout-section-title{font-size:15px;margin-bottom:16px}
+    .checkout-section-title .step-number{width:24px;height:24px;font-size:12px}
+    .checkout-form-field{margin-bottom:14px}
+    .checkout-label{font-size:12px;margin-bottom:6px}
+    .checkout-input{padding:11px 13px;font-size:16px;border-radius:10px}
+    .checkout-actions{flex-direction:column;margin-top:20px;padding-top:16px;gap:8px}
+    .checkout-submit-btn{padding:14px 20px;font-size:14px;min-height:48px}
+    .checkout-cancel-btn{padding:12px 16px;font-size:13px;min-height:44px}
+    .checkout-trust-footer{gap:12px;margin-top:20px;padding-top:16px}
+    .trust-item-mini{font-size:11px}
+    .checkout-payment-view{padding:32px 16px}
+    .payment-success-circle{width:60px;height:60px;margin-bottom:20px}
+    .payment-success-circle svg{width:30px;height:30px}
+    .payment-heading{font-size:18px}
+    .payment-subheading{font-size:14px;margin-bottom:20px}
+    .payment-plan-confirm-box{padding:14px 18px;font-size:13px;margin-bottom:24px}
+    .stripe-button-clean{padding:14px 24px;font-size:14px;border-radius:10px}
+    .payment-note-small{font-size:11px;margin-bottom:20px}
+    .edit-details-btn{font-size:13px;padding:8px 16px}
     
     .compare-section{padding:36px 0}
     .compare-section h2{font-size:20px}
@@ -2733,7 +1336,7 @@
     .toast-container{left:12px;right:12px;bottom:12px}
     .toast{max-width:calc(100vw - 24px);font-size:12px;padding:10px 14px;border-radius:8px}
     
-    .company-stats-grid{gap:12px;margin-top:32px;grid-template-columns: 1fr 1fr}
+    .company-stats-grid{gap:12px;margin-top:32px;grid-template-columns:1fr 1fr}
     .company-stat-item{padding:18px 12px !important;border-radius:12px !important}
     .stat-big-num{font-size:28px !important}
     .stat-label-text{font-size:9px !important;line-height:1.3 !important}
@@ -2743,84 +1346,27 @@
     .company-value p{font-size:13px !important;line-height:1.5 !important}
 
     /* Payment Success - Extra Small */
-    .payment-success-page {
-      padding: 32px 0 48px;
-    }
-    .payment-success-container {
-      padding: 0 16px;
-    }
-    .success-hero h1 {
-      font-size: 24px;
-      line-height: 32px;
-    }
-    .success-icon-large {
-      width: 64px;
-      height: 64px;
-      margin-bottom: 16px;
-    }
-    .success-badge {
-      font-size: 11px;
-      padding: 6px 16px;
-      margin-bottom: 16px;
-    }
-    .order-summary-card,
-    .support-section {
-      padding: 20px 16px;
-      border-radius: 14px;
-    }
-    .order-summary-header {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 8px;
-      margin-bottom: 16px;
-    }
-    .order-summary-title {
-      font-size: 16px;
-    }
-    .support-section h3 {
-      font-size: 17px;
-    }
-    .support-options {
-      grid-template-columns: 1fr;
-      gap: 10px;
-    }
-    .support-option {
-      padding: 12px;
-    }
-    .session-expiry-warning {
-      flex-direction: column;
-      text-align: center;
-      gap: 8px;
-      padding: 12px 16px;
-      font-size: 13px;
-    }
-    .session-timer {
-      margin-left: 0;
-    }
-    .success-actions {
-      flex-direction: column;
-      margin-top: 24px;
-    }
+    .payment-success-page{padding:32px 0 48px}
+    .payment-success-container{padding:0 16px}
+    .success-hero h1{font-size:24px;line-height:32px}
+    .success-icon-large{width:64px;height:64px;margin-bottom:16px}
+    .success-badge{font-size:11px;padding:6px 16px;margin-bottom:16px}
+    .order-summary-card,.support-section{padding:20px 16px;border-radius:14px}
+    .order-summary-header{flex-direction:column;align-items:flex-start;gap:8px;margin-bottom:16px}
+    .order-summary-title{font-size:16px}
+    .support-section h3{font-size:17px}
+    .support-options{grid-template-columns:1fr;gap:10px}
+    .support-option{padding:12px}
+    .session-expiry-warning{flex-direction:column;text-align:center;gap:8px;padding:12px 16px;font-size:13px}
+    .session-timer{margin-left:0}
+    .success-actions{flex-direction:column;margin-top:24px}
 
     /* Profile Portal Extra Small */
-    .portal-section {
-      margin-top: 0;
-      padding-top: 0;
-    }
-    .portal-card {
-      padding: 16px;
-    }
-    .portal-icon {
-      width: 40px;
-      height: 40px;
-    }
-    .portal-title {
-      font-size: 15px;
-    }
-    .portal-btn {
-      padding: 12px 20px;
-      font-size: 13px;
-    }
+    .portal-section{margin-top:0;padding-top:0}
+    .portal-card{padding:16px}
+    .portal-icon{width:40px;height:40px}
+    .portal-title{font-size:15px}
+    .portal-btn{padding:12px 20px;font-size:13px}
   }
 
   /* Touch-friendly improvements */
@@ -2834,12 +1380,12 @@
 
   /* Landscape phone fixes */
   @media(max-height:500px) and (orientation:landscape){
-    .auth-page,.profile-page{padding: 24px 16px;min-height: auto}
-    .auth-card,.profile-card{padding: 24px;max-height: 90vh;overflow-y: auto}
+    .auth-page,.profile-page{padding:24px 16px;min-height:auto}
+    .auth-card,.profile-card{padding:24px;max-height:90vh;overflow-y:auto}
     .checkout-page{padding:0}
     .checkout-main{margin:16px auto;gap:20px}
     .checkout-form-section,.order-summary{max-height:70vh;overflow-y:auto}
-    .payment-success-page{padding: 20px 0}
+    .payment-success-page{padding:20px 0}
   }
 
   /* Extra small height devices */
@@ -2853,9 +1399,7 @@
 
 <!-- HEADER -->
 <header id="mainHeader">
-  <a href="/" class="logo">
-    <img src="https://images.luviio.com/logo-luviio-red.png" alt="Luviio Logo" class="logo-img">
-  </a>
+  <a href="/" class="logo"><img src="https://images.luviio.com/logo-luviio-red.png" alt="Luviio Logo" class="logo-img"></a>
   <nav id="mainNav">
     <a href="/" class="nav-link">Home</a>
     <a href="/product" class="nav-link">Product</a>
@@ -2875,7 +1419,6 @@
   <a href="/services" onclick="toggleMobileNav()">Services</a>
   <a href="/pricing" onclick="toggleMobileNav()">Pricing</a>
   <a href="/company" onclick="toggleMobileNav()">Company</a>
-  <!-- Dynamic auth link will be updated by JS -->
   <a href="/login" id="mobileAuthLink" onclick="toggleMobileNav()">Login</a>
   <div style="margin-top:20px;padding-top:20px;border-top:1px solid var(--warm-light)">
     <p style="font-size:12px;color:#8B8B7A;text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px">More Pages</p>
@@ -2910,14 +1453,7 @@ firebase.initializeApp(firebaseConfig);
 const originalConsoleError = console.error;
 console.error = function(...args) {
   const message = args.join(' ').toLowerCase();
-  if (
-    message.includes('firebase:') || 
-    message.includes('auth/') ||
-    message.includes('supplied auth credential') ||
-    message.includes('invalid-credential') ||
-    message.includes('malformed') ||
-    message.includes('expired')
-  ) {
+  if (message.includes('firebase:') || message.includes('auth/') || message.includes('supplied auth credential') || message.includes('invalid-credential') || message.includes('malformed') || message.includes('expired')) {
     return;
   }
   originalConsoleError.apply(console, args);
@@ -2930,10 +1466,10 @@ const db = firebase.firestore();
 let isLoggedIn = false;
 let currentUser = { name: '', email: '', initials: '', bio: '', uid: null, photoURL: '' };
 let selectedPlan = null;
+let currentOrderDocId = null; // Global order document ID for URL persistence
 let authInitialized = false;
 
 // ===== DEVICE SESSION MANAGEMENT =====
-// Uses localStorage (persists across tabs) but tied to device fingerprint + timestamp
 const DEVICE_SESSION_KEY = 'luviio_device_session';
 const SESSION_DURATION_MS = 10 * 60 * 1000; // 10 minutes
 
@@ -2956,9 +1492,9 @@ function getDeviceFingerprint() {
   return btoa(components.join('|||')).substring(0, 64);
 }
 
-function createDeviceSession(orderDocId, userId, planId) {
+function createDeviceSession(docId, userId, planId) {
   const sessionData = {
-    docId: orderDocId,
+    docId: docId,
     userId: userId,
     planId: planId,
     createdAt: Date.now(),
@@ -2977,13 +1513,11 @@ function getDeviceSession() {
     
     const session = JSON.parse(raw);
     
-    // Verify device fingerprint matches (prevents session theft across devices)
     if (session.deviceFingerprint !== getDeviceFingerprint()) {
       clearDeviceSession();
       return null;
     }
     
-    // Check if expired
     if (Date.now() > session.expiresAt) {
       clearDeviceSession();
       return null;
@@ -3000,26 +1534,12 @@ function clearDeviceSession() {
   localStorage.removeItem(DEVICE_SESSION_KEY);
 }
 
-function isCheckoutSessionActive() {
-  const session = getDeviceSession();
-  return session !== null && session.planId !== undefined;
-}
-
-function isPaymentSessionActive() {
-  const session = getDeviceSession();
-  return session !== null && session.docId !== undefined && session.paymentStatus === 'payment_made';
-}
-
 // ===== CLOUDFLARE WORKERS API CONFIGURATION =====
 const LUVIIO_API_URL = 'https://luviio-api.luviio.com';
 
-// ===== API HELPER FUNCTION =====
 async function callLuviioAPI(type, data) {
   try {
-    const headers = {
-      'Content-Type': 'application/json'
-    };
-    
+    const headers = { 'Content-Type': 'application/json' };
     if (auth.currentUser) {
       const token = await auth.currentUser.getIdToken();
       headers['Authorization'] = `Bearer ${token}`;
@@ -3032,11 +1552,7 @@ async function callLuviioAPI(type, data) {
     });
     
     const result = await response.json();
-    
-    if (!response.ok) {
-      throw new Error(result.error || `API Error: ${response.status}`);
-    }
-    
+    if (!response.ok) throw new Error(result.error || `API Error: ${response.status}`);
     return result;
   } catch (error) {
     console.error('[Luviio API] Error:', error);
@@ -3060,34 +1576,31 @@ const plans = {
 // ===== FRIENDLY ERROR MESSAGES =====
 function getFriendlyErrorMessage(error) {
   const code = error.code || '';
-  const message = error.message || '';
-  
   const errorMap = {
     'auth/invalid-credential': 'Incorrect email or password. Try again or reset your password. Support: care@luviio.com',
-    'auth/user-not-found': 'No account found with this email address. Please check your spelling or <a href="/signup" style="color:var(--primary);text-decoration:underline">create an account</a>.',
-    'auth/wrong-password': 'Incorrect password. Please try again or <a href="#" onclick="handleForgotPassword();return false" style="color:var(--primary);text-decoration:underline">reset your password</a>.',
-    'auth/email-already-in-use': 'An account with this email already exists. Please <a href="/login" style="color:var(--primary);text-decoration:underline">sign in instead</a>.',
+    'auth/user-not-found': 'No account found with this email address. Please check your spelling or create an account.',
+    'auth/wrong-password': 'Incorrect password. Please try again or reset your password.',
+    'auth/email-already-in-use': 'An account with this email already exists. Please sign in instead.',
     'auth/weak-password': 'Password is too weak. Please use at least 8 characters with a mix of letters and numbers.',
     'auth/invalid-email': 'Please enter a valid email address.',
-    'auth/too-many-requests': 'Too many failed attempts. Please wait a few minutes before trying again, or <a href="#" onclick="handleForgotPassword();return false" style="color:var(--primary);text-decoration:underline">reset your password</a>.',
+    'auth/too-many-requests': 'Too many failed attempts. Please wait a few minutes before trying again.',
     'auth/network-request-failed': 'Network error. Please check your internet connection.',
-    'auth/popup-blocked': '', 
-    'auth/popup-closed-by-user': '', 
-    'auth/cancelled-popup-request': '', 
-    'auth/operation-not-allowed': 'This sign-in method is not enabled. For support, contact <a href="mailto:care@luviio.com" style="color:var(--primary);text-decoration:underline">care@luviio.com</a>.',
-    'auth/invalid-api-key': 'Configuration error. Please contact support at <a href="mailto:care@luviio.com" style="color:var(--primary);text-decoration:underline">care@luviio.com</a>.',
-    'auth/app-deleted': 'This application has been deleted. Contact support at <a href="mailto:care@luviio.com" style="color:var(--primary);text-decoration:underline">care@luviio.com</a>.',
-    'auth/user-disabled': 'This account has been disabled. For assistance, contact <a href="mailto:care@luviio.com" style="color:var(--primary);text-decoration:underline">care@luviio.com</a>.',
+    'auth/popup-blocked': '',
+    'auth/popup-closed-by-user': '',
+    'auth/operation-not-allowed': 'This sign-in method is not enabled. Contact support at care@luviio.com.',
+    'auth/invalid-api-key': 'Configuration error. Please contact support at care@luviio.com.',
+    'auth/app-deleted': 'This application has been deleted. Contact support at care@luviio.com.',
+    'auth/user-disabled': 'This account has been disabled. For assistance, contact care@luviio.com.',
     'auth/user-token-expired': 'Your session has expired. Please sign in again.',
     'auth/web-storage-unsupported': 'Browser storage not supported. Please enable cookies/localStorage.',
     'auth/unauthorized-domain': 'This domain is not authorized for OAuth operations.',
     'auth/requires-recent-login': 'This operation requires recent authentication. Please sign in again.',
     'auth/tenant-id-mismatch': 'Configuration mismatch. Please contact support.',
-    'auth/account-exists-with-different-credential': 'An account already exists with this email but different sign-in method. Try signing in with Google instead.'
+    'auth/account-exists-with-different-credential': 'An account already exists with this email but different sign-in method.'
   };
   
-  if (errorMap[code]) return errorMap[code] || '';
-  if (message.toLowerCase().includes('firebase')) return 'Something went wrong. Please try again.';
+  if (errorMap[code]) return errorMap[code];
+  if ((error.message || '').toLowerCase().includes('firebase')) return 'Something went wrong. Please try again.';
   if (code.includes('network') || code.includes('timeout') || code.includes('request-failed')) return 'Connection issue. Please check your internet and try again.';
   return 'An unexpected error occurred. Please try again later.';
 }
@@ -3096,13 +1609,10 @@ function getFriendlyErrorMessage(error) {
 auth.onAuthStateChanged(async (user) => {
   authInitialized = true;
   
-  const currentRoute = getRoute();
-  
   if (user) {
     isLoggedIn = true;
     currentUser.uid = user.uid;
     currentUser.email = user.email;
-    
     currentUser.name = user.displayName || user.email.split('@')[0];
     currentUser.initials = (user.displayName || user.email).split(' ').map(w => w[0]).join('').toUpperCase().slice(0, 2);
     currentUser.photoURL = user.photoURL || '';
@@ -3118,33 +1628,19 @@ auth.onAuthStateChanged(async (user) => {
       }
       
       if (!user.displayName && currentUser.name && currentUser.name !== user.email.split('@')[0]) {
-        await user.updateProfile({ 
-          displayName: currentUser.name,
-          photoURL: currentUser.photoURL || null
-        });
+        await user.updateProfile({ displayName: currentUser.name, photoURL: currentUser.photoURL || null });
         currentUser.initials = currentUser.name.split(' ').map(w => w[0]).join('').toUpperCase().slice(0, 2);
       }
-    } catch (error) {}
+    } catch (e) {}
     
     updateAuthUI();
-    
-    if (PROTECTED_ROUTES.includes(currentRoute)) {
-      router();
-    }
-    
-    if (currentRoute === '/login' || currentRoute === '/signup') {
-      // Optional redirect
-    }
-    
   } else {
     isLoggedIn = false;
     currentUser = { name: '', email: '', initials: '', bio: '', uid: null, photoURL: '' };
     updateAuthUI();
-    
-    if (PROTECTED_ROUTES.includes(currentRoute)) {
-      router();
-    }
   }
+  
+  router(); // Re-render current route on auth state change
 });
 
 function updateAuthUI() {
@@ -3165,36 +1661,16 @@ auth.getRedirectResult()
   .then((result) => {
     if (result.user) {
       const isNewUser = result.additionalUserInfo && result.additionalUserInfo.isNewUser;
-      
-      const userData = {
-        name: result.user.displayName || '',
-        email: result.user.email,
-        photoURL: result.user.photoURL || '',
-        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-        signupMethod: 'google'
-      };
+      const userData = { name: result.user.displayName || '', email: result.user.email, photoURL: result.user.photoURL || '', createdAt: firebase.firestore.FieldValue.serverTimestamp(), signupMethod: 'google' };
       
       if (isNewUser) {
-        return db.collection('users').doc(result.user.uid).set(userData, { merge: true }).then(() => {
-          showToast('🎉 Account created with Google!', 'success');
-          setTimeout(() => navigate('/'), 300);
-        });
+        return db.collection('users').doc(result.user.uid).set(userData, { merge: true }).then(() => { showToast('🎉 Account created with Google!', 'success'); setTimeout(() => navigate('/'), 300); });
       } else {
         const updateData = {};
         if (result.user.photoURL) updateData.photoURL = result.user.photoURL;
-        
         return db.collection('users').doc(result.user.uid).update(updateData).then(() => {
-          return db.collection('logins').add({
-            uid: result.user.uid,
-            email: result.user.email,
-            displayName: result.user.displayName,
-            method: 'google',
-            timestamp: firebase.firestore.FieldValue.serverTimestamp()
-          });
-        }).then(() => {
-          showToast('🌿 Welcome back!', 'success');
-          setTimeout(() => navigate('/'), 300);
-        });
+          return db.collection('logins').add({ uid: result.user.uid, email: result.user.email, displayName: result.user.displayName, method: 'google', timestamp: firebase.firestore.FieldValue.serverTimestamp() });
+        }).then(() => { showToast('🌿 Welcome back!', 'success'); setTimeout(() => navigate('/'), 300); });
       }
      }
   })
@@ -3243,16 +1719,57 @@ const pageTitles = {
   '/login': 'Sign In · Luviio',
   '/signup': 'Create Account · Luviio',
   '/profile': 'My Profile · Luviio',
-  '/contact': 'Contact Us · Luviio',
-  '/checkout': 'Complete Purchase · Luviio',
-  '/payment-successful': 'Payment Successful · Luviio'
+  '/contact': 'Contact Us · Luviio'
 };
 
 // Protected routes that require authentication
-const PROTECTED_ROUTES = ['/profile', '/checkout'];
+const PROTECTED_ROUTES = ['/profile'];
 
 function setPageTitle(route) {
   document.title = pageTitles[route] || 'Luviio';
+}
+
+// Parse checkout or payment-success URLs with optional [uid]/[docId] params
+function parseCheckoutUrl(route) {
+  // Patterns:
+  // /checkout -> bare
+  // /checkout/[docId] -> legacy format
+  // /checkout/[uid]/[docId] -> new preferred format (refresh-safe)
+  
+  const parts = route.split('/').filter(Boolean); // Remove empty strings
+  
+  if (parts[0] === 'checkout') {
+    if (parts.length === 3 && parts[1].length > 5 && parts[2].length > 5) {
+      // Could be /checkout/[uid]/[docId] or /checkout/[docId] (legacy)
+      // If parts[1] looks like a UID (20 chars) and parts[2] like docId (20 chars), treat as new format
+      if (parts[1].length >= 20) {
+        return { uid: parts[1], docId: parts[2], isFullUrl: true };
+      } else {
+        // Legacy: /checkout/[docId]
+        return { uid: null, docId: parts[1], isFullUrl: false };
+      }
+    } else if (parts.length === 2 && parts[1].length > 5) {
+      // Legacy: /checkout/[docId]
+      return { uid: null, docId: parts[1], isFullUrl: false };
+    }
+    return { uid: null, docId: null, isFullUrl: false }; // Bare /checkout
+  }
+  
+  if (parts[0] === 'payment-successful') {
+    if (parts.length >= 3) {
+      // /payment-successful/[uid]/[docId] or /payment-successful/[docId]
+      if (parts.length === 3 && parts[1].length >= 20) {
+        return { uid: parts[1], docId: parts[2], isFullUrl: true };
+      } else if (parts.length === 3) {
+        return { uid: null, docId: parts[1], isFullUrl: false };
+      } else if (parts.length === 4) {
+        return { uid: parts[1], docId: parts[2], isFullUrl: true };
+      }
+    }
+    return { uid: null, docId: null, isFullUrl: false };
+  }
+  
+  return null;
 }
 
 function router() {
@@ -3262,97 +1779,41 @@ function router() {
 
   setPageTitle(route);
 
-  // FIX: If user just logged out and is on /login or /signup, redirect to home instead
-  if ((route === '/login' || route === '/signup') && !isLoggedIn && !authInitialized === false) {
-    const justLoggedOut = sessionStorage.getItem('luviio_just_logged_out');
-    if (justLoggedOut) {
-      sessionStorage.removeItem('luviio_just_logged_out');
-      window.history.replaceState({ route: '/' }, '', basePath + '/');
-      route = '/';
-    }
-  }
-
   navLinks.forEach(link => {
     const href = link.getAttribute('href');
     link.style.color = (href === '#' + route || (route === '/' && href === '/')) ? 'var(--primary)' : '';
   });
 
   // ==========================================
-  // CHECKOUT ROUTE WITH DOCUMENT ID HANDLING
+  // CHECKOUT ROUTE — WITH URL PERSISTENCE
+  // Supports: /checkout, /checkout/[docId], /checkout/[uid]/[docId]
   // ==========================================
   if (route.startsWith('/checkout')) {
-    // Extract potential document ID from URL
-    const urlParts = route.split('/');
-    const potentialDocId = urlParts[2] || null; // /checkout/[docId]
+    const urlData = parseCheckoutUrl(route);
     
-    // Case A: User accessed /checkout/[docId] directly (refresh or direct link)
-    if (potentialDocId && potentialDocId.length > 5) {
-      // Check if we have a matching active session
-      const session = getDeviceSession();
-      
-      if (session && session.docId === potentialDocId) {
-        // Valid session with matching doc ID - restore state
-        if (!selectedPlan && session.planId) {
-          selectedPlan = session.planId;
-        }
-        // Allow through to render checkout with existing order
-      } else {
-        // No matching session but have docId in URL
-        // Try to verify order exists in Firestore and belongs to this user
-        if (isLoggedIn && currentUser.uid) {
-          db.collection('orders').doc(potentialDocId).get()
-            .then((doc) => {
-              if (doc.exists && doc.data().userId === currentUser.uid) {
-                // Order exists and belongs to user - restore session
-                const orderData = doc.data();
-                selectedPlan = orderData.planId;
-                currentOrderDocId = potentialDocId;
-                
-                // Recreate device session
-                createDeviceSession(potentialDocId, currentUser.uid, orderData.planId);
-                
-                // Update URL to match
-                if (route !== `/checkout/${potentialDocId}`) {
-                  window.history.replaceState({ route: `/checkout/${potentialDocId}` }, '', basePath + `/checkout/${potentialDocId}`);
-                }
-                
-                renderCheckout(app);
-                window.scrollTo(0, 0);
-                initScrollAnimations();
-                if (typeof lucide !== 'undefined') lucide.createIcons();
-              } else {
-                // Invalid docId or doesn't belong to user
-                navigate('/pricing');
-              }
-            })
-            .catch(() => {
-              navigate('/pricing');
-            });
-          return; // Exit early while async check happens
-        } else {
-          // Not logged in but trying to access specific checkout
-          showToast('Please sign in to continue with your purchase', 'error');
-          setTimeout(() => navigate('/login'), 1000);
-          return;
-        }
-      }
+    // Case A: User accessed full URL /checkout/[uid]/[docId] (preferred, refresh-safe)
+    if (urlData && urlData.isFullUrl && urlData.docId && urlData.uid) {
+      handleFullCheckoutUrl(urlData, app);
+      return;
     }
     
-    // Case B: User accessed bare /checkout without docId
+    // Case B: User accessed legacy URL /checkout/[docId]
+    if (urlData && !urlData.isFullUrl && urlData.docId) {
+      handleLegacyCheckoutUrl(urlData.docId, app);
+      return;
+    }
+    
+    // Case C: User accessed bare /checkout (just clicked from pricing)
     if (route === '/checkout' || route === '/checkout/') {
       const session = getDeviceSession();
       
       if (session && session.docId) {
-        // Have active session with docId - correct URL
-        console.log('[Router] Correcting checkout route to:', `/checkout/${session.docId}`);
-        window.history.replaceState({ route: `/checkout/${session.docId}` }, '', basePath + `/checkout/${session.docId}`);
+        // Have active session with docId - correct URL to full format
+        const correctPath = `/checkout/${currentUser.uid || session.userId}/${session.docId}`;
+        window.history.replaceState({ route: correctPath }, '', basePath + correctPath);
         
-        if (!selectedPlan && session.planId) {
-          selectedPlan = session.planId;
-        }
-        if (session.docId) {
-          currentOrderDocId = session.docId;
-        }
+        if (!selectedPlan && session.planId) selectedPlan = session.planId;
+        if (session.docId) currentOrderDocId = session.docId;
         
         renderCheckout(app);
         window.scrollTo(0, 0);
@@ -3360,7 +1821,6 @@ function router() {
         if (typeof lucide !== 'undefined') lucide.createIcons();
         return;
       } else if (!selectedPlan || !plans[selectedPlan]) {
-        // No session and no plan - redirect to pricing
         navigate('/pricing');
         return;
       }
@@ -3369,16 +1829,7 @@ function router() {
     
     // Auth guard for checkout
     if (PROTECTED_ROUTES.includes(route) && !authInitialized) {
-      app.innerHTML = `
-        <div style="display:flex;align-items:center;justify-content:center;min-height:calc(100vh - 73px);background:var(--bg);padding:20px">
-          <div style="text-align:center;width:100%;max-width:320px">
-            <div class="skeleton" style="width:64px;height:64px;border-radius:50%;margin:0 auto 20px;border-radius:50%"></div>
-            <div class="skeleton" style="width:60%;height:20px;margin:0 auto 12px;border-radius:10px"></div>
-            <div class="skeleton" style="width:40%;height:14px;margin:0 auto;border-radius:8px"></div>
-            <p style="font-size:13px;color:#8B8B7A;margin-top:24px;font-family:'Space Mono',monospace;letter-spacing:0.05em">VERIFYING SESSION...</p>
-          </div>
-        </div>
-      `;
+      showLoadingState(app);
       return;
     }
 
@@ -3389,12 +1840,6 @@ function router() {
       return;
     }
 
-    if (route === '/checkout' && selectedPlan && !plans[selectedPlan]) {
-      navigate('/pricing');
-      return;
-    }
-
-    // Render checkout normally
     renderCheckout(app);
     window.scrollTo(0, 0);
     initScrollAnimations();
@@ -3404,29 +1849,26 @@ function router() {
   }
 
   // ==========================================
-  // PAYMENT SUCCESSFUL ROUTE CORRECTION LOGIC
+  // PAYMENT SUCCESSFUL ROUTE
+  // Supports: /payment-successful/[uid]/[docId] (preferred), /payment-successful/[docId] (legacy)
   // ==========================================
   if (route.startsWith('/payment-successful')) {
+    const urlData = parseCheckoutUrl(route);
     const session = getDeviceSession();
     
-    // Case A: User has valid payment session - check if URL matches expected format
+    // Case A: Full URL with uid and docId in path
+    if (urlData && urlData.isFullUrl && urlData.docId && urlData.uid) {
+      // Verify order exists and belongs to this user
+      verifyAndRenderPaymentSuccess(app, urlData.uid, urlData.docId);
+      return;
+    }
+    
+    // Case B: Legacy URL or no valid URL params but we have session
     if (session && session.docId && session.userId) {
       const expectedPath = `/payment-successful/${session.userId}/${session.docId}`;
-      
-      // If user accessed bare /payment-successful or wrong params, correct it
-      if (route === '/payment-successful' || route !== expectedPath) {
-        console.log('[Router] Correcting payment-successful route to:', expectedPath);
+      if (route !== expectedPath) {
         window.history.replaceState({ route: expectedPath }, '', basePath + expectedPath);
-        renderPaymentSuccessful(app, session);
-        window.scrollTo(0, 0);
-        initScrollAnimations();
-        if (typeof lucide !== 'undefined') lucide.createIcons();
-        startConfetti();
-        startSessionTimer();
-        return;
       }
-      
-      // Route matches, render normally
       renderPaymentSuccessful(app, session);
       window.scrollTo(0, 0);
       initScrollAnimations();
@@ -3436,51 +1878,29 @@ function router() {
       return;
     }
     
-    // Case B: No valid session but trying to access payment-successful
-    navigate('/pricing');
+    // No valid session or URL params
+    navigate('/');
     return;
   }
 
   // ==========================================
-  // AUTH GUARD: Handle Protected Routes
+  // AUTH GUARD FOR OTHER PROTECTED ROUTES
   // ==========================================
-  
   if (PROTECTED_ROUTES.includes(route) && !authInitialized) {
-    app.innerHTML = `
-      <div style="display:flex;align-items:center;justify-content:center;min-height:calc(100vh - 73px);background:var(--bg);padding:20px">
-        <div style="text-align:center;width:100%;max-width:320px">
-          <div class="skeleton" style="width:64px;height:64px;border-radius:50%;margin:0 auto 20px;border-radius:50%"></div>
-          <div class="skeleton" style="width:60%;height:20px;margin:0 auto 12px;border-radius:10px"></div>
-          <div class="skeleton" style="width:40%;height:14px;margin:0 auto;border-radius:8px"></div>
-          <p style="font-size:13px;color:#8B8B7A;margin-top:24px;font-family:'Space Mono',monospace;letter-spacing:0.05em">VERIFYING SESSION...</p>
-        </div>
-      </div>
-    `;
+    showLoadingState(app);
     return;
   }
 
   if (PROTECTED_ROUTES.includes(route) && authInitialized && (!isLoggedIn || !currentUser.uid)) {
     window.history.replaceState({ route: '/login' }, '', basePath + '/login');
-    
-    if (route === '/profile') {
-      showToast('🔒 Please sign in to view your profile', 'error');
-    } else if (route === '/checkout') {
-      showToast('🔒 Please sign in to complete your purchase', 'error');
-    }
-    
+    if (route === '/profile') showToast('🔒 Please sign in to view your profile', 'error');
     setTimeout(() => navigate('/login'), 100);
     return;
   }
 
-  if (route === '/checkout' && selectedPlan && !plans[selectedPlan]) {
-    navigate('/pricing');
-    return;
-  }
-
   // ==========================================
-  // ROUTE RENDERING
+  // NORMAL ROUTE RENDERING
   // ==========================================
-  
   switch (route) {
     case '/': case '/home': renderHome(app); break;
     case '/product': renderProduct(app); break;
@@ -3491,16 +1911,12 @@ function router() {
     case '/terms': renderTerms(app); break;
     case '/policy': renderPolicy(app); break;
     case '/login': 
-      if (isLoggedIn && currentUser.uid) {
-        navigate('/profile');
-        return;
-      }
+      if (isLoggedIn && currentUser.uid) { navigate('/profile'); return; }
       renderLogin(app); 
       break;
     case '/signup': renderSignup(app); break;
     case '/contact': renderContact(app); break;
     case '/profile': renderProfile(app); break;
-    case '/checkout': renderCheckout(app); break;
     default: renderHome(app); break;
   }
 
@@ -3508,6 +1924,159 @@ function router() {
   initScrollAnimations();
   initCardMouseTracking();
   if (typeof lucide !== 'undefined') lucide.createIcons();
+}
+
+// ===== CHECKOUT URL HANDLERS =====
+
+// Handle full URL: /checkout/[uid]/[docId]
+function handleFullCheckoutUrl(urlData, app) {
+  if (!authInitialized) {
+    showLoadingState(app);
+    // Will re-trigger when auth initializes
+    return;
+  }
+  
+  if (!isLoggedIn || !currentUser.uid) {
+    showToast('Please sign in to continue with your purchase', 'error');
+    setTimeout(() => navigate('/login'), 1000);
+    return;
+  }
+  
+  // Verify the UID matches current user (security check)
+  if (urlData.uid !== currentUser.uid) {
+    showToast('This checkout session belongs to another account. Please sign in with the correct account.', 'error');
+    navigate('/pricing');
+    return;
+  }
+  
+  // Verify order exists in Firestore
+  db.collection('orders').doc(urlData.docId).get()
+    .then((doc) => {
+      if (!doc.exists || doc.data().userId !== currentUser.uid) {
+        navigate('/pricing');
+        return;
+      }
+      
+      const orderData = doc.data();
+      selectedPlan = orderData.planId;
+      currentOrderDocId = urlData.docId;
+      
+      // Recreate device session
+      createDeviceSession(urlData.docId, currentUser.uid, orderData.planId);
+      
+      renderCheckout(app);
+      window.scrollTo(0, 0);
+      initScrollAnimations();
+      if (typeof lucide !== 'undefined') lucide.createIcons();
+    })
+    .catch(() => {
+      navigate('/pricing');
+    });
+}
+
+// Handle legacy URL: /checkout/[docId]
+function handleLegacyCheckoutUrl(docId, app) {
+  if (!authInitialized) {
+    showLoadingState(app);
+    return;
+  }
+  
+  if (!isLoggedIn || !currentUser.uid) {
+    showToast('Please sign in to continue with your purchase', 'error');
+    setTimeout(() => navigate('/login'), 1000);
+    return;
+  }
+  
+  // Verify order exists and belongs to user, then upgrade URL
+  db.collection('orders').doc(docId).get()
+    .then((doc) => {
+      if (!doc.exists || doc.data().userId !== currentUser.uid) {
+        navigate('/pricing');
+        return;
+      }
+      
+      const orderData = doc.data();
+      selectedPlan = orderData.planId;
+      currentOrderDocId = docId;
+      
+      // Upgrade to full URL format for future refreshes
+      const newPath = `/checkout/${currentUser.uid}/${docId}`;
+      window.history.replaceState({ route: newPath }, '', basePath + newPath);
+      
+      // Recreate device session
+      createDeviceSession(docId, currentUser.uid, orderData.planId);
+      
+      renderCheckout(app);
+      window.scrollTo(0, 0);
+      initScrollAnimations();
+      if (typeof lucide !== 'undefined') lucide.createIcons();
+    })
+    .catch(() => {
+      navigate('/pricing');
+    });
+}
+
+// Verify and render payment success page
+function verifyAndRenderPaymentSuccess(app, uid, docId) {
+  db.collection('orders').doc(docId).get()
+    .then((doc) => {
+      if (!doc.exists) {
+        renderPaymentNotFound(app);
+        return;
+      }
+      
+      const orderData = doc.data();
+      
+      // Create/update session for this successful order
+      const sessionData = {
+        docId: docId,
+        userId: uid,
+        planId: orderData.planId,
+        createdAt: Date.now(),
+        expiresAt: Date.now() + SESSION_DURATION_MS,
+        deviceFingerprint: getDeviceFingerprint(),
+        paymentStatus: 'payment_made'
+      };
+      localStorage.setItem(DEVICE_SESSION_KEY, JSON.stringify(sessionData));
+      
+      renderPaymentSuccessful(app, sessionData);
+      window.scrollTo(0, 0);
+      initScrollAnimations();
+      if (typeof lucide !== 'undefined') lucide.createIcons();
+      startConfetti();
+      startSessionTimer();
+    })
+    .catch(() => {
+      renderPaymentNotFound(app);
+    });
+}
+
+function renderPaymentNotFound(app) {
+  app.innerHTML = `
+  <div class="payment-success-page">
+    <div class="payment-success-container">
+      <div class="success-hero">
+        <h1>Order Not Found</h1>
+        <p>We couldn't find your order information. This might be because the session has expired.</p>
+      </div>
+      <div class="success-actions">
+        <button class="btn-primary" onclick="navigate('/pricing')">Return to Pricing</button>
+        <button class="btn-secondary" onclick="navigate('/contact')">Contact Support</button>
+      </div>
+    </div>
+  </div>`;
+}
+
+function showLoadingState(app) {
+  app.innerHTML = `
+    <div style="display:flex;align-items:center;justify-content:center;min-height:calc(100vh - 73px);background:var(--bg);padding:20px">
+      <div style="text-align:center;width:100%;max-width:320px">
+        <div class="skeleton" style="width:64px;height:64px;border-radius:50%;margin:0 auto 20px"></div>
+        <div class="skeleton" style="width:60%;height:20px;margin:0 auto 12px;border-radius:10px"></div>
+        <div class="skeleton" style="width:40%;height:14px;margin:0 auto;border-radius:8px"></div>
+        <p style="font-size:13px;color:#8B8B7A;margin-top:24px;font-family:'Space Mono',monospace;letter-spacing:0.05em">VERIFYING SESSION...</p>
+      </div>
+    </div>`;
 }
 
 window.addEventListener('DOMContentLoaded', router);
@@ -3520,9 +2089,7 @@ window.addEventListener('DOMContentLoaded', router);
     try {
       for (let i = 0; i < localStorage.length; i++) {
         const key = localStorage.key(i);
-        if (key && key.includes('firebase:authUser:')) {
-          return true;
-        }
+        if (key && key.includes('firebase:authUser:')) return true;
       }
     } catch(e) {}
     return false;
@@ -3531,24 +2098,10 @@ window.addEventListener('DOMContentLoaded', router);
   if (hasFirebaseToken()) {
     const authBtn = document.getElementById('authBtn');
     const mobileAuthLink = document.getElementById('mobileAuthLink');
-    if (authBtn) { 
-      authBtn.href = '/profile'; 
-      authBtn.textContent = 'My Profile'; 
-    }
-    if (mobileAuthLink) { 
-      mobileAuthLink.href = '/profile'; 
-      mobileAuthLink.textContent = 'My Profile'; 
-    }
+    if (authBtn) { authBtn.href = '/profile'; authBtn.textContent = 'My Profile'; }
+    if (mobileAuthLink) { mobileAuthLink.href = '/profile'; mobileAuthLink.textContent = 'My Profile'; }
   }
 })();
-
-window.addEventListener('hashchange', () => {
-  const hash = window.location.pathname.replace('#', '');
-  if (hash) {
-    window.history.replaceState({}, '', hash);
-    router();
-  }
-});
 
 // ===== SCROLL ANIMATIONS =====
 function initScrollAnimations() {
@@ -3940,22 +2493,10 @@ function renderHome(el) {
           <h2>Let's build something<br><span class="accent">amazing together</span></h2>
           <p>Have a project in mind? We'd love to hear about it. Send us a message and we'll get back to you within 24 hours.</p>
           <div class="contact-details">
-            <div class="contact-item">
-              <div class="contact-item-icon">${icons.mail}</div>
-              <div class="contact-item-text"><strong>Email Us</strong><span>hello@luviio.com</span></div>
-            </div>
-            <div class="contact-item">
-              <div class="contact-item-icon">${icons.phone}</div>
-              <div class="contact-item-text"><strong>Call Us</strong><span>+60 12 260 0969</span></div>
-            </div>
-            <div class="contact-item">
-              <div class="contact-item-icon">${icons.mapPin}</div>
-              <div class="contact-item-text"><strong>Visit Us</strong><span>Kedah, Malaysia</span></div>
-            </div>
-            <div class="contact-item">
-              <div class="contact-item-icon">${icons.clock}</div>
-              <div class="contact-item-text"><strong>Working Hours</strong><span>Mon - Fri: 9AM - 6PM (MYT)</span></div>
-            </div>
+            <div class="contact-item"><div class="contact-item-icon">${icons.mail}</div><div class="contact-item-text"><strong>Email Us</strong><span>hello@luviio.com</span></div></div>
+            <div class="contact-item"><div class="contact-item-icon">${icons.phone}</div><div class="contact-item-text"><strong>Call Us</strong><span>+60 12 260 0969</span></div></div>
+            <div class="contact-item"><div class="contact-item-icon">${icons.mapPin}</div><div class="contact-item-text"><strong>Visit Us</strong><span>Kedah, Malaysia</span></div></div>
+            <div class="contact-item"><div class="contact-item-icon">${icons.clock}</div><div class="contact-item-text"><strong>Working Hours</strong><span>Mon - Fri: 9AM - 6PM (MYT)</span></div></div>
           </div>
         </div>
         <div class="contact-form-card animate-on-scroll animate-delay-2">
@@ -4011,7 +2552,7 @@ function selectPlanAndCheckout(planId) {
     return;
   }
   
-  // Create/update device session for checkout (without docId yet)
+  // Create device session (without docId yet - will be assigned after form submit)
   createDeviceSession(null, currentUser.uid, planId);
   
   navigate('/checkout');
@@ -4022,15 +2563,10 @@ async function handleMemberJoin() {
   const emailInput = document.getElementById('memberEmail');
   if (emailInput && emailInput.value && emailInput.value.includes('@')) {
     try {
-      await callLuviioAPI('newsletter', {
-        email: emailInput.value,
-        source: 'homepage_membership'
-      });
-      
+      await callLuviioAPI('newsletter', { email: emailInput.value, source: 'homepage_membership' });
       showToast(`🎉 Welcome aboard! Confirmation sent to ${emailInput.value}`, 'success');
       emailInput.value = '';
     } catch (error) {
-      console.error('[Member Join Error]', error);
       showToast(error.message || 'Error joining. Please try again.', 'error');
     }
   } else {
@@ -4080,7 +2616,7 @@ async function handleContactSubmit(e) {
   }
 }
 
-// ===== PRODUCT PAGE WITH TOOLS =====
+// ===== PRODUCT PAGE =====
 function renderProduct(el) {
   el.innerHTML = `
   <div class="page-hero">
@@ -4747,7 +3283,6 @@ function renderLogin(el) {
     <div class="auth-card" id="loginCard">
       <a href="/" class="logo" style="justify-content:center;margin-bottom:28px"><img src="https://images.luviio.com/logo-luviio-red.png" alt="Luviio" style="height:32px;width:auto;border-radius:6px"></a>
       
-      <!-- Login Form (Default View) -->
       <div id="loginFormView">
         <h2>Welcome back</h2>
         <p class="auth-sub">Sign in to your account to continue</p>
@@ -4761,14 +3296,13 @@ function renderLogin(el) {
         <div class="auth-divider">or continue with</div>
         
         <button class="auth-social-btn" onclick="handleGoogleSignIn()">
-          <svg width="18" height="18" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="#EA4335"/></svg>
           Google
         </button>
         
         <div class="auth-footer">Don't have an account? <a href="/signup">Sign up</a></div>
       </div>
 
-      <!-- Forgot Password Form (Hidden by default) -->
       <div id="forgotPasswordView" style="display:none">
         <h2>Reset Password</h2>
         <p class="auth-sub">Enter your email address and we'll send you a reset link</p>
@@ -4787,77 +3321,45 @@ function renderLogin(el) {
   </div>`;
 }
 
-// ===== SHOW FORGOT PASSWORD FORM =====
 function showForgotPassword() {
   document.getElementById('loginFormView').style.display = 'none';
   document.getElementById('forgotPasswordView').style.display = 'block';
-  
   const errorEl = document.getElementById('forgotError');
   const successEl = document.getElementById('forgotSuccess');
   if (errorEl) { errorEl.style.display = 'none'; errorEl.innerHTML = ''; }
   if (successEl) { successEl.style.display = 'none'; successEl.innerHTML = ''; }
 }
 
-// ===== SHOW LOGIN FORM =====
 function showLoginForm() {
   document.getElementById('forgotPasswordView').style.display = 'none';
   document.getElementById('loginFormView').style.display = 'block';
-  
   const errorEl = document.getElementById('loginError');
   if (errorEl) { errorEl.style.display = 'none'; errorEl.innerHTML = ''; }
 }
 
-// ===== SEND RESET LINK =====
 function handleSendResetLink() {
   const emailInput = document.getElementById('forgotEmail');
   const errorEl = document.getElementById('forgotError');
   const successEl = document.getElementById('forgotSuccess');
   
   if (!emailInput || !emailInput.value || !emailInput.value.includes('@')) {
-    if (errorEl) {
-      errorEl.innerHTML = 'Please enter a valid email address.';
-      errorEl.classList.add('show');
-    }
-    if (emailInput) {
-      emailInput.style.borderColor = 'var(--error)';
-      emailInput.style.animation = 'shake 0.4s ease';
-      setTimeout(() => { 
-        emailInput.style.borderColor = ''; 
-        emailInput.style.animation = ''; 
-      }, 400);
-    }
+    if (errorEl) { errorEl.innerHTML = 'Please enter a valid email address.'; errorEl.classList.add('show'); }
+    if (emailInput) { emailInput.style.borderColor = 'var(--error)'; emailInput.style.animation = 'shake 0.4s ease'; setTimeout(() => { emailInput.style.borderColor = ''; emailInput.style.animation = ''; }, 400); }
     return;
   }
 
   auth.sendPasswordResetEmail(emailInput.value)
-    .then(() => {
-      if (successEl) {
-        successEl.innerHTML = `✅ Password reset link sent to ${emailInput.value}. Check your inbox.`;
-        successEl.classList.add('show');
-      }
-      if (errorEl) errorEl.style.display = 'none';
-    })
-    .catch((err) => {
-      const friendlyMsg = getFriendlyErrorMessage(err);
-      if (errorEl) {
-        errorEl.innerHTML = friendlyMsg || 'Error sending reset email. Please try again.';
-        errorEl.classList.add('show');
-      }
-      if (successEl) successEl.style.display = 'none';
-    });
+    .then(() => { if (successEl) { successEl.innerHTML = `✅ Password reset link sent to ${emailInput.value}. Check your inbox.`; successEl.classList.add('show'); } if (errorEl) errorEl.style.display = 'none'; })
+    .catch((err) => { const friendlyMsg = getFriendlyErrorMessage(err); if (errorEl) { errorEl.innerHTML = friendlyMsg || 'Error sending reset email. Please try again.'; errorEl.classList.add('show'); } if (successEl) successEl.style.display = 'none'; });
 }
 
-// ===== Email/Password Login =====
 function handleEmailLogin() {
   const email = document.getElementById('loginEmail');
   const password = document.getElementById('loginPassword');
   const error = document.getElementById('loginError');
   
   if (!email || !password || !email.value || !password.value) {
-    if (error) {
-      error.innerHTML = 'Please fill in all fields.';
-      error.classList.add('show');
-    }
+    if (error) { error.innerHTML = 'Please fill in all fields.'; error.classList.add('show'); }
     showToast('Please fill in all fields', 'error');
     return;
   }
@@ -4875,26 +3377,18 @@ function handleEmailLogin() {
         timestamp: firebase.firestore.FieldValue.serverTimestamp()
       });
     })
-    .then(() => {
-      showToast('🌿 Welcome back!', 'success');
-      navigate('/');
-    })
+    .then(() => { showToast('🌿 Welcome back!', 'success'); navigate('/'); })
     .catch((err) => {
       const friendlyMsg = getFriendlyErrorMessage(err);
-      if (error) { 
-        error.innerHTML = friendlyMsg; 
-        error.classList.add('show'); 
-      }
+      if (error) { error.innerHTML = friendlyMsg; error.classList.add('show'); }
       showToast(friendlyMsg, 'error');
       btn.innerHTML = 'Sign In';
       btn.disabled = false;
     });
 }
 
-// ===== Google Sign In =====
 function handleGoogleSignIn() {
   const provider = new firebase.auth.GoogleAuthProvider();
-  
   auth.signInWithPopup(provider)
     .then((result) => {
       const user = result.user;
@@ -4902,36 +3396,20 @@ function handleGoogleSignIn() {
       
       if (isNewUser) {
         return db.collection('users').doc(user.uid).set({
-          name: user.displayName || '',
-          email: user.email,
-          photoURL: user.photoURL || '',
-          createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-          signupMethod: 'google'
-        }, { merge: true }).then(() => {
-          showToast('🎉 Account created with Google!', 'success');
-          navigate('/');
-        });
+          name: user.displayName || '', email: user.email, photoURL: user.photoURL || '',
+          createdAt: firebase.firestore.FieldValue.serverTimestamp(), signupMethod: 'google'
+        }, { merge: true }).then(() => { showToast('🎉 Account created with Google!', 'success'); navigate('/'); });
       } else {
         return db.collection('logins').add({
-          uid: user.uid,
-          email: user.email,
-          displayName: user.displayName,
-          method: 'google',
+          uid: user.uid, email: user.email, displayName: user.displayName, method: 'google',
           timestamp: firebase.firestore.FieldValue.serverTimestamp()
-        }).then(() => {
-          showToast('🌿 Welcome back!', 'success');
-          navigate('/');
-        });
+        }).then(() => { showToast('🌿 Welcome back!', 'success'); navigate('/'); });
       }
     })
     .catch((err) => {
       const friendlyMsg = getFriendlyErrorMessage(err);
-      if (friendlyMsg && friendlyMsg !== '') {
-        showToast(friendlyMsg, 'error');
-      }
-      if (err.code === 'auth/popup-blocked' || err.code === 'auth/popup-closed-by-user') {
-        showToast('Popup was blocked. Please allow popups for this site and try again.', 'error');
-      }
+      if (friendlyMsg && friendlyMsg !== '') showToast(friendlyMsg, 'error');
+      if (err.code === 'auth/popup-blocked' || err.code === 'auth/popup-closed-by-user') showToast('Popup was blocked. Please allow popups for this site and try again.', 'error');
     });
 }
 
@@ -4954,7 +3432,7 @@ function renderSignup(el) {
       <div class="auth-divider">or sign up with</div>
       
       <button class="auth-social-btn" onclick="handleGoogleSignUp()">
-        <svg width="18" height="18" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
         Google
       </button>
       
@@ -4963,7 +3441,6 @@ function renderSignup(el) {
   </div>`;
 }
 
-// ===== Email/Password Signup =====
 function handleEmailSignup() {
   const name = document.getElementById('signupName');
   const email = document.getElementById('signupEmail');
@@ -4997,34 +3474,26 @@ function handleEmailSignup() {
     .then((userCredential) => {
       return userCredential.user.updateProfile({ displayName: name.value }).then(() => {
         return db.collection('users').doc(userCredential.user.uid).set({
-          name: name.value,
-          email: email.value,
-          photoURL: '',
-          createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-          signupMethod: 'email'
+          name: name.value, email: email.value, photoURL: '',
+          createdAt: firebase.firestore.FieldValue.serverTimestamp(), signupMethod: 'email'
         });
       });
     })
     .then(() => {
-      showToast('🎉 Account created! Welcome, ' + name.value.split(' ')[0] + '!', 'success');
+      showToast(`🎉 Account created! Welcome, ${name.value.split(' ')[0]}!`, 'success');
       navigate('/');
     })
     .catch((err) => {
       const friendlyMsg = getFriendlyErrorMessage(err);
-      if (error) { 
-        error.innerHTML = friendlyMsg;
-        error.classList.add('show'); 
-      }
+      if (error) { error.innerHTML = friendlyMsg; error.classList.add('show'); }
       showToast(friendlyMsg, 'error');
       btn.innerHTML = 'Create Account';
       btn.disabled = false;
     });
 }
 
-// ===== Google Sign Up =====
 function handleGoogleSignUp() {
   const provider = new firebase.auth.GoogleAuthProvider();
-  
   auth.signInWithPopup(provider)
     .then((result) => {
       const user = result.user;
@@ -5032,255 +3501,21 @@ function handleGoogleSignUp() {
       
       if (isNewUser) {
         return db.collection('users').doc(user.uid).set({
-          name: user.displayName || '',
-          email: user.email,
-          photoURL: user.photoURL || '',
-          createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-          signupMethod: 'google'
-        }, { merge: true }).then(() => {
-          showToast('🎉 Account created with Google!', 'success');
-          navigate('/');
-        });
+          name: user.displayName || '', email: user.email, photoURL: user.photoURL || '',
+          createdAt: firebase.firestore.FieldValue.serverTimestamp(), signupMethod: 'google'
+        }, { merge: true }).then(() => { showToast('🎉 Account created with Google!', 'success'); navigate('/'); });
       } else {
         return db.collection('logins').add({
-          uid: user.uid,
-          email: user.email,
-          displayName: user.displayName,
-          method: 'google',
+          uid: user.uid, email: user.email, displayName: user.displayName, method: 'google',
           timestamp: firebase.firestore.FieldValue.serverTimestamp()
-        }).then(() => {
-          showToast('🌿 Welcome back!', 'success');
-          navigate('/');
-        });
+        }).then(() => { showToast('🌿 Welcome back!', 'success'); navigate('/'); });
       }
     })
     .catch((err) => {
       const friendlyMsg = getFriendlyErrorMessage(err);
-      if (friendlyMsg && friendlyMsg !== '') {
-        showToast(friendlyMsg, 'error');
-      }
-      if (err.code === 'auth/popup-blocked' || err.code === 'auth/popup-closed-by-user') {
-        showToast('Popup was blocked. Please allow popups for this site and try again.', 'error');
-      }
+      if (friendlyMsg && friendlyMsg !== '') showToast(friendlyMsg, 'error');
+      if (err.code === 'auth/popup-blocked' || err.code === 'auth/popup-closed-by-user') showToast('Popup was blocked. Please allow popups for this site and try again.', 'error');
     });
-}
-
-// ===== PROFILE PAGE WITH CUSTOMER PORTAL - STRIPE INSPIRED REDESIGN =====
-function renderProfile(el) {
-  if (!isLoggedIn || !currentUser.uid || !auth.currentUser) {
-    console.warn('[Security] Profile page accessed without valid session. Redirecting.');
-    
-    el.innerHTML = '';
-    
-    if (window.location.pathname !== '/login' && window.location.pathname !== basePath + '/login') {
-      window.history.replaceState({ route: '/login', forced: true }, '', basePath + '/login');
-      
-      setTimeout(() => {
-        navigate('/login');
-      }, 10);
-    } else {
-      renderLogin(el);
-    }
-    return;
-  }
-
-  const displayName = currentUser.name || 'User';
-  const displayEmail = currentUser.email || '';
-  const displayInitials = currentUser.initials || '?';
-  const displayPhotoURL = currentUser.photoURL || '';
-
-  let avatarHTML = '';
-  if (displayPhotoURL && displayPhotoURL.trim() !== '' && displayPhotoURL.startsWith('http')) {
-    avatarHTML = `
-      <img src="${displayPhotoURL}" 
-           alt="${displayName}'s profile picture" 
-           style="width:100%;height:100%;object-fit:cover;border-radius:50%"
-           onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
-      >
-      <span style="display:none">${displayInitials}</span>
-    `;
-  } else {
-    avatarHTML = displayInitials;
-  }
-
-  el.innerHTML = `
-  <div class="profile-page">
-    <div class="profile-container">
-      
-      <!-- Profile Header Card - Stripe Style -->
-      <div class="profile-header-card">
-        <div class="profile-avatar-wrapper">
-          <div class="profile-avatar-large">${avatarHTML}</div>
-        </div>
-        <div class="profile-status-badge">
-          <span class="profile-status-dot"></span>
-          Active Session
-        </div>
-        <div class="profile-name-display">${displayName}</div>
-        <div class="profile-email-display">${displayEmail}</div>
-      </div>
-
-      <!-- Main Profile Card -->
-      <div class="profile-main-card">
-        <div class="profile-section-title">
-          <span class="icon-circle">${icons.pencil}</span>
-          Personal Information
-        </div>
-        
-        ${displayPhotoURL ? `
-        <div class="photo-remove-wrapper">
-          <span class="photo-remove-text">Using Google Profile Picture</span>
-          <button type="button" onclick="removeGooglePhoto()" class="photo-remove-btn">Remove Photo</button>
-        </div>
-        ` : ''}
-        
-        <form class="profile-form-grid" onsubmit="handleProfileSave(event)">
-          <div class="profile-form-group">
-            <label class="profile-label">First Name</label>
-            <input type="text" class="profile-input" id="profileFirstName" value="${displayName.split(' ')[0] || ''}">
-          </div>
-          <div class="profile-form-group">
-            <label class="profile-label">Last Name</label>
-            <input type="text" class="profile-input" id="profileLastName" value="${displayName.split(' ').slice(1).join('') || ''}">
-          </div>
-          <div class="profile-form-group full-width">
-            <label class="profile-label">Email Address</label>
-            <input type="email" class="profile-input readonly" value="${displayEmail}" readonly title="Email cannot be changed here. Contact support for assistance.">
-          </div>
-          <div class="profile-form-group full-width">
-            <label class="profile-label">Bio</label>
-            <textarea class="profile-input profile-textarea" id="profileBio" placeholder="Tell us about yourself...">${currentUser.bio || ''}</textarea>
-          </div>
-          
-          <div class="profile-actions-row">
-            <button type="submit" class="btn-primary profile-save-btn">
-              ${icons.pencil} Save Changes
-            </button>
-            <button type="button" class="btn-secondary profile-logout-btn" onclick="handleLogout()">
-              ${icons.logOut} Logout
-            </button>
-          </div>
-        </form>
-      </div>
-
-      <!-- Customer Portal Section - Stripe Style -->
-      <div class="portal-section">
-        <div class="portal-card">
-          <div class="portal-header">
-            <div class="portal-icon">
-              ${icons.creditCard}
-            </div>
-            <div>
-              <div class="portal-title">Customer Portal</div>
-              <div class="portal-subtitle">Manage billing, invoices & subscriptions</div>
-            </div>
-          </div>
-          
-          <ul class="portal-features">
-            <li>${icons.check} View & download invoices</li>
-            <li>${icons.check} Update payment methods</li>
-            <li>${icons.check} Manage subscription plans</li>
-            <li>${icons.check} View payment history</li>
-            <li>${icons.check} Update billing information</li>
-            <li>${icons.check} Cancel or pause subscriptions</li>
-          </ul>
-          
-          <a href="https://billing.stripe.com/p/login/fZubIV3kQgXl3D072M97G00" target="_blank" rel="noopener noreferrer" class="btn-primary portal-btn">
-            ${icons.externalLink} Open Customer Portal
-          </a>
-          
-          <p class="portal-note">Secure Stripe-hosted portal. You'll be redirected to manage your account.</p>
-        </div>
-      </div>
-
-    </div>
-  </div>`;
-}
-
-// ===== Remove Google Profile Photo =====
-function removeGooglePhoto() {
-  if (!currentUser.uid) return;
-  
-  db.collection('users').doc(currentUser.uid).update({
-    photoURL: ''
-  }).then(() => {
-    currentUser.photoURL = '';
-    if (auth.currentUser) {
-      auth.currentUser.updateProfile({ photoURL: null });
-    }
-    showToast('Profile photo removed', 'success');
-    router();
-  }).catch(() => {
-    showToast('Error removing photo', 'error');
-  });
-}
-
-// ===== Profile Save =====
-function handleProfileSave(e) {
-  e.preventDefault();
-  const firstName = document.getElementById('profileFirstName');
-  const lastName = document.getElementById('profileLastName');
-  const bio = document.getElementById('profileBio');
-  
-  if (firstName && lastName && currentUser.uid) {
-    const fullName = (firstName.value.trim() + ' ' + lastName.value.trim()).trim();
-    
-    db.collection('users').doc(currentUser.uid).update({
-      name: fullName,
-      bio: bio ? bio.value : ''
-    }).then(() => {
-      currentUser.name = fullName;
-      currentUser.bio = bio ? bio.value : '';
-      currentUser.initials = fullName.split(' ').map(w => w[0]).join('').toUpperCase().slice(0, 2);
-      
-      // Update header card display
-      const nameDisplay = document.querySelector('.profile-name-display');
-      if (nameDisplay) nameDisplay.textContent = currentUser.name;
-      
-      showToast('✅ Profile saved successfully!', 'success');
-    }).catch((err) => {
-      showToast('Error saving profile', 'error');
-    });
-  }
-}
-
-// ===== Logout =====
-function handleLogout() {
-  // Prevent double-taps
-  if (window._isLoggingOut) return;
-  window._isLoggingOut = true;
-  
-  // Set flag so router knows we intentionally logged out
-  sessionStorage.setItem('luviio_just_logged_out', 'true');
-  
-  auth.signOut().then(() => {
-    // CRITICAL: Clear all session data immediately
-    clearDeviceSession();
-    selectedPlan = null;
-    currentOrderDocId = null;
-    isLoggedIn = false;
-    currentUser = { name: '', email: '', initials: '', bio: '', uid: null, photoURL: '' };
-    
-    // Update UI immediately before navigation
-    updateAuthUI();
-    
-    showToast('👋 Logged out successfully', 'success');
-    
-    // Force navigate to HOME - NOT login
-    window.history.replaceState({ route: '/' }, '', basePath + '/');
-    
-    // Small delay to ensure Firebase state is cleared, then render home
-    setTimeout(() => {
-      window._isLoggingOut = false;
-      router(); // This will renderHome() since we're at '/'
-    }, 100);
-    
-  }).catch((err) => {
-    window._isLoggingOut = false;
-    sessionStorage.removeItem('luviio_just_logged_out'); // Clean up on error
-    showToast('Logout error', 'error');
-    console.error('[Logout Error]', err);
-  });
 }
 
 // ===== CONTACT PAGE =====
@@ -5340,7 +3575,6 @@ function renderContact(el) {
   ${standardFooter}`;
 }
 
-// ===== CONTACT PAGE SUBMIT HANDLER =====
 async function handleContactPageSubmit(e) {
   e.preventDefault();
   const form = document.getElementById('contactFormPage');
@@ -5354,16 +3588,10 @@ async function handleContactPageSubmit(e) {
 
   try {
     const fullName = `${formData.get('firstName') || ''} ${formData.get('lastName') || ''}`.trim();
-
     await callLuviioAPI('contact', {
-      name: fullName,
-      email: formData.get('email'),
-      phone: formData.get('phone'),
-      service: formData.get('service'),
-      message: formData.get('message'),
-      source: 'contact_page'
+      name: fullName, email: formData.get('email'), phone: formData.get('phone'),
+      service: formData.get('service'), message: formData.get('message'), source: 'contact_page'
     });
-
     btn.innerHTML = originalText;
     btn.disabled = false;
     form.reset();
@@ -5377,31 +3605,144 @@ async function handleContactPageSubmit(e) {
   }
 }
 
-// ==========================================
-// CHECKOUT PAGE — CLEAN & PROFESSIONAL REDESIGN
-// ==========================================
-let currentOrderDocId = null; // Store the order doc ID globally
+// ===== PROFILE PAGE WITH CUSTOMER PORTAL =====
+function renderProfile(el) {
+  if (!isLoggedIn || !currentUser.uid || !auth.currentUser) {
+    el.innerHTML = '';
+    if (window.location.pathname !== '/login' && window.location.pathname !== basePath + '/login') {
+      window.history.replaceState({ route: '/login' }, '', basePath + '/login');
+      setTimeout(() => navigate('/login'), 10);
+    } else { renderLogin(el); }
+    return;
+  }
 
+  const displayName = currentUser.name || 'User';
+  const displayEmail = currentUser.email || '';
+  const displayInitials = currentUser.initials || '?';
+  const displayPhotoURL = currentUser.photoURL || '';
+
+  let avatarHTML = '';
+  if (displayPhotoURL && displayPhotoURL.trim() !== '' && displayPhotoURL.startsWith('http')) {
+    avatarHTML = `<img src="${displayPhotoURL}" alt="${displayName}'s profile picture" style="width:100%;height:100%;object-fit:cover;border-radius:50%" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><span style="display:none">${displayInitials}</span>`;
+  } else { avatarHTML = displayInitials; }
+
+  el.innerHTML = `
+  <div class="profile-page">
+    <div class="profile-container">
+      <div class="profile-header-card">
+        <div class="profile-avatar-wrapper"><div class="profile-avatar-large">${avatarHTML}</div></div>
+        <div class="profile-status-badge"><span class="profile-status-dot"></span> Active Session</div>
+        <div class="profile-name-display">${displayName}</div>
+        <div class="profile-email-display">${displayEmail}</div>
+      </div>
+
+      <div class="profile-main-card">
+        <div class="profile-section-title"><span class="icon-circle">${icons.pencil}</span> Personal Information</div>
+        
+        ${displayPhotoURL ? `<div class="photo-remove-wrapper"><span class="photo-remove-text">Using Google Profile Picture</span><button type="button" onclick="removeGooglePhoto()" class="photo-remove-btn">Remove Photo</button></div>` : ''}
+        
+        <form class="profile-form-grid" onsubmit="handleProfileSave(event)">
+          <div class="profile-form-group"><label class="profile-label">First Name</label><input type="text" class="profile-input" id="profileFirstName" value="${displayName.split(' ')[0] || ''}"></div>
+          <div class="profile-form-group"><label class="profile-label">Last Name</label><input type="text" class="profile-input" id="profileLastName" value="${displayName.split(' ').slice(1).join('') || ''}"></div>
+          <div class="profile-form-group full-width"><label class="profile-label">Email Address</label><input type="email" class="profile-input readonly" value="${displayEmail}" readonly title="Email cannot be changed here. Contact support for assistance."></div>
+          <div class="profile-form-group full-width"><label class="profile-label">Bio</label><textarea class="profile-input profile-textarea" id="profileBio" placeholder="Tell us about yourself...">${currentUser.bio || ''}</textarea></div>
+          
+          <div class="profile-actions-row">
+            <button type="submit" class="btn-primary profile-save-btn">${icons.pencil} Save Changes</button>
+            <button type="button" class="btn-secondary profile-logout-btn" onclick="handleLogout()">${icons.logOut} Logout</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="portal-section">
+        <div class="portal-card">
+          <div class="portal-header">
+            <div class="portal-icon">${icons.creditCard}</div>
+            <div><div class="portal-title">Customer Portal</div><div class="portal-subtitle">Manage billing, invoices & subscriptions</div></div>
+          </div>
+          <ul class="portal-features">
+            <li>${icons.check} View & download invoices</li>
+            <li>${icons.check} Update payment methods</li>
+            <li>${icons.check} Manage subscription plans</li>
+            <li>${icons.check} View payment history</li>
+            <li>${icons.check} Update billing information</li>
+            <li>${icons.check} Cancel or pause subscriptions</li>
+          </ul>
+          <a href="https://billing.stripe.com/p/login/fZubIV3kQgXl3D072M97G00" target="_blank" rel="noopener noreferrer" class="btn-primary portal-btn">${icons.externalLink} Open Customer Portal</a>
+          <p class="portal-note">Secure Stripe-hosted portal. You'll be redirected to manage your account.</p>
+        </div>
+      </div>
+    </div>
+  </div>`;
+}
+
+function removeGooglePhoto() {
+  if (!currentUser.uid) return;
+  db.collection('users').doc(currentUser.uid).update({ photoURL: '' }).then(() => {
+    currentUser.photoURL = '';
+    if (auth.currentUser) auth.currentUser.updateProfile({ photoURL: null });
+    showToast('Profile photo removed', 'success');
+    router();
+  }).catch(() => showToast('Error removing photo', 'error'));
+}
+
+function handleProfileSave(e) {
+  e.preventDefault();
+  const firstName = document.getElementById('profileFirstName');
+  const lastName = document.getElementById('profileLastName');
+  const bio = document.getElementById('profileBio');
+  
+  if (firstName && lastName && currentUser.uid) {
+    const fullName = (firstName.value.trim() + ' ' + lastName.value.trim()).trim();
+    db.collection('users').doc(currentUser.uid).update({ name: fullName, bio: bio ? bio.value : '' }).then(() => {
+      currentUser.name = fullName; currentUser.bio = bio ? bio.value : '';
+      currentUser.initials = fullName.split(' ').map(w => w[0]).join('').toUpperCase().slice(0, 2);
+      const nameDisplay = document.querySelector('.profile-name-display');
+      if (nameDisplay) nameDisplay.textContent = currentUser.name;
+      showToast('✅ Profile saved successfully!', 'success');
+    }).catch(() => showToast('Error saving profile', 'error'));
+  }
+}
+
+function handleLogout() {
+  if (window._isLoggingOut) return;
+  window._isLoggingOut = true;
+  sessionStorage.setItem('luviio_just_logged_out', 'true');
+  
+  auth.signOut().then(() => {
+    clearDeviceSession(); selectedPlan = null; currentOrderDocId = null;
+    isLoggedIn = false; currentUser = { name: '', email: '', initials: '', bio: '', uid: null, photoURL: '' };
+    updateAuthUI();
+    showToast('👋 Logged out successfully', 'success');
+    window.history.replaceState({ route: '/' }, '', basePath + '/');
+    setTimeout(() => { window._isLoggingOut = false; router(); }, 100);
+  }).catch((err) => {
+    window._isLoggingOut = false; sessionStorage.removeItem('luviio_just_logged_out');
+    showToast('Logout error', 'error');
+  });
+}
+
+// ==========================================
+// CHECKOUT PAGE — WITH PERSISTENT URL FORMAT
+// ==========================================
 function renderCheckout(el) {
   if (!selectedPlan || !plans[selectedPlan]) { navigate('/pricing'); return; }
   const plan = plans[selectedPlan];
   
-  // Determine if we're showing payment view (order already created)
-  const session = getDeviceSession();
-  const isPaymentView = session && session.docId && currentOrderDocId === session.docId;
-  
+  // Determine view state based on whether we have an order doc ID
+  const isPaymentView = currentOrderDocId !== null;
+
   el.innerHTML = `
   <div class="checkout-page">
     <div class="checkout-container">
       <!-- Back Link -->
       <div class="checkout-back-wrapper">
         <a href="#" class="checkout-back-link" onclick="navigate('/pricing');return false">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 12 5"></polyline></svg>
-          Back to Pricing
+          ${icons.arrowLeft} Back to Pricing
         </a>
       </div>
 
-      <!-- Minimal Progress Dots -->
+      <!-- Progress Dots -->
       <div class="checkout-progress-minimal">
         <div class="progress-dot ${isPaymentView ? 'completed' : 'active'}" id="progressDot1"></div>
         <div class="progress-line-mini ${isPaymentView ? 'filled' : ''}" id="progressLineMini"></div>
@@ -5410,16 +3751,12 @@ function renderCheckout(el) {
 
       <!-- Main Card -->
       <div class="checkout-card">
-        <!-- Header with Plan Info -->
+        <!-- Header -->
         <div class="checkout-card-header">
           <div class="checkout-plan-info">
             <div class="checkout-plan-label">Selected Plan</div>
             <div class="checkout-plan-name">${plan.name} Plan</div>
-            <div class="checkout-plan-meta">
-              <span>Monthly billing</span>
-              <span style="width:4px;height:4px;background:#D0D0CA;border-radius:50%"></span>
-              <span>Cancel anytime</span>
-            </div>
+            <div class="checkout-plan-meta"><span>Monthly billing</span><span style="width:4px;height:4px;background:#D0D0CA;border-radius:50%"></span><span>Cancel anytime</span></div>
           </div>
           <div class="checkout-plan-price-large">
             <span class="checkout-price-value">${plan.price.split(' ')[0]}</span>
@@ -5427,51 +3764,25 @@ function renderCheckout(el) {
           </div>
         </div>
 
-        <!-- Step 1: Form Body (hidden if payment view) -->
+        <!-- Step 1: Form Body -->
         <div class="checkout-card-body" id="checkoutStep1Body" style="${isPaymentView ? 'display:none' : ''}">
-          <div class="checkout-section-title">
-            <span class="step-number">1</span>
-            Your Details
-          </div>
+          <div class="checkout-section-title"><span class="step-number">1</span> Your Details</div>
 
           <form id="checkoutFormClean" onsubmit="handleCheckoutSubmitClean(event)">
             <div class="checkout-form-grid">
-              <div class="checkout-form-field">
-                <label class="checkout-label">First Name <span class="required">*</span></label>
-                <input type="text" name="firstName" class="checkout-input" required placeholder="John" value="${currentUser.name ? currentUser.name.split(' ')[0] : ''}">
-              </div>
-              <div class="checkout-form-field">
-                <label class="checkout-label">Last Name <span class="required">*</span></label>
-                <input type="text" name="lastName" class="checkout-input" required placeholder="Doe" value="${currentUser.name ? currentUser.name.split(' ').slice(1).join('') : ''}">
-              </div>
+              <div class="checkout-form-field"><label class="checkout-label">First Name <span class="required">*</span></label><input type="text" name="firstName" class="checkout-input" required placeholder="John" value="${currentUser.name ? currentUser.name.split(' ')[0] : ''}"></div>
+              <div class="checkout-form-field"><label class="checkout-label">Last Name <span class="required">*</span></label><input type="text" name="lastName" class="checkout-input" required placeholder="Doe" value="${currentUser.name ? currentUser.name.split(' ').slice(1).join('') : ''}"></div>
             </div>
 
-            <div class="checkout-form-field">
-              <label class="checkout-label">Email Address <span class="required">*</span></label>
-              <input type="email" name="email" class="checkout-input ${currentUser.email ? 'readonly' : ''}" required placeholder="john@example.com" value="${currentUser.email || ''}" ${currentUser.email ? 'readonly' : ''}>
-            </div>
-
-            <div class="checkout-form-field">
-              <label class="checkout-label">Phone Number <span class="required">*</span></label>
-              <input type="tel" name="phone" class="checkout-input" required placeholder="+60 12 345 6789">
-            </div>
-
-            <div class="checkout-form-field">
-              <label class="checkout-label">Company Name</label>
-              <input type="text" name="company" class="checkout-input" placeholder="Your Company (optional)">
-            </div>
-
-            <div class="checkout-form-field full-width">
-              <label class="checkout-label">Project Notes</label>
-              <textarea name="notes" class="checkout-input checkout-textarea" rows="3" placeholder="Tell us about your project goals or timeline..."></textarea>
-            </div>
+            <div class="checkout-form-field"><label class="checkout-label">Email Address <span class="required">*</span></label><input type="email" name="email" class="checkout-input ${currentUser.email ? 'readonly' : ''}" required placeholder="john@example.com" value="${currentUser.email || ''}" ${currentUser.email ? 'readonly' : ''}></div>
+            <div class="checkout-form-field"><label class="checkout-label">Phone Number <span class="required">*</span></label><input type="tel" name="phone" class="checkout-input" required placeholder="+60 12 345 6789"></div>
+            <div class="checkout-form-field"><label class="checkout-label">Company Name</label><input type="text" name="company" class="checkout-input" placeholder="Your Company (optional)"></div>
+            <div class="checkout-form-field full-width"><label class="checkout-label">Project Notes</label><textarea name="notes" class="checkout-input checkout-textarea" rows="3" placeholder="Tell us about your project goals or timeline..."></textarea></div>
 
             <div class="checkout-error-banner" id="checkoutErrorBanner"></div>
 
             <div class="checkout-actions">
-              <button type="submit" class="btn-primary checkout-submit-btn" id="cleanSubmitBtn">
-                Continue to Payment →
-              </button>
+              <button type="submit" class="btn-primary checkout-submit-btn" id="cleanSubmitBtn">Continue to Payment →</button>
               <button type="button" class="btn-secondary checkout-cancel-btn" onclick="navigate('/pricing')">Cancel</button>
             </div>
           </form>
@@ -5479,79 +3790,48 @@ function renderCheckout(el) {
 
         <!-- Step 2: Payment View -->
         <div class="checkout-payment-view ${isPaymentView ? 'visible' : ''}" id="checkoutPaymentView">
-          <div class="payment-success-circle">
-            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-          </div>
+          <div class="payment-success-circle"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
           <h3 class="payment-heading">Details Confirmed! ✨</h3>
           <p class="payment-subheading">Your information has been saved securely.</p>
           
-          <div class="payment-plan-confirm-box">
-            <strong>Plan:</strong> ${plan.name} — <strong>${plan.price}/month</strong>
-          </div>
+          <div class="payment-plan-confirm-box"><strong>Plan:</strong> ${plan.name} — <strong>${plan.price}/month</strong></div>
 
-          <a href="${plan.stripeUrl}" target="_blank" rel="noopener noreferrer" class="stripe-button-clean" onclick="handlePaymentSuccess('${selectedPlan}')">
-            Pay with Stripe — Secure Checkout
-          </a>
+          <a href="${plan.stripeUrl}" target="_blank" rel="noopener noreferrer" class="stripe-button-clean" onclick="handlePaymentSuccess('${selectedPlan}')">Pay with Stripe — Secure Checkout</a>
 
-          <p class="payment-note-small">
-            You will be redirected to Stripe's secure payment page to complete your purchase. All major credit cards accepted.
-          </p>
+          <p class="payment-note-small">You will be redirected to Stripe's secure payment page to complete your purchase. All major credit cards accepted.</p>
 
-          <button class="payment-failed-btn" onclick="handlePaymentFailed()">
-            ${icons.xCircle} Payment Failed / Cancelled
-          </button>
+          <button class="payment-failed-btn" onclick="handlePaymentFailed()">${icons.xCircle} Payment Failed / Cancelled</button>
 
-          <p class="payment-note-small" style="margin-top:16px;color:#999;font-size:11px">
-            If you encountered an issue during payment, click the button above to return to pricing.
-          </p>
+          <p class="payment-note-small" style="margin-top:16px;color:#999;font-size:11px">If you encountered an issue during payment, click the button above to return to pricing.</p>
 
-          <button class="edit-details-btn" onclick="resetCheckoutClean()">
-            ← Edit my details
-          </button>
+          <button class="edit-details-btn" onclick="resetCheckoutClean()">← Edit my details</button>
         </div>
       </div>
 
       <!-- Trust Footer -->
       <div class="checkout-trust-footer">
-        <div class="trust-item-mini">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path><path d="M9 12l2 2 4-4"></path></svg>
-          Secure
-        </div>
-        <div class="trust-item-mini">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 12l2 2 4-4"></path></svg>
-          Protected
-        </div>
-        <div class="trust-item-mini">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 12l2 2 4-4"></path></svg>
-          Guaranteed
-        </div>
+        <div class="trust-item-mini">${icons.shield} Secure</div>
+        <div class="trust-item-mini">${icons.shield} Protected</div>
+        <div class="trust-item-mini">${icons.shield} Guaranteed</div>
       </div>
     </div>
   </div>`;
   
-  // Scroll to top after render
   window.scrollTo(0, 0);
 }
 
-// ===== Handle Clean Checkout Form Submit =====
+// Handle Clean Checkout Form Submit - Creates order and updates URL to /checkout/[uid]/[docId]
 async function handleCheckoutSubmitClean(e) {
   e.preventDefault();
-  
   const form = document.getElementById('checkoutFormClean');
   const errorBanner = document.getElementById('checkoutErrorBanner');
   const submitBtn = document.getElementById('cleanSubmitBtn');
   
   const formData = new FormData(form);
   
-  if (!formData.get('firstName') || !formData.get('lastName') || 
-      !formData.get('email') || !formData.get('phone')) {
-    if (errorBanner) {
-      errorBanner.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>` + 
-        ' Please fill in all required fields.';
-      errorBanner.classList.add('show');
-    }
+  if (!formData.get('firstName') || !formData.get('lastName') || !formData.get('email') || !formData.get('phone')) {
+    if (errorBanner) { errorBanner.innerHTML = `${icons.alertCircle} Please fill in all required fields.`; errorBanner.classList.add('show'); }
     showToast('Please fill in all required fields', 'error');
-    // Scroll to top to show error
     window.scrollTo({ top: 0, behavior: 'smooth' });
     return;
   }
@@ -5562,7 +3842,7 @@ async function handleCheckoutSubmitClean(e) {
   const orderData = {
     planId: selectedPlan,
     planName: plans[selectedPlan].name,
-    planPrice: plans[selectedPlan].priceNum,
+    priceNum: plans[selectedPlan].priceNum,
     planPriceDisplay: plans[selectedPlan].price,
     firstName: formData.get('firstName'),
     lastName: formData.get('lastName'),
@@ -5571,54 +3851,49 @@ async function handleCheckoutSubmitClean(e) {
     company: formData.get('company') || '',
     notes: formData.get('notes') || '',
     createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-    userId: currentUser.uid || null,
+    userId: currentUser.uid,
     status: 'pending_payment',
     stripeUrl: plans[selectedPlan].stripeUrl
   };
 
   try {
-    // Save to Firestore and get the document reference
+    // Save to Firestore and get document reference
     const docRef = await db.collection('orders').add(orderData);
-    currentOrderDocId = docRef.id; // Store for later use
+    currentOrderDocId = docRef.id; // Store globally for URL persistence
     
     console.log('[Order Created] Document ID:', currentOrderDocId);
     
-    // Update device session with the order ID
+    // Create device session with full details
     createDeviceSession(currentOrderDocId, currentUser.uid, selectedPlan);
     
-    // Update URL to include document ID
-    const newRoute = `/checkout/${currentOrderDocId}`;
-    window.history.replaceState({ route: newRoute, orderId: currentOrderDocId }, '', basePath + newRoute);
+    // UPDATE URL TO FULL FORMAT: /checkout/[uid]/[docId]
+    // This makes the page refresh-safe!
+    const newRoute = `/checkout/${currentUser.uid}/${currentOrderDocId}`;
+    console.log('[URL Updated] Checkout URL changed to:', newRoute);
+    window.history.pushState({ route: newRoute, orderId: currentOrderDocId }, '', basePath + newRoute);
     
-    // Update progress dots
+    // Update progress UI
     document.getElementById('progressDot1').classList.remove('active');
     document.getElementById('progressDot1').classList.add('completed');
     document.getElementById('progressLineMini').classList.add('filled');
     document.getElementById('progressDot2').classList.add('active');
     
-    // Hide step 1, show payment view
+    // Switch views
     document.getElementById('checkoutStep1Body').style.display = 'none';
-    const paymentView = document.getElementById('checkoutPaymentView');
-    paymentView.classList.add('visible');
+    document.getElementById('checkoutPaymentView').classList.add('visible');
     
-    // Scroll to top to show payment view
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    
     showToast('✅ Details saved! Proceeding to payment...', 'success');
   } catch (err) {
     console.error('[Checkout Error]', err);
-    if (errorBanner) {
-      errorBanner.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>` +
-        ' Error saving details. Please try again.';
-      errorBanner.classList.add('show');
-    }
+    if (errorBanner) { errorBanner.innerHTML = `${icons.alertCircle} Error saving details. Please try again.`; errorBanner.classList.add('show'); }
     submitBtn.innerHTML = 'Continue to Payment →';
     submitBtn.disabled = false;
     showToast('Error saving details', 'error');
   }
 }
 
-// ===== HANDLE PAYMENT SUCCESS =====
+// Handle Payment Success - Updates order status and redirects to payment-successful page
 function handlePaymentSuccess(planId) {
   if (!currentOrderDocId) {
     console.error('[Payment Success] No order document ID found!');
@@ -5635,20 +3910,19 @@ function handlePaymentSuccess(planId) {
   .then(() => {
     console.log('[Payment Success] Status updated to payment_made for:', currentOrderDocId);
     
-    // Update device session with payment status
+    // Update device session
     const session = getDeviceSession();
     if (session) {
       session.paymentStatus = 'payment_made';
-      session.docId = currentOrderDocId;
       localStorage.setItem(DEVICE_SESSION_KEY, JSON.stringify(session));
     }
     
-    // Redirect to payment successful page in background
+    // Redirect to payment successful page with full URL format
     const redirectPath = `/payment-successful/${currentUser.uid}/${currentOrderDocId}`;
     console.log('[Redirecting to]:', redirectPath);
     
-    // Use replaceState so user can't go back to checkout via browser back
-    window.history.replaceState({ route: redirectPath, orderId: currentOrderDocId }, '', basePath + redirectPath);
+    // Use pushState so user can go back if needed (though typically they won't)
+    window.history.pushState({ route: redirectPath, orderId: currentOrderDocId }, '', basePath + redirectPath);
     
     // Trigger router to render payment success page
     router();
@@ -5657,70 +3931,34 @@ function handlePaymentSuccess(planId) {
     console.error('[Payment Status Update Error]', err);
     // Still redirect even if update fails - user has paid
     const redirectPath = `/payment-successful/${currentUser.uid}/${currentOrderDocId}`;
-    window.history.replaceState({ route: redirectPath }, '', basePath + redirectPath);
+    window.history.pushState({ route: redirectPath }, '', basePath + redirectPath);
     router();
   });
 }
 
-// ===== HANDLE PAYMENT FAILED =====
+// Handle Payment Failed - Resets and redirects to pricing
 function handlePaymentFailed() {
-  if (!currentOrderDocId) {
-    navigate('/pricing');
-    return;
-  }
+  if (!currentOrderDocId) { navigate('/pricing'); return; }
   
-  // Update Firestore status back to pending_payment
   db.collection('orders').doc(currentOrderDocId).update({
     status: 'pending_payment',
     paymentFailedAt: firebase.firestore.FieldValue.serverTimestamp()
   })
   .then(() => {
     console.log('[Payment Failed] Status reset to pending_payment for:', currentOrderDocId);
-    
-    // Clear device session completely
     clearDeviceSession();
     selectedPlan = null;
     currentOrderDocId = null;
-    
     showToast('Payment cancelled. You can try again anytime.', 'error');
-    
-    // Redirect to pricing
-    setTimeout(() => {
-      navigate('/pricing');
-    }, 500);
+    setTimeout(() => navigate('/pricing'), 500);
   })
-  .catch((err) => {
-    console.error('[Payment Failed Update Error]', err);
-    // Force redirect anyway
-    clearDeviceSession();
-    selectedPlan = null;
-    currentOrderDocId = null;
+  .catch(() => {
+    clearDeviceSession(); selectedPlan = null; currentOrderDocId = null;
     navigate('/pricing');
   });
 }
 
-// ===== Handle Stripe Redirect Tracking =====
-function handleStripeRedirect(planId) {
-  if (!currentOrderDocId) return;
-  
-  db.collection('orders')
-    .where('planId', '==', planId)
-    .where('userId', '==', currentUser.uid || null)
-    .orderBy('createdAt', 'desc')
-    .limit(1)
-    .get()
-    .then((snapshot) => {
-      if (!snapshot.empty) {
-        snapshot.docs[0].ref.update({
-          clickedPayAt: firebase.firestore.FieldValue.serverTimestamp(),
-          status: 'redirected_to_stripe'
-        });
-      }
-    })
-    .catch(console.error);
-}
-
-// ===== Reset Checkout =====
+// Reset Checkout - Goes back to form editing
 function resetCheckoutClean() {
   document.getElementById('progressDot1').classList.add('active');
   document.getElementById('progressDot1').classList.remove('completed');
@@ -5729,8 +3967,6 @@ function resetCheckoutClean() {
   
   document.getElementById('checkoutStep1Body').style.display = 'block';
   document.getElementById('checkoutPaymentView').classList.remove('visible');
-  
-  // Scroll to top when going back to edit
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -5746,9 +3982,7 @@ function renderPaymentSuccessful(el, session) {
           <div class="payment-success-page">
             <div class="payment-success-container">
               <div class="success-hero">
-                <div class="success-badge">
-                  ${icons.alertCircle} Order Not Found
-                </div>
+                <div class="success-badge">${icons.alertCircle} Order Not Found</div>
                 <h1>Order Details Unavailable</h1>
                 <p>We couldn't find your order information. This might be because the session has expired or the order was deleted.</p>
               </div>
@@ -5766,21 +4000,16 @@ function renderPaymentSuccessful(el, session) {
       
       el.innerHTML = `
       <div class="payment-success-page">
-        <!-- Confetti Container -->
         <div class="success-confetti" id="confettiContainer"></div>
         
         <div class="payment-success-container">
-          <!-- Session Expiry Warning -->
           <div class="session-expiry-warning" id="sessionExpiryWarning" style="display:none">
             ${icons.clockIcon}
             <span>This page will expire in: <span class="session-timer" id="sessionTimerDisplay">09:59</span></span>
           </div>
 
-          <!-- Hero Section -->
           <div class="success-hero">
-            <div class="success-badge">
-              ${icons.check} Payment Successful
-            </div>
+            <div class="success-badge">${icons.check} Payment Successful</div>
             <div class="success-icon-large">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
             </div>
@@ -5788,56 +4017,23 @@ function renderPaymentSuccessful(el, session) {
             <p>Your order has been confirmed and we'll start working on your project right away.</p>
           </div>
 
-          <!-- Order Summary Card -->
           <div class="order-summary-card">
             <div class="order-summary-header">
               <div class="order-summary-title">Order Summary</div>
               <div class="order-id-badge">#${session.docId.substring(0, 8).toUpperCase()}</div>
             </div>
             
-            <div class="order-detail-row">
-              <span class="order-detail-label">Plan Selected</span>
-              <span class="order-detail-value">${planInfo.name}</span>
-            </div>
-            <div class="order-detail-row">
-              <span class="order-detail-label">Customer Name</span>
-              <span class="order-detail-value">${orderData.firstName || ''} ${orderData.lastName || ''}</span>
-            </div>
-            <div class="order-detail-row">
-              <span class="order-detail-label">Email Address</span>
-              <span class="order-detail-value">${orderData.email || ''}</span>
-            </div>
-            <div class="order-detail-row">
-              <span class="order-detail-label">Phone Number</span>
-              <span class="order-detail-value">${orderData.phone || 'Not provided'}</span>
-            </div>
-            ${orderData.company ? `
-            <div class="order-detail-row">
-              <span class="order-detail-label">Company</span>
-              <span class="order-detail-value">${orderData.company}</span>
-            </div>
-            ` : ''}
-            <div class="order-detail-row">
-              <span class="order-detail-label">Order Date</span>
-              <span class="order-detail-value">${new Date(orderData.createdAt?.seconds * 1000 || Date.now()).toLocaleDateString('en-MY', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
-            </div>
-            <div class="order-detail-row">
-              <span class="order-detail-label">Total Amount</span>
-              <span class="order-detail-value highlight">${planInfo.price}<span style="font-size:14px;font-weight:400;color:#8B8B7A;margin-left:4px">/month</span></span>
-            </div>
-            <div class="order-detail-row">
-              <span class="order-detail-label">Status</span>
-              <span class="order-detail-value" style="color:var(--primary);font-weight:700">✓ Payment Confirmed</span>
-            </div>
-            ${orderData.notes ? `
-            <div class="order-detail-row" style="flex-direction:column;align-items:flex-start;">
-              <span class="order-detail-label">Notes</span>
-              <span class="order-detail-value" style="margin-top:4px;background:#FAFAF8;padding:8px 12px;border-radius:8px;font-size:13px">${orderData.notes}</span>
-            </div>
-            ` : ''}
+            <div class="order-detail-row"><span class="order-detail-label">Plan Selected</span><span class="order-detail-value">${planInfo.name}</span></div>
+            <div class="order-detail-row"><span class="order-detail-label">Customer Name</span><span class="order-detail-value">${orderData.firstName || ''} ${orderData.lastName || ''}</span></div>
+            <div class="order-detail-row"><span class="order-detail-label">Email Address</span><span class="order-detail-value">${orderData.email || ''}</span></div>
+            <div class="order-detail-row"><span class="order-detail-label">Phone Number</span><span class="order-detail-value">${orderData.phone || 'Not provided'}</span></div>
+            ${orderData.company ? `<div class="order-detail-row"><span class="order-detail-label">Company</span><span class="order-detail-value">${orderData.company}</span></div>` : ''}
+            <div class="order-detail-row"><span class="order-detail-label">Order Date</span><span class="order-detail-value">${new Date(orderData.createdAt?.seconds * 1000 || Date.now()).toLocaleDateString('en-MY', { year: 'numeric', month: 'long', day: 'numeric' })}</span></div>
+            <div class="order-detail-row"><span class="order-detail-label">Total Amount</span><span class="order-detail-value highlight">${planInfo.price}<span style="font-size:14px;font-weight:400;color:#8B8B7A;margin-left:4px">/month</span></span></div>
+            <div class="order-detail-row"><span class="order-detail-label">Status</span><span class="order-detail-value" style="color:var(--primary);font-weight:700">✓ Payment Confirmed</span></div>
+            ${orderData.notes ? `<div class="order-detail-row" style="flex-direction:column;align-items:flex-start;"><span class="order-detail-label">Notes</span><span class="order-detail-value" style="margin-top:4px;background:#FAFAF8;padding:8px 12px;border-radius:8px;font-size:13px">${orderData.notes}</span></div>` : ''}
           </div>
 
-          <!-- Support Section -->
           <div class="support-section">
             <h3>${icons.mail} Need Help?</h3>
             <p style="font-size:14px;color:#8B8B7A;margin-bottom:20px">Our team is here to assist you with any questions about your order.</p>
@@ -5845,52 +4041,31 @@ function renderPaymentSuccessful(el, session) {
             <div class="support-options">
               <a href="mailto:hello@luviio.com?subject=Order%20${session.docId.substring(0,8)}%20-%20Support" class="support-option">
                 <div class="support-option-icon">${icons.mail}</div>
-                <div>
-                  <div class="support-option-text">Email Support</div>
-                  <div class="support-option-sub">hello@luviio.com</div>
-                </div>
+                <div><div class="support-option-text">Email Support</div><div class="support-option-sub">hello@luviio.com</div></div>
               </a>
               
               <a href="https://wa.me/60122600969?text=Hi%20Luviio,%20I%20need%20help%20with%20my%20order%20${session.docId.substring(0,8)}" target="_blank" rel="noopener noreferrer" class="support-option">
                 <div class="support-option-icon">${icons.phone}</div>
-                <div>
-                  <div class="support-option-text">WhatsApp</div>
-                  <div class="support-option-sub">+60 12 260 0969</div>
-                </div>
+                <div><div class="support-option-text">WhatsApp</div><div class="support-option-sub">+60 12 260 0969</div></div>
               </a>
               
               <a href="/" class="support-option">
                 <div class="support-option-icon">${icons.mapPin}</div>
-                <div>
-                  <div class="support-option-text">Visit Office</div>
-                  <div class="support-option-sub">Kedah, Malaysia</div>
-                </div>
+                <div><div class="support-option-text">Visit Office</div><div class="support-option-sub">Kedah, Malaysia</div></div>
               </a>
             </div>
           </div>
 
-          <!-- Action Buttons -->
           <div class="success-actions">
-            <button class="btn-primary" onclick="navigate('/')">
-              ${icons.home} Back to Home
-            </button>
-            <button class="btn-secondary" onclick="navigate('/pricing')">
-              ${icons.arrowRight} View Other Plans
-            </button>
+            <button class="btn-primary" onclick="navigate('/')">${icons.home} Back to Home</button>
+            <button class="btn-secondary" onclick="navigate('/pricing')">${icons.arrowRight} View Other Plans</button>
           </div>
         </div>
       </div>`;
     })
     .catch((err) => {
       console.error('[Fetch Order Error]', err);
-      el.innerHTML = `
-        <div class="payment-success-page">
-          <div class="payment-success-container">
-            <div class="success-hero">
-              <h1>Loading your order...</h1>
-            </div>
-          </div>
-        </div>`;
+      el.innerHTML = `<div class="payment-success-page"><div class="payment-success-container"><div class="success-hero"><h1>Loading your order...</h1></div></div></div>`;
     });
 }
 
@@ -5900,8 +4075,6 @@ function startConfetti() {
   if (!container) return;
   
   const colors = ['#AB1509', '#C2A68C', '#E6D8C3', '#F5F5F0', '#000000'];
-  const shapes = ['square', 'circle'];
-  
   for (let i = 0; i < 50; i++) {
     const piece = document.createElement('div');
     piece.className = 'confetti-piece';
@@ -5914,11 +4087,7 @@ function startConfetti() {
     piece.style.animationDuration = (Math.random() * 2 + 2) + 's';
     container.appendChild(piece);
   }
-  
-  // Remove confetti after animation
-  setTimeout(() => {
-    if (container) container.innerHTML = '';
-  }, 5000);
+  setTimeout(() => { if (container) container.innerHTML = ''; }, 5000);
 }
 
 // ===== SESSION TIMER =====
@@ -5930,55 +4099,37 @@ function startSessionTimer() {
   
   if (!warningEl || !timerEl) return;
   
-  // Show warning after 30 seconds
   setTimeout(() => {
     const session = getDeviceSession();
-    if (session && isPaymentSessionActive()) {
-      warningEl.style.display = 'flex';
-    }
+    if (session && isPaymentSessionActive()) warningEl.style.display = 'flex';
   }, 30000);
   
-  // Update timer every second
   sessionTimerInterval = setInterval(() => {
     const session = getDeviceSession();
-    if (!session || !isPaymentSessionActive()) {
-      clearInterval(sessionTimerInterval);
-      // Session expired - could redirect here if desired
-      return;
-    }
+    if (!session || !isPaymentSessionActive()) { clearInterval(sessionTimerInterval); return; }
     
     const remaining = Math.max(0, session.expiresAt - Date.now());
     const minutes = Math.floor(remaining / 60000);
     const seconds = Math.floor((remaining % 60000) / 1000);
-    
     timerEl.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
     
-    // Warn when less than 1 minute left
     if (remaining < 60000) {
       warningEl.style.background = '#FEF2F2';
       warningEl.style.borderColor = '#FECACA';
       warningEl.style.color = '#DC2626';
     }
     
-    // When expired
     if (remaining <= 0) {
       clearInterval(sessionTimerInterval);
       timerEl.textContent = '00:00';
       warningEl.innerHTML = `${icons.alertCircle} Session expired. Returning to home...`;
-      setTimeout(() => {
-        clearDeviceSession();
-        navigate('/');
-      }, 2000);
+      setTimeout(() => { clearDeviceSession(); navigate('/'); }, 2000);
     }
   }, 1000);
 }
 
 // Stop timer when leaving page
-window.addEventListener('beforeunload', () => {
-  if (sessionTimerInterval) {
-    clearInterval(sessionTimerInterval);
-  }
-});
+window.addEventListener('beforeunload', () => { if (sessionTimerInterval) clearInterval(sessionTimerInterval); });
 
 </script>
 
