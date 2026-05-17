@@ -4,39 +4,90 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- CRITICAL: Site Name for Google Search Results -->
-<title>Luviio</title>
+<!-- CRITICAL: Site Identity for Google & Browsers -->
+<title>Luviio · Build Interfaces That Grow</title>
 <meta name="application-name" content="Luviio">
-<meta property="og:site_name" content="Luviio">
 <meta name="apple-mobile-web-app-title" content="Luviio">
+<meta name="msapplication-TileColor" content="#AB1509">
+<meta name="theme-color" content="#AB1509">
 
-<!-- Standard favicon -->
-<link rel="icon" href="https://images.luviio.com/favicon.ico" sizes="any">
+<!-- SEO Description -->
+<meta name="description" content="Luviio is a bold design system for creative technologists. High-contrast components, earthy warmth, and razor-sharp tools for building modern websites and apps. Based in Malaysia.">
+<meta name="keywords" content="Luviio, Grow by Luviio, website builder, design system, UI components, Malaysia, Malaysia web development, Malaysia digital agency, Website Murah">
+<meta name="author" content="Luviio Studio">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 
-<!-- PNG favicons -->
-<link rel="icon" type="image/png" sizes="32x32" href="https://images.luviio.com/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://images.luviio.com/favicon-16x16.png">
+<!-- Open Graph / Facebook / LinkedIn -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://luviio.com/">
+<meta property="og:title" content="Luviio — Build Interfaces That Grow">
+<meta property="og:description" content="A bold design system for vibe coders and creative technologists. Ship beautiful digital experiences with earthy warmth and intentional craft.">
+<meta property="og:image" content="https://images.luviio.com/og-image-luviio-red.png">
+<meta property="og:site_name" content="Luviio">
+<meta property="og:locale" content="en_MY">
 
-<!-- Apple devices -->
-<link rel="apple-touch-icon" sizes="180x180" href="https://images.luviio.com/apple-touch-icon.png">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Luviio — Build Interfaces That Grow">
+<meta name="twitter:description" content="Bold design system for creative technologists. High-contrast type, earthy warmth, ready to ship.">
+<meta name="twitter:image" content="https://images.luviio.com/og-image-luviio-red.png">
 
-<!-- Android / PWA -->
+<!-- ========== FAVICON: RED LUVIIO BRAND ICON ========== -->
+<!-- Primary Red Favicon (as requested) -->
+<link rel="icon" type="image/png" sizes="192x192" href="https://images.luviio.com/favicon-luviio-red.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://images.luviio.com/favicon-luviio-red.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://images.luviio.com/favicon-luviio-red.png">
+
+<!-- Apple Touch Icon (iOS Home Screen) -->
+<link rel="apple-touch-icon" sizes="180x180" href="https://images.luviio.com/favicon-luviio-red.png">
+
+<!-- Android Chrome Manifest -->
 <link rel="manifest" href="/site.webmanifest">
 
-<!-- STRUCTURED DATA: Tells Google explicitly this is "Luviio" -->
+<!-- Legacy IE fallback -->
+<link rel="shortcut icon" href="https://images.luviio.com/favicon-luviio-red.ico" type="image/x-icon">
+
+<!-- STRUCTURED DATA: Google Knowledge Graph -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebSite",
+  "@type": ["WebSite", "Organization"],
   "name": "Luviio",
-  "alternateName": ["Grow by Luviio", "Luviio Malaysia", "Website Builder Malaysia · Luviio"],
-  "url": "https://luviio.com"
+  "alternateName": ["Grow by Luviio", "Luviio Malaysia", "Website Builder Malaysia", "Digital Agency Kedah"],
+  "url": "https://luviio.com",
+  "logo": "https://images.luviio.com/logo-luviio-red.png",
+  "sameAs": [
+    "https://x.com/weluviio",
+    "https://github.com/luviio",
+    "https://linkedin.com/company/luviio"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "hello@luviio.com",
+    "contactType": "customer service",
+    "availableLanguage": ["English", "Malay"]
+  },
+  "founder": {
+    "@type": "Person",
+    "name": "Danial Danish"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Kedah",
+    "addressCountry": "MY"
+  }
 }
 </script>
 
+<!-- Preconnect to external resources -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.luviio.com">
+
+<!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;1,9..40,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- Lucide Icons -->
 <script src="https://unpkg.com/lucide@latest"></script>
 
 <!-- Firebase SDK -->
@@ -2690,11 +2741,11 @@ function renderHome(el) {
             </div>
             <div class="contact-item">
               <div class="contact-item-icon">${icons.phone}</div>
-              <div class="contact-item-text"><strong>Call Us</strong><span>+60 12 345 6789</span></div>
+              <div class="contact-item-text"><strong>Call Us</strong><span>+60 12 260 0969</span></div>
             </div>
             <div class="contact-item">
               <div class="contact-item-icon">${icons.mapPin}</div>
-              <div class="contact-item-text"><strong>Visit Us</strong><span>Kuala Lumpur, Malaysia</span></div>
+              <div class="contact-item-text"><strong>Visit Us</strong><span>Kedah, Malaysia</span></div>
             </div>
             <div class="contact-item">
               <div class="contact-item-icon">${icons.clock}</div>
