@@ -2,9 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<!-- MOBILE VIEWPORT: Allow pinch zoom, prevent input auto-zoom -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, viewport-fit=cover">
 
 <!-- CRITICAL: Site Identity for Google & Browsers -->
 <title>Luviio · Build Interfaces That Grow</title>
@@ -103,211 +101,39 @@
     --shadow-btn-active:#000000 1px 1px 0px 0px;
     --shadow-card:rgba(171,21,9,0.08) 0px 4px 32px 0px,rgba(0,0,0,0.05) 0px 1px 6px 0px;
   }
-
-  /* ========================================== */
-  /* MOBILE ZOOM FIX v3 — ENHANCED             */
-  /* 1. Allows pinch-to-zoom (user-scalable)   */
-  /* 2. Prevents auto-zoom on inputs (16px)     */
-  /* 3. Fixes layout shift on focus             */
-  /* 4. Improves tablet pinch gestures           */
-  /* ========================================== */
   
-  html{
-    scroll-behavior:smooth;
-    -webkit-text-size-adjust:100%;
-    text-size-adjust:100%;
-    /* CRITICAL: Allow pinch zoom on entire page */
-    touch-action: pan-x pan-y pinch-zoom;
-    overflow-x:hidden;
-    width:100%;
-    max-width:100vw;
-    position:relative;
-    /* Prevent overscroll bounce on iOS */
-    overscroll-behavior:none;
-  }
-  
-  body{
-    font-family:"DM Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-    background:var(--bg);
-    color:var(--text);
-    font-size:16px;
-    font-weight:400;
-    line-height:24px;
-    -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
-    width:100%;
-    max-width:100vw;
-    touch-action:pan-x pan-y pinch-zoom;
-    -webkit-overflow-scrolling:touch;
-    /* Prevent text selection during pinch zoom on iOS */
-    -webkit-user-select:none;
-    user-select:none;
-    /* Allow selection on inputs */
-  }
-  
-  /* Allow text selection on content areas */
-  body *:not(input):not(textarea):not(select):not([contenteditable]){
-    -webkit-user-select:auto;
-    user-select:auto;
+  #demoFont {
+    font-family: "Lucida Console", Monaco, monospace;
+    font-size: 27px;
+    letter-spacing: -1px;
+    word-spacing: -3px;
+    color: #000000;
+    font-weight: 700;
+    text-decoration: none;
+    font-style: normal;
+    font-variant: normal;
+    text-transform: capitalize;
+    white-space: nowrap;
   }
 
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}
+  body{font-family:"DM Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text);font-size:16px;font-weight:400;line-height:24px;-webkit-font-smoothing:antialiased;overflow-x:hidden;width:100%;max-width:100vw;touch-action:pan-x pan-y}
+  .mono{font-family:"Space Mono",SFMono-Regular,"Courier New",monospace}
+  .container{max-width:1200px;margin:0 auto;padding:0 40px;width:100%;position:relative}
+
+  /* MOBILE INPUT ZOOM PREVENTION */
   @supports (-webkit-touch-callout: none) {
-    
-    /* --- INPUTS: Prevent auto-zoom on focus --- */
-    /* iOS Safari auto-zooms when input font < 16px.
-       Setting to exactly 16px prevents the jump while 
-       still allowing manual pinch-zoom of the page. */
-    
-    input[type="text"],
-    input[type="email"],
-    input[type="password"],
-    input[type="tel"],
-    input[type="number"],
+    input[type="text"], 
+    input[type="email"], 
+    input[type="password"], 
+    input[type="tel"], 
+    input[type="number"], 
     input[type="search"],
-    input[type="url"],
-    input[type="date"],
     textarea,
     select {
-      /* THE FIX: 16px = no auto-zoom threshold */
-      font-size: 16px !important; 
-      line-height: 1.4 !important;
-      
-      /* Maintain size when user zooms page */
-      -webkit-text-size-adjust: 100% !important;
-      text-size-adjust: 100% !important;
-      
-      /* Normal tap behavior without 300ms delay */
-      touch-action: manipulation;
-      
-      /* Prevent layout shift on focus */
+      font-size: 16px !important;
       -webkit-transform: translateZ(0);
       transform: translateZ(0);
-      
-      /* Ensure consistent padding across browsers */
-      padding: 12px 14px !important;
-      
-      /* Prevent iOS from adding extra margin on focus */
-      margin: 0 !important;
-      
-      /* Fix iOS inner shadow styling */
-      -webkit-appearance: none;
-      appearance: none;
-      border-radius: var(--radius-md);
-    }
-
-    /* Special case: Textarea needs slightly larger for usability */
-    textarea {
-      font-size: 16px !important;
-      min-height: 120px;
-      resize: vertical;
-    }
-
-    /* --- BUTTONS & INTERACTIVE ELEMENTS: Remove tap delay but allow page zoom --- */
-    .btn-primary,
-    .btn-secondary,
-    .btn-ghost,
-    button[type="submit"],
-    .nav-cta,
-    .auth-social-btn,
-    .stripe-button-clean,
-    .edit-details-btn,
-    .payment-failed-btn,
-    .hamburger,
-    .mobile-close,
-    .social-btn,
-    .test-btn,
-    .color-preset,
-    .tool-card,
-    a[href] {
-      /* manipulation = no double-tap zoom delay on these elements */
-      touch-action: manipulation;
-      
-      /* Apple HIG minimum touch target */
-      min-height: 44px;
-      min-width: 44px;
-      
-      /* Prevent highlight color interference */
-      -webkit-tap-highlight-color: transparent;
-    }
-    
-    /* Smaller targets for dense UI */
-    .color-preset,
-    .social-btn,
-    .test-pill-emoji {
-      min-height: 36px;
-      min-width: 36px;
-    }
-  }
-
-  /* --- LAYOUT SAFETY NET FOR ZOOMED STATE --- */
-  @media screen and (max-width: 767px) {
-    @supports (-webkit-touch-callout: none) {
-      /* Container must not exceed viewport width when zoomed */
-      .container {
-        width: 100% !important;
-        max-width: 100vw !important;
-        padding-left: clamp(12px, 4vw, 24px) !important;
-        padding-right: clamp(12px, 4vw, 24px) !important;
-        box-sizing: border-box !important;
-      }
-      
-      /* Header stays full width during zoom */
-      header {
-        width: 100vw !important;
-        max-width: 100vw !important;
-        left: 0 !important;
-        right: 0 !important;
-        padding-left: clamp(12px, 4vw, 28px) !important;
-        padding-right: clamp(12px, 4vw, 28px) !important;
-      }
-      
-      /* Sections don't break horizontally */
-      section {
-        width: 100%;
-        max-width: 100vw;
-        overflow-x: hidden;
-        box-sizing: border-box;
-      }
-      
-      /* Cards and grids handle zoom gracefully */
-      .feature-card,
-      .pricing-card,
-      .service-card,
-      .product-feature,
-      .checkout-card,
-      .auth-card,
-      .membership-card,
-      .contact-form-card {
-        width: auto;
-        max-width: 100%;
-        box-sizing: border-box;
-      }
-      
-      /* Toast stays visible above zoomed content */
-      .toast-container {
-        position: fixed !important;
-        z-index: 99999 !important;
-        left: 12px !important;
-        right: 12px !important;
-        bottom: 12px !important;
-      }
-      
-      /* Grids stack properly when zoomed */
-      .features-grid,
-      .pricing-grid,
-      .services-grid,
-      .showcase-grid,
-      .contact-grid {
-        width: 100%;
-        max-width: 100vw;
-        box-sizing: border-box;
-      }
-      
-      /* Mobile nav full width */
-      .mobile-nav {
-        width: 100vw !important;
-        max-width: 100vw !important;
-      }
     }
   }
 
@@ -324,7 +150,6 @@
   @keyframes confetti-fall{0%{transform:translateY(-100%) rotate(0deg);opacity:1}100%{transform:translateY(100vh) rotate(720deg);opacity:0}}
   @keyframes pulse-glow{0%,100%{box-shadow:0 0 20px rgba(171,21,9,0.3)}50%{box-shadow:0 0 40px rgba(171,21,9,0.6)}}
   @keyframes checkmark-draw{0%{stroke-dashoffset:50}100%{stroke-dashoffset:0}}
-  @keyframes pulse-dot{0%,100%{opacity:1}50%{opacity:0.4}}
   
   .animate-on-scroll{opacity:0;transform:translateY(30px);transition:all 0.7s cubic-bezier(0.22, 1, 0.36, 1)}
   .animate-on-scroll.visible{opacity:1;transform:translateY(0)}
@@ -844,6 +669,7 @@
   .payment-heading{font-size:24px;font-weight:800;color:var(--text)}
   .payment-subheading{font-size:15px;color:#8B8B7A;margin-bottom:24px}
   .payment-plan-confirm-box{display:inline-block;background:var(--primary-tint);border:1px solid rgba(171,21,9,0.15);padding:16px 24px;border-radius:12px;margin-bottom:32px;font-size:14px;color:var(--text);font-weight:600}
+  .payment-plan-confirm-box strong{color:var(--primary)}
   .stripe-button-clean{display:inline-flex;align-items:center;justify-content:center;gap:12px;background:#635BFF;color:#FFFFFF;font-family:"DM Sans",sans-serif;font-size:16px;font-weight:700;padding:18px 48px;border-radius:12px;border:none;cursor:pointer;transition:all 0.25s ease;text-decoration:none;width:100%;max-width:400px;box-shadow:0 4px 14px rgba(99,91,255,0.25);margin-bottom:16px}
   .stripe-button-clean:hover{background:#5851EA;transform:translateY(2px);box-shadow:0 4px 10px rgba(99,91,255,0.35)}
   .stripe-button-clean:active{transform:translateY(3px) scale(0.98)}
@@ -1010,6 +836,7 @@
     header{padding:14px 20px}
     .logo{font-size:17px}
     .logo-img{height:28px}
+    #demoFont{font-size:20px}
     .hamburger{padding:6px}
     
     .hero{padding:60px 0 48px}
@@ -1156,6 +983,7 @@
     
     .page-hero{padding:48px 0 32px}
     .page-hero h1{font-size:32px;line-height:38px}
+    .page-hero p{font-size:14px;line-height:22px}
     
     .pricing-page-hero{padding:48px 0 32px}
     .pricing-page-hero h1{font-size:32px;line-height:38px}
@@ -1254,6 +1082,7 @@
     header{padding:12px 16px}
     .logo{font-size:15px}
     .logo-img{height:26px}
+    #demoFont{font-size:17px;letter-spacing:-0.5px}
     .hamburger{padding:6px}
     
     .hero{padding:48px 0 40px}
@@ -1637,12 +1466,12 @@ const db = firebase.firestore();
 let isLoggedIn = false;
 let currentUser = { name: '', email: '', initials: '', bio: '', uid: null, photoURL: '' };
 let selectedPlan = null;
-let currentOrderDocId = null;
+let currentOrderDocId = null; // Global order document ID for URL persistence
 let authInitialized = false;
 
 // ===== DEVICE SESSION MANAGEMENT =====
 const DEVICE_SESSION_KEY = 'luviio_device_session';
-const SESSION_DURATION_MS = 10 * 60 * 1000;
+const SESSION_DURATION_MS = 10 * 60 * 1000; // 10 minutes
 
 function getDeviceFingerprint() {
   const canvas = document.createElement('canvas');
@@ -1811,7 +1640,7 @@ auth.onAuthStateChanged(async (user) => {
     updateAuthUI();
   }
   
-  router();
+  router(); // Re-render current route on auth state change
 });
 
 function updateAuthUI() {
@@ -1827,6 +1656,7 @@ function updateAuthUI() {
   }
 }
 
+// Handle Google redirect result when user returns to the page
 auth.getRedirectResult()
   .then((result) => {
     if (result.user) {
@@ -1892,30 +1722,42 @@ const pageTitles = {
   '/contact': 'Contact Us · Luviio'
 };
 
+// Protected routes that require authentication
 const PROTECTED_ROUTES = ['/profile'];
 
 function setPageTitle(route) {
   document.title = pageTitles[route] || 'Luviio';
 }
 
+// Parse checkout or payment-success URLs with optional [uid]/[docId] params
 function parseCheckoutUrl(route) {
-  const parts = route.split('/').filter(Boolean);
+  // Patterns:
+  // /checkout -> bare
+  // /checkout/[docId] -> legacy format
+  // /checkout/[uid]/[docId] -> new preferred format (refresh-safe)
+  
+  const parts = route.split('/').filter(Boolean); // Remove empty strings
   
   if (parts[0] === 'checkout') {
     if (parts.length === 3 && parts[1].length > 5 && parts[2].length > 5) {
+      // Could be /checkout/[uid]/[docId] or /checkout/[docId] (legacy)
+      // If parts[1] looks like a UID (20 chars) and parts[2] like docId (20 chars), treat as new format
       if (parts[1].length >= 20) {
         return { uid: parts[1], docId: parts[2], isFullUrl: true };
       } else {
+        // Legacy: /checkout/[docId]
         return { uid: null, docId: parts[1], isFullUrl: false };
       }
     } else if (parts.length === 2 && parts[1].length > 5) {
+      // Legacy: /checkout/[docId]
       return { uid: null, docId: parts[1], isFullUrl: false };
     }
-    return { uid: null, docId: null, isFullUrl: false };
+    return { uid: null, docId: null, isFullUrl: false }; // Bare /checkout
   }
   
   if (parts[0] === 'payment-successful') {
     if (parts.length >= 3) {
+      // /payment-successful/[uid]/[docId] or /payment-successful/[docId]
       if (parts.length === 3 && parts[1].length >= 20) {
         return { uid: parts[1], docId: parts[2], isFullUrl: true };
       } else if (parts.length === 3) {
@@ -1942,23 +1784,31 @@ function router() {
     link.style.color = (href === '#' + route || (route === '/' && href === '/')) ? 'var(--primary)' : '';
   });
 
+  // ==========================================
+  // CHECKOUT ROUTE — WITH URL PERSISTENCE
+  // Supports: /checkout, /checkout/[docId], /checkout/[uid]/[docId]
+  // ==========================================
   if (route.startsWith('/checkout')) {
     const urlData = parseCheckoutUrl(route);
     
+    // Case A: User accessed full URL /checkout/[uid]/[docId] (preferred, refresh-safe)
     if (urlData && urlData.isFullUrl && urlData.docId && urlData.uid) {
       handleFullCheckoutUrl(urlData, app);
       return;
     }
     
+    // Case B: User accessed legacy URL /checkout/[docId]
     if (urlData && !urlData.isFullUrl && urlData.docId) {
       handleLegacyCheckoutUrl(urlData.docId, app);
       return;
     }
     
+    // Case C: User accessed bare /checkout (just clicked from pricing)
     if (route === '/checkout' || route === '/checkout/') {
       const session = getDeviceSession();
       
       if (session && session.docId) {
+        // Have active session with docId - correct URL to full format
         const correctPath = `/checkout/${currentUser.uid || session.userId}/${session.docId}`;
         window.history.replaceState({ route: correctPath }, '', basePath + correctPath);
         
@@ -1974,8 +1824,10 @@ function router() {
         navigate('/pricing');
         return;
       }
+      // If we have selectedPlan in memory (just clicked from pricing), allow through
     }
     
+    // Auth guard for checkout
     if (PROTECTED_ROUTES.includes(route) && !authInitialized) {
       showLoadingState(app);
       return;
@@ -1996,15 +1848,22 @@ function router() {
     return;
   }
 
+  // ==========================================
+  // PAYMENT SUCCESSFUL ROUTE
+  // Supports: /payment-successful/[uid]/[docId] (preferred), /payment-successful/[docId] (legacy)
+  // ==========================================
   if (route.startsWith('/payment-successful')) {
     const urlData = parseCheckoutUrl(route);
     const session = getDeviceSession();
     
+    // Case A: Full URL with uid and docId in path
     if (urlData && urlData.isFullUrl && urlData.docId && urlData.uid) {
+      // Verify order exists and belongs to this user
       verifyAndRenderPaymentSuccess(app, urlData.uid, urlData.docId);
       return;
     }
     
+    // Case B: Legacy URL or no valid URL params but we have session
     if (session && session.docId && session.userId) {
       const expectedPath = `/payment-successful/${session.userId}/${session.docId}`;
       if (route !== expectedPath) {
@@ -2019,10 +1878,14 @@ function router() {
       return;
     }
     
+    // No valid session or URL params
     navigate('/');
     return;
   }
 
+  // ==========================================
+  // AUTH GUARD FOR OTHER PROTECTED ROUTES
+  // ==========================================
   if (PROTECTED_ROUTES.includes(route) && !authInitialized) {
     showLoadingState(app);
     return;
@@ -2035,6 +1898,9 @@ function router() {
     return;
   }
 
+  // ==========================================
+  // NORMAL ROUTE RENDERING
+  // ==========================================
   switch (route) {
     case '/': case '/home': renderHome(app); break;
     case '/product': renderProduct(app); break;
@@ -2060,9 +1926,13 @@ function router() {
   if (typeof lucide !== 'undefined') lucide.createIcons();
 }
 
+// ===== CHECKOUT URL HANDLERS =====
+
+// Handle full URL: /checkout/[uid]/[docId]
 function handleFullCheckoutUrl(urlData, app) {
   if (!authInitialized) {
     showLoadingState(app);
+    // Will re-trigger when auth initializes
     return;
   }
   
@@ -2072,12 +1942,14 @@ function handleFullCheckoutUrl(urlData, app) {
     return;
   }
   
+  // Verify the UID matches current user (security check)
   if (urlData.uid !== currentUser.uid) {
     showToast('This checkout session belongs to another account. Please sign in with the correct account.', 'error');
     navigate('/pricing');
     return;
   }
   
+  // Verify order exists in Firestore
   db.collection('orders').doc(urlData.docId).get()
     .then((doc) => {
       if (!doc.exists || doc.data().userId !== currentUser.uid) {
@@ -2089,6 +1961,7 @@ function handleFullCheckoutUrl(urlData, app) {
       selectedPlan = orderData.planId;
       currentOrderDocId = urlData.docId;
       
+      // Recreate device session
       createDeviceSession(urlData.docId, currentUser.uid, orderData.planId);
       
       renderCheckout(app);
@@ -2101,6 +1974,7 @@ function handleFullCheckoutUrl(urlData, app) {
     });
 }
 
+// Handle legacy URL: /checkout/[docId]
 function handleLegacyCheckoutUrl(docId, app) {
   if (!authInitialized) {
     showLoadingState(app);
@@ -2113,6 +1987,7 @@ function handleLegacyCheckoutUrl(docId, app) {
     return;
   }
   
+  // Verify order exists and belongs to user, then upgrade URL
   db.collection('orders').doc(docId).get()
     .then((doc) => {
       if (!doc.exists || doc.data().userId !== currentUser.uid) {
@@ -2124,9 +1999,11 @@ function handleLegacyCheckoutUrl(docId, app) {
       selectedPlan = orderData.planId;
       currentOrderDocId = docId;
       
+      // Upgrade to full URL format for future refreshes
       const newPath = `/checkout/${currentUser.uid}/${docId}`;
       window.history.replaceState({ route: newPath }, '', basePath + newPath);
       
+      // Recreate device session
       createDeviceSession(docId, currentUser.uid, orderData.planId);
       
       renderCheckout(app);
@@ -2139,6 +2016,7 @@ function handleLegacyCheckoutUrl(docId, app) {
     });
 }
 
+// Verify and render payment success page
 function verifyAndRenderPaymentSuccess(app, uid, docId) {
   db.collection('orders').doc(docId).get()
     .then((doc) => {
@@ -2149,6 +2027,7 @@ function verifyAndRenderPaymentSuccess(app, uid, docId) {
       
       const orderData = doc.data();
       
+      // Create/update session for this successful order
       const sessionData = {
         docId: docId,
         userId: uid,
@@ -2202,6 +2081,9 @@ function showLoadingState(app) {
 
 window.addEventListener('DOMContentLoaded', router);
 
+// ==========================================
+// INITIAL UI SYNC
+// ==========================================
 (function() {
   const hasFirebaseToken = () => {
     try {
@@ -2523,6 +2405,7 @@ function renderHome(el) {
           <div class="service-action"><a href="/pricing" class="btn-ghost">${icons.arrowRight} View plans</a></div>
         </div>
       </div>
+      <div style="text-align:center;margin-top:36px" class="animate-on-scroll"><a href="/services" class="btn-primary">${icons.zap} View All Services</a></div>
     </div>
   </section>
 
@@ -2658,6 +2541,7 @@ function renderHome(el) {
   ${standardFooter}`;
 }
 
+// ===== SELECT PLAN AND GO TO CHECKOUT =====
 function selectPlanAndCheckout(planId) {
   if (!plans[planId]) { showToast('Invalid plan selected', 'error'); return; }
   selectedPlan = planId;
@@ -2668,11 +2552,13 @@ function selectPlanAndCheckout(planId) {
     return;
   }
   
+  // Create device session (without docId yet - will be assigned after form submit)
   createDeviceSession(null, currentUser.uid, planId);
   
   navigate('/checkout');
 }
 
+// ===== MEMBER JOIN HANDLER =====
 async function handleMemberJoin() {
   const emailInput = document.getElementById('memberEmail');
   if (emailInput && emailInput.value && emailInput.value.includes('@')) {
@@ -2693,6 +2579,7 @@ async function handleMemberJoin() {
   }
 }
 
+// ===== CONTACT FORM HANDLER =====
 async function handleContactSubmit(e) {
   e.preventDefault();
   const form = document.getElementById('contactForm');
@@ -2750,6 +2637,7 @@ function renderProduct(el) {
         <div class="product-feature animate-on-scroll animate-delay-4"><div class="pf-icon">${icons.monitor}</div><h3>Figma Library</h3><p>A matching Figma component library with auto-layout, variants, and design tokens. Ship designs that match code perfectly.</p></div>
       </div>
       
+      <!-- TOOLS SECTION -->
       <div class="tools-section" id="tools">
         <div class="container">
           <div class="section-header animate-on-scroll">
@@ -2759,6 +2647,7 @@ function renderProduct(el) {
           </div>
           
           <div class="tools-grid">
+            <!-- Color Picker Tool -->
             <div class="tool-card animate-on-scroll animate-delay-1">
               <div class="tool-header">
                 <div class="tool-icon">${icons.droplet}</div>
@@ -2787,6 +2676,7 @@ function renderProduct(el) {
               </div>
             </div>
 
+            <!-- LuvTools Link -->
             <div class="tool-card animate-on-scroll animate-delay-2">
               <a href="https://app.luviio.com" target="_blank" rel="noopener noreferrer" class="external-tool-link">
                 <div class="tool-header" style="background:linear-gradient(135deg,#FDF0EE,#F5E0DD)">
@@ -2805,6 +2695,7 @@ function renderProduct(el) {
               </a>
             </div>
 
+            <!-- LuvImage Link -->
             <div class="tool-card animate-on-scroll animate-delay-3">
               <a href="https://remove-bg.luviio.com" target="_blank" rel="noopener noreferrer" class="external-tool-link">
                 <div class="tool-header" style="background:linear-gradient(135deg,#FFF5F0,#FFE8DD)">
@@ -2834,6 +2725,7 @@ function renderProduct(el) {
   ${standardFooter}`;
 }
 
+// ===== COLOR PICKER FUNCTIONS =====
 function updateColor(hex) {
   const swatch = document.getElementById('colorSwatch');
   const hexEl = document.getElementById('colorHex');
@@ -3046,6 +2938,40 @@ function renderServices(el) {
     </div>
   </section>
 
+  <!-- Process Section -->
+  <section style="background:linear-gradient(180deg,#EDEDE8 0%,#F5F5F0 100%);border-top:1px solid var(--warm-light);border-bottom:1px solid var(--warm-light);padding:80px 0">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <div class="section-label">Our Process</div>
+        <h2 class="section-title" style="font-size:38px;line-height:46px;text-align:center">How we work</h2>
+        <p class="section-desc">A streamlined process designed for transparency, speed, and results you can measure.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:48px;width:100%">
+        <div class="animate-on-scroll animate-delay-1" style="text-align:center;padding:28px 20px;background:#fff;border-radius:var(--radius-lg);border:1px solid var(--warm-light);box-shadow:var(--shadow-card);transition:all .3s" onmouseover="this.style.transform='translateY(4px) scale(0.98)'" onmouseout="this.style.transform=''">
+          <div style="width:52px;height:52px;background:var(--primary-tint);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;color:var(--primary);font-weight:900;font-size:22px;font-family:'Space Mono',monospace">01</div>
+          <h4 style="font-size:18px;font-weight:800;margin-bottom:8px">Discovery</h4>
+          <p style="font-size:14px;color:#5C5C4F;line-height:1.6">We learn about your business, goals, audience, and competitors through in-depth research and strategy sessions.</p>
+        </div>
+        <div class="animate-on-scroll animate-delay-2" style="text-align:center;padding:28px 20px;background:#fff;border-radius:var(--radius-lg);border:1px solid var(--warm-light);box-shadow:var(--shadow-card);transition:all .3s" onmouseover="this.style.transform='translateY(4px) scale(0.98)'" onmouseout="this.style.transform=''">
+          <div style="width:52px;height:52px;background:var(--primary-tint);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;color:var(--primary);font-weight:900;font-size:22px;font-family:'Space Mono',monospace">02</div>
+          <h4 style="font-size:18px;font-weight:800;margin-bottom:8px">Design</h4>
+          <p style="font-size:14px;color:#5C5C4F;line-height:1.6">Wireframes, mockups, and prototypes crafted with your brand identity and user experience at the forefront.</p>
+        </div>
+        <div class="animate-on-scroll animate-delay-3" style="text-align:center;padding:28px 20px;background:#fff;border-radius:var(--radius-lg);border:1px solid var(--warm-light);box-shadow:var(--shadow-card);transition:all .3s" onmouseover="this.style.transform='translateY(4px) scale(0.98)'" onmouseout="this.style.transform=''">
+          <div style="width:52px;height:52px;background:var(--primary-tint);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;color:var(--primary);font-weight:900;font-size:22px;font-family:'Space Mono',monospace">03</div>
+          <h4 style="font-size:18px;font-weight:800;margin-bottom:8px">Build</h4>
+          <p style="font-size:14px;color:#5C5C4F;line-height:1.6">Clean code, responsive layouts, performance optimization, and seamless integrations with your existing tools.</p>
+        </div>
+        <div class="animate-on-scroll animate-delay-4" style="text-align:center;padding:28px 20px;background:#fff;border-radius:var(--radius-lg);border:1px solid var(--warm-light);box-shadow:var(--shadow-card);transition:all .3s" onmouseover="this.style.transform='translateY(4px) scale(0.98)'" onmouseout="this.style.transform=''">
+          <div style="width:52px;height:52px;background:var(--primary-tint);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;color:var(--primary);font-weight:900;font-size:22px;font-family:'Space Mono',monospace">04</div>
+          <h4 style="font-size:18px;font-weight:800;margin-bottom:8px">Launch & Grow</h4>
+          <p style="font-size:14px;color:#5C5C4F;line-height:1.6">Deployment, monitoring, analytics setup, SEO, and ongoing support to ensure your digital presence thrives.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
   <section class="cta-section">
     <div class="container">
       <div class="cta-card animate-on-scroll">
@@ -3369,15 +3295,10 @@ function renderLogin(el) {
         
         <div class="auth-divider">or continue with</div>
         
-<button class="auth-social-btn" onclick="handleGoogleSignIn()">
-  <svg width="18" height="18" viewBox="0 0 24 24">
-    <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/>
-    <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-    <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
-    <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-  </svg>
-  Google
-</button>
+        <button class="auth-social-btn" onclick="handleGoogleSignIn()">
+          <svg width="18" height="18" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="#EA4335"/></svg>
+          Google
+        </button>
         
         <div class="auth-footer">Don't have an account? <a href="/signup">Sign up</a></div>
       </div>
@@ -3510,15 +3431,10 @@ function renderSignup(el) {
       
       <div class="auth-divider">or sign up with</div>
       
-<button class="auth-social-btn" onclick="handleGoogleSignUp()">
-  <svg width="18" height="18" viewBox="0 0 24 24">
-    <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/>
-    <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-    <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
-    <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-  </svg>
-  Google
-</button>
+      <button class="auth-social-btn" onclick="handleGoogleSignUp()">
+        <svg width="18" height="18" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        Google
+      </button>
       
       <div class="auth-footer">Already have an account? <a href="/login">Sign in</a></div>
     </div>
@@ -3813,6 +3729,7 @@ function renderCheckout(el) {
   if (!selectedPlan || !plans[selectedPlan]) { navigate('/pricing'); return; }
   const plan = plans[selectedPlan];
   
+  // Determine view state based on whether we have an order doc ID
   const isPaymentView = currentOrderDocId !== null;
 
   el.innerHTML = `
@@ -3839,7 +3756,7 @@ function renderCheckout(el) {
           <div class="checkout-plan-info">
             <div class="checkout-plan-label">Selected Plan</div>
             <div class="checkout-plan-name">${plan.name} Plan</div>
-            <div class="checkout-plan-meta"><span>Monthly billing</span><span style="width:4px;height:4px;background:#D0D0DC;border-radius:50%"></span><span>Cancel anytime</span></div>
+            <div class="checkout-plan-meta"><span>Monthly billing</span><span style="width:4px;height:4px;background:#D0D0CA;border-radius:50%"></span><span>Cancel anytime</span></div>
           </div>
           <div class="checkout-plan-price-large">
             <span class="checkout-price-value">${plan.price.split(' ')[0]}</span>
@@ -3950,6 +3867,7 @@ async function handleCheckoutSubmitClean(e) {
     createDeviceSession(currentOrderDocId, currentUser.uid, selectedPlan);
     
     // UPDATE URL TO FULL FORMAT: /checkout/[uid]/[docId]
+    // This makes the page refresh-safe!
     const newRoute = `/checkout/${currentUser.uid}/${currentOrderDocId}`;
     console.log('[URL Updated] Checkout URL changed to:', newRoute);
     window.history.pushState({ route: newRoute, orderId: currentOrderDocId }, '', basePath + newRoute);
@@ -4003,6 +3921,7 @@ function handlePaymentSuccess(planId) {
     const redirectPath = `/payment-successful/${currentUser.uid}/${currentOrderDocId}`;
     console.log('[Redirecting to]:', redirectPath);
     
+    // Use pushState so user can go back if needed (though typically they won't)
     window.history.pushState({ route: redirectPath, orderId: currentOrderDocId }, '', basePath + redirectPath);
     
     // Trigger router to render payment success page
@@ -4065,7 +3984,7 @@ function renderPaymentSuccessful(el, session) {
               <div class="success-hero">
                 <div class="success-badge">${icons.alertCircle} Order Not Found</div>
                 <h1>Order Details Unavailable</h1>
-                <p>We couldn't find your order information. This might be because the session has expired.</p>
+                <p>We couldn't find your order information. This might be because the session has expired or the order was deleted.</p>
               </div>
               <div class="success-actions">
                 <button class="btn-primary" onclick="navigate('/pricing')">Return to Pricing</button>
@@ -4209,78 +4128,8 @@ function startSessionTimer() {
   }, 1000);
 }
 
-function isPaymentSessionActive() {
-  const session = getDeviceSession();
-  return session && session.paymentStatus === 'payment_made';
-}
-
 // Stop timer when leaving page
 window.addEventListener('beforeunload', () => { if (sessionTimerInterval) clearInterval(sessionTimerInterval); });
-
-// ==========================================
-// FORCE ENABLE ZOOM ON iOS DEVICES
-// Overrides any scripts that might disable it
-// ==========================================
-(function() {
-  'use strict';
-  
-  // Check if mobile device
-  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || 
-                   (navigator.maxTouchPoints && navigator.maxTouchPoints > 2) ||
-                   (window.matchMedia && window.matchMedia('(pointer: coarse)').matches);
-  
-  if (!isMobile) return;
-
-  // Force viewport to allow scaling
-  function ensureZoomEnabled() {
-    const viewport = document.querySelector('meta[name="viewport"]');
-    if (viewport) {
-      const content = viewport.getAttribute('content') || '';
-      
-      // Remove restrictions that block zoom
-      let newContent = content
-        .replace(/user-scalable=no/gi, 'user-scalable=yes')
-        .replace(/maximum-scale=[0-9.]+/gi, 'maximum-scale=5.0')
-        .replace(/minimum-scale=[0-9.]+/gi, 'minimum-scale=1.0');
-        
-      // Ensure required properties exist
-      if (!newContent.includes('user-scalable=')) {
-        newContent += ', user-scalable=yes';
-      }
-      if (!newContent.includes('maximum-scale=')) {
-        newContent += ', maximum-scale=5.0';
-      }
-      
-      // Clean up double commas
-      newContent = newContent.replace(/,\s*,/g, ',').replace(/^,/, '');
-      
-      viewport.setAttribute('content', newContent.trim());
-      console.log('[Zoom] Viewport set to:', newContent.trim());
-    }
-  }
-
-  // Run immediately
-  ensureZoomEnabled();
-  
-  // Run again after DOM loaded (catches late overrides)
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', ensureZoomEnabled);
-  }
-  
-  // Run after window load (catches any other script overrides)
-  window.addEventListener('load', ensureZoomEnabled);
-  
-  // Prevent gesture prevention from blocking zoom
-  document.addEventListener('gesturestart', function(e) {
-    // Allow default pinch behavior
-    return true;
-  }, { passive: true });
-  
-  document.addEventListener('gesturechange', function(e) {
-    // Allow zoom changes
-    return true;
-  }, { passive: true });
-})();
 
 </script>
 
