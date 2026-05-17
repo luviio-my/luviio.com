@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+<!-- MOBILE VIEWPORT: Allow pinch zoom, prevent input auto-zoom -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
+
 
 <!-- CRITICAL: Site Identity for Google & Browsers -->
 <title>Luviio · Build Interfaces That Grow</title>
@@ -122,41 +124,44 @@
   .container{max-width:1200px;margin:0 auto;padding:0 40px;width:100%;position:relative}
 
   /* ========================================== */
-  /* MOBILE ZOOM CONTROL                       */
-  /* Allows pinch-to-zoom for accessibility     */
-  /* Prevents auto-zoom when focusing inputs    */
+  /* MOBILE ZOOM FIX v2                        */
+  /* 1. Allows pinch-to-zoom (user-scalable)   */
+  /* 2. Prevents auto-zoom on inputs (16px)     */
+  /* 3. Fixes layout shift on focus             */
   /* ========================================== */
   
-  /* STEP 1: Allow pinch-zoom on the whole page */
   @supports (-webkit-touch-callout: none) {
+    
+    /* --- PAGE LEVEL: Enable zoom --- */
     html {
       /* CRITICAL: Must be 100% to allow user zoom */
       -webkit-text-size-adjust: 100% !important;
       text-size-adjust: 100% !important;
       
-      /* Allow pinch gestures for zooming */
+      /* Allow pinch gestures for zooming in/out */
       touch-action: pan-x pan-y pinch-zoom;
       
-      /* Prevent overscroll bounce but keep zoom */
+      /* Prevent horizontal overflow when zoomed */
       overflow-x: hidden;
       width: 100%;
       max-width: 100vw;
+      
+      /* Fix iOS rubber-banding issue */
+      position: relative;
     }
 
     body {
-      /* Ensure body doesn't restrict zoom */
       width: 100%;
       max-width: 100vw;
       overflow-x: hidden;
-      position: relative;
+      -webkit-overflow-scrolling: touch; /* Smooth scrolling */
     }
-  }
 
-  /* STEP 2: Block auto-zoom on ALL form inputs */
-  /* iOS auto-zooms when font-size < 16px. 
-     We set it to 16px exactly to prevent that behavior 
-     while still allowing manual pinch-zoom. */
-  @supports (-webkit-touch-callout: none) {
+    /* --- INPUTS: Prevent auto-zoom on focus --- */
+    /* iOS Safari auto-zooms when input font < 16px.
+       Setting to exactly 16px prevents the jump while 
+       still allowing manual pinch-zoom of the page. */
+    
     input[type="text"],
     input[type="email"],
     input[type="password"],
@@ -167,26 +172,36 @@
     input[type="date"],
     textarea,
     select {
-      /* THE KEY FIX: 16px prevents iOS auto-zoom */
-      font-size: 16px !important;
-      line-height: 1.5 !important;
+      /* THE FIX: 16px = no auto-zoom threshold */
+      font-size: 16px !important; 
+      line-height: 1.4 !important;
       
-      /* Don't let inputs change text size on zoom */
+      /* Maintain size when user zooms page */
       -webkit-text-size-adjust: 100% !important;
       text-size-adjust: 100% !important;
       
-      /* Keep normal touch behavior (scroll/tap) */
+      /* Normal tap behavior without 300ms delay */
       touch-action: manipulation;
       
-      /* Hardware acceleration for smooth focus */
+      /* Prevent layout shift on focus */
       -webkit-transform: translateZ(0);
       transform: translateZ(0);
       
-      /* Prevent iOS from adding extra padding on focus */
+      /* Ensure consistent padding across browsers */
       padding: 12px 14px !important;
+      
+      /* Prevent iOS from adding extra margin on focus */
+      margin: 0 !important;
     }
 
-    /* Special handling for buttons - prevent double-tap zoom delay */
+    /* Special case: Textarea needs slightly larger for usability */
+    textarea {
+      font-size: 16px !important;
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    /* --- BUTTONS: Remove tap delay but allow zoom --- */
     .btn-primary,
     .btn-secondary,
     .btn-ghost,
@@ -194,10 +209,85 @@
     .nav-cta,
     .auth-social-btn,
     .stripe-button-clean,
+    .edit-details-btn,
+    .payment-failed-btn,
     .hamburger,
-    .mobile-close {
+    .mobile-close,
+    .social-btn,
+    .test-btn,
+    .color-preset {
+      /* manipulation = no double-tap zoom delay */
       touch-action: manipulation;
-      min-height: 44px; /* Apple recommended minimum */
+      
+      /* Apple HIG minimum touch target */
+      min-height: 44px;
+      min-width: 44px;
+    }
+  }
+
+  /* --- LAYOUT SAFETY NET FOR ZOOMED STATE --- */
+  @media screen and (max-width: 767px) {
+    @supports (-webkit-touch-callout: none) {
+      /* Container must not exceed viewport width when zoomed */
+      .container {
+        width: 100% !important;
+        max-width: 100vw !important;
+        padding-left: clamp(12px, 4vw, 24px) !important;
+        padding-right: clamp(12px, 4vw, 24px) !important;
+        box-sizing: border-box !important;
+      }
+      
+      /* Header stays full width during zoom */
+      header {
+        width: 100vw !important;
+        max-width: 100vw !important;
+        left: 0 !important;
+        right: 0 !important;
+        padding-left: clamp(12px, 4vw, 28px) !important;
+        padding-right: clamp(12px, 4vw, 28px) !important;
+      }
+      
+      /* Sections don't break horizontally */
+      section {
+        width: 100%;
+        max-width: 100vw;
+        overflow-x: hidden;
+        box-sizing: border-box;
+      }
+      
+      /* Cards and grids handle zoom gracefully */
+      .feature-card,
+      .pricing-card,
+      .service-card,
+      .product-feature,
+      .checkout-card,
+      .auth-card,
+      .membership-card,
+      .contact-form-card {
+        width: auto;
+        max-width: 100%;
+        box-sizing: border-box;
+      }
+      
+      /* Toast stays visible above zoomed content */
+      .toast-container {
+        position: fixed !important;
+        z-index: 99999 !important;
+        left: 12px !important;
+        right: 12px !important;
+        bottom: 12px !important;
+      }
+      
+      /* Grids stack properly when zoomed */
+      .features-grid,
+      .pricing-grid,
+      .services-grid,
+      .showcase-grid,
+      .contact-grid {
+        width: 100%;
+        max-width: 100vw;
+        box-sizing: border-box;
+      }
     }
   }
 
@@ -4230,6 +4320,70 @@ function startSessionTimer() {
     }
   }, 1000);
 }
+
+// ==========================================
+// FORCE ENABLE ZOOM ON iOS DEVICES
+// Overrides any scripts that might disable it
+// ==========================================
+(function() {
+  'use strict';
+  
+  // Check if mobile device
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || 
+                   (navigator.maxTouchPoints && navigator.maxTouchPoints > 2);
+  
+  if (!isMobile) return;
+
+  // Force viewport to allow scaling
+  function ensureZoomEnabled() {
+    const viewport = document.querySelector('meta[name="viewport"]');
+    if (viewport) {
+      const content = viewport.getAttribute('content') || '';
+      
+      // Remove restrictions that block zoom
+      let newContent = content
+        .replace(/user-scalable=no/gi, 'user-scalable=yes')
+        .replace(/maximum-scale=[0-9.]+/gi, 'maximum-scale=5.0')
+        .replace(/minimum-scale=[0-9.]+/gi, 'minimum-scale=1.0');
+        
+      // Ensure required properties exist
+      if (!newContent.includes('user-scalable=')) {
+        newContent += ', user-scalable=yes';
+      }
+      if (!newContent.includes('maximum-scale=')) {
+        newContent += ', maximum-scale=5.0';
+      }
+      
+      // Clean up double commas
+      newContent = newContent.replace(/,\s*,/g, ',').replace(/^,/, '');
+      
+      viewport.setAttribute('content', newContent.trim());
+      console.log('[Zoom] Viewport set to:', newContent.trim());
+    }
+  }
+
+  // Run immediately
+  ensureZoomEnabled();
+  
+  // Run again after DOM loaded (catches late overrides)
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', ensureZoomEnabled);
+  }
+  
+  // Run after window load (catches any other script overrides)
+  window.addEventListener('load', ensureZoomEnabled);
+  
+  // Prevent gesture prevention from blocking zoom
+  document.addEventListener('gesturestart', function(e) {
+    // Allow default pinch behavior
+    return true;
+  }, { passive: true });
+  
+  document.addEventListener('gesturechange', function(e) {
+    // Allow zoom changes
+    return true;
+  }, { passive: true });
+})();
 
 // Stop timer when leaving page
 window.addEventListener('beforeunload', () => { if (sessionTimerInterval) clearInterval(sessionTimerInterval); });
