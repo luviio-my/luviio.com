@@ -2615,7 +2615,7 @@ auth.getRedirectResult()
       if (isNewUser) {
         return db.collection('users').doc(result.user.uid).set(userData, { merge: true }).then(() => {
           showToast('🎉 Account created with Google!', 'success');
-          setTimeout(() => navigate('/profile'), 300);
+          setTimeout(() => navigate('/'), 300);
         });
       } else {
         const updateData = {};
@@ -2631,7 +2631,7 @@ auth.getRedirectResult()
           });
         }).then(() => {
           showToast('🌿 Welcome back!', 'success');
-          setTimeout(() => navigate('/profile'), 300);
+          setTimeout(() => navigate('/'), 300);
         });
       }
      }
@@ -2804,6 +2804,12 @@ function router() {
   // ROUTE RENDERING
   // ==========================================
   
+  // After successful auth state detection, add:
+if ((currentRoute === '/login' || currentRoute === '/signup') && isLoggedIn) {
+  navigate('/');  // Send logged-in users to home instead of staying on login page
+  return;
+}
+
   switch (route) {
     case '/': case '/home': renderHome(app); break;
     case '/product': renderProduct(app); break;
@@ -2815,7 +2821,7 @@ function router() {
     case '/policy': renderPolicy(app); break;
     case '/login': 
       if (isLoggedIn && currentUser.uid) {
-        navigate('/profile');
+        navigate('/');
         return;
       }
       renderLogin(app); 
@@ -4199,7 +4205,7 @@ function handleEmailLogin() {
     })
     .then(() => {
       showToast('🌿 Welcome back!', 'success');
-      navigate('/profile');
+      navigate('/');
     })
     .catch((err) => {
       const friendlyMsg = getFriendlyErrorMessage(err);
@@ -4231,7 +4237,7 @@ function handleGoogleSignIn() {
           signupMethod: 'google'
         }, { merge: true }).then(() => {
           showToast('🎉 Account created with Google!', 'success');
-          navigate('/profile');
+          navigate('/');
         });
       } else {
         return db.collection('logins').add({
@@ -4242,7 +4248,7 @@ function handleGoogleSignIn() {
           timestamp: firebase.firestore.FieldValue.serverTimestamp()
         }).then(() => {
           showToast('🌿 Welcome back!', 'success');
-          navigate('/profile');
+          navigate('/');
         });
       }
     })
@@ -4329,7 +4335,7 @@ function handleEmailSignup() {
     })
     .then(() => {
       showToast('🎉 Account created! Welcome, ' + name.value.split(' ')[0] + '!', 'success');
-      navigate('/profile');
+      navigate('/');
     })
     .catch((err) => {
       const friendlyMsg = getFriendlyErrorMessage(err);
@@ -4361,7 +4367,7 @@ function handleGoogleSignUp() {
           signupMethod: 'google'
         }, { merge: true }).then(() => {
           showToast('🎉 Account created with Google!', 'success');
-          navigate('/profile');
+          navigate('/');
         });
       } else {
         return db.collection('logins').add({
@@ -4372,7 +4378,7 @@ function handleGoogleSignUp() {
           timestamp: firebase.firestore.FieldValue.serverTimestamp()
         }).then(() => {
           showToast('🌿 Welcome back!', 'success');
-          navigate('/profile');
+          navigate('/');
         });
       }
     })
