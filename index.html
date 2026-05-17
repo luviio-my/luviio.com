@@ -2694,11 +2694,21 @@ function setPageTitle(route) {
 }
 
 function router() {
-  const route = getRoute();
+  let route = getRoute(); // Changed to let so we can override it below
   const app = document.getElementById('app');
   const navLinks = document.querySelectorAll('#mainNav .nav-link');
 
   setPageTitle(route);
+
+  // FIX: If user just logged out and is on /login or /signup, redirect to home instead
+  if ((route === '/login' || route === '/signup') && !isLoggedIn && !authInitialized === false) {
+    const justLoggedOut = sessionStorage.getItem('luviio_just_logged_out');
+    if (justLoggedOut) {
+      sessionStorage.removeItem('luviio_just_logged_out');
+      window.history.replaceState({ route: '/' }, '', basePath + '/');
+      route = '/'; // Override to render home page instead of login
+    }
+  }
 
   navLinks.forEach(link => {
     const href = link.getAttribute('href');
@@ -4513,13 +4523,41 @@ function handleProfileSave(e) {
 
 // ===== Logout =====
 function handleLogout() {
+  // Prevent double-taps
+  if (window._isLoggingOut) return;
+  window._isLoggingOut = true;
+  
+  // Set flag so router knows we intentionally logged out
+  sessionStorage.setItem('luviio_just_logged_out', 'true');
+  
   auth.signOut().then(() => {
-    // Clear device session on logout
+    // CRITICAL: Clear all session data immediately
     clearDeviceSession();
     selectedPlan = null;
+    currentOrderDocId = null;
+    isLoggedIn = false;
+    currentUser = { name: '', email: '', initials: '', bio: '', uid: null, photoURL: '' };
+    
+    // Update UI immediately before navigation
+    updateAuthUI();
+    
     showToast('👋 Logged out successfully', 'success');
-    navigate('/home');
-  }).catch((err) => showToast('Logout error', 'error'));
+    
+    // Force navigate to HOME - NOT login
+    window.history.replaceState({ route: '/' }, '', basePath + '/');
+    
+    // Small delay to ensure Firebase state is cleared, then render home
+    setTimeout(() => {
+      window._isLoggingOut = false;
+      router(); // This will renderHome() since we're at '/'
+    }, 100);
+    
+  }).catch((err) => {
+    window._isLoggingOut = false;
+    sessionStorage.removeItem('luviio_just_logged_out'); // Clean up on error
+    showToast('Logout error', 'error');
+    console.error('[Logout Error]', err);
+  });
 }
 
 // ===== CONTACT PAGE =====
