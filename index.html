@@ -3,7 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Luviio · Malaysia & Worldwide Website Developer</title>
+
+<!-- CRITICAL: Site Name for Google Search Results -->
+<title>Luviio</title>
+<meta name="application-name" content="Luviio">
+<meta property="og:site_name" content="Luviio">
+<meta name="apple-mobile-web-app-title" content="Luviio">
+
 <!-- Standard favicon -->
 <link rel="icon" href="https://images.luviio.com/favicon.ico" sizes="any">
 
@@ -15,7 +21,20 @@
 <link rel="apple-touch-icon" sizes="180x180" href="https://images.luviio.com/apple-touch-icon.png">
 
 <!-- Android / PWA -->
-<link rel="manifest" href="/site.webmanifest"><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="manifest" href="/site.webmanifest">
+
+<!-- STRUCTURED DATA: Tells Google explicitly this is "Luviio" -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Luviio",
+  "alternateName": ["Grow by Luviio", "Luviio Malaysia", "Website Builder Malaysia · Luviio"],
+  "url": "https://luviio.com"
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;1,9..40,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <script src="https://unpkg.com/lucide@latest"></script>
