@@ -4518,7 +4518,7 @@ function handleLogout() {
     clearDeviceSession();
     selectedPlan = null;
     showToast('👋 Logged out successfully', 'success');
-    navigate('/');
+    navigate('/home');
   }).catch((err) => showToast('Logout error', 'error'));
 }
 
