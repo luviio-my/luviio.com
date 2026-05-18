@@ -83,6 +83,9 @@
 <!-- Lucide Icons -->
 <script src="https://unpkg.com/lucide@latest"></script>
 
+<!-- TrustBox Script -->
+<script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
+
 <!-- Firebase SDK -->
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
@@ -395,6 +398,32 @@ body{
   .test-btn:focus{outline:2px solid #111;outline-offset:2px}
   .test-btn-arrow{font-size:17px;transition:transform .3s}
   .test-btn:hover .test-btn-arrow{transform:translateX(2px)}
+
+  /* TrustPilot Widget Container */
+.trustpilot-widget-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 12px 20px;
+  background: #fff;
+  border-radius: 9999px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+  transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  border: 1px solid #e6e6e6;
+}
+
+.trustpilot-widget-wrapper:hover {
+  transform: translateY(2px) scale(0.98);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  border-color: var(--primary);
+}
+
+.trustpilot-widget {
+  font-family: inherit !important;
+}
 
   /* ========== PRICING PAGE ========== */
   .pricing-page-hero{padding:72px 0 48px;text-align:center;width:100%}
@@ -2490,7 +2519,14 @@ function renderHome(el) {
           <span class="test-rating-num">4.8</span>
           <span class="test-rating-sub">Based on 1k reviews</span>
         </div>
-        <button class="test-btn" onclick="showToast('Opening all reviews...','success')">View all reviews <span class="test-btn-arrow">↗</span></button>
+        <div class="trustpilot-widget-wrapper">
+  <!-- TrustBox widget - Review Collector -->
+  <div class="trustpilot-widget" data-locale="en-US" data-template-id="56278e9abfbbba0bdcd568bc" 
+       data-businessunit-id="6a0ab4a0b5e8fbc1fc6a9a8d" data-style-height="52px" 
+       data-style-width="100%" data-token="d0cbae4c-a37a-465b-b156-bf164ab2a7b1">
+    <a href="https://www.trustpilot.com/review/luviio.com" target="_blank" rel="noopener">Trustpilot</a>
+  </div>
+</div>
       </div>
     </div>
   </section>
