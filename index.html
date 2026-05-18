@@ -2856,38 +2856,66 @@ function renderServices(el) {
     </div>
   </section>
 
-  <!-- Process Section -->
-  <section style="background:linear-gradient(180deg,#EDEDE8 0%,#F5F5F0 100%);border-top:1px solid var(--warm-light);border-bottom:1px solid var(--warm-light);padding:80px 0">
-    <div class="container">
-      <div class="section-header animate-on-scroll">
-        <div class="section-label">Our Process</div>
-        <h2 class="section-title" style="font-size:38px;line-height:46px;text-align:center">How we work</h2>
-        <p class="section-desc">A streamlined process designed for transparency, speed, and results you can measure.</p>
-      </div>
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:48px;width:100%">
-        <div class="animate-on-scroll animate-delay-1" style="text-align:center;padding:28px 20px;background:#fff;border-radius:var(--radius-lg);border:1px solid var(--warm-light);box-shadow:var(--shadow-card);transition:all .3s" onmouseover="this.style.transform='translateY(4px) scale(0.98)'" onmouseout="this.style.transform=''">
-          <div style="width:52px;height:52px;background:var(--primary-tint);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;color:var(--primary);font-weight:900;font-size:22px;font-family:'Space Mono',monospace">01</div>
-          <h4 style="font-size:18px;font-weight:800;margin-bottom:8px">Discovery</h4>
-          <p style="font-size:14px;color:#5C5C4F;line-height:1.6">We learn about your business, goals, audience, and competitors through in-depth research and strategy sessions.</p>
-        </div>
-        <div class="animate-on-scroll animate-delay-2" style="text-align:center;padding:28px 20px;background:#fff;border-radius:var(--radius-lg);border:1px solid var(--warm-light);box-shadow:var(--shadow-card);transition:all .3s" onmouseover="this.style.transform='translateY(4px) scale(0.98)'" onmouseout="this.style.transform=''">
-          <div style="width:52px;height:52px;background:var(--primary-tint);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;color:var(--primary);font-weight:900;font-size:22px;font-family:'Space Mono',monospace">02</div>
-          <h4 style="font-size:18px;font-weight:800;margin-bottom:8px">Design</h4>
-          <p style="font-size:14px;color:#5C5C4F;line-height:1.6">Wireframes, mockups, and prototypes crafted with your brand identity and user experience at the forefront.</p>
-        </div>
-        <div class="animate-on-scroll animate-delay-3" style="text-align:center;padding:28px 20px;background:#fff;border-radius:var(--radius-lg);border:1px solid var(--warm-light);box-shadow:var(--shadow-card);transition:all .3s" onmouseover="this.style.transform='translateY(4px) scale(0.98)'" onmouseout="this.style.transform=''">
-          <div style="width:52px;height:52px;background:var(--primary-tint);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;color:var(--primary);font-weight:900;font-size:22px;font-family:'Space Mono',monospace">03</div>
-          <h4 style="font-size:18px;font-weight:800;margin-bottom:8px">Build</h4>
-          <p style="font-size:14px;color:#5C5C4F;line-height:1.6">Clean code, responsive layouts, performance optimization, and seamless integrations with your existing tools.</p>
-        </div>
-        <div class="animate-on-scroll animate-delay-4" style="text-align:center;padding:28px 20px;background:#fff;border-radius:var(--radius-lg);border:1px solid var(--warm-light);box-shadow:var(--shadow-card);transition:all .3s" onmouseover="this.style.transform='translateY(4px) scale(0.98)'" onmouseout="this.style.transform=''">
-          <div style="width:52px;height:52px;background:var(--primary-tint);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;color:var(--primary);font-weight:900;font-size:22px;font-family:'Space Mono',monospace">04</div>
-          <h4 style="font-size:18px;font-weight:800;margin-bottom:8px">Launch & Grow</h4>
-          <p style="font-size:14px;color:#5C5C4F;line-height:1.6">Deployment, monitoring, analytics setup, SEO, and ongoing support to ensure your digital presence thrives.</p>
-        </div>
-      </div>
+<!-- Process Section - MOBILE-FIRST TIMELINE REDESIGN -->
+<section style="background:linear-gradient(180deg,#EDEDE8 0%,#F5F5F0 100%);border-top:1px solid var(--warm-light);border-bottom:1px solid var(--warm-light);padding:60px 0">
+  <div class="container">
+    <div class="section-header animate-on-scroll">
+      <div class="section-label">Our Process</div>
+      <h2 class="section-title" style="font-size:32px;line-height:38px;text-align:center">How we work</h2>
+      <p class="section-desc">A streamlined process designed for transparency, speed, and results you can measure.</p>
     </div>
-  </section>
+    
+    <!-- Timeline Container - Works on ALL screen sizes -->
+    <div style="position:relative;max-width:680px;margin:40px auto 0;padding-left:28px;border-left:3px solid var(--primary)">
+      
+      <!-- Step 01 - Discovery -->
+      <div class="animate-on-scroll animate-delay-1" style="margin-bottom:40px;position:relative;padding-left:12px">
+        <div style="position:absolute;left:-37px;top:-2px;width:26px;height:26px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:13px;font-family:'Space Mono',monospace;z-index:2;box-shadow:0 4px 12px rgba(171,21,9,0.3)">01</div>
+        <h3 style="font-size:22px;font-weight:800;color:var(--text);margin-bottom:8px;display:flex;align-items:center;gap:10px">
+          Discovery
+          <span style="display:inline-block;width:8px;height:8px;background:var(--primary);border-radius:50%;flex-shrink:0"></span>
+        </h3>
+        <p style="color:#5C5C4F;font-size:15px;line-height:1.7;margin:0">We learn about your business goals, target audience, market position, and competitors through in-depth research sessions and strategy workshops.</p>
+      </div>
+
+      <!-- Step 02 - Design -->
+      <div class="animate-on-scroll animate-delay-2" style="margin-bottom:40px;position:relative;padding-left:12px">
+        <div style="position:absolute;left:-37px;top:-2px;width:26px;height:26px;background:linear-gradient(135deg,var(--primary-dark),#6E0D04);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:13px;font-family:'Space Mono',monospace;z-index:2;box-shadow:0 4px 12px rgba(138,17,7,0.25)">02</div>
+        <h3 style="font-size:22px;font-weight:800;color:var(--text);margin-bottom:8px;display:flex;align-items:center;gap:10px">
+          Design
+          <span style="display:inline-block;width:8px;height:8px;background:var(--primary-dark);border-radius:50%;flex-shrink:0"></span>
+        </h3>
+        <p style="color:#5C5C4F;font-size:15px;line-height:1.7;margin:0">Wireframes, mockups, and visual prototypes crafted with your brand identity and user experience at the forefront of every decision.</p>
+      </div>
+
+      <!-- Step 03 - Build -->
+      <div class="animate-on-scroll animate-delay-3" style="margin-bottom:40px;position:relative;padding-left:12px">
+        <div style="position:absolute;left:-37px;top:-2px;width:26px;height:26px;background:linear-gradient(135deg,#6E0D04,var(--primary));border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:13px;font-family:'Space Mono',monospace;z-index:2;box-shadow:0 4px 12px rgba(110,13,4,0.2)">03</div>
+        <h3 style="font-size:22px;font-weight:800;color:var(--text);margin-bottom:8px;display:flex;align-items:center;gap:10px">
+          Build
+          <span style="display:inline-block;width:8px;height:8px;background:var(--primary-deeper);border-radius:50%;flex-shrink:0"></span>
+        </h3>
+        <p style="color:#5C5C4F;font-size:15px;line-height:1.7;margin:0">Clean code implementation, responsive layouts, performance optimization, and seamless integrations with your existing technology stack.</p>
+      </div>
+
+      <!-- Step 04 - Launch & Grow -->
+      <div class="animate-on-scroll animate-delay-4" style="position:relative;padding-left:12px">
+        <div style="position:absolute;left:-37px;top:-2px;width:26px;height:26px;background:var(--text);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:13px;font-family:'Space Mono',monospace;z-index:2;box-shadow:0 4px 12px rgba(0,0,0,0.15)">04</div>
+        <h3 style="font-size:22px;font-weight:800;color:var(--text);margin-bottom:8px;display:flex;align-items:center;gap:10px">
+          Launch & Grow
+          <span style="display:inline-block;width:8px;height:8px;background:var(--warm-mid);border-radius:50%;flex-shrink:0"></span>
+        </h3>
+        <p style="color:#5C5C4F;font-size:15px;line-height:1.7;margin:0">Deployment, monitoring, analytics setup, SEO optimization, and ongoing support to ensure your digital presence thrives long-term.</p>
+      </div>
+      
+    </div>
+    
+    <!-- CTA at bottom -->
+    <div style="text-align:center;margin-top:48px" class="animate-on-scroll">
+      <button class="btn-primary" onclick="navigate('/contact')" style="padding:14px 28px">${icons.send} Start Your Project</button>
+    </div>
+  </div>
+</section>
 
   <!-- CTA -->
   <section class="cta-section">
