@@ -128,7 +128,7 @@ body{
   overflow-x:hidden;
   width:100%;
   max-width:100vw;
-  touch-action: pan-x pan-y pinch-zoom;  /* ← Add "pinch-zoom" here */
+  touch-action: pan-x pan-y pinch-zoom;
 }  .mono{font-family:"Space Mono",SFMono-Regular,"Courier New",monospace}
   .container{max-width:1200px;margin:0 auto;padding:0 40px;width:100%;position:relative}
 
@@ -343,100 +343,73 @@ body{
   .mobile-close{position:absolute;top:18px;right:24px;background:0 0;border:none;cursor:pointer;color:var(--text);padding:10px;border-radius:var(--radius-md);transition:all .2s;z-index:201}
   .mobile-close:hover{background:var(--warm-light);transform:rotate(90deg) scale(0.95)}
 
-  /* ========== TESTIMONIALS SECTION ========== */
-  .testimonials-wrap{max-width:1180px;margin:0 auto;padding:64px 24px 72px;width:100%;box-sizing:border-box}
-  .test-section{background:linear-gradient(180deg,#f5f6f7 0%,#f0f0eb 100%);position:relative;overflow:hidden;width:100%}
-  .test-section::before{content:'';position:absolute;top:0;left:0;right:0;height:300px;background:radial-gradient(ellipse at center, rgba(171,21,9,0.04) 0%,transparent 70%);pointer-events:none}
-  .test-eyebrow{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:0;flex-wrap:wrap}
-  .test-corner{width:18px;height:18px;transition:transform .3s;flex-shrink:0}
-  .test-corner-left{border-top:2px solid #e64b3c;border-left:2px solid #e64b3c;border-right:0;border-bottom:0}
-  .test-corner-right{border-bottom:2px solid #e64b3c;border-right:2px solid #e64b3c;border-left:0;border-top:0}
-  .test-eyebrow-text{font-size:14px;font-weight:600;letter-spacing:.03em;color:#333}
-  .test-h1{font-size:42px;font-weight:700;color:#151515;text-align:center;margin:16px 0 10px;word-wrap:break-word}
-  .test-h1-sub{display:block;font-weight:600;color:#7a7f86}
-  .test-sub{color:#6b7280;text-align:center;margin-bottom:42px;font-size:16px}
-  .test-main-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:26px;width:100%}
-  .test-col{display:grid;gap:26px;width:100%}
-  .test-nested-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;width:100%}
-  .test-card{background:#fff;border-radius:24px;box-shadow:0 12px 32px rgba(0,0,0,.08);padding:32px;position:relative;overflow:hidden;transition:all .35s cubic-bezier(0.22, 1, 0.36, 1);width:100%;box-sizing:border-box;cursor:default}
-  .test-card:hover{transform:translateY(4px) scale(0.98);box-shadow:0 8px 24px rgba(0,0,0,.08)}
-  .test-card.dark{background:#121212;color:#f5f5f5}
-  .test-metric-lg{font-size:52px;font-weight:800;margin-bottom:8px;color:#151515;background:linear-gradient(135deg,#151515,var(--primary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-  .test-metric-sm{font-size:32px;font-weight:700;color:#151515}
-  .test-metric-label{font-weight:600;color:#323232;font-size:15px}
-  .test-metric-line{display:flex;align-items:baseline;gap:14px;margin-bottom:12px;flex-wrap:wrap}
-  .test-quote-mark{color:#e64b3c;font-size:34px;font-weight:700;margin:12px 0 8px;line-height:1}
-  .test-card.dark .test-quote-mark{color:#e64b3c}
-  .test-text{color:#555;line-height:1.65;font-size:15px}
-  .test-card.dark .test-text{color:#dcdcdc}
-  .test-person{display:flex;align-items:center;gap:14px;margin-top:20px;flex-wrap:wrap}
-  .test-avatar{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;flex-shrink:0;transition:transform .3s}
-  .test-card:hover .test-avatar{transform:scale(0.95)}
-  .test-avatar-peach{background:linear-gradient(135deg,#ffd3b6,#f6a6b2);color:#5c2b2b}
-  .test-avatar-blue{background:linear-gradient(135deg,#cfe8ff,#9db7ff);color:#1f2a44}
-  .test-avatar-yellow{background:linear-gradient(135deg,#ffe8a3,#ffd07a);color:#5c3b00}
-  .test-person-name{font-weight:700;font-size:15px}
-  .test-card.dark .test-person-name{color:#f5f5f5}
-  .test-person-role{color:#6b7280;font-size:13px;margin-top:2px}
-  .test-logo{position:absolute;right:24px;bottom:24px;font-weight:800;font-size:22px;color:#9aa0a6;transition:color .3s}
-  .test-card:hover .test-logo{color:var(--primary)}
-  .test-card.dark .test-logo{color:#7f8790}
-  .test-bottom{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:42px}
-  .test-pill{display:flex;align-items:center;gap:12px;background:#fff;border-radius:999px;padding:14px 20px;box-shadow:0 12px 28px rgba(0,0,0,.08);font-size:14px;font-weight:500;color:#333;transition:all .3s;cursor:default}
-  .test-pill:hover{transform:translateY(2px) scale(0.98);box-shadow:0 8px 20px rgba(0,0,0,.08)}
-  .test-pill-emoji{width:38px;height:38px;border-radius:50%;border:1px solid #eee;background:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
-  .test-rating{display:flex;align-items:center;gap:10px;font-size:14px}
-  .test-stars{color:#111;letter-spacing:3px;font-size:17px}
-  .test-rating-num{font-weight:700}
-  .test-rating-sub{font-size:12px;color:#6b7280}
-  .test-btn{display:inline-flex;align-items:center;gap:10px;padding:14px 20px;border-radius:999px;border:1px solid #e6e6e6;background:#fff;font-weight:600;font-size:14px;cursor:pointer;transition:all .25s;color:#333;font-family:inherit;white-space:nowrap}
-  .test-btn:hover{transform:translateY(2px) scale(0.98);box-shadow:0 4px 12px rgba(0,0,0,.08);border-color:var(--primary);color:var(--primary)}
-  .test-btn:active{transform:translateY(3px) scale(0.97)}
-  .test-btn:focus{outline:2px solid #111;outline-offset:2px}
-  .test-btn-arrow{font-size:17px;transition:transform .3s}
-  .test-btn:hover .test-btn-arrow{transform:translateX(2px)}
- 
-  /* TRUSTPILOT LINK WITH ICON + TEXT */
-.trustpilot-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 14px 24px;
-  background: #fff;
-  border-radius: 999px;
-  border: 1px solid #e6e6e6;
-  text-decoration: none;
-  transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
-  box-shadow: 0 12px 28px rgba(0,0,0,.08);
-}
+  /* ========== SHAPO REVIEWS SECTION (REPLACES TESTIMONIALS) ========== */
+  .shapo-section{background:linear-gradient(180deg,#f5f6f7 0%,#f0f0eb 100%);position:relative;overflow:hidden;width:100%;padding:72px 0 80px}
+  .shapo-section::before{content:'';position:absolute;top:0;left:0;right:0;height:300px;background:radial-gradient(ellipse at center, rgba(171,21,9,0.04) 0%,transparent 70%);pointer-events:none}
+  .shapo-container{max-width:1180px;margin:0 auto;padding:0 24px;width:100%;box-sizing:border-box}
+  .shapo-eyebrow{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:0;flex-wrap:wrap}
+  .shapo-corner{width:18px;height:18px;transition:transform .3s;flex-shrink:0}
+  .shapo-corner-left{border-top:2px solid #e64b3c;border-left:2px solid #e64b3c;border-right:0;border-bottom:0}
+  .shapo-corner-right{border-bottom:2px solid #e64b3c;border-right:2px solid #e64b3c;border-left:0;border-top:0}
+  .shapo-eyebrow-text{font-size:14px;font-weight:600;letter-spacing:.03em;color:#333}
+  .shapo-h1{font-size:42px;font-weight:700;color:#151515;text-align:center;margin:16px 0 10px;word-wrap:break-word}
+  .shapo-h1-sub{display:block;font-weight:600;color:#7a7f86}
+  .shapo-sub{color:#6b7280;text-align:center;margin-bottom:42px;font-size:16px}
+  .shapo-widget-wrapper{margin-top:42px;min-height:300px}
+  
+  /* Google Reviews Link Button */
+  .google-reviews-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 24px;
+    background: #fff;
+    border-radius: 999px;
+    border: 1px solid #e6e6e6;
+    text-decoration: none;
+    transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+    box-shadow: 0 12px 28px rgba(0,0,0,.08);
+    margin-top: 24px;
+  }
 
-.trustpilot-link:hover {
-  transform: translateY(2px) scale(0.98);
-  box-shadow: 0 8px 20px rgba(0,0,0,.08);
-  border-color: var(--primary);
-  background: var(--primary-tint);
-}
+  .google-reviews-link:hover {
+    transform: translateY(2px) scale(0.98);
+    box-shadow: 0 8px 20px rgba(0,0,0,.08);
+    border-color: #4285F4;
+    background: #f8fbff;
+  }
 
-.trustpilot-icon {
-  width: 28px;
-  height: 28px;
-  object-fit: contain;
-  display: block;
-  flex-shrink: 0;
-}
+  .google-reviews-icon {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    display: block;
+    flex-shrink: 0;
+  }
 
-.trustpilot-text {
-  font-size: 15px;
-  font-weight: 700;
-  color: #333;
-  font-family: "DM Sans", sans-serif;
-  letter-spacing: -0.02em;
-  transition: color 0.25s;
-}
+  .google-reviews-text {
+    font-size: 15px;
+    font-weight: 700;
+    color: #333;
+    font-family: "DM Sans", sans-serif;
+    letter-spacing: -0.02em;
+    transition: color 0.25s;
+  }
 
-.trustpilot-link:hover .trustpilot-text {
-  color: var(--primary-dark);
-}
+  .google-reviews-link:hover .google-reviews-text {
+    color: #4285F4;
+  }
+
+  .google-reviews-arrow {
+    font-size: 17px;
+    transition: transform 0.3s;
+    color: #333;
+  }
+
+  .google-reviews-link:hover .google-reviews-arrow {
+    transform: translateX(2px);
+    color: #4285F4;
+  }
 
   /* ========== PRICING PAGE ========== */
   .pricing-page-hero{padding:72px 0 48px;text-align:center;width:100%}
@@ -823,11 +796,8 @@ body{
     .footer-grid{grid-template-columns:1fr 1fr;gap:32px}
     .footer-brand p{font-size:13px}
     
-    .test-main-grid{grid-template-columns:1fr}
-    .test-h1{font-size:32px}
-    .test-metric-lg{font-size:44px}
-    .test-metric-sm{font-size:28px}
-    .test-card{padding:26px}
+    .shapo-container{padding:0 20px}
+    .shapo-h1{font-size:32px}
     
     .product-features-grid{grid-template-columns:1fr}
     .product-feature{padding:28px}
@@ -959,27 +929,12 @@ body{
     .footer-bottom p{font-size:12px}
     .social-btn{width:36px;height:36px}
     
-    .testimonials-wrap{padding:48px 16px 56px}
-    .test-h1{font-size:24px;margin:12px 0 8px}
-    .test-h1-sub{font-size:18px}
-    .test-sub{font-size:14px;margin-bottom:32px}
-    .test-main-grid{gap:18px}
-    .test-nested-grid{grid-template-columns:1fr;gap:18px}
-    .test-card{padding:20px 18px;border-radius:18px}
-    .test-metric-lg{font-size:36px;margin-bottom:6px}
-    .test-metric-sm{font-size:24px}
-    .test-quote-mark{font-size:26px;margin:8px 0 6px}
-    .test-text{font-size:13px;line-height:1.6}
-    .test-person{gap:10px;margin-top:16px}
-    .test-avatar{width:40px;height:40px;font-size:12px}
-    .test-person-name{font-size:13px}
-    .test-person-role{font-size:11px}
-    .test-bottom{flex-direction:column;gap:14px;margin-top:32px}
-    .test-pill{padding:12px 16px;font-size:13px}
-    .test-pill-emoji{width:30px;height:30px;font-size:14px}
-    .test-rating{font-size:13px}
-    .test-stars{font-size:15px;letter-spacing:2px}
-    .test-btn{padding:12px 18px;font-size:13px;width:100%;justify-content:center}
+    .shapo-section{padding:48px 0 56px}
+    .shapo-container{padding:0 16px}
+    .shapo-h1{font-size:24px;margin:12px 0 8px}
+    .shapo-h1-sub{font-size:18px}
+    .shapo-sub{font-size:14px;margin-bottom:32px}
+    .shapo-widget-wrapper{margin-top:32px}
     
     .product-features-grid{gap:16px;margin-bottom:48px}
     .product-feature{padding:24px 20px;border-radius:14px}
@@ -1036,7 +991,6 @@ body{
     
     .page-hero{padding:48px 0 32px}
     .page-hero h1{font-size:32px;line-height:38px}
-    .page-hero p{font-size:14px;line-height:22px}
     
     .pricing-page-hero{padding:48px 0 32px}
     .pricing-page-hero h1{font-size:32px;line-height:38px}
@@ -1086,6 +1040,7 @@ body{
     .checkout-container{padding:36px 20px 60px}
     .checkout-back-wrapper{margin-bottom:24px}
     .checkout-progress-minimal{margin-bottom:32px}
+    .checkout-card{border-radius:16px}
     .checkout-card-header{padding:28px 28px;flex-direction:row;align-items:center;justify-content:space-between}
     .checkout-plan-name{font-size:20px}
     .checkout-price-value{font-size:28px}
@@ -1208,27 +1163,12 @@ body{
     .social-btn{width:32px;height:32px}
     .social-btn svg{width:14px;height:14px}
     
-    .testimonials-wrap{padding:36px 12px 44px}
-    .test-h1{font-size:20px;margin:10px 0 6px}
-    .test-h1-sub{font-size:16px}
-    .test-sub{font-size:13px;margin-bottom:24px}
-    .test-main-grid{gap:14px}
-    .test-nested-grid{gap:14px}
-    .test-card{padding:16px 14px;border-radius:14px}
-    .test-metric-lg{font-size:30px;margin-bottom:4px}
-    .test-metric-sm{font-size:20px}
-    .test-quote-mark{font-size:22px;margin:6px 0 4px}
-    .test-text{font-size:12px;line-height:1.55}
-    .test-person{gap:8px;margin-top:14px;flex-direction:column;align-items:flex-start}
-    .test-avatar{width:34px;height:34px;font-size:11px}
-    .test-person-name{font-size:12px}
-    .test-person-role{font-size:10px}
-    .test-bottom{gap:12px;margin-top:24px}
-    .test-pill{padding:10px 14px;font-size:12px}
-    .test-pill-emoji{width:30px;height:30px;font-size:14px}
-    .test-rating{font-size:12px}
-    .test-stars{font-size:13px;letter-spacing:1.5px}
-    .test-btn{padding:10px 16px;font-size:12px}
+    .shapo-section{padding:36px 12px 44px}
+    .shapo-container{padding:0 12px}
+    .shapo-h1{font-size:20px;margin:10px 0 6px}
+    .shapo-h1-sub{font-size:16px}
+    .shapo-sub{font-size:13px;margin-bottom:24px}
+    .shapo-widget-wrapper{margin-top:24px}
     
     .product-features-grid{gap:12px;margin-bottom:36px}
     .product-feature{padding:20px 16px;border-radius:12px}
@@ -1331,7 +1271,6 @@ body{
     .profile-header-card{padding:24px 18px}
     .profile-avatar-large{width:64px;height:64px;font-size:24px;border-width:3px}
     .profile-name-display{font-size:20px}
-    .profile-email-display{font-size:13px}
     .profile-main-card{padding:20px 16px}
     .profile-section-title{font-size:15px;margin-bottom:16px}
     .profile-section-title .icon-circle{width:28px;height:28px}
@@ -1447,10 +1386,6 @@ body{
     .auth-card,.profile-card{padding:20px 16px}
   }
 
-  .trustpilot-link:hover .test-btn-arrow {
-  color: #00b67a; /* Trustpilot green */
-}
-
 </style>
 </head>
 <body>
@@ -1524,12 +1459,12 @@ const db = firebase.firestore();
 let isLoggedIn = false;
 let currentUser = { name: '', email: '', initials: '', bio: '', uid: null, photoURL: '' };
 let selectedPlan = null;
-let currentOrderDocId = null; // Global order document ID for URL persistence
+let currentOrderDocId = null;
 let authInitialized = false;
 
 // ===== DEVICE SESSION MANAGEMENT =====
 const DEVICE_SESSION_KEY = 'luviio_device_session';
-const SESSION_DURATION_MS = 10 * 60 * 1000; // 10 minutes
+const SESSION_DURATION_MS = 10 * 60 * 1000;
 
 function getDeviceFingerprint() {
   const canvas = document.createElement('canvas');
@@ -1646,7 +1581,7 @@ function getFriendlyErrorMessage(error) {
     'auth/popup-blocked': '',
     'auth/popup-closed-by-user': '',
     'auth/operation-not-allowed': 'This sign-in method is not enabled. Contact support at care@luviio.com.',
-    'auth/invalid-api-key': 'Configuration error. Please contact support at care@luviio.com.',
+    'auth/invalid-api-key': 'Configuration error. Please contact support at care@luviio.com',
     'auth/app-deleted': 'This application has been deleted. Contact support at care@luviio.com.',
     'auth/user-disabled': 'This account has been disabled. For assistance, contact care@luviio.com.',
     'auth/user-token-expired': 'Your session has expired. Please sign in again.',
@@ -1698,7 +1633,7 @@ auth.onAuthStateChanged(async (user) => {
     updateAuthUI();
   }
   
-  router(); // Re-render current route on auth state change
+  router();
 });
 
 function updateAuthUI() {
@@ -1780,42 +1715,30 @@ const pageTitles = {
   '/contact': 'Contact Us · Luviio'
 };
 
-// Protected routes that require authentication
 const PROTECTED_ROUTES = ['/profile'];
 
 function setPageTitle(route) {
   document.title = pageTitles[route] || 'Luviio';
 }
 
-// Parse checkout or payment-success URLs with optional [uid]/[docId] params
 function parseCheckoutUrl(route) {
-  // Patterns:
-  // /checkout -> bare
-  // /checkout/[docId] -> legacy format
-  // /checkout/[uid]/[docId] -> new preferred format (refresh-safe)
-  
-  const parts = route.split('/').filter(Boolean); // Remove empty strings
+  const parts = route.split('/').filter(Boolean);
   
   if (parts[0] === 'checkout') {
     if (parts.length === 3 && parts[1].length > 5 && parts[2].length > 5) {
-      // Could be /checkout/[uid]/[docId] or /checkout/[docId] (legacy)
-      // If parts[1] looks like a UID (20 chars) and parts[2] like docId (20 chars), treat as new format
       if (parts[1].length >= 20) {
         return { uid: parts[1], docId: parts[2], isFullUrl: true };
       } else {
-        // Legacy: /checkout/[docId]
         return { uid: null, docId: parts[1], isFullUrl: false };
       }
     } else if (parts.length === 2 && parts[1].length > 5) {
-      // Legacy: /checkout/[docId]
       return { uid: null, docId: parts[1], isFullUrl: false };
     }
-    return { uid: null, docId: null, isFullUrl: false }; // Bare /checkout
+    return { uid: null, docId: null, isFullUrl: false };
   }
   
   if (parts[0] === 'payment-successful') {
     if (parts.length >= 3) {
-      // /payment-successful/[uid]/[docId] or /payment-successful/[docId]
       if (parts.length === 3 && parts[1].length >= 20) {
         return { uid: parts[1], docId: parts[2], isFullUrl: true };
       } else if (parts.length === 3) {
@@ -1842,31 +1765,24 @@ function router() {
     link.style.color = (href === '#' + route || (route === '/' && href === '/')) ? 'var(--primary)' : '';
   });
 
-  // ==========================================
-  // CHECKOUT ROUTE — WITH URL PERSISTENCE
-  // Supports: /checkout, /checkout/[docId], /checkout/[uid]/[docId]
-  // ==========================================
+  // CHECKOUT ROUTE
   if (route.startsWith('/checkout')) {
     const urlData = parseCheckoutUrl(route);
     
-    // Case A: User accessed full URL /checkout/[uid]/[docId] (preferred, refresh-safe)
     if (urlData && urlData.isFullUrl && urlData.docId && urlData.uid) {
       handleFullCheckoutUrl(urlData, app);
       return;
     }
     
-    // Case B: User accessed legacy URL /checkout/[docId]
     if (urlData && !urlData.isFullUrl && urlData.docId) {
       handleLegacyCheckoutUrl(urlData.docId, app);
       return;
     }
     
-    // Case C: User accessed bare /checkout (just clicked from pricing)
     if (route === '/checkout' || route === '/checkout/') {
       const session = getDeviceSession();
       
       if (session && session.docId) {
-        // Have active session with docId - correct URL to full format
         const correctPath = `/checkout/${currentUser.uid || session.userId}/${session.docId}`;
         window.history.replaceState({ route: correctPath }, '', basePath + correctPath);
         
@@ -1882,10 +1798,8 @@ function router() {
         navigate('/pricing');
         return;
       }
-      // If we have selectedPlan in memory (just clicked from pricing), allow through
     }
     
-    // Auth guard for checkout
     if (PROTECTED_ROUTES.includes(route) && !authInitialized) {
       showLoadingState(app);
       return;
@@ -1906,22 +1820,16 @@ function router() {
     return;
   }
 
-  // ==========================================
   // PAYMENT SUCCESSFUL ROUTE
-  // Supports: /payment-successful/[uid]/[docId] (preferred), /payment-successful/[docId] (legacy)
-  // ==========================================
   if (route.startsWith('/payment-successful')) {
     const urlData = parseCheckoutUrl(route);
     const session = getDeviceSession();
     
-    // Case A: Full URL with uid and docId in path
     if (urlData && urlData.isFullUrl && urlData.docId && urlData.uid) {
-      // Verify order exists and belongs to this user
       verifyAndRenderPaymentSuccess(app, urlData.uid, urlData.docId);
       return;
     }
     
-    // Case B: Legacy URL or no valid URL params but we have session
     if (session && session.docId && session.userId) {
       const expectedPath = `/payment-successful/${session.userId}/${session.docId}`;
       if (route !== expectedPath) {
@@ -1936,14 +1844,11 @@ function router() {
       return;
     }
     
-    // No valid session or URL params
     navigate('/');
     return;
   }
 
-  // ==========================================
   // AUTH GUARD FOR OTHER PROTECTED ROUTES
-  // ==========================================
   if (PROTECTED_ROUTES.includes(route) && !authInitialized) {
     showLoadingState(app);
     return;
@@ -1956,9 +1861,7 @@ function router() {
     return;
   }
 
-  // ==========================================
   // NORMAL ROUTE RENDERING
-  // ==========================================
   switch (route) {
     case '/': case '/home': renderHome(app); break;
     case '/product': renderProduct(app); break;
@@ -1986,11 +1889,9 @@ function router() {
 
 // ===== CHECKOUT URL HANDLERS =====
 
-// Handle full URL: /checkout/[uid]/[docId]
 function handleFullCheckoutUrl(urlData, app) {
   if (!authInitialized) {
     showLoadingState(app);
-    // Will re-trigger when auth initializes
     return;
   }
   
@@ -2000,14 +1901,12 @@ function handleFullCheckoutUrl(urlData, app) {
     return;
   }
   
-  // Verify the UID matches current user (security check)
   if (urlData.uid !== currentUser.uid) {
     showToast('This checkout session belongs to another account. Please sign in with the correct account.', 'error');
     navigate('/pricing');
     return;
   }
   
-  // Verify order exists in Firestore
   db.collection('orders').doc(urlData.docId).get()
     .then((doc) => {
       if (!doc.exists || doc.data().userId !== currentUser.uid) {
@@ -2019,7 +1918,6 @@ function handleFullCheckoutUrl(urlData, app) {
       selectedPlan = orderData.planId;
       currentOrderDocId = urlData.docId;
       
-      // Recreate device session
       createDeviceSession(urlData.docId, currentUser.uid, orderData.planId);
       
       renderCheckout(app);
@@ -2032,7 +1930,6 @@ function handleFullCheckoutUrl(urlData, app) {
     });
 }
 
-// Handle legacy URL: /checkout/[docId]
 function handleLegacyCheckoutUrl(docId, app) {
   if (!authInitialized) {
     showLoadingState(app);
@@ -2045,7 +1942,6 @@ function handleLegacyCheckoutUrl(docId, app) {
     return;
   }
   
-  // Verify order exists and belongs to user, then upgrade URL
   db.collection('orders').doc(docId).get()
     .then((doc) => {
       if (!doc.exists || doc.data().userId !== currentUser.uid) {
@@ -2057,11 +1953,9 @@ function handleLegacyCheckoutUrl(docId, app) {
       selectedPlan = orderData.planId;
       currentOrderDocId = docId;
       
-      // Upgrade to full URL format for future refreshes
       const newPath = `/checkout/${currentUser.uid}/${docId}`;
       window.history.replaceState({ route: newPath }, '', basePath + newPath);
       
-      // Recreate device session
       createDeviceSession(docId, currentUser.uid, orderData.planId);
       
       renderCheckout(app);
@@ -2074,7 +1968,6 @@ function handleLegacyCheckoutUrl(docId, app) {
     });
 }
 
-// Verify and render payment success page
 function verifyAndRenderPaymentSuccess(app, uid, docId) {
   db.collection('orders').doc(docId).get()
     .then((doc) => {
@@ -2085,7 +1978,6 @@ function verifyAndRenderPaymentSuccess(app, uid, docId) {
       
       const orderData = doc.data();
       
-      // Create/update session for this successful order
       const sessionData = {
         docId: docId,
         userId: uid,
@@ -2205,13 +2097,13 @@ function toggleMobileNav() {
   document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
 }
 
-// ===== ICONS =====
+// ===== ICONS (IMPROVED GOOGLE ICON FOR AUTH) =====
 const icons = {
   zap: '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>',
   eye: '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>',
   check: '<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>',
   arrowRight: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>',
-  rocket: '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path></svg>',
+  rocket: '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5z"></path></svg>',
   type: '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 4 4 20 4 20 7"></polyline><line x1="9" y1="20" x2="15" y2="20"></line><line x1="12" y1="4" x2="12" y2="20"></line></svg>',
   palette: '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"></circle><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"></circle><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"></circle><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"></circle><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"></path></svg>',
   box: '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>',
@@ -2243,7 +2135,15 @@ const icons = {
   alertCircle: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>',
   clockIcon: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>',
   creditCard: '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>',
-  home: '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>'
+  home: '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>',
+  
+  // IMPROVED GOOGLE ICON FOR AUTH FORMS - More detailed and polished
+  google: `<svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/>
+    <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+    <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+    <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+  </svg>`
 };
 
 // ===== STANDARD FOOTER =====
@@ -2270,7 +2170,7 @@ const standardFooter = `
   </div>
 </footer>`;
 
-// ===== HOME PAGE =====
+// ===== HOME PAGE (NO TESTIMONIALS - SHAPO WIDGET INSTEAD) =====
 function renderHome(el) {
   el.innerHTML = `
   <!-- HERO -->
@@ -2438,7 +2338,7 @@ function renderHome(el) {
             <li><span class="svc-check">${icons.check}</span>CMS solutions (WordPress, Headless CMS)</li>
             <li><span class="svc-check">${icons.check}</span>eCommerce platforms (Shopify, WooCommerce)</li>
           </ul>
-          <div class="service-action"><a href="/services" class="btn-ghost">${icons.arrowRight} Learn more</a></div>
+          <div class="service-action"><button class="btn-ghost" onclick="showToast('Opening development details...','success')">${icons.arrowRight} Learn more</button></div>
         </div>
         <div class="service-card animate-on-scroll animate-delay-3">
           <div class="svc-icon">${icons.smartphone}</div>
@@ -2449,7 +2349,7 @@ function renderHome(el) {
             <li><span class="svc-check">${icons.check}</span>iOS & Android native apps</li>
             <li><span class="svc-check">${icons.check}</span>App Store & Play Store deployment</li>
           </ul>
-          <div class="service-action"><a href="/services" class="btn-ghost">${icons.arrowRight} Explore capabilities</a></div>
+          <div class="service-action"><button class="btn-ghost" onclick="showToast('Opening mobile capabilities...','success')">${icons.arrowRight} Explore capabilities</button></div>
         </div>
         <div class="service-card animate-on-scroll animate-delay-4">
           <div class="svc-icon">${icons.shield}</div>
@@ -2460,89 +2360,37 @@ function renderHome(el) {
             <li><span class="svc-check">${icons.check}</span>Cloud infrastructure management (AWS, GCP)</li>
             <li><span class="svc-check">${icons.check}</span>Security audits & vulnerability patches</li>
           </ul>
-          <div class="service-action"><a href="/pricing" class="btn-ghost">${icons.arrowRight} View plans</a></div>
+          <div class="service-action"><button class="btn-ghost" onclick="navigate('/pricing')">${icons.arrowRight} View plans</button></div>
         </div>
       </div>
       <div style="text-align:center;margin-top:36px" class="animate-on-scroll"><a href="/services" class="btn-primary">${icons.zap} View All Services</a></div>
     </div>
   </section>
 
-  <!-- TESTIMONIALS -->
-  <section class="test-section">
-    <div class="testimonials-wrap">
-      <div class="test-eyebrow animate-on-scroll">
-        <div class="test-corner test-corner-left"></div>
-        <span class="test-eyebrow-text">Testimonials</span>
-        <div class="test-corner test-corner-right"></div>
+  <!-- SHAPO REVIEWS SECTION (REPLACES OLD TESTIMONIALS) -->
+  <section class="shapo-section">
+    <div class="shapo-container">
+      <div class="shapo-eyebrow animate-on-scroll">
+        <div class="shapo-corner shapo-corner-left"></div>
+        <span class="shapo-eyebrow-text">Reviews</span>
+        <div class="shapo-corner shapo-corner-right"></div>
       </div>
-      <h1 class="test-h1 animate-on-scroll">Results that speaks volume <span class="test-h1-sub">Read success stories</span></h1>
-      <p class="test-sub animate-on-scroll">Find out how our happy clients are raving about us.</p>
-
-      <div class="test-main-grid">
-        <div class="test-card animate-on-scroll animate-delay-1">
-          <div class="test-metric-lg">8X</div>
-          <div class="test-metric-label">Increase in conversion rate</div>
-          <div class="test-quote-mark">"</div>
-          <div class="test-text">We needed a modern, high‑converting website, and the Luviio team delivered beyond expectations. Their design and SEO expertise helped us increase conversion rate by 800% in just two weeks. Highly recommend!</div>
-          <div class="test-person">
-            <div class="test-avatar test-avatar-yellow">H</div>
-            <div><div class="test-person-name">Hazieq</div><div class="test-person-role">Founder, Mory · mory.ddnet.com</div></div>
-          </div>
-          <div class="test-logo">H</div>
-        </div>
-
-        <div class="test-col">
-          <div class="test-card animate-on-scroll animate-delay-2">
-            <div class="test-metric-line">
-              <div class="test-metric-sm">2X</div>
-              <div class="test-metric-label">Increase in lead generation</div>
-            </div>
-            <div class="test-quote-mark">"</div>
-            <div class="test-text">From branding to website design, every detail was meticulously handled. The team's expertise helped us launch faster, and the results have been phenomenal!</div>
-            <div class="test-person">
-              <div class="test-avatar test-avatar-blue">A</div>
-              <div><div class="test-person-name">Pn. Aida</div><div class="test-person-role">Founder/Owners, PNE Arena</div></div>
-            </div>
-            <div class="test-logo">G</div>
-          </div>
-
-          <div class="test-nested-grid">
-            <div class="test-card animate-on-scroll animate-delay-3">
-              <div class="test-quote-mark">"</div>
-              <div class="test-text">Their animation work took our product videos to the next level. The team truly understands user experience and storytelling.</div>
-              <div class="test-person">
-                <div class="test-avatar test-avatar-peach">A</div>
-                <div><div class="test-person-name">Dr.Amalina</div><div class="test-person-role">Dr., Klinik Pergigian Azam</div></div>
-              </div>
-            </div>
-            <div class="test-card dark animate-on-scroll animate-delay-4">
-              <div class="test-quote-mark">"</div>
-              <div class="test-text">The team nailed our MVP design with a fast turnaround and incredible attention to detail. The final product felt polished and professional.</div>
-              <div class="test-person">
-                <div class="test-avatar test-avatar-blue">R</div>
-                <div><div class="test-person-name">D. Rayyan</div><div class="test-person-role">Business Owner, Mobile Games Diamond Resellers</div></div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <h1 class="shapo-h1 animate-on-scroll">What our clients say <span class="shapo-h1-sub">Real reviews from real people</span></h1>
+      <p class="shapo-sub animate-on-scroll">Don't just take our word for it — hear from the businesses we've helped grow.</p>
+      
+      <!-- SHAPO WIDGET EMBED -->
+      <div class="shapo-widget-wrapper animate-on-scroll animate-delay-1">
+        <div id="shapo-widget-97c88f9e521fd582905b"></div>
       </div>
-
-      <div class="test-bottom animate-on-scroll">
-        <div class="test-pill">
-          <div class="test-pill-emoji">💬</div>
-          100+ satisfied clients love our services
-        </div>
-        <div class="test-rating">
-          <span class="test-stars">★★★★★</span>
-          <span class="test-rating-num">4.8</span>
-          <span class="test-rating-sub">Based on 1k reviews</span>
-        </div>
-<a href="https://www.trustpilot.com/review/luviio.com" target="_blank" rel="noopener noreferrer" class="trustpilot-link">
-  <img src="https://images.seeklogo.com/logo-png/63/1/trustpilot-icon-logo-png_seeklogo-638647.png" alt="Trustpilot" class="trustpilot-icon">
-  <span class="trustpilot-text">Trustpilot</span>
-  <span class="test-btn-arrow">↗</span>
-</a>
-        </div>
+      
+      <!-- GOOGLE REVIEWS LINK (REPLACES TRUSTPILOT) -->
+      <div style="text-align:center;margin-top:32px" class="animate-on-scroll animate-delay-2">
+        <a href="https://g.page/r/CVUI33FMpZB8EBM/review" target="_blank" rel="noopener noreferrer" class="google-reviews-link">
+          <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google" class="google-reviews-icon">
+          <span class="google-reviews-text">Leave a Google Review</span>
+          <span class="google-reviews-arrow">↗</span>
+        </a>
+      </div>
     </div>
   </section>
 
@@ -2601,6 +2449,15 @@ function renderHome(el) {
   </section>
 
   ${standardFooter}`;
+
+  // Load Shapo embed script dynamically if not already loaded
+  if (!document.getElementById('shapo-embed-js')) {
+    const script = document.createElement('script');
+    script.id = 'shapo-embed-js';
+    script.src = 'https://cdn.shapo.io/js/embed.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  }
 }
 
 // ===== SELECT PLAN AND GO TO CHECKOUT =====
@@ -2614,7 +2471,6 @@ function selectPlanAndCheckout(planId) {
     return;
   }
   
-  // Create device session (without docId yet - will be assigned after form submit)
   createDeviceSession(null, currentUser.uid, planId);
   
   navigate('/checkout');
@@ -3338,7 +3194,7 @@ function renderPolicy(el) {
   ${standardFooter}`;
 }
 
-// ===== LOGIN PAGE =====
+// ===== LOGIN PAGE (WITH IMPROVED GOOGLE ICON) =====
 function renderLogin(el) {
   el.innerHTML = `
   <div class="auth-page">
@@ -3358,8 +3214,8 @@ function renderLogin(el) {
         <div class="auth-divider">or continue with</div>
         
         <button class="auth-social-btn" onclick="handleGoogleSignIn()">
-          <svg width="18" height="18" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="#EA4335"/></svg>
-          Google
+          ${icons.google}
+          Sign in with Google
         </button>
         
         <div class="auth-footer">Don't have an account? <a href="/signup">Sign up</a></div>
@@ -3475,7 +3331,7 @@ function handleGoogleSignIn() {
     });
 }
 
-// ===== SIGNUP PAGE =====
+// ===== SIGNUP PAGE (WITH IMPROVED GOOGLE ICON) =====
 function renderSignup(el) {
   el.innerHTML = `
   <div class="auth-page">
@@ -3494,8 +3350,8 @@ function renderSignup(el) {
       <div class="auth-divider">or sign up with</div>
       
       <button class="auth-social-btn" onclick="handleGoogleSignUp()">
-        <svg width="18" height="18" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
-        Google
+        ${icons.google}
+        Sign up with Google
       </button>
       
       <div class="auth-footer">Already have an account? <a href="/login">Sign in</a></div>
@@ -3791,7 +3647,6 @@ function renderCheckout(el) {
   if (!selectedPlan || !plans[selectedPlan]) { navigate('/pricing'); return; }
   const plan = plans[selectedPlan];
   
-  // Determine view state based on whether we have an order doc ID
   const isPaymentView = currentOrderDocId !== null;
 
   el.innerHTML = `
@@ -3818,7 +3673,7 @@ function renderCheckout(el) {
           <div class="checkout-plan-info">
             <div class="checkout-plan-label">Selected Plan</div>
             <div class="checkout-plan-name">${plan.name} Plan</div>
-            <div class="checkout-plan-meta"><span>Monthly billing</span><span style="width:4px;height:4px;background:#D0D0CA;border-radius:50%"></span><span>Cancel anytime</span></div>
+            <div class="checkout-plan-meta"><span>Monthly billing</span><span style="width:4px;height:4px;background:#D0D0DC;border-radius:50%"></span><span>Cancel anytime</span></div>
           </div>
           <div class="checkout-plan-price-large">
             <span class="checkout-price-value">${plan.price.split(' ')[0]}</span>
@@ -3882,7 +3737,7 @@ function renderCheckout(el) {
   window.scrollTo(0, 0);
 }
 
-// Handle Clean Checkout Form Submit - Creates order and updates URL to /checkout/[uid]/[docId]
+// Handle Clean Checkout Form Submit - Creates order and updates URL
 async function handleCheckoutSubmitClean(e) {
   e.preventDefault();
   const form = document.getElementById('checkoutFormClean');
@@ -3919,28 +3774,19 @@ async function handleCheckoutSubmitClean(e) {
   };
 
   try {
-    // Save to Firestore and get document reference
     const docRef = await db.collection('orders').add(orderData);
-    currentOrderDocId = docRef.id; // Store globally for URL persistence
+    currentOrderDocId = docRef.id;
     
-    console.log('[Order Created] Document ID:', currentOrderDocId);
-    
-    // Create device session with full details
     createDeviceSession(currentOrderDocId, currentUser.uid, selectedPlan);
     
-    // UPDATE URL TO FULL FORMAT: /checkout/[uid]/[docId]
-    // This makes the page refresh-safe!
     const newRoute = `/checkout/${currentUser.uid}/${currentOrderDocId}`;
-    console.log('[URL Updated] Checkout URL changed to:', newRoute);
     window.history.pushState({ route: newRoute, orderId: currentOrderDocId }, '', basePath + newRoute);
     
-    // Update progress UI
     document.getElementById('progressDot1').classList.remove('active');
     document.getElementById('progressDot1').classList.add('completed');
     document.getElementById('progressLineMini').classList.add('filled');
     document.getElementById('progressDot2').classList.add('active');
     
-    // Switch views
     document.getElementById('checkoutStep1Body').style.display = 'none';
     document.getElementById('checkoutPaymentView').classList.add('visible');
     
@@ -3955,7 +3801,7 @@ async function handleCheckoutSubmitClean(e) {
   }
 }
 
-// Handle Payment Success - Updates order status and redirects to payment-successful page
+// Handle Payment Success - Updates order status and redirects
 function handlePaymentSuccess(planId) {
   if (!currentOrderDocId) {
     console.error('[Payment Success] No order document ID found!');
@@ -3963,42 +3809,32 @@ function handlePaymentSuccess(planId) {
     return;
   }
   
-  // Update Firestore status to payment_made
   db.collection('orders').doc(currentOrderDocId).update({
     status: 'payment_made',
     paidAt: firebase.firestore.FieldValue.serverTimestamp(),
     paymentMethod: 'stripe'
   })
   .then(() => {
-    console.log('[Payment Success] Status updated to payment_made for:', currentOrderDocId);
-    
-    // Update device session
     const session = getDeviceSession();
     if (session) {
       session.paymentStatus = 'payment_made';
       localStorage.setItem(DEVICE_SESSION_KEY, JSON.stringify(session));
     }
     
-    // Redirect to payment successful page with full URL format
     const redirectPath = `/payment-successful/${currentUser.uid}/${currentOrderDocId}`;
-    console.log('[Redirecting to]:', redirectPath);
-    
-    // Use pushState so user can go back if needed (though typically they won't)
     window.history.pushState({ route: redirectPath, orderId: currentOrderDocId }, '', basePath + redirectPath);
     
-    // Trigger router to render payment success page
     router();
   })
   .catch((err) => {
     console.error('[Payment Status Update Error]', err);
-    // Still redirect even if update fails - user has paid
     const redirectPath = `/payment-successful/${currentUser.uid}/${currentOrderDocId}`;
     window.history.pushState({ route: redirectPath }, '', basePath + redirectPath);
     router();
   });
 }
 
-// Handle Payment Failed - Resets and redirects to pricing
+// Handle Payment Failed
 function handlePaymentFailed() {
   if (!currentOrderDocId) { navigate('/pricing'); return; }
   
@@ -4007,7 +3843,6 @@ function handlePaymentFailed() {
     paymentFailedAt: firebase.firestore.FieldValue.serverTimestamp()
   })
   .then(() => {
-    console.log('[Payment Failed] Status reset to pending_payment for:', currentOrderDocId);
     clearDeviceSession();
     selectedPlan = null;
     currentOrderDocId = null;
@@ -4020,7 +3855,7 @@ function handlePaymentFailed() {
   });
 }
 
-// Reset Checkout - Goes back to form editing
+// Reset Checkout
 function resetCheckoutClean() {
   document.getElementById('progressDot1').classList.add('active');
   document.getElementById('progressDot1').classList.remove('completed');
@@ -4036,7 +3871,6 @@ function resetCheckoutClean() {
 // PAYMENT SUCCESSFUL PAGE RENDERER
 // ==========================================
 function renderPaymentSuccessful(el, session) {
-  // Fetch order data from Firestore using stored docId
   db.collection('orders').doc(session.docId).get()
     .then((doc) => {
       if (!doc.exists) {
@@ -4046,7 +3880,7 @@ function renderPaymentSuccessful(el, session) {
               <div class="success-hero">
                 <div class="success-badge">${icons.alertCircle} Order Not Found</div>
                 <h1>Order Details Unavailable</h1>
-                <p>We couldn't find your order information. This might be because the session has expired or the order was deleted.</p>
+                <p>We couldn't find your order information. This might be because the session has expired.</p>
               </div>
               <div class="success-actions">
                 <button class="btn-primary" onclick="navigate('/pricing')">Return to Pricing</button>
@@ -4193,6 +4027,11 @@ function startSessionTimer() {
 // Stop timer when leaving page
 window.addEventListener('beforeunload', () => { if (sessionTimerInterval) clearInterval(sessionTimerInterval); });
 
+// Check if payment session is active
+function isPaymentSessionActive() {
+  const session = getDeviceSession();
+  return session && session.paymentStatus === 'payment_made';
+}
 </script>
 
 </body>
