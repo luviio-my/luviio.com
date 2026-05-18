@@ -2865,50 +2865,41 @@ function renderServices(el) {
       <p class="section-desc">A streamlined process designed for transparency, speed, and results you can measure.</p>
     </div>
     
-    <!-- Timeline Container - Works on ALL screen sizes -->
-    <div style="position:relative;max-width:680px;margin:40px auto 0;padding-left:28px;border-left:3px solid var(--primary)">
-      
-      <!-- Step 01 - Discovery -->
-      <div class="animate-on-scroll animate-delay-1" style="margin-bottom:40px;position:relative;padding-left:12px">
-        <div style="position:absolute;left:-37px;top:-2px;width:26px;height:26px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:13px;font-family:'Space Mono',monospace;z-index:2;box-shadow:0 4px 12px rgba(171,21,9,0.3)">01</div>
-        <h3 style="font-size:22px;font-weight:800;color:var(--text);margin-bottom:8px;display:flex;align-items:center;gap:10px">
-          Discovery
-          <span style="display:inline-block;width:8px;height:8px;background:var(--primary);border-radius:50%;flex-shrink:0"></span>
-        </h3>
-        <p style="color:#5C5C4F;font-size:15px;line-height:1.7;margin:0">We learn about your business goals, target audience, market position, and competitors through in-depth research sessions and strategy workshops.</p>
-      </div>
+<!-- Timeline Container - PERFECTLY CENTERED -->
+<div style="position:relative;max-width:600px;margin:40px auto 0;padding:24px 0 24px 36px">
+  
+  <!-- Centered Line (using pseudo-element) -->
+  <div style="position:absolute;left:50%;top:0;bottom:0;width:3px;background:var(--primary);transform:translateX(-50%);border-radius:2px"></div>
+  
+  <!-- Step 01 -->
+  <div class="animate-on-scroll animate-delay-1" style="margin-bottom:48px;position:relative;padding-left:44px">
+    <div style="position:absolute;left:8px;top:-4px;width:32px;height:32px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:15px;font-family:'Space Mono',monospace;z-index:2;box-shadow:0 4px 16px rgba(171,21,9,0.25)">01</div>
+    <h3 style="font-size:22px;font-weight:800;color:var(--text);margin-bottom:8px">Discovery</h3>
+    <p style="color:#5C5C4F;font-size:15px;line-height:1.7;margin:0">We learn about your business goals, target audience, market position, and competitors through in-depth research sessions.</p>
+  </div>
 
-      <!-- Step 02 - Design -->
-      <div class="animate-on-scroll animate-delay-2" style="margin-bottom:40px;position:relative;padding-left:12px">
-        <div style="position:absolute;left:-37px;top:-2px;width:26px;height:26px;background:linear-gradient(135deg,var(--primary-dark),#6E0D04);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:13px;font-family:'Space Mono',monospace;z-index:2;box-shadow:0 4px 12px rgba(138,17,7,0.25)">02</div>
-        <h3 style="font-size:22px;font-weight:800;color:var(--text);margin-bottom:8px;display:flex;align-items:center;gap:10px">
-          Design
-          <span style="display:inline-block;width:8px;height:8px;background:var(--primary-dark);border-radius:50%;flex-shrink:0"></span>
-        </h3>
-        <p style="color:#5C5C4F;font-size:15px;line-height:1.7;margin:0">Wireframes, mockups, and visual prototypes crafted with your brand identity and user experience at the forefront of every decision.</p>
-      </div>
+  <!-- Step 02 -->
+  <div class="animate-on-scroll animate-delay-2" style="margin-bottom:48px;position:relative;padding-left:44px">
+    <div style="position:absolute;left:8px;top:-4px;width:32px;height:32px;background:linear-gradient(135deg,var(--primary-dark),#6E0D04);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:15px;font-family:'Space Mono',monospace;z-index:2;box-shadow:0 4px 16px rgba(138,17,7,0.2)">02</div>
+    <h3 style="font-size:22px;font-weight:800;color:var(--text);margin-bottom:8px">Design</h3>
+    <p style="color:#5C5C4F;font-size:15px;line-height:1.7;margin:0">Wireframes, mockups, and visual prototypes crafted with your brand identity at the forefront.</p>
+  </div>
 
-      <!-- Step 03 - Build -->
-      <div class="animate-on-scroll animate-delay-3" style="margin-bottom:40px;position:relative;padding-left:12px">
-        <div style="position:absolute;left:-37px;top:-2px;width:26px;height:26px;background:linear-gradient(135deg,#6E0D04,var(--primary));border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:13px;font-family:'Space Mono',monospace;z-index:2;box-shadow:0 4px 12px rgba(110,13,4,0.2)">03</div>
-        <h3 style="font-size:22px;font-weight:800;color:var(--text);margin-bottom:8px;display:flex;align-items:center;gap:10px">
-          Build
-          <span style="display:inline-block;width:8px;height:8px;background:var(--primary-deeper);border-radius:50%;flex-shrink:0"></span>
-        </h3>
-        <p style="color:#5C5C4F;font-size:15px;line-height:1.7;margin:0">Clean code implementation, responsive layouts, performance optimization, and seamless integrations with your existing technology stack.</p>
-      </div>
+  <!-- Step 03 -->
+  <div class="animate-on-scroll animate-delay-3" style="margin-bottom:48px;position:relative;padding-left:44px">
+    <div style="position:absolute;left:8px;top:-4px;width:32px;height:32px;background:linear-gradient(135deg,#6E0D04,var(--primary));border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:15px;font-family:'Space Mono',monospace;z-index:2;box-shadow:0 4px 16px rgba(110,13,4,0.2)">03</div>
+    <h3 style="font-size:22px;font-weight:800;color:var(--text);margin-bottom:8px">Build</h3>
+    <p style="color:#5C5C4F;font-size:15px;line-height:1.7;margin:0">Clean code implementation, responsive layouts, performance optimization, and seamless integrations.</p>
+  </div>
 
-      <!-- Step 04 - Launch & Grow -->
-      <div class="animate-on-scroll animate-delay-4" style="position:relative;padding-left:12px">
-        <div style="position:absolute;left:-37px;top:-2px;width:26px;height:26px;background:var(--text);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:13px;font-family:'Space Mono',monospace;z-index:2;box-shadow:0 4px 12px rgba(0,0,0,0.15)">04</div>
-        <h3 style="font-size:22px;font-weight:800;color:var(--text);margin-bottom:8px;display:flex;align-items:center;gap:10px">
-          Launch & Grow
-          <span style="display:inline-block;width:8px;height:8px;background:var(--warm-mid);border-radius:50%;flex-shrink:0"></span>
-        </h3>
-        <p style="color:#5C5C4F;font-size:15px;line-height:1.7;margin:0">Deployment, monitoring, analytics setup, SEO optimization, and ongoing support to ensure your digital presence thrives long-term.</p>
-      </div>
-      
-    </div>
+  <!-- Step 04 -->
+  <div class="animate-on-scroll animate-delay-4" style="position:relative;padding-left:44px">
+    <div style="position:absolute;left:8px;top:-4px;width:32px;height:32px;background:var(--text);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:15px;font-family:'Space Mono',monospace;z-index:2;box-shadow:0 4px 16px rgba(0,0,0,0.15)">04</div>
+    <h3 style="font-size:22px;font-weight:800;color:var(--text);margin-bottom:8px">Launch & Grow</h3>
+    <p style="color:#5C5C4F;font-size:15px;line-height:1.7;margin:0">Deployment, monitoring, analytics setup, SEO optimization, and ongoing support for long-term success.</p>
+  </div>
+  
+</div>
     
     <!-- CTA at bottom -->
     <div style="text-align:center;margin-top:48px" class="animate-on-scroll">
