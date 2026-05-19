@@ -727,6 +727,14 @@ body{
   transition: all 0.4s;
 }
 
+.team-zigzag-avatar img,
+.team-zigzag-avatar[src] {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: transparent !important;
+}
+
 .team-zigzag-item:hover .team-zigzag-decoration {
   transform: translate(-50%, -50%) scale(1.1);
   opacity: 0.8;
@@ -3262,10 +3270,10 @@ function renderCompany(el) {
   
   <!-- Member 1: Danial - Left -->
   <div class="team-zigzag-item animate-on-scroll animate-delay-1">
-    <div class="team-zigzag-avatar-wrapper">
-      <div class="team-zigzag-avatar" style="background:linear-gradient(135deg,#ffd3b6,#f6a6b2);color:#5c2b2b">DD</div>
-      <div class="team-zigzag-decoration"></div>
-    </div>
+<div class="team-zigzag-avatar-wrapper">
+  <img src="https://images.luviio.com/danialdanish-web.jpeg" alt="Danial Danish" class="team-zigzag-avatar" style="object-fit:cover;background:none">
+  <div class="team-zigzag-decoration"></div>
+</div>
     <div class="team-zigzag-content">
       <div class="team-zigzag-role-tag">Founder & VP</div>
       <h3 class="team-zigzag-name">Danial Danish</h3>
@@ -3277,10 +3285,10 @@ function renderCompany(el) {
 
   <!-- Member 2: Nurul - Right (Reversed) -->
   <div class="team-zigzag-item team-zigzag-reverse animate-on-scroll animate-delay-2">
-    <div class="team-zigzag-avatar-wrapper">
-      <div class="team-zigzag-avatar" style="background:linear-gradient(135deg,#cfe8ff,#9db7ff);color:#1f2a44">NN</div>
-      <div class="team-zigzag-decoration"></div>
-    </div>
+<div class="team-zigzag-avatar-wrapper">
+  <img src="https://images.luviio.com/nurulnabila-web.jpeg" alt="Nurul Nabila" class="team-zigzag-avatar" style="object-fit:cover;background:none">
+  <div class="team-zigzag-decoration"></div>
+</div>
     <div class="team-zigzag-content">
       <div class="team-zigzag-role-tag">Co-Founder & VP</div>
       <h3 class="team-zigzag-name">Nurul Nabila</h3>
@@ -3292,10 +3300,10 @@ function renderCompany(el) {
 
   <!-- Member 3: Putri - Left -->
   <div class="team-zigzag-item animate-on-scroll animate-delay-3">
-    <div class="team-zigzag-avatar-wrapper">
-      <div class="team-zigzag-avatar" style="background:linear-gradient(135deg,#ffe8a3,#ffd07a);color:#5c3b00">PE</div>
-      <div class="team-zigzag-decoration"></div>
-    </div>
+<div class="team-zigzag-avatar-wrapper">
+  <img src="https://images.luviio.com/1E43D901-B454-4373-870C-85EFCCFF51D6_1_105_c.jpeg" alt="Putri Erinna" class="team-zigzag-avatar" style="object-fit:cover;background:none">
+  <div class="team-zigzag-decoration"></div>
+</div>
     <div class="team-zigzag-content">
       <div class="team-zigzag-role-tag">VP</div>
       <h3 class="team-zigzag-name">Putri Erinna</h3>
