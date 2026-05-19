@@ -617,6 +617,280 @@ body{
   .team-card h4{font-size:16px;font-weight:700;margin-bottom:3px}
   .team-card p{font-size:13px;color:#8B8B7A}
 
+  /* ========================================== */
+/* ZIG-ZAG TEAM LAYOUT                       */
+/* ========================================== */
+.team-zigzag-container {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+  margin-top: 56px;
+  width: 100%;
+  position: relative;
+}
+
+.team-zigzag-item {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  background: #FFFFFF;
+  border: 1px solid var(--warm-light);
+  border-radius: var(--radius-lg);
+  padding: 40px 36px;
+  box-shadow: var(--shadow-card);
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.team-zigzag-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--warm-mid));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.team-zigzag-item:hover::before {
+  transform: scaleX(1);
+}
+
+.team-zigzag-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(171,21,9,0.12), 0 4px 12px rgba(0,0,0,0.04);
+}
+
+/* Reversed item (even items) */
+.team-zigzag-reverse {
+  flex-direction: row-reverse;
+}
+
+.team-zigzag-reverse .team-zigzag-content {
+  text-align: right;
+}
+
+.team-zigzag-reverse .team-zigzag-role-tag {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+/* Avatar Wrapper */
+.team-zigzag-avatar-wrapper {
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.team-zigzag-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 38px;
+  font-weight: 800;
+  color: #fff;
+  position: relative;
+  z-index: 2;
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  border: 4px solid #fff;
+}
+
+.team-zigzag-item:hover .team-zigzag-avatar {
+  transform: scale(1.05) rotate(-3deg);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.15);
+}
+
+/* Decorative circle behind avatar */
+.team-zigzag-decoration {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary-tint), rgba(171,21,9,0.08));
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.6;
+  transition: all 0.4s;
+}
+
+.team-zigzag-item:hover .team-zigzag-decoration {
+  transform: translate(-50%, -50%) scale(1.1);
+  opacity: 0.8;
+}
+
+/* Content Area */
+.team-zigzag-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.team-zigzag-role-tag {
+  display: inline-block;
+  font-family: "Space Mono", monospace;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--primary);
+  background: var(--primary-tint);
+  padding: 6px 14px;
+  border-radius: 9999px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  border: 1px solid rgba(171,21,9,0.15);
+}
+
+.team-zigzag-name {
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--text);
+  margin-bottom: 4px;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+}
+
+.team-zigzag-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+
+.team-zigzag-desc {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #5C5C4F;
+  margin-bottom: 12px;
+}
+
+.team-zigzag-desc:last-child {
+  margin-bottom: 0;
+}
+
+/* ========================================== */
+/* ZIG-ZAG RESPONSIVE                        */
+/* ========================================== */
+
+@media(max-width:1023px) {
+  .team-zigzag-container {
+    gap: 48px;
+  }
+  .team-zigzag-item {
+    gap: 32px;
+    padding: 32px 28px;
+  }
+  .team-zigzag-avatar {
+    width: 100px;
+    height: 100px;
+    font-size: 32px;
+  }
+  .team-zigzag-decoration {
+    width: 120px;
+    height: 120px;
+  }
+  .team-zigzag-name {
+    font-size: 24px;
+  }
+  .team-zigzag-title {
+    font-size: 15px;
+  }
+  .team-zigzag-desc {
+    font-size: 14px;
+  }
+}
+
+@media(max-width:767px) {
+  .team-zigzag-container {
+    gap: 32px;
+    margin-top: 40px;
+  }
+  .team-zigzag-item,
+  .team-zigzag-reverse {
+    flex-direction: column !important;
+    text-align: center !important;
+    padding: 28px 24px;
+  }
+  .team-zigzag-reverse .team-zigzag-content {
+    text-align: center !important;
+  }
+  .team-zigzag-reverse .team-zigzag-role-tag {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .team-zigzag-avatar-wrapper {
+    margin-bottom: 20px;
+  }
+  .team-zigzag-avatar {
+    width: 88px;
+    height: 88px;
+    font-size: 28px;
+  }
+  .team-zigzag-decoration {
+    width: 108px;
+    height: 108px;
+  }
+  .team-zigzag-name {
+    font-size: 22px;
+  }
+  .team-zigzag-title {
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+  .team-zigzag-desc {
+    font-size: 13px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+}
+
+@media(max-width:479px) {
+  .team-zigzag-container {
+    gap: 24px;
+  }
+  .team-zigzag-item {
+    padding: 24px 20px;
+    border-radius: 14px;
+  }
+  .team-zigzag-avatar {
+    width: 76px;
+    height: 76px;
+    font-size: 24px;
+    border-width: 3px;
+  }
+  .team-zigzag-decoration {
+    width: 96px;
+    height: 96px;
+  }
+  .team-zigzag-name {
+    font-size: 20px;
+  }
+  .team-zigzag-role-tag {
+    font-size: 10px;
+    padding: 5px 12px;
+  }
+  .team-zigzag-title {
+    font-size: 13px;
+  }
+  .team-zigzag-desc {
+    font-size: 12px;
+    line-height: 1.55;
+  }
+}
+
   /* CONTACT FORM */
   .contact-section{background:linear-gradient(180deg,#EDEDE8 0%,#F5F5F0 100%);border-top:1px solid var(--warm-light);border-bottom:1px solid var(--warm-light);padding:80px 0;width:100%}
   .contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:48px;align-items:start;width:100%}
@@ -2983,11 +3257,53 @@ function renderCompany(el) {
         <div class="section-label animate-on-scroll">Team</div>
         <h2 class="section-title animate-on-scroll animate-delay-1" style="font-size:38px;line-height:46px;text-align:center">The people behind Luviio</h2>
       </div>
-      <div class="team-grid" style="justify-content:center;display:flex;flex-wrap:wrap;gap:24px">
-        <div class="team-card animate-on-scroll animate-delay-1"><div class="team-avatar" style="background:linear-gradient(135deg,#ffd3b6,#f6a6b2);color:#5c2b2b">DD</div><h4>Danial Danish</h4><p>Founder & CEO, Luviio</p></div>
-        <div class="team-card animate-on-scroll animate-delay-2"><div class="team-avatar" style="background:linear-gradient(135deg,#cfe8ff,#9db7ff);color:#1f2a44">NN</div><h4>Nurul Nabila</h4><p>Co-Founder & Lead Project, Luviio</p></div>
-        <div class="team-card animate-on-scroll animate-delay-3"><div class="team-avatar" style="background:linear-gradient(135deg,#ffe8a3,#ffd07a);color:#5c3b00">PE</div><h4>Putri Erinna</h4><p>Client Relations & Marketing, Luviio</p></div>
-      </div>
+<!-- ZIG-ZAG TEAM SECTION -->
+<div class="team-zigzag-container">
+  
+  <!-- Member 1: Danial - Left -->
+  <div class="team-zigzag-item animate-on-scroll animate-delay-1">
+    <div class="team-zigzag-avatar-wrapper">
+      <div class="team-zigzag-avatar" style="background:linear-gradient(135deg,#ffd3b6,#f6a6b2);color:#5c2b2b">DD</div>
+      <div class="team-zigzag-decoration"></div>
+    </div>
+    <div class="team-zigzag-content">
+      <div class="team-zigzag-role-tag">Founder & VP</div>
+      <h3 class="team-zigzag-name">Danial Danish</h3>
+      <h4 class="team-zigzag-title">Engineering</h4>
+      <p class="team-zigzag-desc">Danial leads the overall technical direction of Luviio, overseeing all aspects of software development, system architecture, and product engineering. He is responsible for building scalable, secure, and high-performance digital solutions that power Luviio’s services.</p>
+      <p class="team-zigzag-desc">His role includes guiding the engineering team, making key technical decisions, and ensuring that all products align with the company’s long-term vision and quality standards. He also focuses on innovation, improving development workflows, and ensuring that Luviio’s technology stack remains modern and efficient as the company grows.</p>
+    </div>
+  </div>
+
+  <!-- Member 2: Nurul - Right (Reversed) -->
+  <div class="team-zigzag-item team-zigzag-reverse animate-on-scroll animate-delay-2">
+    <div class="team-zigzag-avatar-wrapper">
+      <div class="team-zigzag-avatar" style="background:linear-gradient(135deg,#cfe8ff,#9db7ff);color:#1f2a44">NN</div>
+      <div class="team-zigzag-decoration"></div>
+    </div>
+    <div class="team-zigzag-content">
+      <div class="team-zigzag-role-tag">Co-Founder & VP</div>
+      <h3 class="team-zigzag-name">Nurul Nabila</h3>
+      <h4 class="team-zigzag-title">Operations</h4>
+      <p class="team-zigzag-desc">Nurul oversees the operational backbone of Luviio, ensuring that all projects are delivered smoothly, efficiently, and on schedule. She manages internal workflows, resource planning, project coordination, and overall service delivery.</p>
+      <p class="team-zigzag-desc">Her responsibilities include maintaining structured processes across teams, improving productivity systems, and ensuring consistent quality across all client projects. She also plays a key role in aligning business operations with client expectations, ensuring that Luviio runs efficiently as both a service-based and scalable SaaS-oriented company.</p>
+    </div>
+  </div>
+
+  <!-- Member 3: Putri - Left -->
+  <div class="team-zigzag-item animate-on-scroll animate-delay-3">
+    <div class="team-zigzag-avatar-wrapper">
+      <div class="team-zigzag-avatar" style="background:linear-gradient(135deg,#ffe8a3,#ffd07a);color:#5c3b00">PE</div>
+      <div class="team-zigzag-decoration"></div>
+    </div>
+    <div class="team-zigzag-content">
+      <div class="team-zigzag-role-tag">VP</div>
+      <h3 class="team-zigzag-name">Putri Erinna</h3>
+      <h4 class="team-zigzag-title">Client Success & Strategic Partnerships</h4>
+      <p class="team-zigzag-desc">Putri leads Luviio’s client relationships, growth initiatives, and external partnerships. She is responsible for ensuring clients achieve strong results and long-term satisfaction through Luviio’s services.</p>
+      <p class="team-zigzag-desc">Her role includes managing onboarding experiences, maintaining ongoing client communication, and identifying opportunities for expansion within existing accounts. In addition, she develops strategic collaborations and partnerships that help grow Luviio’s market presence. She plays a key role in shaping the company’s reputation, retention, and long-term growth strategy.</p>
+    </div>
+  </div>
     </div>
   </div>
 
