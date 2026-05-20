@@ -17,20 +17,20 @@
 <meta name="author" content="Luviio Studio">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 
-<!-- Open Graph / Facebook / LinkedIn -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://luviio.com/">
-<meta property="og:title" content="Luviio — Build Interfaces That Grow">
-<meta property="og:description" content="A bold design system for vibe coders and creative technologists. Ship beautiful digital experiences with earthy warmth and intentional craft.">
-<meta property="og:image" content="https://images.luviio.com/og-image-luviio-red.png">
+<!-- Open Graph / Facebook / LinkedIn - DYNAMIC IDs FOR JS UPDATES -->
+<meta property="og:type" content="website" id="ogType">
+<meta property="og:url" content="https://luviio.com/" id="ogUrl">
+<meta property="og:title" content="Luviio — Build Interfaces That Grow" id="ogTitle">
+<meta property="og:description" content="A bold design system for vibe coders and creative technologists. Ship beautiful digital experiences with earthy warmth and intentional craft." id="ogDesc">
+<meta property="og:image" content="https://images.luviio.com/og-image-luviio-red.png" id="ogImage">
 <meta property="og:site_name" content="Luviio">
 <meta property="og:locale" content="en_MY">
 
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Luviio — Build Interfaces That Grow">
-<meta name="twitter:description" content="Bold design system for creative technologists. High-contrast type, earthy warmth, ready to ship.">
-<meta name="twitter:image" content="https://images.luviio.com/og-image-luviio-red.png">
+<!-- Twitter Card - DYNAMIC IDS -->
+<meta name="twitter:card" content="summary_large_image" id="twCard">
+<meta name="twitter:title" content="Luviio — Build Interfaces That Grow" id="twTitle">
+<meta name="twitter:description" content="Bold design system for creative technologists. High-contrast type, earthy warmth, ready to ship." id="twDesc">
+<meta name="twitter:image" content="https://images.luviio.com/og-image-luviio-red.png" id="twImage">
 
 <!-- ========== FAVICON: RED LUVIIO BRAND ICON ========== -->
 <link rel="icon" type="image/png" sizes="192x192" href="https://images.luviio.com/favicon-luviio-red.png">
@@ -178,6 +178,20 @@ body{
   nav a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:2px;background:var(--primary);transition:width .3s cubic-bezier(0.22, 1, 0.36, 1)}
   nav a:hover::after{width:100%}
   
+  /* NAV DROPDOWN STYLES */
+  .nav-dropdown{position:relative}
+  .nav-dropdown > a{display:flex;align-items:center;gap:4px;cursor:pointer}
+  .nav-dropdown > a::after{content:none}
+  .nav-dropdown-arrow{width:14px;height:14px;transition:transform .2s;color:#8B8B7A}
+  .nav-dropdown:hover .nav-dropdown-arrow{transform:rotate(180deg);color:var(--primary)}
+  .dropdown-menu{position:absolute;top:calc(100% + 8px);left:-12px;background:#fff;border:1px solid var(--warm-light);border-radius:var(--radius-lg);box-shadow:0 12px 40px rgba(0,0,0,0.12);min-width:240px;padding:8px;opacity:0;visibility:hidden;transform:translateY(-8px);transition:all .25s cubic-bezier(0.22, 1, 0.36, 1);z-index:200}
+  .nav-dropdown:hover .dropdown-menu{opacity:1;visibility:visible;transform:translateY(0)}
+  .dropdown-menu a{display:block;padding:10px 16px;font-size:14px;color:var(--text);border-radius:var(--radius-md);transition:all .15s;border:none;text-align:left}
+  .dropdown-menu a:hover{background:var(--primary-tint);color:var(--primary);transform:none;padding-left:20px}
+  .dropdown-menu a::after{display:none}
+  .dropdown-divider{height:1px;background:var(--warm-light);margin:4px 8px}
+  .dropdown-label{font-size:11px;font-weight:700;color:#8B8B7A;text-transform:uppercase;letter-spacing:.06em;padding:8px 16px 4px;pointer-events:none}
+
   /* PRESS-STYLE HOVER EFFECT FOR ALL BUTTONS & CARDS */
   .nav-cta{font-size:13px!important;font-weight:700!important;background:var(--primary);color:#fff!important;padding:8px 18px;border-radius:var(--radius-md);border:2px solid var(--text);box-shadow:var(--shadow-btn);transition:all .15s cubic-bezier(0.22, 1, 0.36, 1);cursor:pointer;position:relative;overflow:hidden;text-decoration:none;display:inline-flex;align-items:center;gap:6px;white-space:nowrap;flex-shrink:0}
   .nav-cta::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.15),transparent);transition:left 0.5s}
@@ -576,7 +590,7 @@ body{
   .external-tool-link{display:block;text-decoration:none;color:inherit}
   .external-tool-content{padding:24px}
   .external-tool-title{font-size:18px;font-weight:800;margin-bottom:8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-  .external-tool-title .external-icon{width:36px;height:36px;background:linear-gradient(135deg,var(--primary),var(--warm-mid));border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;color:#fff;flex-shrink:0}
+  .external-tool-title .external-icon{width:36px;height:36px;background:linear-gradient(135deg,var(--primary),var(--work-mid));border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;color:#fff;flex-shrink:0}
   .external-tool-desc{font-size:14px;color:#5C5C4F;line-height:1.6;margin-bottom:16px}
   .external-tool-url{font-family:"Space Mono",monospace;font-size:12px;color:var(--primary);word-break:break-all}
   .external-tool-arrow{display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-size:13px;font-weight:600;color:var(--primary);transition:all .2s}
@@ -1022,13 +1036,42 @@ body{
   .success-actions .btn-primary,.success-actions .btn-secondary{flex:1;justify-content:center}
 
   /* ========================================== */
+  /* PRODUCT SUB-PAGES (ADD-ON, MARKETING, ETC) */
+  /* ========================================== */
+  .sub-product-hero{padding:72px 0 48px;text-align:center;position:relative;overflow:hidden;width:100%}
+  .sub-product-hero::before{content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:550px;height:550px;background:radial-gradient(circle,rgba(171,21,9,.07) 0%,transparent 70%);pointer-events:none;animation:float 14s ease-in-out infinite}
+  .sub-product-hero h1{font-size:48px;font-weight:900;line-height:54px;margin-bottom:14px;position:relative;word-wrap:break-word}
+  .sub-product-hero h1 .accent{color:var(--primary)}
+  .sub-product-hero p{font-size:17px;color:#5C5C4F;max-width:600px;margin:0 auto 24px;position:relative}
+  
+  .price-grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));gap:20px;margin-top:40px}
+  .price-item{background:#fff;border:1px solid var(--warm-light);border-radius:var(--radius-lg);padding:28px 24px;box-shadow:var(--shadow-card);transition:all .3s;position:relative;overflow:hidden}
+  .price-item:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.08);border-color:var(--primary)}
+  .price-item-name{font-size:18px;font-weight:800;color:var(--text);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+  .price-item-price{font-size:28px;font-weight:900;color:var(--primary);margin-bottom:12px}
+  .price-item-price span{font-size:14px;font-weight:400;color:#8B8B7A}
+  .price-item-desc{font-size:14px;color:#5C5C4F;line-height:1.6;margin-bottom:16px}
+  .price-item-features{list-style:none;margin:0;padding:0}
+  .price-item-features li{font-size:13px;color:var(--text);padding:4px 0;display:flex;align-items:center;gap:8px}
+  .price-item-features li::before{content:'✓';color:var(--primary);font-weight:700;font-size:14px}
+  .price-item-btn{width:100%;margin-top:16px}
+
+  .business-rules{background:linear-gradient(135deg,#FEF2F2,#FDF0EE);border:2px solid rgba(171,21,9,0.2);border-radius:var(--radius-lg);padding:40px;margin-top:60px}
+  .business-rules h2{font-size:28px;font-weight:900;color:var(--primary);margin-bottom:24px;display:flex;align-items:center;gap:10px}
+  .rules-list{list-style:none;padding:0}
+  .rules-list li{font-size:15px;color:var(--text);padding:12px 0;border-bottom:1px dashed rgba(171,21,9,0.2);display:flex;align-items:flex-start;gap:12px;line-height:1.6}
+  .rules-list li:last-child{border-bottom:none}
+  .rules-list li::before{content:'⚠';color:var(--primary);font-weight:900;font-size:16px;flex-shrink:0;margin-top:2px}
+
+  /* ========================================== */
   /* MOBILE-FIRST RESPONSIVE                   */
   /* ========================================== */
 
   @media(max-width:1023px){
     .container{padding:0 28px}
     header{padding:16px 28px}
-    nav .nav-link{display:none}
+    nav .nav-link:not(.nav-cta){display:none}
+    .nav-dropdown .dropdown-menu{display:none}
     .hamburger{display:flex}
     
     .hero{padding:80px 0 60px}
@@ -1127,6 +1170,10 @@ body{
     
     /* Profile Portal Responsive */
     .portal-features{grid-template-columns:1fr}
+    
+    /* Sub-pages responsive */
+    .price-grid{grid-template-columns:1fr}
+    .sub-product-hero h1{font-size:36px}
   }
 
   @media(max-width:767px){
@@ -1358,6 +1405,14 @@ body{
     .order-summary-card,.support-section{padding:24px}
     .order-detail-row{font-size:14px;flex-direction:column;align-items:flex-start;gap:4px}
     .order-detail-row:last-child{flex-direction:row;align-items:center;justify-content:space-between}
+    
+    /* Sub-pages mobile */
+    .sub-product-hero{padding:48px 0 32px}
+    .sub-product-hero h1{font-size:32px}
+    .price-grid{grid-template-columns:1fr;gap:16px}
+    .price-item{padding:20px}
+    .business-rules{padding:28px;margin-top:40px}
+    .business-rules h2{font-size:22px}
   }
 
   @media(max-width:479px){
@@ -1634,12 +1689,23 @@ body{
     .portal-icon{width:40px;height:40px}
     .portal-title{font-size:15px}
     .portal-btn{padding:12px 20px;font-size:13px}
+
+    /* Sub-pages extra small */
+    .sub-product-hero{padding:32px 0 24px}
+    .sub-product-hero h1{font-size:24px}
+    .price-grid{gap:12px}
+    .price-item{padding:16px}
+    .price-item-name{font-size:15px}
+    .price-item-price{font-size:22px}
+    .business-rules{padding:20px;margin-top:28px}
+    .business-rules h2{font-size:18px}
+    .rules-list li{font-size:13px;padding:10px 0}
   }
 
   /* Touch-friendly improvements */
   @media(hover:none) and (pointer:coarse){
     .btn-primary,.btn-secondary,.btn-ghost,.nav-cta,.social-btn,.hamburger,.mobile-close,.test-btn,.stripe-pay-btn,.checkout-back-btn,.payment-back-btn,.stripe-button-clean,.edit-details-btn,.payment-failed-btn{min-height:44px;min-width:44px}
-    .feature-card,.pricing-card,.service-card,.product-feature,.company-value,.team-card,.contact-item,.order-summary,.checkout-card,.order-summary-card,.support-section{touch-action:manipulation}
+    .feature-card,.pricing-card,.service-card,.product-feature,.company-value,.team-card,.contact-item,.order-summary,.checkout-card,.order-summary-card,.support-section,.price-item{touch-action:manipulation}
     nav a{padding:8px 0}
     .footer-col a{padding:8px 0}
     .support-option{min-height:52px}
@@ -1665,12 +1731,22 @@ body{
 </head>
 <body>
 
-<!-- HEADER -->
+<!-- HEADER WITH DROPDOWN -->
 <header id="mainHeader">
   <a href="/" class="logo"><img src="https://images.luviio.com/logo-luviio-red.png" alt="Luviio Logo" class="logo-img"></a>
   <nav id="mainNav">
     <a href="/" class="nav-link">Home</a>
-    <a href="/product" class="nav-link">Product</a>
+    <div class="nav-dropdown">
+      <a href="/product" class="nav-link">Product <svg class="nav-dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+      <div class="dropdown-menu">
+        <div class="dropdown-label">Add-On Services</div>
+        <a href="/product/add-on">Website & Development</a>
+        <a href="/product/marketing">Marketing Services</a>
+        <a href="/product/automation-business-tools">Automation & Business Tools</a>
+        <a href="/product/design-branding">Design & Branding</a>
+        <a href="/product/hosting">Hosting & Infrastructure</a>
+      </div>
+    </div>
     <a href="/services" class="nav-link">Services</a>
     <a href="/pricing" class="nav-link">Pricing</a>
     <a href="/company" class="nav-link">Company</a>
@@ -1684,6 +1760,14 @@ body{
   <button class="mobile-close" onclick="toggleMobileNav()" aria-label="Close menu"><i data-lucide="x" style="width:24px;height:24px"></i></button>
   <a href="/" onclick="toggleMobileNav()">Home</a>
   <a href="/product" onclick="toggleMobileNav()">Product</a>
+  <div style="padding:8px 0 8px 12px;border-bottom:1px solid var(--warm-light)">
+    <span style="font-size:13px;color:#8B8B7A;font-weight:600;text-transform:uppercase;letter-spacing:.04em">Product Sub-Pages:</span>
+  </div>
+  <a href="/product/add-on" onclick="toggleMobileNav()" style="font-size:16px;padding-left:20px">→ Add-On Services</a>
+  <a href="/product/marketing" onclick="toggleMobileNav()" style="font-size:16px;padding-left:20px">→ Marketing Services</a>
+  <a href="/product/automation-business-tools" onclick="toggleMobileNav()" style="font-size:16px;padding-left:20px">→ Automation Tools</a>
+  <a href="/product/design-branding" onclick="toggleMobileNav()" style="font-size:16px;padding-left:20px">→ Design & Branding</a>
+  <a href="/product/hosting" onclick="toggleMobileNav()" style="font-size:16px;padding-left:20px">→ Hosting & Infra</a>
   <a href="/services" onclick="toggleMobileNav()">Services</a>
   <a href="/pricing" onclick="toggleMobileNav()">Pricing</a>
   <a href="/company" onclick="toggleMobileNav()">Company</a>
@@ -1835,11 +1919,174 @@ function isMobileDevice() {
     || (window.matchMedia && window.matchMedia('(pointer: coarse)').matches);
 }
 
+// ===== UPDATED PLANS (RM PRICING) =====
 const plans = {
-  starter: { name: 'Starter', price: '150 MYR/mo', priceNum: 150, stripeUrl: 'https://buy.stripe.com/fZu6oB6x24azflI2Mw97G05' },
-  growth: { name: 'Growth', price: '300 MYR/mo', priceNum: 300, stripeUrl: 'https://buy.stripe.com/8x2aERcVq5eD7Tgcn697G06' },
-  proit: { name: 'Pro IT', price: '1,900 MYR/mo', priceNum: 1900, stripeUrl: 'https://buy.stripe.com/cNieV7f3ydL97Tgeve97G07' }
+  starter: { 
+    name: 'Starter', 
+    price: 'RM199/mo', 
+    priceNum: 199, 
+    stripeUrl: 'https://buy.stripe.com/fZu6oB6x24azflI2Mw97G05',
+    bestFor: ['Personal brands', 'Small businesses', 'Startup companies'],
+    included: [
+      '1–3 Page Website',
+      'Mobile Responsive Design',
+      'WhatsApp Integration',
+      'Contact Form',
+      'Basic SEO Setup',
+      'Free SSL',
+      'Monthly Backup',
+      'Basic Maintenance',
+      'Bug Fix Support',
+      '1 Minor Update/month'
+    ],
+    support: '24–48 Hours Response Time'
+  },
+  growth: { 
+    name: 'Growth', 
+    price: 'RM499/mo', 
+    priceNum: 499, 
+    stripeUrl: 'https://buy.stripe.com/8x2aERcVq5eD7Tgcn697G06',
+    bestFor: ['SMEs', 'Growing businesses', 'Service companies'],
+    included: [
+      'Up to 10 Pages',
+      'Advanced Responsive Design',
+      'SEO Optimization',
+      'Blog/News System',
+      'Booking/Inquiry Forms',
+      'Analytics Integration',
+      'Monthly Updates',
+      'Security Monitoring',
+      'Speed Optimization',
+      'Priority Maintenance',
+      'Up to 4 Minor Updates/month'
+    ],
+    support: '12–24 Hours Response Time'
+  },
+  proit: { 
+    name: 'Pro IT', 
+    price: 'RM1,999/mo', 
+    priceNum: 1999, 
+    stripeUrl: 'https://buy.stripe.com/cNieV7f3ydL97Tgeve97G07',
+    bestFor: ['Corporate businesses', 'SaaS/startups', 'Automation systems', 'Custom business platforms'],
+    included: [
+      'Custom Website/System',
+      'Unlimited Pages',
+      'Advanced UI/UX',
+      'Backend Development',
+      'Database Integration',
+      'API Integration',
+      'Automation Features',
+      'Dashboard/Portal System',
+      'DevOps Support',
+      'Infrastructure Monitoring',
+      'Unlimited Minor Updates',
+      'Dedicated Technical Support'
+    ],
+    support: 'Within 12 Hours'
+  }
 };
+
+// ===== SOCIAL SHARING META DATA CONFIGURATION =====
+const routeMetaConfig = {
+  '/': {
+    title: 'Luviio · Build Interfaces That Grow',
+    desc: 'A bold design system for vibe coders and creative technologists. Ship beautiful digital experiences with earthy warmth and intentional craft. Based in Malaysia.'
+  },
+  '/home': {
+    title: 'Luviio · Build Interfaces That Grow',
+    desc: 'A bold design system for vibe coders and creative technologists. Ship beautiful digital experiences with earthy warmth and intentional craft. Based in Malaysia.'
+  },
+  '/product': {
+    title: 'Product & Components · Luviio',
+    desc: 'Comprehensive design system components, tools, add-on services, marketing solutions, automation tools, design branding packages, and hosting infrastructure for Malaysian businesses.'
+  },
+  '/product/add-on': {
+    title: 'Add-On Services — Website & Development · Luviio',
+    desc: 'Additional website pages, landing pages, blog setup, e-commerce, payment gateways, booking systems, membership portals, custom dashboards, API integration, migration, speed optimization, and emergency fixes. Starting from RM80/page.'
+  },
+  '/product/marketing': {
+    title: 'Marketing Services · Luviio',
+    desc: 'Email marketing setup & management, SEO optimization, Google Ads & Meta Ads setup & management, social media management, content writing, copywriting, and analytics reporting. Grow your business online with Luviio\'s marketing expertise.'
+  },
+  '/product/automation-business-tools': {
+    title: 'Automation & Business Tools · Luviio',
+    desc: 'CRM setup, WhatsApp automation, invoice/billing systems, inventory management, HR dashboards, AI chatbot integration, staff portals, and client portal systems. Streamline your business operations today.'
+  },
+  '/product/design-branding': {
+    title: 'Design & Branding Services · Luviio',
+    desc: 'Professional logo design, brand identity kits, company profile design, presentation decks, UI/UX design systems, and social media design packs. Build a memorable brand identity with Luviio.'
+  },
+  '/product/hosting': {
+    title: 'Hosting & Infrastructure · Luviio',
+    desc: 'Domain management, business email setup & hosting, cloud/VPS server setup, website maintenance, security monitoring, backup management, and Cloudflare CDN setup. Reliable hosting solutions for Malaysian businesses.'
+  },
+  '/services': {
+    title: 'Our Services · Luviio',
+    desc: 'End-to-end digital services including website design, web development, mobile apps, and IT support. From concept to launch, we help your business thrive online. Based in Kedah, Malaysia.'
+  },
+  '/pricing': {
+    title: 'Pricing & Plans · Luviio',
+    desc: 'Starter RM199/mo | Growth RM499/mo | Pro IT RM1,999/mo. Transparent monthly subscription plans for websites, development, and IT services. No hidden fees. Cancel anytime. Malaysian Ringgit pricing.'
+  },
+  '/company': {
+    title: 'About Our Company · Luviio',
+    desc: 'Meet the team behind Luviio. A small design and development studio based in Kedah, Malaysia, crafting bold digital experiences since 2025. Learn about our mission, values, and culture.'
+  },
+  '/about': {
+    title: 'About Luviio · Luviio',
+    desc: 'We are a digital agency based in Kedah, Malaysia, crafting beautiful digital experiences since 2025. Learn about our story, approach, and why hundreds of businesses trust us.'
+  },
+  '/terms': {
+    title: 'Terms of Service · Luviio',
+    desc: 'Read our terms of service covering payment terms, intellectual property, project revisions, limitations of liability, termination policies, and governing law. Updated January 2026.'
+  },
+  '/policy': {
+    title: 'Privacy Policy · Luviio',
+    desc: 'Learn how we collect, use, share, and protect your information. Your privacy matters to us. GDPR-compliant privacy policy for Luviio users and visitors.'
+  },
+  '/login': {
+    title: 'Sign In · Luviio',
+    desc: 'Sign in to your Luviio account to manage your profile, view orders, access customer portal, and manage subscriptions. Secure login with email or Google.'
+  },
+  '/signup': {
+    title: 'Create Account · Luviio',
+    desc: 'Join Luviio today and start building beautiful interfaces that grow. Free account creation with access to our community and resources.'
+  },
+  '/profile': {
+    title: 'My Profile · Luviio',
+    desc: 'Manage your personal information, update your profile photo, and access the Stripe customer portal for billing, invoices, and subscription management.'
+  },
+  '/contact': {
+    title: 'Contact Us · Luviio',
+    desc: 'Get in touch with Luviio for web design, development, mobile apps, or IT support inquiries. Email hello@luviio.com or call +60 12 260 0969. Based in Kedah, Malaysia.'
+  }
+};
+
+// ===== DYNAMIC META TAG UPDATER =====
+function updateSocialMetaTags(route) {
+  const config = routeMetaConfig[route] || routeMetaConfig['/'];
+  
+  // Document Title
+  document.title = config.title;
+  
+  // Open Graph
+  document.getElementById('ogUrl').setAttribute('content', 'https://luviio.com' + route);
+  document.getElementById('ogTitle').setAttribute('content', config.title);
+  document.getElementById('ogDesc').setAttribute('content', config.desc);
+  
+  // Twitter Card
+  document.getElementById('twTitle').setAttribute('content', config.title);
+  document.getElementById('twDesc').setAttribute('content', config.desc);
+  
+  // Canonical URL (if exists)
+  let canonical = document.querySelector('link[rel="canonical"]');
+  if (!canonical) {
+    canonical = document.createElement('link');
+    canonical.rel = 'canonical';
+    document.head.appendChild(canonical);
+  }
+  canonical.href = 'https://luviio.com' + route;
+}
 
 // ===== FRIENDLY ERROR MESSAGES =====
 function getFriendlyErrorMessage(error) {
@@ -1858,7 +2105,7 @@ function getFriendlyErrorMessage(error) {
     'auth/operation-not-allowed': 'This sign-in method is not enabled. Contact support at support@luviio.com.',
     'auth/invalid-api-key': 'Configuration error. Please contact support at support@luviio.com',
     'auth/app-deleted': 'This application has been deleted. Contact support at support@luviio.com.',
-    'auth/user-disabled': 'This account has been disabled. For assistance, contact support@luviio.com.',
+    'auth/user-disabled': 'This account has been disabled. For assistance, contact support@ luviio.com.',
     'auth/user-token-expired': 'Your session has expired. Please sign in again.',
     'auth/web-storage-unsupported': 'Browser storage not supported. Please enable cookies/localStorage.',
     'auth/unauthorized-domain': 'This domain is not authorized for OAuth operations.',
@@ -1974,27 +2221,7 @@ document.addEventListener('click', (e) => {
   }
 });
 
-const pageTitles = {
-  '/': 'Luviio · Build Interfaces That Grow',
-  '/home': 'Luviio · Build Interfaces That Grow',
-  '/product': 'Product & Components · Luviio',
-  '/services': 'Our Services · Luviio',
-  '/pricing':   'Pricing & Plans · Luviio',
-  '/company': 'About Our Company · Luviio',
-  '/about': 'About Luviio · Luviio',
-  '/terms': 'Terms of Service · Luviio',
-  '/policy': 'Privacy Policy · Luviio',
-  '/login': 'Sign In · Luviio',
-  '/signup': 'Create Account · Luviio',
-  '/profile': 'My Profile · Luviio',
-  '/contact': 'Contact Us · Luviio'
-};
-
 const PROTECTED_ROUTES = ['/profile'];
-
-function setPageTitle(route) {
-  document.title = pageTitles[route] || 'Luviio';
-}
 
 function parseCheckoutUrl(route) {
   const parts = route.split('/').filter(Boolean);
@@ -2031,10 +2258,11 @@ function parseCheckoutUrl(route) {
 function router() {
   let route = getRoute();
   const app = document.getElementById('app');
+
+  // UPDATE SOCIAL META TAGS FOR THIS ROUTE
+  updateSocialMetaTags(route);
+
   const navLinks = document.querySelectorAll('#mainNav .nav-link');
-
-  setPageTitle(route);
-
   navLinks.forEach(link => {
     const href = link.getAttribute('href');
     link.style.color = (href === '#' + route || (route === '/' && href === '/')) ? 'var(--primary)' : '';
@@ -2136,10 +2364,15 @@ function router() {
     return;
   }
 
-  // NORMAL ROUTE RENDERING
+  // NORMAL ROUTE RENDERING - INCLUDING NEW PRODUCT SUB-PAGES
   switch (route) {
     case '/': case '/home': renderHome(app); break;
     case '/product': renderProduct(app); break;
+    case '/product/add-on': renderProductAddon(app); break;
+    case '/product/marketing': renderProductMarketing(app); break;
+    case '/product/automation-business-tools': renderProductAutomation(app); break;
+    case '/product/design-branding': renderProductDesignBranding(app); break;
+    case '/product/hosting': renderProductHosting(app); break;
     case '/services': renderServices(app); break;
     case '/pricing': renderPricing(app); break;
     case '/company': renderCompany(app); break;
@@ -2372,7 +2605,7 @@ function toggleMobileNav() {
   document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
 }
 
-// ===== ICONS (IMPROVED GOOGLE ICON FOR AUTH) =====
+// ===== ICONS =====
 const icons = {
   zap: '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>',
   eye: '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>',
@@ -2412,7 +2645,6 @@ const icons = {
   creditCard: '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>',
   home: '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>',
   
-  // IMPROVED GOOGLE ICON FOR AUTH FORMS - More detailed and polished
   google: `<svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
     <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/>
     <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
@@ -2430,7 +2662,7 @@ const standardFooter = `
         <a href="/" class="logo"><img src="https://images.luviio.com/logo-luviio-red.png" alt="Luviio" style="height:28px;width:auto;border-radius:6px"></a>
         <p>A bold design system for creative technologists. Built with earthy warmth and intentional craft.</p>
       </div>
-      <div class="footer-col"><h4>Product</h4><a href="/product">Components</a><a href="/product">Tokens</a><a href="/product">Templates</a><a href="/product">Changelog</a></div>
+      <div class="footer-col"><h4>Product</h4><a href="/product">Components</a><a href="/product/add-on">Add-On Services</a><a href="/product/marketing">Marketing</a><a href="/product/automation-business-tools">Automation</a><a href="/product/design-branding">Branding</a><a href="/product/hosting">Hosting</a></div>
       <div class="footer-col"><h4>Resources</h4><a href="/company">Documentation</a><a href="/company">Guides</a><a href="/company">Blog</a><a href="/company">Community</a></div>
       <div class="footer-col"><h4>Company</h4><a href="/about">About</a><a href="/company">Careers</a><a href="/pricing">Pricing</a><a href="/terms">Terms</a><a href="/policy">Privacy Policy</a><a href="/contact">Contact Us</a></div>
     </div>
@@ -2445,7 +2677,7 @@ const standardFooter = `
   </div>
 </footer>`;
 
-// ===== HOME PAGE (NO TESTIMONIALS - SHAPO WIDGET INSTEAD) =====
+// ===== HOME PAGE =====
 function renderHome(el) {
   el.innerHTML = `
   <!-- HERO -->
@@ -2528,54 +2760,55 @@ function renderHome(el) {
     </div>
   </section>
 
-  <!-- PRICING PREVIEW -->
+  <!-- PRICING PREVIEW (UPDATED RM PRICING) -->
   <section id="pricing">
     <div class="container">
       <div class="section-header animate-on-scroll">
         <div class="section-label">Pricing</div>
         <h2 class="section-title">Ship with confidence</h2>
-        <p class="section-desc">Simple, transparent pricing. Start free, grow when you're ready.</p>
+        <p class="section-desc">Simple, transparent pricing in Malaysian Ringgit. Start free, grow when you're ready.</p>
       </div>
       <div class="pricing-grid">
         <div class="pricing-card animate-on-scroll animate-delay-1">
           <div class="pricing-name">Starter</div>
-          <div class="pricing-price">150 <span>MYR/mo</span></div>
-          <div class="pricing-desc">Perfect for small businesses & startups</div>
+          <div class="pricing-price">RM199 <span>/mo</span></div>
+          <div class="pricing-desc">Perfect for personal brands, small businesses & startups</div>
           <ul class="pricing-features">
-            <li><span class="check">${icons.check}</span>Custom website setup (up to 5 pages)</li>
-            <li><span class="check">${icons.check}</span>Fully mobile responsive design</li>
-            <li><span class="check">${icons.check}</span>Basic UI/UX design</li>
-            <li><span class="check">${icons.check}</span>Contact form + WhatsApp integration</li>
-            <li><span class="check">${icons.check}</span>Basic SEO optimization</li>
+            <li><span class="check">${icons.check}</span>1–3 Page Website</li>
+            <li><span class="check">${icons.check}</span>Mobile Responsive Design</li>
+            <li><span class="check">${icons.check}</span>WhatsApp Integration</li>
+            <li><span class="check">${icons.check}</span>Contact Form</li>
+            <li><span class="check">${icons.check}</span>Basic SEO Setup</li>
+            <li><span class="check">${icons.check}</span>Free SSL & Monthly Backup</li>
           </ul>
-          <button class="btn-secondary" onclick="selectPlanAndCheckout('starter')">View Details</button>
+          <button class="btn-secondary" onclick="selectPlanAndCheckout('starter')">Get Started</button>
         </div>
         <div class="pricing-card featured animate-on-scroll animate-delay-2">
           <div class="pricing-badge">Most Popular</div>
           <div class="pricing-name">Growth</div>
-          <div class="pricing-price">300 <span>MYR/mo</span></div>
-          <div class="pricing-desc">Best for growing brands & eCommerce</div>
+          <div class="pricing-price">RM499 <span>/mo</span></div>
+          <div class="pricing-desc">Best for SMEs, growing brands & service companies</div>
           <ul class="pricing-features">
-            <li><span class="check">${icons.check}</span>Advanced website or Shopify store</li>
-            <li><span class="check">${icons.check}</span>Up to 10 pages / Full store structure</li>
-            <li><span class="check">${icons.check}</span>Conversion-focused UI/UX design</li>
-            <li><span class="check">${icons.check}</span>Payment gateway setup (Stripe, FPX)</li>
-            <li><span class="check">${icons.check}</span>Google Analytics integration</li>
-            <li><span class="check">${icons.check}</span>Performance optimization</li>
+            <li><span class="check">${icons.check}</span>Up to 10 Pages</li>
+            <li><span class="check">${icons.check}</span>Advanced Responsive Design</li>
+            <li><span class="check">${icons.check}</span>SEO Optimization</li>
+            <li><span class="check">${icons.check}</span>Blog/News System</li>
+            <li><span class="check">${icons.check}</span>Analytics Integration</li>
+            <li><span class="check">${icons.check}</span>Security Monitoring</li>
           </ul>
           <button class="btn-primary" onclick="selectPlanAndCheckout('growth')">Get Started Now</button>
         </div>
         <div class="pricing-card animate-on-scroll animate-delay-3">
           <div class="pricing-name">Pro IT</div>
-          <div class="pricing-price">1,900 <span>MYR/mo</span></div>
-          <div class="pricing-desc">Full outsourced IT department</div>
+          <div class="pricing-price">RM1,999 <span>/mo</span></div>
+          <div class="pricing-desc">Full outsourced IT department for corporate & SaaS</div>
           <ul class="pricing-features">
-            <li><span class="check">${icons.check}</span>Unlimited updates</li>
-            <li><span class="check">${icons.check}</span>Full website creation & maintenance</li>
-            <li><span class="check">${icons.check}</span>eCommerce store setup</li>
-            <li><span class="check">${icons.check}</span>Email marketing management</li>
-            <li><span class="check">${icons.check}</span>System integrations (CRM, automation)</li>
-            <li><span class="check">${icons.check}</span>SEO, hosting support, CRO improvements</li>
+            <li><span class="check">${icons.check}</span>Custom Website/System</li>
+            <li><span class="check">${icons.check}</span>Unlimited Pages</li>
+            <li><span class="check">${icons.check}</span>Backend Development</li>
+            <li><span class="check">${icons.check}</span>Automation Features</li>
+            <li><span class="check">${icons.check}</span>Dedicated Technical Support</li>
+            <li><span class="check">${icons.check}</span>DevOps & Infrastructure</li>
           </ul>
           <button class="btn-secondary" onclick="selectPlanAndCheckout('proit')">Contact Sales</button>
         </div>
@@ -2642,7 +2875,7 @@ function renderHome(el) {
     </div>
   </section>
 
-  <!-- SHAPO REVIEWS SECTION (REPLACES OLD TESTIMONIALS) -->
+  <!-- SHAPO REVIEWS SECTION -->
   <section class="shapo-section">
     <div class="shapo-container">
       <div class="shapo-eyebrow animate-on-scroll">
@@ -2658,7 +2891,7 @@ function renderHome(el) {
         <div id="shapo-widget-97c88f9e521fd582905b"></div>
       </div>
       
-      <!-- GOOGLE REVIEWS LINK (REPLACES TRUSTPILOT) -->
+      <!-- GOOGLE REVIEWS LINK -->
       <div style="text-align:center;margin-top:32px" class="animate-on-scroll animate-delay-2">
         <a href="https://g.page/r/CVUI33FMpZB8EBM/review" target="_blank" rel="noopener noreferrer" class="google-reviews-link">
           <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google" class="google-reviews-icon">
@@ -2676,7 +2909,7 @@ function renderHome(el) {
         <div class="contact-info animate-on-scroll">
           <div class="section-label">Get In Touch</div>
           <h2>Let's build something<br><span class="accent">amazing together</span></h2>
-          <p>Have a project in mind? We'd love to hear about it. Send us a message and we'll get back to you within 24 hours.</p>
+          <p>Have a project in mind? We'd love to hear from you. Send us a message and we'll get back to you within 24 hours.</p>
           <div class="contact-details">
             <div class="contact-item"><div class="contact-item-icon">${icons.mail}</div><div class="contact-item-text"><strong>Email Us</strong><span>hello@luviio.com</span></div></div>
             <div class="contact-item"><div class="contact-item-icon">${icons.phone}</div><div class="contact-item-text"><strong>Call Us</strong><span>+60 12 260 0969</span></div></div>
@@ -2788,12 +3021,8 @@ async function handleContactSubmit(e) {
     const fullName = `${formData.get('firstName') || ''} ${formData.get('lastName') || ''}`.trim();
     
     await callLuviioAPI('contact', {
-      name: fullName,
-      email: formData.get('email'),
-      phone: formData.get('phone'),
-      service: formData.get('service'),
-      message: formData.get('message'),
-      source: 'homepage_contact'
+      name: fullName, email: formData.get('email'), phone: formData.get('phone'),
+      service: formData.get('service'), message: formData.get('message'), source: 'homepage_contact'
     });
     
     btn.innerHTML = originalText;
@@ -2830,83 +3059,66 @@ function renderProduct(el) {
         <div class="product-feature animate-on-scroll animate-delay-4"><div class="pf-icon">${icons.monitor}</div><h3>Figma Library</h3><p>A matching Figma component library with auto-layout, variants, and design tokens. Ship designs that match code perfectly.</p></div>
       </div>
       
-      <!-- TOOLS SECTION -->
-      <div class="tools-section" id="tools">
-        <div class="container">
-          <div class="section-header animate-on-scroll">
-            <div class="section-label">Free Tools</div>
-            <h2 class="section-title">Try it live</h2>
-            <p class="section-desc">Interactive tools built right into the product page. No signup required.</p>
-          </div>
+      <!-- PRODUCT SUB-PAGES GRID -->
+      <div style="margin-top:60px" class="animate-on-scroll">
+        <h2 style="font-size:36px;font-weight:900;text-align:center;margin-bottom:12px">Service Categories</h2>
+        <p style="text-align:center;color:#5C5C4F;font-size:17px;max-width:600px;margin:0 auto 40px">Explore our specialized service offerings below</p>
+        
+        <div class="tools-grid" style="margin-top:0">
+          <a href="/product/add-on" class="tool-card animate-on-scroll animate-delay-1 external-tool-link">
+            <div class="tool-header" style="background:linear-gradient(135deg,#FDF0EE,#F5E0DD)">
+              <div class="tool-icon">${icons.code}</div>
+              <div class="tool-title">Add-On Services</div>
+            </div>
+            <div class="external-tool-content">
+              <p class="external-tool-desc">Website pages, landing pages, e-commerce, booking systems, membership portals, custom dashboards, and more development add-ons.</p>
+              <div class="external-tool-arrow">View All Add-Ons ${icons.arrowRight}</div>
+            </div>
+          </a>
           
-          <div class="tools-grid">
-            <!-- Color Picker Tool -->
-            <div class="tool-card animate-on-scroll animate-delay-1">
-              <div class="tool-header">
-                <div class="tool-icon">${icons.droplet}</div>
-                <div class="tool-title">Color Picker</div>
-              </div>
-              <div class="tool-body">
-                <p class="tool-desc">Pick colors and get HEX, RGB values instantly. Perfect for matching your brand palette.</p>
-                <div class="color-picker-wrapper">
-                  <div class="color-display">
-                    <div class="color-swatch" id="colorSwatch" style="background:#AB1509"></div>
-                    <div class="color-values">
-                      <div class="color-hex" id="colorHex" onclick="copyToClipboard(this.textContent)">#AB1509</div>
-                      <div class="color-rgb" id="colorRgb">RGB(171, 21, 9)</div>
-                    </div>
-                  </div>
-                  <input type="color" id="colorPickerInput" value="#AB1509" style="width:100%;height:40px;border:none;cursor:pointer;border-radius:8px" onchange="updateColor(this.value)">
-                  <div class="color-presets">
-                    <div class="color-preset" style="background:#AB1509" onclick="updateColor('#AB1509')" title="Primary"></div>
-                    <div class="color-preset" style="background:#C2A68C" onclick="updateColor('#C2A68C')" title="Warm Mid"></div>
-                    <div class="color-preset" style="background:#F5F5F0" onclick="updateColor('#F5F5F0')" title="Background"></div>
-                    <div class="color-preset" style="background:#000000" onclick="updateColor('#000000')" title="Text"></div>
-                    <div class="color-preset" style="background:#C45B5B" onclick="updateColor('#C45B5B')" title="Error"></div>
-                    <div class="color-preset" style="background:#E6D8C3" onclick="updateColor('#E6D8C3')" title="Light"></div>
-                  </div>
-                </div>
-              </div>
+          <a href="/product/marketing" class="tool-card animate-on-scroll animate-delay-2 external-tool-link">
+            <div class="tool-header" style="background:linear-gradient(135deg,#FFF5F0,#FFE8DD)">
+              <div class="tool-icon" style="background:var(--primary-dark)">${icons.target}</div>
+              <div class="tool-title">Marketing Services</div>
             </div>
-
-            <!-- LuvTools Link -->
-            <div class="tool-card animate-on-scroll animate-delay-2">
-              <a href="https://app.luviio.com" target="_blank" rel="noopener noreferrer" class="external-tool-link">
-                <div class="tool-header" style="background:linear-gradient(135deg,#FDF0EE,#F5E0DD)">
-                  <div class="tool-icon" style="background:linear-gradient(135deg,var(--primary),#6E0D04)">${icons.settings}</div>
-                  <div class="tool-title">LuvTools</div>
-                </div>
-                <div class="external-tool-content">
-                  <div class="external-tool-title">
-                    <div class="external-icon">LT</div>
-                    All-in-One Toolkit
-                  </div>
-                  <p class="external-tool-desc">Access powerful tools including image compressors, format converters, color generators, and more at app.luviio.com</p>
-                  <div class="external-tool-url">app.luviio.com</div>
-                  <div class="external-tool-arrow">Open LuvTools ${icons.externalLink}</div>
-                </div>
-              </a>
+            <div class="external-tool-content">
+              <p class="external-tool-desc">Email marketing, SEO, Google Ads, Meta Ads, social media management, content writing, and analytics reporting.</p>
+              <div class="external-tool-arrow">View Marketing ${icons.arrowRight}</div>
             </div>
-
-            <!-- LuvImage Link -->
-            <div class="tool-card animate-on-scroll animate-delay-3">
-              <a href="https://remove-bg.luviio.com" target="_blank" rel="noopener noreferrer" class="external-tool-link">
-                <div class="tool-header" style="background:linear-gradient(135deg,#FFF5F0,#FFE8DD)">
-                  <div class="tool-icon" style="background:linear-gradient(135deg,#C2A68C,#A88B6E)">${icons.palette}</div>
-                  <div class="tool-title">LuvImage</div>
-                </div>
-                <div class="external-tool-content">
-                  <div class="external-tool-title">
-                    <div class="external-icon" style="background:linear-gradient(135deg,#C2A68C,#E6D8C3)">LI</div>
-                    Background Remover
-                  </div>
-                  <p class="external-tool-desc">Remove image backgrounds instantly with AI-powered precision. Perfect for product photos and profile pictures.</p>
-                  <div class="external-tool-url">remove-bg.luviio.com</div>
-                  <div class="external-tool-arrow">Open LuvImage ${icons.externalLink}</div>
-                </div>
-              </a>
+          </a>
+          
+          <a href="/product/automation-business-tools" class="tool-card animate-on-scroll animate-delay-3 external-tool-link">
+            <div class="tool-header" style="background:linear-gradient(135deg,#F0FDF4,#DCFCE7)">
+              <div class="tool-icon" style="background:#166534">${icons.settings}</div>
+              <div class="tool-title">Automation & Tools</div>
             </div>
-          </div>
+            <div class="external-tool-content">
+              <p class="external-tool-desc">CRM setup, WhatsApp automation, invoicing, inventory systems, HR dashboards, AI chatbots, and staff/client portals.</p>
+              <div class="external-tool-arrow">View Automation ${icons.arrowRight}</div>
+            </div>
+          </a>
+          
+          <a href="/product/design-branding" class="tool-card animate-on-scroll animate-delay-1 external-tool-link">
+            <div class="tool-header" style="background:linear-gradient(135deg,#FDF0EE,#F5E0DD)">
+              <div class="tool-icon">${icons.palette}</div>
+              <div class="tool-title">Design & Branding</div>
+            </div>
+            <div class="external-tool-content">
+              <p class="external-tool-desc">Logo design, brand identity kits, company profiles, presentation decks, UI/UX design systems, and social media packs.</p>
+              <div class="external-tool-arrow">View Branding ${icons.arrowRight}</div>
+            </div>
+          </a>
+          
+          <a href="/product/hosting" class="tool-card animate-on-scroll animate-delay-2 external-tool-link">
+            <div class="tool-header" style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE)">
+              <div class="tool-icon" style="background:#2563EB">${icons.globe}</div>
+              <div class="tool-title">Hosting & Infrastructure</div>
+            </div>
+            <div class="external-tool-content">
+              <p class="external-tool-desc">Domain management, business email, cloud/VPS servers, website maintenance, security monitoring, backups, and Cloudflare setup.</p>
+              <div class="external-tool-arrow">View Hosting ${icons.arrowRight}</div>
+            </div>
+          </a>
         </div>
       </div>
 
@@ -2918,39 +3130,271 @@ function renderProduct(el) {
   ${standardFooter}`;
 }
 
-// ===== COLOR PICKER FUNCTIONS =====
-function updateColor(hex) {
-  const swatch = document.getElementById('colorSwatch');
-  const hexEl = document.getElementById('colorHex');
-  const rgbEl = document.getElementById('colorRgb');
-  const input = document.getElementById('colorPickerInput');
-  if (!swatch || !hexEl || !rgbEl || !input) return;
+// ===== PRODUCT SUB-PAGE: ADD-ON SERVICES =====
+function renderProductAddon(el) {
+  el.innerHTML = `
+  <div class="sub-product-hero">
+    <div class="container">
+      <div class="section-label animate-on-scroll">Add-On Services</div>
+      <h1 class="animate-on-scroll animate-delay-1">Website & <span class="accent">Development</span></h1>
+      <p class="animate-on-scroll animate-delay-2">Enhance your existing website or build specific features with our à la carte development services. One-time fees or recurring options available.</p>
+    </div>
+  </div>
   
-  swatch.style.background = hex;
-  hexEl.textContent = hex.toUpperCase();
-  input.value = hex;
+  <section style="padding:0 0 60px">
+    <div class="container">
+      <div class="price-grid animate-on-scroll">
+        <div class="price-item"><div class="price-item-name">${icons.code} Additional Website Page</div><div class="price-item-price">RM80 <span>/page</span></div><p class="price-item-desc">Add extra pages to your existing website with consistent design and responsive layout.</p><button class="btn-secondary price-item-btn" onclick="navigate('/contact')">Request Quote</button></div>
+        
+        <div class="price-item"><div class="price-item-name">${icons.rocket} Landing Page Design</div><div class="price-item-price">RM350</div><p class="price-item-desc">High-converting single-page landing page optimized for campaigns, products, or lead generation.</p><button class="btn-secondary price-item-btn" onclick="navigate('/contact')">Request Quote</button></div>
+        
+        <div class="price-item"><div class="price-item-name">${icons.type} Blog Setup</div><div class="price-item-price">RM180</div><p class="price-item-desc">Complete WordPress blog installation with categories, tags, SEO plugins, and sample posts.</p><button class="btn-secondary price-item-btn" onclick="navigate('/contact')">Request Quote</button></div>
+        
+        <div class="price-item"><div class="price-item-name">${icons.box} E-Commerce Setup</div><div class="price-item-price">RM1,500</div><p class="price-item-desc">Shopify or WooCommerce store setup with product listings, payment gateway, and shipping configuration.</p><button class="btn-secondary price-item-btn" onclick="navigate('/contact')">Request Quote</button></div>
+        
+        <div class="price-item"><div class="price-item-name">${icons.creditCard} Payment Gateway Integration</div><div class="price-item-price">RM350</div><p class="price-item-desc">Stripe, FPX, or other payment processor integration with secure checkout flow.</p><button class="btn-secondary price-item-btn" onclick="navigate('/contact')">Request Quote</button></div>
+        
+        <div class="price-item"><div class="price-item-name">${icons.calendar} Booking System</div><div class="price-item-price">RM800</div><p class="price-item-desc">Appointment booking system with calendar sync, notifications, and deposit payments.</p><button class="btn-secondary price-item-btn" onclick="navigate('/contact')">Request Quote</button></div>
+        
+        <div class="price-item"><div class="price-item-name">${icons.users} Membership/Login System</div><div class="price-item-price">RM1,200</div><p class="price-item-desc">User registration, login, member areas, subscription gates, and protected content.</p><button class="btn-secondary price-item-btn" onclick="navigate('/contact')">Request Quote</button></div>
+        
+        <div class="price-item"><div class="price-item-name">${icons.layoutGrid} Custom Dashboard</div><div class="price-item-price">RM2,500</div><p class="price-item-desc">Admin dashboard with charts, data tables, CRUD operations, and role-based access control.</p><button class="btn-secondary price-item-btn" onclick="navigate('/contact')">Request Quote</button></div>
+        
+        <div class="price-item"><div class="price-item-name">${icons.settings} API Integration</div><div class="price-item-price">RM500</div><p class="price-item-desc">Third-party API connection (CRMs, ERPs, shipping, etc.) with data synchronization.</p><button class="btn-secondary price-item-btn" onclick="navigate('/contact')">Request Quote</button></div>
+        
+        <div class="price-item"><div class="price-item-name">${icons.globe} Website Migration</div><div class="price-item-price">RM350</div><p class="price-item-desc">Safe migration from old platform to new one with zero downtime and SEO preservation.</p><button class="btn-secondary price-item-btn" onclick="navigate('/contact')">Request Quote</button></div>
+        
+        <div class="price-item"><div class="price-item-name">${icons.zap} Website Speed Optimization</div><div class="price-item-price">RM450</div><p class="price-item-desc">Performance audit, image optimization, caching, CDN setup, and Core Web Vitals improvement.</p><button class="btn-secondary price-item-btn" onclick="navigate('/contact')">Request Quote</button></div>
+        
+        <div class="price-item"><div class="price-item-name">${icons.alertCircle} Emergency Website Fix</div><div class="price-item-price">RM250</div><p class="price-item-desc">Urgent bug fix, security patch, or critical issue resolution within 24 hours.</p><button class="btn-primary price-item-btn" style="background:var(--primary);color:#fff;border-color:var(--primary)" onclick="navigate('/contact')">Emergency Request</button></div>
+      </div>
+    </div>
+  </section>
   
-  const r = parseInt(hex.slice(1,3), 16);
-  const g = parseInt(hex.slice(3,5), 16);
-  const b = parseInt(hex.slice(5,7), 16);
-  rgbEl.textContent = `RGB(${r}, ${g}, ${b})`;
-  
-  swatch.style.transform = 'scale(0.95) rotate(5deg)';
-  setTimeout(() => swatch.style.transform = '', 200);
+  <!-- BUSINESS RULES -->
+  <div class="container">
+    <div class="business-rules animate-on-scroll">
+      <h2>${icons.alertCircle} Important Business Rules</h2>
+      <ul class="rules-list">
+        <li>No unlimited revisions — revision rounds are specified per package. Additional revisions billed at hourly rate.</li>
+        <li>No unlimited meetings — strategy meetings are limited per package. Extra meetings require additional booking.</li>
+        <li>No "urgent" work without extra charges — rush requests (under 48 hours) incur 50% surcharge on standard rates.</li>
+        <li>Custom requests outside package scope are billable — any feature not listed above will be quoted separately.</li>
+        <li>Third-party software/tools paid separately by client — licenses, subscriptions, or premium plugin costs are client responsibility unless explicitly included.</li>
+        <li>All prices exclude government taxes where applicable — SST (Sales & Service Tax) added at 8% for Malaysian clients.</li>
+      </ul>
+    </div>
+  </div>
+
+  ${standardFooter}`;
 }
 
-function copyToClipboard(text) {
-  navigator.clipboard.writeText(text).then(() => showToast(`Copied: ${text}`, 'success')).catch(() => showToast('Failed to copy', 'error'));
+// ===== PRODUCT SUB-PAGE: MARKETING SERVICES =====
+function renderProductMarketing(el) {
+  el.innerHTML = `
+  <div class="sub-product-hero">
+    <div class="container">
+      <div class="section-label animate-on-scroll">Marketing Services</div>
+      <h1 class="animate-on-scroll animate-delay-1">Marketing <span class="accent">Services</span></h1>
+      <p class="animate-on-scroll animate-delay-2">Grow your audience, generate leads, and increase conversions with our comprehensive digital marketing solutions tailored for Malaysian businesses.</p>
+    </div>
+  </div>
+  
+  <section style="padding:0 0 60px">
+    <div class="container">
+      <div class="price-grid animate-on-scroll">
+        <div class="price-item"><div class="price-item-name">${icons.mail} Email Marketing Tool Setup</div><div class="price-item-price">RM350</div><p class="price-item-desc">Mailchimp, ConvertKit, or Brevo setup with templates, automation workflows, and list segmentation.</p><button class="btn-secondary price-item-btn" onclick="navigate('/contact')">Get Started</button></div>
+        
+        <div class="price-item"><div class="price-item-name">${icons.send} Monthly Email Marketing Management</div><div class="price-item-price">RM600 <span>/month</span></div><p class="price-item-desc">Ongoing campaign creation, A/B testing, list management, and performance reporting every month.</p><button class="btn-secondary price-item-btn" onclick="navigate('/contact')">Subscribe</button></div>
+        
+        <div class="price-item"><div class="price-item-name">${icons.search} SEO Optimization</div><div class="price-item-price">RM500 <span>/month</span></div><p class="price-item-desc">On-page SEO, technical SEO, keyword research, content strategy, and monthly ranking reports.</p><button class="btn-secondary price-item-btn" onclick="navigate('/contact')">Start SEO</button></div>
+        
+        <div class="price-item"><div class="price-item-name">${icons.target} Google Ads Setup</div><div class="price-item-price">RM350</div><p class="price-item-desc">Initial Google Ads account setup, campaign structure, keyword research, and conversion tracking.</p><button class="btn-secondary price-item-btn" onclick="navigate('/contact')">Setup Now</button></div>
+        
+        <div class="price-item"><div class="price-item-name">${icons.target} Google Ads Management</div><div class="price-item-price">RM700 <span>/month</span></div><p class="price-item-desc">Ongoing campaign optimization, bid management, ad copy testing, and weekly performance reviews.</p><button class="btn-secondary price-item-btn" onclick="navigate('/contact')">Manage My Ads</button></div>
+        
+        <div class="price-item"><div class="price-item-name">${icons.users} Meta Ads Setup</div><div class="price-item-price">RM350</div><p class="price-item-desc">Facebook & Instagram Ads pixel installation, audience setup, and initial campaign launch.</p><button class="btn-secondary price-item-btn" onclick="navigate('/contact')">Setup Meta Ads</button></div>
+        
+        <div class="price-item"><div class="price-item-name">${icons.users} Meta Ads Management</div><div class="price-item-price">RM700 <span>/month</span></div><p class="price-item-desc">Creative production, audience refinement, budget optimization, and retargeting strategies.</p><button class="btn-secondary price-item-btn" onclick="navigate('/contact')">Manage Meta Ads</button></div>
+        
+        <div class="price-item"><div class="price-item-name">${icons.smartphone} Social Media Management</div><div class="price-item-price">RM800 <span>/month</span></div><p class="price-item-desc">Content calendar, post creation, community engagement, and monthly analytics across 3 platforms.</p><button class="btn-secondary price-item-btn" onclick="navigate('/contact')">Manage Social</button></div>
+        
+        <div class="price-item"><div class="price-item-name">${icons.type} Content Writing</div><div class="price-item-price">RM120 <span>/article</span></div><p class="price-item-desc">SEO-optimized blog articles (800-1500 words) with research, editing, and internal linking strategy.</p><button class="btn-secondary price-item-btn" onclick="navigate('/contact')">Order Article</button></div>
+        
+        <div class="price-item"><div class="price-item-name">${icons.pencil} Copywriting</div><div class="price-item-price">RM150 <span>/page</span></div><p class="price-item-desc">Persuasive sales copy, landing page copy, email sequences, and ad copy that converts.</p><button class="btn-secondary price-item-btn" onclick="navigate('/contact')">Order Copy</button></div>
+        
+        <div class="price-item"><div class="price-item-name">${icons.eye} Monthly Analytics Report</div><div class="price-item-price">RM150 <span>/month</span></div><p class="price-item-desc">Comprehensive monthly report covering traffic, conversions, ROI analysis, and actionable recommendations.</p><button class="btn-secondary price-item-btn" onclick="navigate('/contact')">Get Reports</button></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="business-rules animate-on-scroll">
+      <h2>${icons.alertCircle} Important Business Rules</h2>
+      <ul class="rules-list">
+        <li>Ad spend (Facebook, Google, etc.) is paid directly by client to the platform — not through Luviio.</li>
+        <li>Minimum 3-month commitment for monthly management services — ensures strategy effectiveness.</li>
+        <li>Content approval required before publishing — 48-hour turnaround for client feedback.</li>
+        <li>Results vary based on industry, competition, and budget — no guaranteed specific metrics promised.</li>
+        <li>Stock images and licensed assets cost extra unless client provides their own media library.</li>
+      </ul>
+    </div>
+  </div>
+
+  ${standardFooter}`;
 }
 
-// ===== PRICING PAGE =====
+// ===== PRODUCT SUB-PAGE: AUTOMATION & BUSINESS TOOLS =====
+function renderProductAutomation(el) {
+  el.innerHTML = `
+  <div class="sub-product-hero">
+    <div class="container">
+      <div class="section-label animate-on-scroll">Automation & Business Tools</div>
+      <h1 class="animate-on-scroll animate-delay-1">Automation & <span class="accent">Business Tools</span></h1>
+      <p class="animate-on-scroll animate-delay-2">Streamline your operations with custom CRM systems, automated workflows, and integrated business tools designed for efficiency.</p>
+    </div>
+  </div>
+  
+  <section style="padding:0 0 60px">
+    <div class="container">
+      <div class="price-grid animate-on-scroll">
+        <div class="price-item"><div class="price-item-name">${icons.settings} CRM Setup</div><div class="price-item-price">RM1,200</div><p class="price-item-desc">Custom CRM implementation with lead tracking, pipeline management, and customer database organization.</p><button class="btn-secondary price-item-btn" onclick="navigate('/contact')">Setup CRM</button></div>
+        
+        <div class="price-item"><div class="price-item-name">${icons.send} WhatsApp Automation</div><div class="price-item-price">RM800</div><p class="price-item-desc">WhatsApp Business API setup with auto-replies, chatbots, broadcast lists, and message templates.</p><button class="btn-secondary price-item-btn" onclick="navigate('/contact')">Automate WA</button></div>
+        
+        <div class="price-item"><div class="price-item-name">${icons.creditCard} Invoice/Billing System</div><div class="price-item-price">RM1,500</div><p class="price-item-desc">Automated invoicing, payment reminders, recurring billing, and financial reporting dashboard.</p><button class="btn-secondary price-item-btn" onclick="navigate('/contact')">Setup Invoicing</button></div>
+        
+        <div class="price-item"><div class="price-item-name">${icons.box} Inventory System</div><div class="price-item-price">RM3,500</div><p class="price-item-desc">Stock management, low-level alerts, multi-location tracking, supplier management, and barcode integration.</p><button class="btn-secondary price-item-btn" onclick="navigate('/contact')">Setup Inventory</button></div>
+        
+        <div class="price-item"><div class="price-item-name">${icons.users} HR/Employee Dashboard</div><div class="price-item-price">RM4,500</div><p class="price-item-desc">Employee self-service portal, leave management, attendance tracking, payroll integration, and document storage.</p><button class="btn-secondary price-item-btn" onclick="navigate('/contact')">Setup HR Portal</button></div>
+        
+        <div class="price-item"><div class="price-item-name">${icons.settings} AI Chatbot Integration</div><div class="price-item-price">RM1,200</div><p class="price-item-desc">AI-powered chatbot for customer support, lead qualification, or internal FAQ automation with natural language processing.</p><button class="btn-secondary price-item-btn" onclick="navigate('/contact')">Add Chatbot</button></div>
+        
+        <div class="price-item"><div class="price-item-name">${icons.layoutGrid} Internal Staff Portal</div><div class="price-item-price">RM2,500</div><p class="price-item-desc">Private intranet for employees with document sharing, announcements, task management, and departmental organization.</p><button class="btn-secondary price-item-btn" onclick="navigate('/contact')">Build Portal</button></div>
+        
+        <div class="price-item"><div class="price-item-name">${icons.users} Client Portal System</div><div class="price-item-price">RM2,000</div><p class="price-item-desc">Secure client area for file sharing, project updates, ticketing system, and progress tracking dashboards.</p><button class="btn-secondary price-item-btn" onclick="navigate('/contact')">Build Client Portal</button></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="business-rules animate-on-scroll">
+      <h2>${icons.alertCircle} Important Business Rules</h2>
+      <ul class="rules-list">
+        <li>Custom integrations with existing software may incur additional costs depending on API complexity.</li>
+        <li>Training sessions for staff on how to use new systems are billed separately at RM150/hour.</li>
+        <li>Data migration from legacy systems quoted individually based on volume and complexity.</li>
+        <li>Ongoing maintenance and support packages available for all custom systems at 20% of setup cost per month.</li>
+        <li>Server hosting and infrastructure costs for self-hosted solutions are client responsibility.</li>
+      </ul>
+    </div>
+  </div>
+
+  ${standardFooter}`;
+}
+
+// ===== PRODUCT SUB-PAGE: DESIGN & BRANDING =====
+function renderProductDesignBranding(el) {
+  el.innerHTML = `
+  <div class="sub-product-hero">
+    <div class="container">
+      <div class="section-label animate-on-scroll">Design & Branding</div>
+      <h1 class="animate-on-scroll animate-delay-1">Design & <span class="accent">Branding</span></h1>
+      <p class="animate-on-scroll animate-delay-2">Build a memorable visual identity with professional design services that make your brand stand out in the Malaysian market.</p>
+    </div>
+  </div>
+  
+  <section style="padding:0 0 60px">
+    <div class="container">
+      <div class="price-grid animate-on-scroll">
+        <div class="price-item"><div class="price-item-name">${icons.palette} Logo Design</div><div class="price-item-price">RM250</div><p class="price-item-desc">Custom logo design with 3 concepts, unlimited revisions, and final files in all formats (SVG, PNG, PDF, AI).</p><button class="btn-secondary price-item-btn" onclick="navigate('/contact')">Design Logo</button></div>
+        
+        <div class="price-item"><div class="price-item-name">${icons.star} Brand Identity Kit</div><div class="price-item-price">RM800</div><p class="price-item-desc">Complete brand guidelines including logo variations, color palette, typography, iconography, and brand usage rules.</p><button class="btn-secondary price-item-btn" onclick="navigate('/contact')">Get Brand Kit</button></div>
+        
+        <div class="price-item"><div class="price-item-name">${icons.layoutGrid} Company Profile Design</div><div class="price-item-price">RM500</div><p class="price-item-desc">Professional company profile design (PDF/PPT) suitable for investor presentations, client meetings, and B2B proposals.</p><button class="btn-secondary price-item-btn" onclick="navigate('/contact')">Design Profile</button></div>
+        
+        <div class="price-item"><div class="price-item-name">${icons.presentation} Presentation Deck Design</div><div class="price-item-price">RM450</div><p class="price-item-desc">Investor pitch decks, sales presentations, or training materials with master slides and consistent branding.</p><button class="btn-secondary price-item-btn" onclick="navigate('/contact')">Design Deck</button></div>
+        
+        <div class="price-item"><div class="price-item-name">${icons.type} UI/UX Design System</div><div class="price-item-price">RM1,500</div><p class="price-item-desc">Component library, design tokens, interaction patterns, and documentation for consistent product design.</p><button class="btn-secondary price-item-btn" onclick="navigate('/contact')">Build System</button></div>
+        
+        <div class="price-item"><div class="price-item-name">${icons.smartphone} Social Media Design Pack</div><div class="price-item-price">RM350</div><p class="price-item-desc">30-day social media content pack including post templates, stories, highlights cover, and profile banner designs.</p><button class="btn-secondary price-item-btn" onclick="navigate('/contact')">Get Pack</button></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="business-rules animate-on-scroll">
+      <h2>${icons.alertCircle} Important Business Rules</h2>
+      <ul class="rules-list">
+        <li>Source files (AI, PSD, Figma) included in all design packages unless otherwise specified.</li>
+        <li>Stock photos and imagery used in designs are licensed separately — client provides or we source at additional cost.</li>
+        <li>Print-ready files require separate print specifications and may incur additional preparation fees.</li>
+        <li>Revisions limited to 3 rounds per deliverable. Additional revisions billed at RM80/hour.</li>
+        <li>Brand trademark registration is not included — legal filing is client responsibility.</li>
+      </ul>
+    </div>
+  </div>
+
+  ${standardFooter}`;
+}
+
+// ===== PRODUCT SUB-PAGE: HOSTING & INFRASTRUCTURE =====
+function renderProductHosting(el) {
+  el.innerHTML = `
+  <div class="sub-product-hero">
+    <div class="container">
+      <div class="section-label animate-on-scroll">Hosting & Infrastructure</div>
+      <h1 class="animate-on-scroll animate-delay-1">Hosting & <span class="accent">Infrastructure</span></h1>
+      <p class="animate-on-scroll animate-delay-2">Reliable hosting, domain management, and technical infrastructure services to keep your online presence running smoothly 24/7.</p>
+    </div>
+  </div>
+  
+  <section style="padding:0 0 60px">
+    <div class="container">
+      <div class="price-grid animate-on-scroll">
+        <div class="price-item"><div class="price-item-name">${icons.globe} Domain Management</div><div class="price-item-price">RM50 <span>/month</span></div><p class="price-item-desc">Domain registration, renewal management, DNS configuration, and WHOIS privacy protection.</p><button class="btn-secondary price-item-btn" onclick="navigate('/contact')">Manage Domain</button></div>
+        
+        <div class="price-item"><div class="price-item-name">${icons.mail} Business Email Setup</div><div class="price-item-price">RM150</div><p class="price-item-desc">One-time setup of professional business email (Google Workspace/Microsoft 365) with up to 10 accounts.</p><button class="btn-secondary price-item-btn" onclick="navigate('/contact')">Setup Email</button></div>
+        
+        <div class="price-item"><div class="price-item-name">${icons.mail} Business Email Management</div><div class="price-item-price">RM50 <span>/month</span></div><p class="price-item-desc">Ongoing email administration, alias management, spam filtering, and security monitoring.</p><button class="btn-secondary price-item-btn" onclick="navigate('/contact')">Manage Email</button></div>
+        
+        <div class="price-item"><div class="price-item-name">${icons.server} Cloud/VPS Server Setup</div><div class="price-item-price">RM800</div><p class="price-item-desc">AWS, DigitalOcean, or VPS server configuration with SSL, firewall, SSH hardening, and initial deployment.</p><button class="btn-secondary price-item-btn" onclick="navigate('/contact')">Setup Server</button></div>
+        
+        <div class="price-item"><div class="price-item-name">${icons.monitor} Website Maintenance Only</div><div class="price-item-price">RM250 <span>/month</span></div><p class="price-item-desc">Core updates, security patches, uptime monitoring, backup verification, and monthly health reports.</p><button class="btn-secondary price-item-btn" onclick="navigate('/contact')">Maintain Site</button></div>
+        
+        <div class="price-item"><div class="price-item-name">${icons.shield} Security Monitoring</div><div class="price-item-price">RM180 <span>/month</span></div><p class="price-item-desc">24/7 security scanning, malware detection, DDoS protection, vulnerability patching, and incident response.</p><button class="btn-secondary price-item-btn" onclick="navigate('/contact')">Secure Site</button></div>
+        
+        <div class="price-item"><div class="price-item-name">${icons.box} Backup Management</div><div class="price-item-price">RM80 <span>/month</span></div><p class="price-item-desc">Automated daily backups, offsite storage, one-click restore capability, and quarterly restore testing.</p><button class="btn-secondary price-item-btn" onclick="navigate('/contact')">Setup Backups</button></div>
+        
+        <div class="price-item"><div class="price-item-name">${icons.globe} Cloudflare Setup</div><div class="price-item-price">RM180</div><p class="price-item-desc">Cloudflare CDN configuration, DNS management, caching rules, SSL/TLS optimization, and bot protection.</p><button class="btn-secondary price-item-btn" onclick="navigate('/contact')">Setup Cloudflare</button></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="business-rules animate-on-scroll">
+      <h2>${icons.alertCircle} Important Business Rules</h2>
+      <ul class="rules-list">
+        <li>Domain renewal fees charged annually by registrar — we manage but client pays renewal cost.</li>
+        <li>Storage overages and bandwidth excess charges passed through at provider rates.</li>
+        <li>Emergency recovery from backups outside scheduled windows billed at RM150/incident.</li>
+        <li>Server hardware upgrades or scaling requires new quotation based on resource requirements.</li>
+        <li>SLA guarantees available for enterprise hosting with 99.9% uptime commitment (premium tier).</li>
+      </ul>
+    </div>
+  </div>
+
+  ${standardFooter}`;
+}
+
+// ===== PRICING PAGE (UPDATED WITH NEW RM PRICING) =====
 function renderPricing(el) {
   el.innerHTML = `
   <div class="pricing-page-hero">
     <div class="container">
       <div class="section-label animate-on-scroll">Pricing</div>
       <h1 class="animate-on-scroll animate-delay-1">Plans that <span class="accent">scale</span> with you</h1>
-      <p class="animate-on-scroll animate-delay-2">From startup to enterprise — transparent pricing with no hidden fees. All plans include SSL certificates and basic security.</p>
+      <p class="animate-on-scroll animate-delay-2">From startup to enterprise — transparent pricing in Malaysian Ringgit (RM) with no hidden fees. All plans include SSL certificates and basic security.</p>
     </div>
   </div>
 
@@ -2958,94 +3402,139 @@ function renderPricing(el) {
     <div class="container">
       <div class="pricing-grid">
         <div class="pricing-card animate-on-scroll animate-delay-1">
-          <div class="pricing-name">Starter</div>
-          <div class="pricing-price">150 <span>MYR/mo</span></div>
-          <div class="pricing-desc">Perfect for small businesses & startups. Billed monthly.</div>
+          <div class="pricing-name">Starter Plan</div>
+          <div class="pricing-price">RM199 <span>/month</span></div>
+          <div class="pricing-desc">Perfect for personal brands, small businesses & startups. Billed monthly.</div>
+          
+          <div style="background:var(--primary-tint);border-radius:12px;padding:16px;margin-bottom:20px">
+            <p style="font-size:13px;font-weight:700;color:var(--primary-dark);margin-bottom:8px">Best For:</p>
+            <div style="display:flex;flex-wrap:wrap;gap:6px">
+              ${plans.starter.bestFor.map(b => `<span style="font-size:12px;background:#fff;padding:4px 10px;border-radius:6px;color:var(--text);border:1px solid rgba(171,21,9,0.15)">${b}</span>`).join('')}
+            </div>
+          </div>
+          
           <ul class="pricing-features">
-            <li><span class="check">${icons.check}</span>Custom website setup (up to 5 pages)</li>
-            <li><span class="check">${icons.check}</span>Fully mobile responsive design</li>
-            <li><span class="check">${icons.check}</span>Basic UI/UX design</li>
-            <li><span class="check">${icons.check}</span>Contact form + WhatsApp integration</li>
-            <li><span class="check">${icons.check}</span>Basic SEO optimization</li>
-            <li style="margin-top:12px;font-weight:600;color:#8B8B7A;font-size:13px">Monthly Support:</li>
-            <li><span class="check">${icons.check}</span>Bug fixes</li>
-            <li><span class="check">${icons.check}</span>Minor updates</li>
-            <li><span class="check">${icons.check}</span>Email support</li>
+            ${plans.starter.included.map(item => `<li><span class="check">${icons.check}</span>${item}</li>`).join('')}
           </ul>
-          <button class="btn-secondary" onclick="selectPlanAndCheckout('starter')">Get Started</button>
+          
+          <div style="background:#FAFAF8;border-radius:12px;padding:16px;margin-bottom:20px;border:1px solid #F0F0EB">
+            <p style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:6px">Support</p>
+            <p style="font-size:14px;color:var(--primary);font-weight:600">${plans.starter.support}</p>
+          </div>
+          
+          <button class="btn-secondary" onclick="selectPlanAndCheckout('starter')">Choose Starter</button>
         </div>
+        
         <div class="pricing-card featured animate-on-scroll animate-delay-2">
           <div class="pricing-badge">Most Popular</div>
-          <div class="pricing-name">Growth</div>
-          <div class="pricing-price">300 <span>MYR/mo</span></div>
-          <div class="pricing-desc">Best for growing brands & eCommerce. Billed monthly.</div>
+          <div class="pricing-name">Growth Plan</div>
+          <div class="pricing-price">RM499 <span>/month</span></div>
+          <div class="pricing-desc">Best for SMEs, growing brands & service companies. Billed monthly.</div>
+          
+          <div style="background:var(--primary-tint);border-radius:12px;padding:16px;margin-bottom:20px">
+            <p style="font-size:13px;font-weight:700;color:var(--primary-dark);margin-bottom:8px">Best For:</p>
+            <div style="display:flex;flex-wrap:wrap;gap:6px">
+              ${plans.growth.bestFor.map(b => `<span style="font-size:12px;background:#fff;padding:4px 10px;border-radius:6px;color:var(--text);border:1px solid rgba(171,21,9,0.15)">${b}</span>`).join('')}
+            </div>
+          </div>
+          
           <ul class="pricing-features">
-            <li><span class="check">${icons.check}</span>Advanced website or Shopify store</li>
-            <li><span class="check">${icons.check}</span>Up to 10 pages / Full store structure</li>
-            <li><span class="check">${icons.check}</span>Conversion-focused UI/UX design</li>
-            <li><span class="check">${icons.check}</span>Payment gateway setup (Stripe, FPX)</li>
-            <li><span class="check">${icons.check}</span>Google Analytics integration</li>
-            <li><span class="check">${icons.check}</span>Performance optimization</li>
-            <li style="margin-top:12px;font-weight:600;color:#8B8B7A;font-size:13px">Priority Support Included:</li>
-            <li><span class="check">${icons.check}</span>Priority fixes</li>
-            <li><span class="check">${icons.check}</span>Monthly reviews</li>
-            <li><span class="check">${icons.check}</span>SEO tracking</li>
+            ${plans.growth.included.map(item => `<li><span class="check">${icons.check}</span>${item}</li>`).join('')}
           </ul>
-          <button class="btn-primary" onclick="selectPlanAndCheckout('growth')">Get Started Now</button>
+          
+          <div style="background:#FAFAF8;border-radius:12px;padding:16px;margin-bottom:20px;border:1px solid #F0F0EB">
+            <p style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:6px">Support</p>
+            <p style="font-size:14px;color:var(--primary);font-weight:600">${plans.growth.support}</p>
+          </div>
+          
+          <button class="btn-primary" onclick="selectPlanAndCheckout('growth')">Choose Growth</button>
         </div>
+        
         <div class="pricing-card animate-on-scroll animate-delay-3">
-          <div class="pricing-name">Pro IT</div>
-          <div class="pricing-price">1,900 <span>MYR/mo</span></div>
-          <div class="pricing-desc">Full outsourced IT department. Billed monthly.</div>
+          <div class="pricing-name">Pro IT Plan</div>
+          <div class="pricing-price">RM1,999 <span>/month</span></div>
+          <div class="pricing-desc">Full outsourced IT department for corporate, SaaS & automation. Billed monthly.</div>
+          
+          <div style="background:var(--primary-tint);border-radius:12px;padding:16px;margin-bottom:20px">
+            <p style="font-size:13px;font-weight:700;color:var(--primary-dark);margin-bottom:8px">Best For:</p>
+            <div style="display:flex;flex-wrap:wrap;gap:6px">
+              ${plans.proit.bestFor.map(b => `<span style="font-size:12px;background:#fff;padding:4px 10px;border-radius:6px;color:var(--text);border:1px solid rgba(171,21,9,0.15)">${b}</span>`).join('')}
+            </div>
+          </div>
+          
           <ul class="pricing-features">
-            <li><span class="check">${icons.check}</span>Unlimited updates</li>
-            <li><span class="check">${icons.check}</span>Full website creation & maintenance</li>
-            <li><span class="check">${icons.check}</span>eCommerce store setup</li>
-            <li><span class="check">${icons.check}</span>Email marketing management</li>
-            <li><span class="check">${icons.check}</span>System integrations (CRM, automation)</li>
-            <li><span class="check">${icons.check}</span>Dedicated team support</li>
-            <li style="margin-top:12px;font-weight:600;color:#8B8B7A;font-size:13px">Enterprise Support:</li>
-            <li><span class="check">${icons.check}</span>Fast response</li>
-            <li><span class="check">${icons.check}</span>Priority handling</li>
-            <li><span class="check">${icons.check}</span>Strategy calls</li>
-            <li><span class="check">${icons.check}</span>Monthly reports</li>
+            ${plans.proit.included.map(item => `<li><span class="check">${icons.check}</span>${item}</li>`).join('')}
           </ul>
-          <button class="btn-secondary" onclick="selectPlanAndCheckout('proit')">Contact Sales</button>
+          
+          <div style="background:#FAFAF8;border-radius:12px;padding:16px;margin-bottom:20px;border:1px solid #F0F0EB">
+            <p style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:6px">Support</p>
+            <p style="font-size:14px;color:var(--primary);font-weight:600">${plans.proit.support}</p>
+          </div>
+          
+          <button class="btn-secondary" onclick="selectPlanAndCheckout('proit')">Choose Pro IT</button>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="compare-section" style="background:#EDEDE8;border-top:1px solid var(--warm-light);border-bottom:1px solid var(--warm-light)">
+  <!-- RECOMMENDED BUSINESS MODEL SECTION -->
+  <section style="background:linear-gradient(180deg,#EDEDE8 0%,#F5F5F0 100%);border-top:1px solid var(--warm-light);border-bottom:1px solid var(--warm-light);padding:72px 0;width:100%">
     <div class="container">
-      <h2 class="animate-on-scroll">Compare all features</h2>
-      <p class="compare-sub animate-on-scroll animate-delay-1">See exactly what's included in every plan. All plans include SSL certificates and basic security.</p>
-      <div class="compare-table-wrap animate-on-scroll animate-delay-2">
-        <table class="compare-table">
-          <thead>
-            <tr>
-              <th>Feature</th>
-              <th class="plan-header">Starter<br><span class="plan-price">MYR 150/mo</span></th>
-              <th class="plan-header">Growth <span class="popular-badge">POPULAR</span><br><span class="plan-price">MYR 300/mo</span></th>
-              <th class="plan-header">Pro IT<br><span class="plan-price">MYR 1,900/mo</span></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="cat-row"><td colspan="4">Website & Design</td></tr>
-            <tr><td class="feature-name">Pages included</td><td>Up to 5</td><td>Up to 10</td><td>Unlimited</td></tr>
-            <tr><td class="feature-name">Responsive design</td><td class="check-icon">✓</td><td class="check-icon">✓</td><td class="check-icon">✓</td></tr>
-            <tr><td class="feature-name">UI/UX Design level</td><td>Basic</td><td>Conversion-focused</td><td>Premium + CRO</td></tr>
-            <tr><td class="feature-name">Shopify / eCommerce</td><td class="dash-icon">—</td><td class="check-icon">✓</td><td class="check-icon">✓</td></tr>
-            <tr class="cat-row"><td colspan="4">Integrations & Features</td></tr>
-            <tr><td class="feature-name">Contact form + WhatsApp</td><td class="check-icon">✓</td><td class="check-icon">✓</td><td class="check-icon">✓</td></tr>
-            <tr><td class="feature-name">Payment gateways</td><td class="dash-icon">—</td><td>Stripe, FPX</td><td>All gateways</td></tr>
-            <tr><td class="feature-name">Google Analytics</td><td class="dash-icon">—</td><td class="check-icon">✓</td><td class="check-icon">✓</td></tr>
-            <tr><td class="feature-name">CRM integrations</td><td class="dash-icon">—</td><td class="dash-icon">—</td><td class="check-icon">✓</td></tr>
-            <tr class="cat-row"><td colspan="4">Support & Maintenance</td></tr>
-            <tr><td class="feature-name">Updates per month</td><td>Minor only</td><td>Standard</td><td>Unlimited</td></tr>
-            <tr><td class="feature-name">Response time</td><td>24-48 hours</td><td>12-24 hours</td><td>&lt; 4 hours</td></tr>
-          </tbody>
-        </table>
+      <div class="section-header animate-on-scroll">
+        <div class="section-label">Business Model</div>
+        <h2 class="section-title" style="font-size:38px;line-height:46px;text-align:center">Recommended strategy for Luviio</h2>
+      </div>
+      
+      <div style="max-width:800px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:40px">
+        <div class="animate-on-scroll animate-delay-1" style="background:#fff;padding:28px;border-radius:var(--radius-lg);border:1px solid var(--warm-light)">
+          <h3 style="font-size:20px;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:8px">${icons.star} Main Recurring Income</h3>
+          <ul style="list-style:none;padding:0">
+            <li style="padding:8px 0;border-bottom:1px dashed var(--warm-light);font-size:15px"><strong>Starter</strong> — RM199/mo</li>
+            <li style="padding:8px 0;border-bottom:1px dashed var(--warm-light);font-size:15px"><strong>Growth</strong> — RM499/mo</li>
+            <li style="padding:8px 0;font-size:15px"><strong>Pro IT</strong> — RM1,999/mo</li>
+          </ul>
+        </div>
+        
+        <div class="animate-on-scroll animate-delay-2" style="background:#fff;padding:28px;border-radius:var(--radius-lg);border:1px solid var(--warm-light)">
+          <h3 style="font-size:20px;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:8px">${icons.rocket} Upsell Monthly Services</h3>
+          <ul style="list-style:none;padding:0">
+            <li style="padding:8px 0;border-bottom:1px dashed var(--warm-light);font-size:15px">SEO Optimization</li>
+            <li style="padding:8px 0;border-bottom:1px dashed var(--warm-light);font-size:15px">Ads Management (Google/Meta)</li>
+            <li style="padding:8px 0;border-bottom:1px dashed var(--warm-light);font-size:15px">Email Marketing</li>
+            <li style="padding:8px 0;border-bottom:1px dashed var(--warm-light);font-size:15px">Maintenance Packages</li>
+            <li style="padding:8px 0;border-bottom:1px dashed var(--warm-light);font-size:15px">Automation Tools</li>
+            <li style="padding:8px 0;font-size:15px">Hosting Management</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="animate-on-scroll animate-delay-3" style="text-align:center;margin-top:40px;background:linear-gradient(135deg,var(--primary-tint),rgba(171,21,9,0.08));padding:28px;border-radius:var(--radius-lg);border:1px solid rgba(171,21,9,0.2)">
+        <h3 style="font-size:18px;font-weight:800;margin-bottom:12px">This model creates:</h3>
+        <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:16px;margin-top:16px">
+          <span style="background:#fff;padding:10px 18px;border-radius:8px;font-size:14px;font-weight:600;border:1px solid var(--warm-light)">✓ Stable recurring income</span>
+          <span style="background:#fff;padding:10px 18px;border-radius:8px;font-size:14px;font-weight:600;border:1px solid var(--warm-light)">✓ Easier sales closing</span>
+          <span style="background:#fff;padding:10px 18px;border-radius:8px;font-size:14px;font-weight:600;border:1px solid var(--warm-light)">✓ Predictable cashflow</span>
+          <span style="background:#fff;padding:10px 18px;border-radius:8px;font-size:14px;font-weight:600;border:1px solid var(--warm-light)">✓ Better long-term retention</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPORTANT BUSINESS RULES -->
+  <section style="padding:60px 0;width:100%">
+    <div class="container">
+      <div class="business-rules animate-on-scroll">
+        <h2>${icons.alertCircle} Important Business Rules</h2>
+        <p style="font-size:16px;color:#5C5C4F;margin-bottom:24px">To protect company profitability and ensure sustainable service delivery:</p>
+        <ul class="rules-list">
+          <li><strong>No unlimited revisions</strong> — Revision rounds are specified per package. Additional revisions billed at standard hourly rate (RM150/hr).</li>
+          <li><strong>No unlimited meetings</strong> — Strategy/consultation meetings limited per package. Extra meetings require additional booking at RM200/session.</li>
+          <li><strong>No "urgent" work without extra charges</strong> — Rush requests (under 48-hour turnaround) incur 50% surcharge on applicable fees.</li>
+          <li><strong>Custom requests outside package scope are billable</strong> — Any feature or service not explicitly listed in your chosen plan will be quoted separately.</li>
+          <li><strong>Third-party software/tools paid separately by client</strong> — Licenses, subscriptions, stock photos, premium plugins, or platform fees are client responsibility unless explicitly included.</li>
+          <li><strong>All prices exclude SST where applicable</strong> — Sales & Service Tax (SST) at current rate added for Malaysian clients as required by law.</li>
+          <li><strong>Cancellation requires 30 days written notice</strong> — Monthly subscriptions can be cancelled with 30 days notice. No prorated refunds for mid-cycle cancellations.</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -3086,7 +3575,7 @@ function renderServices(el) {
             <li><span class="svc-check">${icons.check}</span>Conversion rate optimization (CRO) principles</li>
             <li><span class="svc-check">${icons.check}</span>Wireframing & prototyping included</li>
           </ul>
-          <div class="service-action"><button class="btn-ghost" onclick="showToast('Opening design samples...','success')">${icons.arrowRight} View samples & details</button></div>
+          <div class="service-action"><a href="/services" class="btn-ghost">${icons.arrowRight} View samples & details</a></div>
         </div>
         
         <div class="service-card animate-on-scroll animate-delay-2">
@@ -3140,10 +3629,10 @@ function renderServices(el) {
       <p class="section-desc">A streamlined process designed for transparency, speed, and results you can measure.</p>
     </div>
     
-    <!-- Timeline Container - Works on ALL screen sizes -->
+    <!-- Timeline Container -->
     <div style="position:relative;max-width:680px;margin:40px auto 0;padding-left:28px;border-left:3px solid var(--primary)">
       
-      <!-- Step 01 - Discovery -->
+      <!-- Step 01 -->
       <div class="animate-on-scroll animate-delay-1" style="margin-bottom:40px;position:relative;padding-left:12px">
         <div style="position:absolute;left:-37px;top:-2px;width:26px;height:26px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:13px;font-family:'Space Mono',monospace;z-index:2;box-shadow:0 4px 12px rgba(171,21,9,0.3)">01</div>
         <h3 style="font-size:22px;font-weight:800;color:var(--text);margin-bottom:8px;display:flex;align-items:center;gap:10px">
@@ -3153,7 +3642,7 @@ function renderServices(el) {
         <p style="color:#5C5C4F;font-size:15px;line-height:1.7;margin:0">We learn about your business goals, target audience, market position, and competitors through in-depth research sessions and strategy workshops.</p>
       </div>
 
-      <!-- Step 02 - Design -->
+      <!-- Step 02 -->
       <div class="animate-on-scroll animate-delay-2" style="margin-bottom:40px;position:relative;padding-left:12px">
         <div style="position:absolute;left:-37px;top:-2px;width:26px;height:26px;background:linear-gradient(135deg,var(--primary-dark),#6E0D04);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:13px;font-family:'Space Mono',monospace;z-index:2;box-shadow:0 4px 12px rgba(138,17,7,0.25)">02</div>
         <h3 style="font-size:22px;font-weight:800;color:var(--text);margin-bottom:8px;display:flex;align-items:center;gap:10px">
@@ -3163,7 +3652,7 @@ function renderServices(el) {
         <p style="color:#5C5C4F;font-size:15px;line-height:1.7;margin:0">Wireframes, mockups, and visual prototypes crafted with your brand identity and user experience at the forefront of every decision.</p>
       </div>
 
-      <!-- Step 03 - Build -->
+      <!-- Step 03 -->
       <div class="animate-on-scroll animate-delay-3" style="margin-bottom:40px;position:relative;padding-left:12px">
         <div style="position:absolute;left:-37px;top:-2px;width:26px;height:26px;background:linear-gradient(135deg,#6E0D04,var(--primary));border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:13px;font-family:'Space Mono',monospace;z-index:2;box-shadow:0 4px 12px rgba(110,13,4,0.2)">03</div>
         <h3 style="font-size:22px;font-weight:800;color:var(--text);margin-bottom:8px;display:flex;align-items:center;gap:10px">
@@ -3173,7 +3662,7 @@ function renderServices(el) {
         <p style="color:#5C5C4F;font-size:15px;line-height:1.7;margin:0">Clean code implementation, responsive layouts, performance optimization, and seamless integrations with your existing technology stack.</p>
       </div>
 
-      <!-- Step 04 - Launch & Grow -->
+      <!-- Step 04 -->
       <div class="animate-on-scroll animate-delay-4" style="position:relative;padding-left:12px">
         <div style="position:absolute;left:-37px;top:-2px;width:26px;height:26px;background:var(--text);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:13px;font-family:'Space Mono',monospace;z-index:2;box-shadow:0 4px 12px rgba(0,0,0,0.15)">04</div>
         <h3 style="font-size:22px;font-weight:800;color:var(--text);margin-bottom:8px;display:flex;align-items:center;gap:10px">
@@ -3185,12 +3674,10 @@ function renderServices(el) {
       
     </div>
     
-    <!-- CTA at bottom -->
     <div style="text-align:center;margin-top:48px" class="animate-on-scroll">
       <button class="btn-primary" onclick="navigate('/contact')" style="padding:14px 28px">${icons.send} Start Your Project</button>
     </div>
   </div>
-</section>
 
   <!-- CTA -->
   <section class="cta-section">
@@ -3271,8 +3758,8 @@ function renderCompany(el) {
       <div class="team-zigzag-role-tag">Founder & VP</div>
       <h3 class="team-zigzag-name">Danial Danish</h3>
       <h4 class="team-zigzag-title">Founder & VP, Engineering</h4>
-      <p class="team-zigzag-desc">Danial leads the overall technical direction of Luviio, overseeing all aspects of software development, system architecture, and product engineering. He is responsible for building scalable, secure, and high-performance digital solutions that power Luviio’s services.</p>
-      <p class="team-zigzag-desc">His role includes guiding the engineering team, making key technical decisions, and ensuring that all products align with the company’s long-term vision and quality standards. He also focuses on innovation, improving development workflows, and ensuring that Luviio’s technology stack remains modern and efficient as the company grows.</p>
+      <p class="team-zigzag-desc">Danial leads the overall technical direction of Luviio, overseeing all aspects of software development, system architecture, and product engineering. He is responsible for building scalable, secure, and high-performance digital solutions that power Luviio's services.</p>
+      <p class="team-zigzag-desc">His role includes guiding the engineering team, making key technical decisions, and ensuring that all products align with the company's long-term vision and quality standards. He also focuses on innovation, improving development workflows, and ensuring that Luviio's technology stack remains modern and efficient as the company grows.</p>
     </div>
   </div>
 
@@ -3301,8 +3788,8 @@ function renderCompany(el) {
       <div class="team-zigzag-role-tag">VP</div>
       <h3 class="team-zigzag-name">Putri Erinna</h3>
       <h4 class="team-zigzag-title">VP, Client Success & Strategic Partnerships</h4>
-      <p class="team-zigzag-desc">Putri leads Luviio’s client relationships, growth initiatives, and external partnerships. She is responsible for ensuring clients achieve strong results and long-term satisfaction through Luviio’s services.</p>
-      <p class="team-zigzag-desc">Her role includes managing onboarding experiences, maintaining ongoing client communication, and identifying opportunities for expansion within existing accounts. In addition, she develops strategic collaborations and partnerships that help grow Luviio’s market presence. She plays a key role in shaping the company’s reputation, retention, and long-term growth strategy.</p>
+      <p class="team-zigzag-desc">Putri leads Luviio's client relationships, growth initiatives, and external partnerships. She is responsible for ensuring clients achieve strong results and long-term satisfaction through Luviio's services.</p>
+      <p class="team-zigzag-desc">Her role includes managing onboarding experiences, maintaining ongoing client communication, and identifying opportunities for expansion within existing accounts. In addition, she develops strategic collaborations and partnerships that help grow Luviio's market presence. She plays a key role in shaping the company's reputation, retention, and long-term growth strategy.</p>
     </div>
   </div>
     </div>
@@ -3395,7 +3882,7 @@ function renderTerms(el) {
         <ul>
           <li>Payments are due according to the schedule specified in your service agreement or package terms.</li>
           <li>Late payments may incur a fee of 2% per month on outstanding balances.</li>
-          <li>All prices are quoted in Malaysian Ringgit (MYR) unless otherwise specified.</li>
+          <li>All prices are quoted in Malaysian Ringgit (MYR/RM) unless otherwise specified.</li>
           <li>Subscription services are billed automatically on the renewal date unless cancelled.</li>
         </ul>
         
@@ -3410,7 +3897,7 @@ function renderTerms(el) {
         <p>The number of revision rounds included varies by service package. Additional revisions beyond the included amount may incur additional charges at our standard hourly rate. Major scope changes require a formal change order.</p>
         
         <h2>6. Confidentiality</h2>
-        <p>Both parties agree to keep confidential any proprietary information shared during the course of the project. This includes but is not limited to business strategies, customer data, source code, and design concepts.</p>
+        <p>Both parties agree to keep confidential any proprietary information shared during the course of the project. This includes but is not limited to business strategies, customer data, source code, design concepts, and financial information.</p>
         
         <h2>7. Limitation of Liability</h2>
         <p>Luviio's total liability for any claims arising from our Services shall not exceed the total amount paid by you for the specific service giving rise to the claim. We are not liable for indirect, incidental, or consequential damages.</p>
@@ -3539,7 +4026,7 @@ function renderPolicy(el) {
   ${standardFooter}`;
 }
 
-// ===== LOGIN PAGE (WITH IMPROVED GOOGLE ICON) =====
+// ===== LOGIN PAGE =====
 function renderLogin(el) {
   el.innerHTML = `
   <div class="auth-page">
@@ -3676,7 +4163,7 @@ function handleGoogleSignIn() {
     });
 }
 
-// ===== SIGNUP PAGE (WITH IMPROVED GOOGLE ICON) =====
+// ===== SIGNUP PAGE =====
 function renderSignup(el) {
   el.innerHTML = `
   <div class="auth-page">
@@ -3851,10 +4338,12 @@ async function handleContactPageSubmit(e) {
 
   try {
     const fullName = `${formData.get('firstName') || ''} ${formData.get('lastName') || ''}`.trim();
+    
     await callLuviioAPI('contact', {
       name: fullName, email: formData.get('email'), phone: formData.get('phone'),
       service: formData.get('service'), message: formData.get('message'), source: 'contact_page'
     });
+    
     btn.innerHTML = originalText;
     btn.disabled = false;
     form.reset();
@@ -4291,7 +4780,7 @@ function renderPaymentSuccessful(el, session) {
               </a>
               
               <a href="/" class="support-option">
-                <div class="support-option-icon">${icons.mapPin}</div>
+                <div class="support-option-icon">${icons.home}</div>
                 <div><div class="support-option-text">Visit Office</div><div class="support-option-sub">Kedah, Malaysia</div></div>
               </a>
             </div>
@@ -4352,7 +4841,7 @@ function startSessionTimer() {
     const remaining = Math.max(0, session.expiresAt - Date.now());
     const minutes = Math.floor(remaining / 60000);
     const seconds = Math.floor((remaining % 60000) / 1000);
-    timerEl.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+    timerEl.textContent = `${String(minutes).padStart(2,'0')}:${String(seconds).padStart(2,'0')}`;
     
     if (remaining < 60000) {
       warningEl.style.background = '#FEF2F2';
