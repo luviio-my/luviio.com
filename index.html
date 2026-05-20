@@ -17,11 +17,11 @@
 <meta name="author" content="Luviio Studio">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 
-<!-- DYNAMIC META TAGS (Updated via JS on route change) -->
+<!-- Open Graph / Facebook / LinkedIn -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://luviio.com/">
 <meta property="og:title" content="Luviio — Build Interfaces That Grow">
-<meta property="og:description" content="A bold design system for vibe coders and creative technologists. Ship beautiful digital experiences with earthy warmth and intentional craft. Based in Kedah, Malaysia.">
+<meta property="og:description" content="A bold design system for vibe coders and creative technologists. Ship beautiful digital experiences with earthy warmth and intentional craft.">
 <meta property="og:image" content="https://images.luviio.com/og-image-luviio-red.png">
 <meta property="og:site_name" content="Luviio">
 <meta property="og:locale" content="en_MY">
@@ -178,18 +178,6 @@ body{
   nav a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:2px;background:var(--primary);transition:width .3s cubic-bezier(0.22, 1, 0.36, 1)}
   nav a:hover::after{width:100%}
   
-  /* NAV DROPDOWN STYLES */
-  .nav-dropdown{position:relative;display:inline-block}
-  .nav-dropdown-trigger{display:flex;align-items:center;gap:4px;cursor:pointer;padding:4px 0;color:var(--text);font-size:14px;font-weight:500;text-decoration:none;transition:color .2s;background:none;border:none;font-family:inherit}
-  .nav-dropdown-trigger:hover{color:var(--primary)}
-  .nav-dropdown-trigger svg{width:16px;height:16px;transition:transform 0.2s}
-  .nav-dropdown:hover .nav-dropdown-trigger svg{transform:rotate(180deg)}
-  .nav-dropdown-menu{position:absolute;top:100%;left:-12px;margin-top:12px;background:#fff;border:1px solid var(--warm-light);border-radius:var(--radius-lg);box-shadow:0 12px 32px rgba(0,0,0,0.12),var(--shadow-btn);min-width:240px;padding:8px;opacity:0;visibility:hidden;transform:translateY(-8px);transition:all 0.25s cubic-bezier(0.22, 1, 0.36, 1);z-index:200}
-  .nav-dropdown:hover .nav-dropdown-menu{opacity:1;visibility:visible;transform:translateY(0)}
-  .nav-dropdown-item{display:block;padding:10px 16px;font-size:13px;font-weight:600;color:var(--text);text-decoration:none;border-radius:var(--radius-md);transition:all 0.15s;white-space:nowrap}
-  .nav-dropdown-item:hover{background:var(--primary-tint);color:var(--primary);padding-left:20px}
-  .nav-dropdown-divider{height:1px;background:var(--warm-light);margin:4px 8px}
-
   /* PRESS-STYLE HOVER EFFECT FOR ALL BUTTONS & CARDS */
   .nav-cta{font-size:13px!important;font-weight:700!important;background:var(--primary);color:#fff!important;padding:8px 18px;border-radius:var(--radius-md);border:2px solid var(--text);box-shadow:var(--shadow-btn);transition:all .15s cubic-bezier(0.22, 1, 0.36, 1);cursor:pointer;position:relative;overflow:hidden;text-decoration:none;display:inline-flex;align-items:center;gap:6px;white-space:nowrap;flex-shrink:0}
   .nav-cta::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.15),transparent);transition:left 0.5s}
@@ -794,129 +782,6 @@ body{
   margin-bottom: 0;
 }
 
-/* Service-specific zigzag styles */
-.service-zigzag-price {
-  font-size: 24px;
-  font-weight: 900;
-  color: var(--primary);
-  margin: 12px 0;
-  font-family: "Space Mono", monospace;
-}
-
-.service-zigzag-best-for {
-  background: var(--primary-tint);
-  padding: 12px 16px;
-  border-radius: 12px;
-  margin-top: 16px;
-  border: 1px solid rgba(171,21,9,0.1);
-}
-
-.service-zigzag-best-for strong {
-  display: block;
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--primary-dark);
-  margin-bottom: 4px;
-}
-
-.service-zigzag-features-list {
-  list-style: none;
-  padding: 0;
-  margin: 16px 0;
-}
-
-.service-zigzag-features-list li {
-  position: relative;
-  padding-left: 24px;
-  margin-bottom: 8px;
-  font-size: 14px;
-  color: var(--text);
-  line-height: 1.6;
-}
-
-.service-zigzag-features-list li::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 8px;
-  width: 8px;
-  height: 8px;
-  background: var(--primary);
-  border-radius: 50%;
-}
-
-/* FAQ Section for Product Pages */
-.product-faq-section {
-  background: linear-gradient(180deg, #EDEDE8 0%, #F5F5F0 100%);
-  border-top: 1px solid var(--warm-light);
-  border-bottom: 1px solid var(--warm-light);
-  padding: 72px 0;
-  width: 100%;
-}
-
-.faq-container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 0 24px;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.faq-item {
-  background: #fff;
-  border: 1px solid var(--warm-light);
-  border-radius: var(--radius-lg);
-  margin-bottom: 16px;
-  overflow: hidden;
-  transition: all 0.3s;
-  cursor: pointer;
-}
-
-.faq-item:hover {
-  border-color: var(--primary);
-  box-shadow: 0 4px 16px rgba(171,21,9,0.08);
-}
-
-.faq-question {
-  padding: 20px 24px;
-  font-size: 16px;
-  font-weight: 700;
-  color: var(--text);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 16px;
-  user-select: none;
-}
-
-.faq-question svg {
-  flex-shrink: 0;
-  transition: transform 0.3s;
-  color: var(--primary);
-}
-
-.faq-item.open .faq-question svg {
-  transform: rotate(180deg);
-}
-
-.faq-answer {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease;
-}
-
-.faq-answer-inner {
-  padding: 0 24px 20px;
-  font-size: 15px;
-  line-height: 1.7;
-  color: #5C5C4F;
-}
-
-.faq-item.open .faq-answer {
-  max-height: 500px;
-}
-
 /* ========================================== */
 /* ZIG-ZAG RESPONSIVE                        */
 /* ========================================== */
@@ -1164,7 +1029,6 @@ body{
     .container{padding:0 28px}
     header{padding:16px 28px}
     nav .nav-link{display:none}
-    .nav-dropdown{display:none}
     .hamburger{display:flex}
     
     .hero{padding:80px 0 60px}
@@ -1770,24 +1634,6 @@ body{
     .portal-icon{width:40px;height:40px}
     .portal-title{font-size:15px}
     .portal-btn{padding:12px 20px;font-size:13px}
-
-    /* Product Page Zigzag Mobile */
-    .service-zigzag-price {
-      font-size: 20px;
-    }
-    .team-zigzag-avatar {
-      width: 70px;
-      height: 70px;
-      font-size: 24px;
-    }
-    .faq-question {
-      font-size: 14px;
-      padding: 16px;
-    }
-    .faq-answer-inner {
-      font-size: 13px;
-      padding: 0 16px 16px;
-    }
   }
 
   /* Touch-friendly improvements */
@@ -1815,488 +1661,6 @@ body{
     .auth-card,.profile-card{padding:20px 16px}
   }
 
-  /* ========================================== */
-/* PRODUCT SHOWCASE REDESIGN — SPLIT LAYOUT   */
-/* ========================================== */
-
-/* Main Showcase Container */
-.product-showcase {
-  padding: 80px 0;
-  width: 100%;
-  position: relative;
-  overflow: hidden;
-}
-
-.showcase-split {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
-  align-items: center;
-  width: 100%;
-  margin-bottom: 120px;
-}
-
-/* Reverse direction for alternating sections */
-.showcase-split.reverse {
-  direction: rtl;
-}
-
-.showcase-split.reverse > * {
-  direction: ltr;
-}
-
-/* Content Side */
-.showcase-content {
-  padding-right: 20px;
-}
-
-.showcase-split.reverse .showcase-content {
-  padding-right: 0;
-  padding-left: 20px;
-}
-
-.showcase-eyebrow {
-  font-family: "Space Mono", monospace;
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--primary);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-bottom: 16px;
-  display: inline-block;
-}
-
-.showcase-title {
-  font-size: 42px;
-  font-weight: 900;
-  line-height: 1.15;
-  color: var(--text);
-  margin-bottom: 32px;
-  letter-spacing: -0.02em;
-}
-
-/* Feature Items List (Accordion-style) */
-.feature-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-
-.feature-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  padding: 24px 0;
-  border-bottom: 1px solid var(--warm-light);
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-.feature-item:first-child {
-  border-top: 1px solid var(--warm-light);
-}
-
-.feature-item:hover {
-  padding-left: 8px;
-}
-
-.feature-item:hover .feature-icon-wrap {
-  background: var(--primary);
-  color: #fff;
-  transform: scale(1.05);
-}
-
-.feature-icon-wrap {
-  width: 48px;
-  height: 48px;
-  background: var(--primary-tint);
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--primary);
-  flex-shrink: 0;
-  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-  font-size: 22px;
-}
-
-.feature-text h4 {
-  font-size: 20px;
-  font-weight: 800;
-  color: var(--text);
-  margin-bottom: 6px;
-  line-height: 1.3;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-}
-
-.feature-text h4::after {
-  content: '›';
-  font-size: 24px;
-  font-weight: 300;
-  color: var(--warm-mid);
-  transition: transform 0.3s;
-  flex-shrink: 0;
-}
-
-.feature-item:hover h4::after {
-  transform: translateX(4px);
-  color: var(--primary);
-}
-
-.feature-text p {
-  font-size: 15px;
-  line-height: 1.65;
-  color: #5C5C4F;
-  margin: 0;
-  max-width: 480px;
-}
-
-/* Visual/Mockup Side */
-.showcase-visual {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.visual-container {
-  width: 100%;
-  background: #fff;
-  border: 2px solid var(--text);
-  border-radius: 20px;
-  box-shadow: 
-    8px 8px 0px 0px rgba(0,0,0,1),
-    0 20px 40px rgba(171,21,9,0.08);
-  overflow: hidden;
-  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-  position: relative;
-}
-
-.visual-container:hover {
-  transform: translateY(-4px) rotate(-0.5deg);
-  box-shadow: 
-    12px 12px 0px 0px rgba(0,0,0,1),
-    0 28px 48px rgba(171,21,9,0.12);
-}
-
-.visual-header {
-  background: linear-gradient(135deg, var(--primary-tint), rgba(171,21,9,0.08));
-  padding: 16px 20px;
-  border-bottom: 1px solid var(--warm-light);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.visual-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--warm-light);
-}
-
-.visual-dot.active { background: var(--primary); }
-
-.visual-body {
-  padding: 32px;
-  min-height: 320px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-/* Mock UI Elements inside Visual Container */
-.mock-nav {
-  display: flex;
-  gap: 12px;
-  margin-bottom: 20px;
-}
-
-.mock-tab {
-  padding: 8px 16px;
-  background: var(--bg);
-  border-radius: 8px;
-  font-size: 13px;
-  font-weight: 600;
-  color: #8B8B7A;
-  border: 1px solid transparent;
-}
-
-.mock-tab.active {
-  background: var(--primary);
-  color: #fff;
-  box-shadow: 2px 2px 0px 0px var(--text);
-}
-
-.mock-stats-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  margin-top: 16px;
-}
-
-.mock-stat-box {
-  background: var(--bg);
-  border: 1px solid var(--warm-light);
-  border-radius: 12px;
-  padding: 16px;
-  text-align: center;
-}
-
-.mock-stat-num {
-  font-size: 24px;
-  font-weight: 900;
-  color: var(--primary);
-  display: block;
-}
-
-.mock-stat-label {
-  font-size: 11px;
-  color: #8B8B7A;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  margin-top: 4px;
-}
-
-.mock-chat-bubble {
-  background: var(--primary-tint);
-  border: 1px solid rgba(171,21,9,0.15);
-  border-radius: 16px;
-  padding: 16px 20px;
-  max-width: 85%;
-  position: relative;
-  font-size: 14px;
-  line-height: 1.5;
-  color: var(--text);
-  box-shadow: 2px 2px 0px 0px rgba(171,21,9,0.1);
-}
-
-.mock-chat-bubble.user {
-  background: var(--primary);
-  color: #fff;
-  margin-left: auto;
-  border-bottom-right-radius: 4px;
-}
-
-.mock-chat-bubble.bot {
-  border-bottom-left-radius: 4px;
-}
-
-.mock-input-field {
-  background: #fff;
-  border: 2px solid var(--warm-light);
-  border-radius: 12px;
-  padding: 12px 16px;
-  font-size: 13px;
-  color: #8B8B7A;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: auto;
-}
-
-/* Use Cases Grid (Bottom Section) */
-.use-cases-section {
-  padding: 80px 0;
-  background: linear-gradient(180deg, #EDEDE8 0%, #F5F5F0 100%);
-  border-top: 1px solid var(--warm-light);
-  width: 100%;
-}
-
-.use-cases-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-  margin-top: 56px;
-  width: 100%;
-}
-
-.use-case-card {
-  background: #fff;
-  border: 2px solid var(--text);
-  border-radius: 20px;
-  box-shadow: 4px 4px 0px 0px var(--text);
-  overflow: hidden;
-  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-  text-align: center;
-}
-
-.use-case-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 8px 8px 0px 0px var(--text);
-}
-
-.use-case-icon-wrapper {
-  padding: 40px 20px 20px;
-  display: flex;
-  justify-content: center;
-}
-
-.use-case-icon-large {
-  width: 80px;
-  height: 80px;
-  background: linear-gradient(135deg, var(--primary-tint), rgba(171,21,9,0.1));
-  border-radius: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 36px;
-  color: var(--primary);
-  box-shadow: 0 8px 20px rgba(171,21,9,0.15);
-}
-
-.use-case-body {
-  padding: 0 24px 32px;
-}
-
-.use-case-title {
-  font-size: 24px;
-  font-weight: 900;
-  color: var(--text);
-  margin-bottom: 8px;
-}
-
-.use-case-subtitle {
-  font-size: 14px;
-  color: #8B8B7A;
-  margin-bottom: 24px;
-  line-height: 1.5;
-}
-
-/* Mini chat preview inside use case cards */
-.mini-chat-preview {
-  background: var(--bg);
-  border: 1px solid var(--warm-light);
-  border-radius: 16px;
-  padding: 16px;
-  text-align: left;
-  margin-top: 16px;
-}
-
-.mini-chat-line {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 12px;
-  align-items: flex-start;
-}
-
-.mini-chat-avatar {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background: var(--primary);
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 12px;
-  font-weight: 700;
-  flex-shrink: 0;
-}
-
-.mini-chat-msg {
-  background: #fff;
-  border: 1px solid var(--warm-light);
-  padding: 10px 14px;
-  border-radius: 12px;
-  font-size: 12px;
-  line-height: 1.4;
-  color: var(--text);
-  max-width: 80%;
-  box-shadow: 1px 1px 0px 0px rgba(0,0,0,0.05);
-}
-
-.mini-chat-msg.highlight {
-  background: var(--primary);
-  color: #fff;
-  border-color: var(--primary);
-}
-
-/* Responsive for Showcase */
-@media(max-width:1023px) {
-  .showcase-split {
-    grid-template-columns: 1fr;
-    gap: 48px;
-    margin-bottom: 80px;
-  }
-  
-  .showcase-split.reverse {
-    direction: ltr;
-  }
-  
-  .showcase-split.reverse .showcase-content {
-    padding-left: 0;
-    padding-right: 0;
-    order: 1;
-  }
-  
-  .showcase-split.reverse .showcase-visual {
-    order: 2;
-  }
-  
-  .showcase-title {
-    font-size: 34px;
-  }
-  
-  .use-cases-grid {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-}
-
-@media(max-width:767px) {
-  .product-showcase {
-    padding: 56px 0;
-  }
-  
-  .showcase-split {
-    gap: 32px;
-    margin-bottom: 60px;
-  }
-  
-  .showcase-title {
-    font-size: 28px;
-    margin-bottom: 24px;
-  }
-  
-  .feature-item {
-    padding: 18px 0;
-    gap: 12px;
-  }
-  
-  .feature-icon-wrap {
-    width: 40px;
-    height: 40px;
-    font-size: 18px;
-  }
-  
-  .feature-text h4 {
-    font-size: 17px;
-  }
-  
-  .feature-text p {
-    font-size: 14px;
-  }
-  
-  .visual-body {
-    padding: 24px;
-    min-height: 260px;
-  }
-  
-  .mock-stats-grid {
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 8px;
-  }
-  
-  .use-cases-grid {
-    margin-top: 40px;
-  }
-}
-
 </style>
 </head>
 <body>
@@ -2306,19 +1670,7 @@ body{
   <a href="/" class="logo"><img src="https://images.luviio.com/logo-luviio-red.png" alt="Luviio Logo" class="logo-img"></a>
   <nav id="mainNav">
     <a href="/" class="nav-link">Home</a>
-    <div class="nav-dropdown">
-      <button class="nav-dropdown-trigger">
-        Product <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-      </button>
-      <div class="nav-dropdown-menu">
-        <a href="/product" class="nav-dropdown-item">Overview</a>
-        <a href="/product/add-on" class="nav-dropdown-item">Add-On Services</a>
-        <a href="/product/marketing" class="nav-dropdown-item">Marketing Services</a>
-        <a href="/product/automation-business-tools" class="nav-dropdown-item">Automation & Tools</a>
-        <a href="/product/design-branding" class="nav-dropdown-item">Design & Branding</a>
-        <a href="/product/hosting" class="nav-dropdown-item">Hosting & Infrastructure</a>
-      </div>
-    </div>
+    <a href="/product" class="nav-link">Product</a>
     <a href="/services" class="nav-link">Services</a>
     <a href="/pricing" class="nav-link">Pricing</a>
     <a href="/company" class="nav-link">Company</a>
@@ -2331,14 +1683,7 @@ body{
 <div class="mobile-nav" id="mobileNav">
   <button class="mobile-close" onclick="toggleMobileNav()" aria-label="Close menu"><i data-lucide="x" style="width:24px;height:24px"></i></button>
   <a href="/" onclick="toggleMobileNav()">Home</a>
-  <a href="/product" onclick="toggleMobileNav()">Product Overview</a>
-  <div style="padding:8px 0;border-bottom:1px solid var(--warm-light)"></div>
-  <a href="/product/add-on" onclick="toggleMobileNav()" style="font-size:18px;font-weight:600;color:var(--primary)">Add-On Services</a>
-  <a href="/product/marketing" onclick="toggleMobileNav()" style="font-size:18px;font-weight:600;color:var(--primary)">Marketing Services</a>
-  <a href="/product/automation-business-tools" onclick="toggleMobileNav()" style="font-size:18px;font-weight:600;color:var(--primary)">Automation & Tools</a>
-  <a href="/product/design-branding" onclick="toggleMobileNav()" style="font-size:18px;font-weight:600;color:var(--primary)">Design & Branding</a>
-  <a href="/product/hosting" onclick="toggleMobileNav()" style="font-size:18px;font-weight:600;color:var(--primary)">Hosting & Infra</a>
-  <div style="padding:8px 0;border-bottom:1px solid var(--warm-light)"></div>
+  <a href="/product" onclick="toggleMobileNav()">Product</a>
   <a href="/services" onclick="toggleMobileNav()">Services</a>
   <a href="/pricing" onclick="toggleMobileNav()">Pricing</a>
   <a href="/company" onclick="toggleMobileNav()">Company</a>
@@ -2490,155 +1835,11 @@ function isMobileDevice() {
     || (window.matchMedia && window.matchMedia('(pointer: coarse)').matches);
 }
 
-// ===== UPDATED PRICING PLANS (2026) =====
 const plans = {
-  starter: { name: 'Starter Plan', price: 'RM199/month', priceNum: 199, stripeUrl: 'https://buy.stripe.com/fZu6oB6x24azflI2Mw97G05' },
-  growth: { name: 'Growth Plan', price: 'RM499/month', priceNum: 499, stripeUrl: 'https://buy.stripe.com/8x2aERcVq5eD7Tgcn697G06' },
-  proit: { name: 'Pro IT Plan', price: 'RM1,999/month', priceNum: 1999, stripeUrl: 'https://buy.stripe.com/cNieV7f3ydL97Tgeve97G07' }
+  starter: { name: 'Starter', price: '150 MYR/mo', priceNum: 150, stripeUrl: 'https://buy.stripe.com/fZu6oB6x24azflI2Mw97G05' },
+  growth: { name: 'Growth', price: '300 MYR/mo', priceNum: 300, stripeUrl: 'https://buy.stripe.com/8x2aERcVq5eD7Tgcn697G06' },
+  proit: { name: 'Pro IT', price: '1,900 MYR/mo', priceNum: 1900, stripeUrl: 'https://buy.stripe.com/cNieV7f3ydL97Tgeve97G07' }
 };
-
-// ===== SOCIAL SHARING META DATA (Dynamic per route) =====
-const routeMeta = {
-  '/': {
-    title: 'Luviio · Build Interfaces That Grow',
-    description: 'A bold design system for vibe coders and creative technologists. Ship beautiful digital experiences with earthy warmth and intentional craft. Based in Kedah, Malaysia.',
-    ogTitle: 'Luviio — Build Interfaces That Grow',
-    ogDesc: 'Bold design system for creative technologists. High-contrast type, earthy warmth, ready to ship. Malaysia digital agency.'
-  },
-  '/home': {
-    title: 'Luviio · Build Interfaces That Grow',
-    description: 'A bold design system for vibe coders and creative technologists. Ship beautiful digital experiences with earthy warmth and intentional craft. Based in Kedah, Malaysia.',
-    ogTitle: 'Luviio — Build Interfaces That Grow',
-    ogDesc: 'Bold design system for creative technologists. High-contrast type, earthy warmth, ready to ship.'
-  },
-  '/product': {
-    title: 'Product & Components · Luviio',
-    description: 'Comprehensive design system components, tools, and building blocks for creating modern interfaces with intentional craft. Website builder Malaysia.',
-    ogTitle: 'Luviio — Design System Components & Tools',
-    ogDesc: '48+ components, design tokens, color tools, and free resources for building beautiful websites.'
-  },
-  '/services': {
-    title: 'Our Services · Luviio',
-    description: 'Professional web design, development, mobile apps, IT support, and digital services for businesses in Malaysia and Southeast Asia.',
-    ogTitle: 'Luviio — Professional Digital Services',
-    ogDesc: 'Website design, web development, mobile apps, IT support, and automation solutions.'
-  },
-  '/pricing': {
-    title: 'Pricing & Plans · Luviio',
-    description: 'Affordable subscription website plans starting from RM199/month. Starter, Growth, and Pro IT plans for Malaysian businesses. No hidden fees.',
-    ogTitle: 'Luviio — Pricing Plans from RM199/month',
-    ogDesc: 'Starter RM199/mo | Growth RM499/mo | Pro IT RM1,999/mo. Professional website subscriptions for SMEs and corporates.'
-  },
-  '/company': {
-    title: 'About Our Company · Luviio',
-    description: 'Learn about Luviio — a Kedah-based digital agency crafting bold interfaces since 2025. Meet our team, values, and mission.',
-    ogTitle: 'Luviio — About Our Company & Team',
-    ogDesc: 'Built with intention. Craft over speed. Accessible by default. Meet the team behind Luviio.'
-  },
-  '/about': {
-    title: 'About Luviio · Luviio',
-    description: 'Luviio is a digital agency based in Kedah, Malaysia specializing in website design, development, and IT solutions for growing businesses.',
-    ogTitle: 'About Luviio — Malaysia Digital Agency',
-    ogDesc: 'We combine bold aesthetics with functional precision to create websites and apps that perform.'
-  },
-  '/terms': {
-    title: 'Terms of Service · Luviio',
-    description: 'Read our terms of service for website design, development, hosting, and IT support services. Based in Malaysia.',
-    ogTitle: 'Luviio — Terms of Service',
-    ogDesc: 'Service terms, payment policies, intellectual property rights, and usage guidelines.'
-  },
-  '/policy': {
-    title: 'Privacy Policy · Luviio',
-    description: 'How we collect, use, and protect your data. Your privacy matters. Read our comprehensive privacy policy.',
-    ogTitle: 'Luviio — Privacy Policy',
-    ogDesc: 'Transparent data practices. We respect your privacy and protect your information.'
-  },
-  '/login': {
-    title: 'Sign In · Luviio',
-    description: 'Sign in to your Luviio account to manage your profile, view orders, access customer portal, and track projects.',
-    ogTitle: 'Luviio — Sign In to Your Account',
-    ogDesc: 'Access your dashboard, manage orders, update billing, and track your projects.'
-  },
-  '/signup': {
-    title: 'Create Account · Luviio',
-    description: 'Join Luviio today and start building beautiful digital experiences. Free account setup with access to our community.',
-    ogTitle: 'Luviio — Create Your Account',
-    ogDesc: 'Start your journey with Luviio. Build interfaces that grow with your business.'
-  },
-  '/profile': {
-    title: 'My Profile · Luviio',
-    description: 'Manage your Luviio account settings, personal information, billing preferences, and subscription details.',
-    ogTitle: 'Luviio — My Profile Dashboard',
-    ogDesc: 'Update your details, manage billing, and access the Stripe customer portal.'
-  },
-  '/contact': {
-    title: 'Contact Us · Luviio',
-    description: 'Get in touch with Luviio for website design, development, IT support, or general inquiries. Based in Kedah, Malaysia.',
-    ogTitle: 'Luviio — Contact Us Today',
-    ogDesc: 'Email us at hello@luviio.com or call +60 12 260 0969. We respond within 24 hours.'
-  },
-  // PRODUCT SUB-PAGES
-  '/product/add-on': {
-    title: 'Add-On Services · Luviio',
-    description: 'Professional website add-ons: extra pages, landing pages, e-commerce, booking systems, dashboards, and more. Affordable one-time fees from RM80.',
-    ogTitle: 'Luviio — Website Add-On Services',
-    ogDesc: 'Additional pages RM80, Landing pages RM350, E-commerce RM1500, Booking systems RM800. Enhance your website today.'
-  },
-  '/product/marketing': {
-    title: 'Marketing & Growth Services · Luviio',
-    description: 'Email marketing, SEO optimization, Google Ads, Meta Ads, social media management, and content writing services for Malaysian businesses.',
-    ogTitle: 'Luviio — Marketing & Growth Services',
-    ogDesc: 'SEO from RM500/mo, Google Ads management RM700/mo, Social media RM800/mo. Grow your business online.'
-  },
-  '/product/automation-business-tools': {
-    title: 'Automation & Business Systems · Luviio',
-    description: 'CRM setup, WhatsApp automation, invoicing systems, inventory management, HR dashboards, AI chatbots, and custom business tools.',
-    ogTitle: 'Luviio — Automation & Business Tools',
-    ogDesc: 'CRM RM1200, WhatsApp Automation RM800, Invoice System RM1500. Automate your business operations.'
-  },
-  '/product/design-branding': {
-    title: 'Design & Branding Services · Luviio',
-    description: 'Logo design, brand identity kits, company profiles, presentation decks, UI/UX design systems, and social media templates.',
-    ogTitle: 'Luviio — Design & Branding Services',
-    ogDesc: 'Logo RM250, Brand Kit RM800, UI/UX System RM1500. Professional branding for your business.'
-  },
-  '/product/hosting': {
-    title: 'Hosting & Infrastructure · Luviio',
-    description: 'Domain management, business email, cloud server setup, website maintenance, security monitoring, backup management, and Cloudflare CDN.',
-    ogTitle: 'Luviio — Hosting & Infrastructure Services',
-    ogDesc: 'Domain RM50/mo, Server Setup RM800, Maintenance RM250/mo. Reliable hosting solutions.'
-  }
-};
-
-// Function to update meta tags dynamically
-function updateMetaTags(route) {
-  const meta = routeMeta[route] || routeMeta['/'];
-  
-  // Update document title
-  document.title = meta.title;
-  
-  // Update Open Graph tags
-  const ogUrl = `https://luviio.com${route === '/' ? '' : route}`;
-  document.querySelector('meta[property="og:url"]')?.setAttribute('content', ogUrl);
-  document.querySelector('meta[property="og:title"]')?.setAttribute('content', meta.ogTitle);
-  document.querySelector('meta[property="og:description"]')?.setAttribute('content', meta.ogDesc);
-  
-  // Update Twitter Card tags
-  document.querySelector('meta[name="twitter:title"]')?.setAttribute('content', meta.ogTitle);
-  document.querySelector('meta[name="twitter:description"]')?.setAttribute('content', meta.ogDesc);
-  
-  // Update standard meta description
-  document.querySelector('meta[name="description"]')?.setAttribute('content', meta.description);
-  
-  // Update canonical URL if exists
-  let canonical = document.querySelector('link[rel="canonical"]');
-  if (!canonical) {
-    canonical = document.createElement('link');
-    canonical.rel = 'canonical';
-    document.head.appendChild(canonical);
-  }
-  canonical.href = ogUrl;
-}
 
 // ===== FRIENDLY ERROR MESSAGES =====
 function getFriendlyErrorMessage(error) {
@@ -2773,10 +1974,26 @@ document.addEventListener('click', (e) => {
   }
 });
 
+const pageTitles = {
+  '/': 'Luviio · Build Interfaces That Grow',
+  '/home': 'Luviio · Build Interfaces That Grow',
+  '/product': 'Product & Components · Luviio',
+  '/services': 'Our Services · Luviio',
+  '/pricing':   'Pricing & Plans · Luviio',
+  '/company': 'About Our Company · Luviio',
+  '/about': 'About Luviio · Luviio',
+  '/terms': 'Terms of Service · Luviio',
+  '/policy': 'Privacy Policy · Luviio',
+  '/login': 'Sign In · Luviio',
+  '/signup': 'Create Account · Luviio',
+  '/profile': 'My Profile · Luviio',
+  '/contact': 'Contact Us · Luviio'
+};
+
 const PROTECTED_ROUTES = ['/profile'];
 
 function setPageTitle(route) {
-  updateMetaTags(route);
+  document.title = pageTitles[route] || 'Luviio';
 }
 
 function parseCheckoutUrl(route) {
@@ -2814,9 +2031,14 @@ function parseCheckoutUrl(route) {
 function router() {
   let route = getRoute();
   const app = document.getElementById('app');
+  const navLinks = document.querySelectorAll('#mainNav .nav-link');
 
-  // UPDATE META TAGS FOR SOCIAL SHARING
-  updateMetaTags(route);
+  setPageTitle(route);
+
+  navLinks.forEach(link => {
+    const href = link.getAttribute('href');
+    link.style.color = (href === '#' + route || (route === '/' && href === '/')) ? 'var(--primary)' : '';
+  });
 
   // CHECKOUT ROUTE
   if (route.startsWith('/checkout')) {
@@ -2918,11 +2140,6 @@ function router() {
   switch (route) {
     case '/': case '/home': renderHome(app); break;
     case '/product': renderProduct(app); break;
-    case '/product/add-on': renderProductAddOn(app); break;
-    case '/product/marketing': renderProductMarketing(app); break;
-    case '/product/automation-business-tools': renderProductAutomation(app); break;
-    case '/product/design-branding': renderProductDesignBranding(app); break;
-    case '/product/hosting': renderProductHosting(app); break;
     case '/services': renderServices(app); break;
     case '/pricing': renderPricing(app); break;
     case '/company': renderCompany(app); break;
@@ -3155,7 +2372,7 @@ function toggleMobileNav() {
   document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
 }
 
-// ===== ICONS =====
+// ===== ICONS (IMPROVED GOOGLE ICON FOR AUTH) =====
 const icons = {
   zap: '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>',
   eye: '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>',
@@ -3184,7 +2401,7 @@ const icons = {
   play: '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>',
   externalLink: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>',
   send: '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>',
-  settings: '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.39a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg>',
+  settings: '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg>',
   star: '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>',
   pencil: '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"></path><path d="m15 5 4 4"></path></svg>',
   logOut: '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>',
@@ -3195,16 +2412,13 @@ const icons = {
   creditCard: '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>',
   home: '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>',
   
-  // IMPROVED GOOGLE ICON FOR AUTH FORMS
+  // IMPROVED GOOGLE ICON FOR AUTH FORMS - More detailed and polished
   google: `<svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
     <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/>
     <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
     <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
     <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-  </svg>`,
-  
-  // Chevron down for FAQ
-  chevronDown: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>'
+  </svg>`
 };
 
 // ===== STANDARD FOOTER =====
@@ -3216,7 +2430,7 @@ const standardFooter = `
         <a href="/" class="logo"><img src="https://images.luviio.com/logo-luviio-red.png" alt="Luviio" style="height:28px;width:auto;border-radius:6px"></a>
         <p>A bold design system for creative technologists. Built with earthy warmth and intentional craft.</p>
       </div>
-      <div class="footer-col"><h4>Product</h4><a href="/product">Components</a><a href="/product/add-on">Add-Ons</a><a href="/product/marketing">Marketing</a><a href="/product/hosting">Hosting</a></div>
+      <div class="footer-col"><h4>Product</h4><a href="/product">Components</a><a href="/product">Tokens</a><a href="/product">Templates</a><a href="/product">Changelog</a></div>
       <div class="footer-col"><h4>Resources</h4><a href="/company">Documentation</a><a href="/company">Guides</a><a href="/company">Blog</a><a href="/company">Community</a></div>
       <div class="footer-col"><h4>Company</h4><a href="/about">About</a><a href="/company">Careers</a><a href="/pricing">Pricing</a><a href="/terms">Terms</a><a href="/policy">Privacy Policy</a><a href="/contact">Contact Us</a></div>
     </div>
@@ -3231,66 +2445,7 @@ const standardFooter = `
   </div>
 </footer>`;
 
-// ===== ZIGZAG SERVICE ITEM GENERATOR =====
-function generateZigzagItem(service, index, reverse = false) {
-  const reverseClass = reverse ? ' team-zigzag-reverse' : '';
-  const avatarBg = service.color || 'var(--primary)';
-  const avatarLetter = (service.title || 'S')[0];
-  
-  return `
-  <div class="team-zigzag-item${reverseClass} animate-on-scroll animate-delay-${Math.min(index % 5 + 1, 5)}">
-    <div class="team-zigzag-avatar-wrapper">
-      <div class="team-zigzag-avatar" style="background:${avatarBg}">${avatarLetter}</div>
-      <div class="team-zigzag-decoration"></div>
-    </div>
-    <div class="team-zigzag-content">
-      <h3 class="team-zigzag-name">${service.title}</h3>
-      <div class="service-zigzag-price">${service.price}</div>
-      <p class="team-zigzag-desc">${service.description}</p>
-      ${service.features ? `<ul class="service-zigzag-features-list">${service.features.map(f => `<li>${f}</li>`).join('')}</ul>` : ''}
-      <div class="service-zigzag-best-for">
-        <strong>Best For:</strong>
-        ${service.bestFor}
-      </div>
-      <div style="margin-top:20px">
-        <button class="btn-primary" onclick="navigate('/contact')" style="font-size:13px;padding:10px 20px">${icons.zap} Get Started</button>
-      </div>
-    </div>
-  </div>`;
-}
-
-// ===== FAQ GENERATOR =====
-function generateFAQSection(faqs) {
-  return `
-  <section class="product-faq-section">
-    <div class="faq-container">
-      <div class="section-header animate-on-scroll">
-        <div class="section-label">FAQ</div>
-        <h2 class="section-title" style="font-size:36px;line-height:42px">Frequently Asked Questions</h2>
-      </div>
-      <div id="faqContainer">
-        ${faqs.map((faq, i) => `
-          <div class="faq-item animate-on-scroll animate-delay-${Math.min(i % 5 + 1, 5)}" onclick="toggleFAQ(this)">
-            <div class="faq-question">
-              ${faq.q}
-              ${icons.chevronDown}
-            </div>
-            <div class="faq-answer">
-              <div class="faq-answer-inner">${faq.a}</div>
-            </div>
-          </div>
-        `).join('')}
-      </div>
-    </div>
-  </section>`;
-}
-
-// Toggle FAQ item
-window.toggleFAQ = function(element) {
-  element.classList.toggle('open');
-};
-
-// ===== HOME PAGE =====
+// ===== HOME PAGE (NO TESTIMONIALS - SHAPO WIDGET INSTEAD) =====
 function renderHome(el) {
   el.innerHTML = `
   <!-- HERO -->
@@ -3383,57 +2538,44 @@ function renderHome(el) {
       </div>
       <div class="pricing-grid">
         <div class="pricing-card animate-on-scroll animate-delay-1">
-          <div class="pricing-name">Starter Plan</div>
-          <div class="pricing-price">199 <span>MYR/mo</span></div>
-          <div class="pricing-desc">Perfect for personal brands, small businesses & startups</div>
+          <div class="pricing-name">Starter</div>
+          <div class="pricing-price">150 <span>MYR/mo</span></div>
+          <div class="pricing-desc">Perfect for small businesses & startups</div>
           <ul class="pricing-features">
-            <li><span class="check">${icons.check}</span>1–3 Page Website</li>
-            <li><span class="check">${icons.check}</span>Mobile Responsive Design</li>
-            <li><span class="check">${icons.check}</span>WhatsApp Integration</li>
-            <li><span class="check">${icons.check}</span>Contact Form</li>
-            <li><span class="check">${icons.check}</span>Basic SEO Setup</li>
-            <li><span class="check">${icons.check}</span>Free SSL Certificate</li>
-            <li><span class="check">${icons.check}</span>Monthly Backup</li>
-            <li><span class="check">${icons.check}</span>Basic Maintenance</li>
-            <li><span class="check">${icons.check}</span>Bug Fix Support</li>
-            <li><span class="check">${icons.check}</span>1 Minor Update/month</li>
+            <li><span class="check">${icons.check}</span>Custom website setup (up to 5 pages)</li>
+            <li><span class="check">${icons.check}</span>Fully mobile responsive design</li>
+            <li><span class="check">${icons.check}</span>Basic UI/UX design</li>
+            <li><span class="check">${icons.check}</span>Contact form + WhatsApp integration</li>
+            <li><span class="check">${icons.check}</span>Basic SEO optimization</li>
           </ul>
           <button class="btn-secondary" onclick="selectPlanAndCheckout('starter')">View Details</button>
         </div>
         <div class="pricing-card featured animate-on-scroll animate-delay-2">
           <div class="pricing-badge">Most Popular</div>
-          <div class="pricing-name">Growth Plan</div>
-          <div class="pricing-price">499 <span>MYR/mo</span></div>
-          <div class="pricing-desc">Best for SMEs, growing businesses & service companies</div>
+          <div class="pricing-name">Growth</div>
+          <div class="pricing-price">300 <span>MYR/mo</span></div>
+          <div class="pricing-desc">Best for growing brands & eCommerce</div>
           <ul class="pricing-features">
-            <li><span class="check">${icons.check}</span>Up to 10 Pages</li>
-            <li><span class="check">${icons.check}</span>Advanced Responsive Design</li>
-            <li><span class="check">${icons.check}</span>SEO Optimization</li>
-            <li><span class="check">${icons.check}</span>Blog/News System</li>
-            <li><span class="check">${icons.check}</span>Booking/Inquiry Forms</li>
-            <li><span class="check">${icons.check}</span>Analytics Integration</li>
-            <li><span class="check">${icons.check}</span>Monthly Updates</li>
-            <li><span class="check">${icons.check}</span>Security Monitoring</li>
-            <li><span class="check">${icons.check}</span>Speed Optimization</li>
-            <li><span class="check">${icons.check}</span>Up to 4 Minor Updates/month</li>
+            <li><span class="check">${icons.check}</span>Advanced website or Shopify store</li>
+            <li><span class="check">${icons.check}</span>Up to 10 pages / Full store structure</li>
+            <li><span class="check">${icons.check}</span>Conversion-focused UI/UX design</li>
+            <li><span class="check">${icons.check}</span>Payment gateway setup (Stripe, FPX)</li>
+            <li><span class="check">${icons.check}</span>Google Analytics integration</li>
+            <li><span class="check">${icons.check}</span>Performance optimization</li>
           </ul>
           <button class="btn-primary" onclick="selectPlanAndCheckout('growth')">Get Started Now</button>
         </div>
         <div class="pricing-card animate-on-scroll animate-delay-3">
-          <div class="pricing-name">Pro IT Plan</div>
-          <div class="pricing-price">1,999 <span>MYR/mo</span></div>
-          <div class="pricing-desc">For corporate businesses, SaaS/startups & automation systems</div>
+          <div class="pricing-name">Pro IT</div>
+          <div class="pricing-price">1,900 <span>MYR/mo</span></div>
+          <div class="pricing-desc">Full outsourced IT department</div>
           <ul class="pricing-features">
-            <li><span class="check">${icons.check}</span>Custom Website/System</li>
-            <li><span class="check">${icons.check}</span>Unlimited Pages</li>
-            <li><span class="check">${icons.check}</span>Advanced UI/UX Design</li>
-            <li><span class="check">${icons.check}</span>Backend Development</li>
-            <li><span class="check">${icons.check}</span>Database Integration</li>
-            <li><span class="check">${icons.check}</span>API Integration</li>
-            <li><span class="check">${icons.check}</span>Automation Features</li>
-            <li><span class="check">${icons.check}</span>Dashboard/Portal System</li>
-            <li><span class="check">${icons.check}</span>DevOps Support</li>
-            <li><span class="check">${icons.check}</span>Dedicated Technical Support</li>
+            <li><span class="check">${icons.check}</span>Unlimited updates</li>
+            <li><span class="check">${icons.check}</span>Full website creation & maintenance</li>
+            <li><span class="check">${icons.check}</span>eCommerce store setup</li>
+            <li><span class="check">${icons.check}</span>Email marketing management</li>
+            <li><span class="check">${icons.check}</span>System integrations (CRM, automation)</li>
+            <li><span class="check">${icons.check}</span>SEO, hosting support, CRO improvements</li>
           </ul>
           <button class="btn-secondary" onclick="selectPlanAndCheckout('proit')">Contact Sales</button>
         </div>
@@ -3500,7 +2642,7 @@ function renderHome(el) {
     </div>
   </section>
 
-  <!-- SHAPO REVIEWS SECTION -->
+  <!-- SHAPO REVIEWS SECTION (REPLACES OLD TESTIMONIALS) -->
   <section class="shapo-section">
     <div class="shapo-container">
       <div class="shapo-eyebrow animate-on-scroll">
@@ -3511,10 +2653,12 @@ function renderHome(el) {
       <h1 class="shapo-h1 animate-on-scroll">What our clients say <span class="shapo-h1-sub">Real reviews from real people</span></h1>
       <p class="shapo-sub animate-on-scroll">Don't just take our word for it — hear from the businesses we've helped grow.</p>
       
+      <!-- SHAPO WIDGET EMBED -->
       <div class="shapo-widget-wrapper animate-on-scroll animate-delay-1">
         <div id="shapo-widget-97c88f9e521fd582905b"></div>
       </div>
       
+      <!-- GOOGLE REVIEWS LINK (REPLACES TRUSTPILOT) -->
       <div style="text-align:center;margin-top:32px" class="animate-on-scroll animate-delay-2">
         <a href="https://g.page/r/CVUI33FMpZB8EBM/review" target="_blank" rel="noopener noreferrer" class="google-reviews-link">
           <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google" class="google-reviews-icon">
@@ -3532,7 +2676,7 @@ function renderHome(el) {
         <div class="contact-info animate-on-scroll">
           <div class="section-label">Get In Touch</div>
           <h2>Let's build something<br><span class="accent">amazing together</span></h2>
-          <p>Have a project in mind? We'd love to hear from you. Send us a message and we'll get back to you within 24 hours.</p>
+          <p>Have a project in mind? We'd love to hear about it. Send us a message and we'll get back to you within 24 hours.</p>
           <div class="contact-details">
             <div class="contact-item"><div class="contact-item-icon">${icons.mail}</div><div class="contact-item-text"><strong>Email Us</strong><span>hello@luviio.com</span></div></div>
             <div class="contact-item"><div class="contact-item-icon">${icons.phone}</div><div class="contact-item-text"><strong>Call Us</strong><span>+60 12 260 0969</span></div></div>
@@ -3644,8 +2788,12 @@ async function handleContactSubmit(e) {
     const fullName = `${formData.get('firstName') || ''} ${formData.get('lastName') || ''}`.trim();
     
     await callLuviioAPI('contact', {
-      name: fullName, email: formData.get('email'), phone: formData.get('phone'),
-      service: formData.get('service'), message: formData.get('message'), source: 'homepage_contact'
+      name: fullName,
+      email: formData.get('email'),
+      phone: formData.get('phone'),
+      service: formData.get('service'),
+      message: formData.get('message'),
+      source: 'homepage_contact'
     });
     
     btn.innerHTML = originalText;
@@ -3661,7 +2809,7 @@ async function handleContactSubmit(e) {
   }
 }
 
-// ===== PRODUCT OVERVIEW PAGE — NEW SHOWCASE DESIGN =====
+// ===== PRODUCT PAGE =====
 function renderProduct(el) {
   el.innerHTML = `
   <div class="page-hero">
@@ -3671,1154 +2819,138 @@ function renderProduct(el) {
       <p class="animate-on-scroll animate-delay-2">A comprehensive set of building blocks for creating modern, tactile interfaces with earthy warmth and intentional craft.</p>
     </div>
   </div>
-
-  <!-- SECTION 1: Core Features (Left: Features, Right: Dashboard Mockup) -->
-  <section class="product-showcase">
+  <section style="padding:0 0 60px">
     <div class="container">
-      <div class="showcase-split animate-on-scroll">
-        <!-- Left Content -->
-        <div class="showcase-content">
-          <div class="showcase-eyebrow">Core System</div>
-          <h2 class="showcase-title">Everything you need<br>to build & ship</h2>
-          
-          <div class="feature-list">
-            <div class="feature-item">
-              <div class="feature-icon-wrap">${icons.layoutGrid}</div>
-              <div class="feature-text">
-                <h4>Component Library</h4>
-                <p>48+ pre-built components including buttons, inputs, cards, navigation, modals, and data tables. All follow consistent design tokens.</p>
-              </div>
-            </div>
-            
-            <div class="feature-item">
-              <div class="feature-icon-wrap">${icons.type}</div>
-              <div class="feature-text">
-                <h4>Typography Scale</h4>
-                <p>Bold weight-driven hierarchy using DM Sans (headlines) and Space Mono (code). Nine weights available for maximum expression.</p>
-              </div>
-            </div>
-            
-            <div class="feature-item">
-              <div class="feature-icon-wrap">${icons.palette}</div>
-              <div class="feature-text">
-                <h4>Earthy Color System</h4>
-                <p>Sage red primary (#AB1509) with warm neutrals and creamy backgrounds. Every shade optimized for accessibility and warmth.</p>
-              </div>
-            </div>
-            
-            <div class="feature-item">
-              <div class="feature-icon-wrap">${icons.box}</div>
-              <div class="feature-text">
-                <h4>Tactile Depth</h4>
-                <p>Hard 2px offset shadows that feel printed, not floating. Components you can almost touch through the screen.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Right Visual: Dashboard Mockup -->
-        <div class="showcase-visual">
-          <div class="visual-container">
-            <div class="visual-header">
-              <div class="visual-dot active"></div>
-              <div class="visual-dot"></div>
-              <div class="visual-dot"></div>
-            </div>
-            <div class="visual-body">
-              <div class="mock-nav">
-                <div class="mock-tab active">Dashboard</div>
-                <div class="mock-tab">Components</div>
-                <div class="mock-tab">Tokens</div>
-              </div>
-              
-              <!-- Stats Row -->
-              <div class="mock-stats-grid">
-                <div class="mock-stat-box">
-                  <span class="mock-stat-num">48+</span>
-                  <span class="mock-stat-label">Components</span>
-                </div>
-                <div class="mock-stat-box">
-                  <span class="mock-stat-num">99%</span>
-                  <span class="mock-stat-label">Accessible</span>
-                </div>
-                <div class="mock-stat-box">
-                  <span class="mock-stat-num">4px</span>
-                  <span class="mock-stat-label">Base Unit</span>
-                </div>
-              </div>
-              
-              <!-- Chat Preview -->
-              <div style="margin-top:24px;display:flex;flex-direction:column;gap:12px">
-                <div class="mock-chat-bubble bot">
-                  <strong>New component ready:</strong> Pricing Card v2.0 with press effect states.
-                </div>
-                <div class="mock-chat-bubble user">
-                  Looks great! Ship it to production 🚀
-                </div>
-              </div>
-              
-              <div class="mock-input-field">
-                <span>Type a message...</span>
-                <span>→</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- SECTION 2: Technical Specs (Reversed: Left: Code Mockup, Right: Features) -->
-      <div class="showcase-split reverse animate-on-scroll animate-delay-1">
-        <!-- Left Visual: Code Editor Mockup -->
-        <div class="showcase-visual">
-          <div class="visual-container" style="border-color: var(--warm-mid); box-shadow: 8px 8px 0px 0px var(--warm-mid);">
-            <div class="visual-header" style="background: var(--text);">
-              <div class="visual-dot" style="background:#ff5f57"></div>
-              <div class="visual-dot" style="background:#febc2e"></div>
-              <div class="visual-dot" style="background:#28c840"></div>
-              <span style="margin-left:12px;font-size:12px;color:#8B8B7A;font-family:'Space Mono',monospace">design-tokens.css</span>
-            </div>
-            <div class="visual-body" style="background:var(--text);padding:24px;font-family:'Space Mono',monospace;font-size:13px;line-height:1.8;color:#F5F5F0">
-              <div style="color:var(--primary)">:root {</div>
-              <div style="padding-left:16px;color:#E6D8C3">
-                <span style="color:#C2A68C">--primary:</span> <span style="color:#AB1509">#AB1509</span>;
-              </div>
-              <div style="padding-left:16px;color:#E6D8C3">
-                <span style="color:#C2A68C">--shadow-btn:</span> <span style="color:#AB1509">2px 2px 0 #000</span>;
-              </div>
-              <div style="padding-left:16px;color:#E6D8C3">
-                <span style="color:#C2A68C">--radius-lg:</span> <span style="color:#AB1509">16px</span>;
-              </div>
-              <div style="color:var(--primary)">}</div>
-              <div style="margin-top:16px;height:1px;background:rgba(255,255,255,0.1)"></div>
-              <div style="margin-top:16px;color:#8B8B7A;font-size:11px">
-                /* Press effect on hover */<br>
-                .btn:active {<br>
-                &nbsp;&nbsp;transform: translate(2px);<br>
-                &nbsp;&nbsp;box-shadow: 1px 1px 0;<br>
-                }
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Right Content -->
-        <div class="showcase-content">
-          <div class="showcase-eyebrow">Developer Experience</div>
-          <h2 class="showcase-title">Built for<br>modern workflows</h2>
-          
-          <div class="feature-list">
-            <div class="feature-item">
-              <div class="feature-icon-wrap">${icons.code}</div>
-              <div class="feature-text">
-                <h4>Framework Agnostic</h4>
-                <p>Works with React, Vue, Svelte, or vanilla HTML/CSS. No lock-in, just clean output that integrates anywhere.</p>
-              </div>
-            </div>
-            
-            <div class="feature-item">
-              <div class="feature-icon-wrap">${icons.accessibility}</div>
-              <div class="feature-text">
-                <h4>WCAG 2.1 AA Compliant</h4>
-                <p>High-contrast ratios, visible focus rings, ARIA attributes, and keyboard navigation built into every component.</p>
-              </div>
-            </div>
-            
-            <div class="feature-item">
-              <div class="feature-icon-wrap">${icons.globe}</div>
-              <div class="feature-text">
-                <h4>Dark Mode Ready</h4>
-                <p>Every component includes dark variants. Toggle via CSS class or respect prefers-color-scheme automatically.</p>
-              </div>
-            </div>
-            
-            <div class="feature-item">
-              <div class="feature-icon-wrap">${icons.monitor}</div>
-              <div class="feature-text">
-                <h4>Figma Design Kit</h4>
-                <p>Matching Figma library with auto-layout, variants, and synced design tokens. Pixel-perfect handoff guaranteed.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- SECTION 3: Service Categories (Use Cases Style) -->
-      <div style="text-align:center;margin-top:80px;margin-bottom:48px" class="animate-on-scroll">
-        <div class="section-label">Service Categories</div>
-        <h2 class="section-title" style="font-size:42px;line-height:1.2">Specialized solutions<br>for every need</h2>
-        <p class="section-desc" style="max-width:600px;margin:20px auto 0">From website add-ons to enterprise automation, we've got you covered across five key domains.</p>
+      <div class="product-features-grid">
+        <div class="product-feature animate-on-scroll animate-delay-1"><div class="pf-icon">${icons.layoutGrid}</div><h3>48+ Components</h3><p>From buttons and inputs to complex data tables and navigation patterns. Every component follows the same design language and interaction model.</p></div>
+        <div class="product-feature animate-on-scroll animate-delay-2"><div class="pf-icon">${icons.code}</div><h3>Framework Agnostic</h3><p>Use with React, Vue, Svelte, or plain HTML. Our tokens and styles work everywhere — no lock-in, just clean output.</p></div>
+        <div class="product-feature animate-on-scroll animate-delay-3"><div class="pf-icon">${icons.palette}</div><h3>Design Tokens</h3><p>Color, spacing, typography, and shadow tokens that sync between Figma and code. Change once, update everywhere.</p></div>
+        <div class="product-feature animate-on-scroll animate-delay-1"><div class="pf-icon">${icons.accessibility}</div><h3>WCAG 2.1 AA</h3><p>All components meet accessibility standards out of the box. Focus management, ARIA attributes, and keyboard navigation built in.</p></div>
+        <div class="product-feature animate-on-scroll animate-delay-2"><div class="pf-icon">${icons.globe}</div><h3>Dark Mode Ready</h3><p>Every component includes dark mode variants. Toggle with a single CSS class or use the prefers-color-scheme media query.</p></div>
+        <div class="product-feature animate-on-scroll animate-delay-4"><div class="pf-icon">${icons.monitor}</div><h3>Figma Library</h3><p>A matching Figma component library with auto-layout, variants, and design tokens. Ship designs that match code perfectly.</p></div>
       </div>
       
-      <div class="use-cases-grid">
-        <!-- Card 1: Add-Ons -->
-        <div class="use-case-card animate-on-scroll animate-delay-1">
-          <div class="use-case-icon-wrapper">
-            <div class="use-case-icon-large">${icons.box}</div>
-          </div>
-          <div class="use-case-body">
-            <h3 class="use-case-title">Add-On Services</h3>
-            <p class="use-case-subtitle">Enhance your website with additional features</p>
-            <div class="mini-chat-preview">
-              <div class="mini-chat-line">
-                <div class="mini-chat-avatar">+</div>
-                <div class="mini-chat-msg highlight">New landing page added! RM350</div>
-              </div>
-              <div class="mini-chat-line">
-                <div class="mini-chat-avatar" style="background:var(--warm-mid)">U</div>
-                <div class="mini-chat-msg">Perfect for our campaign launch!</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 2: Marketing -->
-        <div class="use-case-card animate-on-scroll animate-delay-2">
-          <div class="use-case-icon-wrapper">
-            <div class="use-case-icon-large">${icons.target}</div>
-          </div>
-          <div class="use-case-body">
-            <h3 class="use-case-title">Marketing</h3>
-            <p class="use-case-subtitle">Data-driven growth strategies</p>
-            <div class="mini-chat-preview">
-              <div class="mini-chat-line">
-                <div class="mini-chat-avatar">📈</div>
-                <div class="mini-chat-msg highlight">SEO traffic up 340% this month!</div>
-              </div>
-              <div class="mini-chat-line">
-                <div class="mini-chat-avatar" style="background:var(--warm-mid)">M</div>
-                <div class="mini-chat-msg">The Google Ads optimization is working wonders.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 3: Automation -->
-        <div class="use-case-card animate-on-scroll animate-delay-3">
-          <div class="use-case-icon-wrapper">
-            <div class="use-case-icon-large">${icons.settings}</div>
-          </div>
-          <div class="use-case-body">
-            <h3 class="use-case-title">Automation</h3>
-            <p class="use-case-subtitle">Streamline your operations</p>
-            <div class="mini-chat-preview">
-              <div class="mini-chat-line">
-                <div class="mini-chat-avatar">🤖</div>
-                <div class="mini-chat-msg highlight">WhatsApp bot handled 50 inquiries today</div>
-              </div>
-              <div class="mini-chat-line">
-                <div class="mini-chat-avatar" style="background:var(--warm-mid)">S</div>
-                <div class="mini-chat-msg">Incredible time savings for our team!</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Card 4: Design -->
-        <div class="use-case-card animate-on-scroll animate-delay-4">
-          <div class="use-case-icon-wrapper">
-            <div class="use-case-icon-large">${icons.palette}</div>
-          </div>
-          <div class="use-case-body">
-            <h3 class="use-case-title">Design & Branding</h3>
-            <p class="use-case-subtitle">Visual identity that converts</p>
-            <div class="mini-chat-preview">
-              <div class="mini-chat-line">
-                <div class="mini-chat-avatar">🎨</div>
-                <div class="mini-chat-msg highlight">Brand kit delivered! Logo + guidelines</div>
-              </div>
-              <div class="mini-chat-line">
-                <div class="mini-chat-avatar" style="background:var(--warm-mid)">A</div>
-                <div class="mini-chat-msg">This perfectly captures our vision!</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 5: Hosting -->
-        <div class="use-case-card animate-on-scroll animate-delay-5">
-          <div class="use-case-icon-wrapper">
-            <div class="use-case-icon-large">${icons.monitor}</div>
-          </div>
-          <div class="use-case-body">
-            <h3 class="use-case-title">Hosting & Infra</h3>
-            <p class="use-case-subtitle">Reliable infrastructure 24/7</p>
-            <div class="mini-chat-preview">
-              <div class="mini-chat-line">
-                <div class="mini-chat-avatar">☁️</div>
-                <div class="mini-chat-msg highlight">99.99% uptime achieved! Cloudflare active</div>
-              </div>
-              <div class="mini-chat-line">
-                <div class="mini-chat-avatar" style="background:var(--warm-mid)">T</div>
-                <div class="mini-chat-msg">Fast loading speeds globally now!</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <!-- CTA -->
-      <div style="text-align:center;margin-top:72px" class="animate-on-scroll">
-        <button class="btn-primary" onclick="navigate('/pricing')" style="font-size:16px;padding:16px 36px">${icons.zap} Explore Full Pricing</button>
-      </div>
-    </div>
-  </section>
-
-  ${standardFooter}`;
-}
-
-// ===== PRODUCT ADD-ON SERVICES PAGE =====
-function renderProductAddOn(el) {
-  const services = [
-    { title: 'Additional Website Page', price: 'RM80/page', color: '#AB1509', desc: 'Extra pages seamlessly integrated into your existing site structure.', icon: '📄' },
-    { title: 'Landing Page Design', price: 'RM350', color: '#C2A68C', desc: 'High-conversion landing pages optimized for campaigns and lead gen.', icon: '🎯' },
-    { title: 'Blog Setup', price: 'RM180', color: '#AB1509', desc: 'Full CMS integration for content marketing and SEO growth.', icon: '📝' },
-    { title: 'E-Commerce Setup', price: 'RM1,500', color: '#C2A68C', desc: 'Complete online store with products, cart, checkout, and payments.', icon: '🛒' },
-    { title: 'Payment Gateway', price: 'RM350', color: '#AB1509', desc: 'Stripe, FPX, DuitNow integration for secure transactions.', icon: '💳' },
-    { title: 'Booking System', price: 'RM800', color: '#C2A68C', desc: 'Automated appointment scheduling with real-time availability.', icon: '📅' },
-    { title: 'Membership System', price: 'RM1,200', color: '#AB1509', desc: 'User auth, protected content areas, role-based access.', icon: '🔐' },
-    { title: 'Custom Dashboard', price: 'RM2,500', color: '#C2A68C', desc: 'Internal tools for managing users, data, and operations.', icon: '📊' }
-  ];
-
-  const faqs = [
-    { q: 'How long does implementation take?', a: 'Most add-ons are completed within 3-7 business days. Simple additions like extra pages can be done in 1-2 days.' },
-    { q: 'Can I combine multiple services?', a: 'Absolutely! Many clients bundle several add-ons together. Contact us for custom package pricing when combining 3+ services.' },
-    { q: 'Do add-ons include maintenance?', a: 'Add-on prices are one-time fees for implementation. Ongoing maintenance is covered under subscription plans (Starter/Growth/Pro IT).' }
-  ];
-
-  el.innerHTML = `
-  <div class="page-hero">
-    <div class="container">
-      <div class="section-label animate-on-scroll">Add-On Services</div>
-      <h1 class="animate-on-scroll animate-delay-1">Website & Development <span class="accent">Services</span></h1>
-      <p class="animate-on-scroll animate-delay-2">Professional enhancements, integrations, and custom development solutions designed to scale your digital operations.</p>
-    </div>
-  </div>
-  
-  <section class="product-showcase">
-    <div class="container">
-      
-      <!-- HERO SPLIT: Left Features / Right Visual -->
-      <div class="showcase-split animate-on-scroll" style="margin-bottom:80px">
-        <div class="showcase-content">
-          <div class="showcase-eyebrow">Enhancements</div>
-          <h2 class="showcase-title">Extend your<br>website's capabilities</h2>
-          
-          <div class="feature-list">
-            <div class="feature-item">
-              <div class="feature-icon-wrap">${icons.box}</div>
-              <div class="feature-text">
-                <h4>Modular Additions</h4>
-                <p>Add new features without rebuilding. Every component integrates seamlessly with your existing Luviio-built site.</p>
-              </div>
-            </div>
-            
-            <div class="feature-item">
-              <div class="feature-icon-wrap">${icons.zap}</div>
-              <div class="feature-text">
-                <h4>Quick Deployment</h4>
-                <p>Most add-ons deployed within 48 hours. We handle setup, testing, and integration so you can focus on business.</p>
-              </div>
-            </div>
-            
-            <div class="feature-item">
-              <div class="feature-icon-wrap">${icons.shield}</div>
-              <div class="feature-text">
-                <h4>Secure Integration</h4>
-                <p>All payment gateways and login systems follow OWASP security standards with SSL encryption enforced.</p>
-              </div>
-            </div>
-
-            <div class="feature-item">
-              <div class="feature-icon-wrap">${icons.settings}</div>
-              <div class="feature-text">
-                <h4>Scalable Architecture</h4>
-                <p>Built to grow with you. Start with a booking system today, add e-commerce tomorrow — same codebase, zero conflicts.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Right: Website Pages Mockup -->
-        <div class="showcase-visual">
-          <div class="visual-container">
-            <div class="visual-header">
-              <div class="visual-dot active"></div>
-              <div class="visual-dot"></div>
-              <div class="visual-dot"></div>
-              <span style="margin-left:auto;font-size:12px;color:#8B8B7A;font-family:'Space Mono',monospace">mywebsite.com</span>
-            </div>
-            <div class="visual-body" style="padding:0;min-height:360px;background:#FAFAF8">
-              <!-- Mock Browser Content -->
-              <div style="background:var(--primary);padding:16px 24px;display:flex;justify-content:space-between;align-items:center;color:#fff">
-                <div style="font-weight:800;font-size:14px">MyBusiness.com</div>
-                <div style="display:flex;gap:20px;font-size:13px">
-                  <span>Home</span><span style="opacity:0.6">About</span><span style="opacity:0.6">Services</span><span style="background:#fff;color:var(--primary);padding:4px 12px;border-radius:6px;font-weight:700">Contact</span>
-                </div>
-              </div>
-              
-              <div style="padding:32px 24px">
-                <div style="font-size:28px;font-weight:900;color:var(--text);margin-bottom:8px">Get Started Today</div>
-                <div style="color:#5C5C4F;margin-bottom:24px;font-size:14px">Fill out the form below and we'll get back to you within 24 hours.</div>
-                
-                <!-- Mock Form -->
-                <div style="display:flex;flex-direction:column;gap:12px">
-                  <div style="background:#fff;border:2px solid var(--warm-light);border-radius:10px;padding:12px 16px;font-size:13px;color:#B0B0A8;display:flex;justify-content:space-between">
-                    <span>Your Name</span>
-                    <span style="color:var(--primary)">✓</span>
-                  </div>
-                  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-                    <div style="background:#fff;border:2px solid var(--warm-light);border-radius:10px;padding:12px 16px;font-size:13px;color:#B0B0A8">Email</div>
-                    <div style="background:#fff;border:2px solid var(--warm-light);border-radius:10px;padding:12px 16px;font-size:13px;color:#B0B0A8">Phone</div>
-                  </div>
-                  <div style="background:var(--primary);color:#fff;border-radius:10px;padding:14px;text-align:center;font-weight:700;font-size:14px;box-shadow:2px 2px 0 #000;margin-top:4px">
-                    Send Message →
-                  </div>
-                </div>
-                
-                <!-- Floating Badge -->
-                <div style="position:absolute;top:120px;right:24px;background:#fff;border:2px solid var(--text);border-radius:12px;padding:12px 16px;box-shadow:4px 4px 0 rgba(0,0,0,1);font-size:11px;font-weight:700;color:var(--text)">
-                  🆕 New Page Added!<br><span style="color:#8B8B7A;font-weight:400">Landing Page v2</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- SERVICES GRID SECTION -->
-      <div style="text-align:center;margin-bottom:56px" class="animate-on-scroll animate-delay-1">
-        <div class="section-label">Pricing</div>
-        <h2 class="section-title" style="font-size:36px;line-height:1.2">Transparent pricing,<br>no hidden fees</h2>
-      </div>
-
-      <div class="tools-grid" style="margin-bottom:64px">
-        ${services.map((s, i) => `
-          <div class="tool-card animate-on-scroll animate-delay-${(i % 5) + 1}" style="cursor:pointer" onclick="navigate('/contact')">
-            <div class="tool-header" style="background:linear-gradient(135deg,${s.color}15,${s.color}08)">
-              <div class="tool-icon" style="background:${s.color};font-size:18px">${s.icon}</div>
-              <div class="tool-title">${s.title}</div>
-              <div style="margin-left:auto;font-size:18px;font-weight:900;color:${s.color}">${s.price}</div>
-            </div>
-            <div class="tool-body">
-              <p class="tool-desc">${s.desc}</p>
-              <button class="btn-primary" style="width:100%;justify-content:center;padding:10px;font-size:13px">Get Quote ${icons.arrowRight}</button>
-            </div>
-          </div>
-        `).join('')}
-      </div>
-
-      ${generateFAQSection(faqs)}
-
-      <section class="cta-section">
+      <!-- TOOLS SECTION -->
+      <div class="tools-section" id="tools">
         <div class="container">
-          <div class="cta-card animate-on-scroll">
-            <h2>Need a custom <span class="accent">solution?</span></h2>
-            <p>Don't see what you need? Let us build something tailored specifically for your requirements.</p>
-            <button class="btn-primary" onclick="navigate('/contact')">${icons.send} Request Custom Quote</button>
+          <div class="section-header animate-on-scroll">
+            <div class="section-label">Free Tools</div>
+            <h2 class="section-title">Try it live</h2>
+            <p class="section-desc">Interactive tools built right into the product page. No signup required.</p>
           </div>
-        </div>
-      </section>
-    </div>
-  </section>
-  ${standardFooter}`;
-}
-
-// ===== PRODUCT MARKETING SERVICES PAGE =====
-function renderProductMarketing(el) {
-  const services = [
-    { title: 'Email Marketing Setup', price: 'RM350', color: '#AB1509', metric: '42% Open Rate', icon: '📧' },
-    { title: 'Monthly Email Management', price: 'RM600/mo', color: '#C2A68C', metric: '3.2x ROI', icon: '📈' },
-    { title: 'SEO Optimization', price: 'RM500/mo', color: '#AB1509', metric: '+340% Traffic', icon: '🔍' },
-    { title: 'Google Ads Setup', price: 'RM350', color: '#C2A68C', metric: '-35% CPC', icon: '🎯' },
-    { title: 'Google Ads Management', price: 'RM700/mo', color: '#AB1509', metric: '+180% Conv.', icon: '💰' },
-    { title: 'Meta Ads Setup', price: 'RM350', color: '#C2A68C', metric: '$0.40 CPL', icon: '📱' },
-    { title: 'Meta Ads Management', price: 'RM700/mo', color: '#AB1509', metric: '2.1x ROAS', icon: '🚀' },
-    { title: 'Social Media Mgmt', price: 'RM800/mo', color: '#C2A68C', metric: '+500% Reach', icon: '💬' },
-    { title: 'Content Writing', price: 'RM120/art', color: '#AB1509', metric: 'SEO Optimized', icon: '✍️' },
-    { title: 'Analytics Reports', price: 'RM150/mo', color: '#C2A68C', metric: 'Data Driven', icon: '📊' }
-  ];
-
-  const faqs = [
-    { q: 'Which marketing service should I start with?', a: 'For most businesses, we recommend starting with SEO Optimization combined with Google Ads or Meta Ads depending on where your audience spends time.' },
-    { q: 'Can I change my monthly package?', a: 'Yes, all monthly services can be upgraded, downgraded, or cancelled with 30 days notice. We recommend committing to at least 3 months to see meaningful results.' }
-  ];
-
-  el.innerHTML = `
-  <div class="page-hero">
-    <div class="container">
-      <div class="section-label animate-on-scroll">Marketing Services</div>
-      <h1 class="animate-on-scroll animate-delay-1">Marketing & Growth <span class="accent">Services</span></h1>
-      <p class="animate-on-scroll animate-delay-2">Data-driven strategies to grow your audience, increase conversions, and build lasting brand awareness.</p>
-    </div>
-  </div>
-  
-  <section class="product-showcase">
-    <div class="container">
-      
-      <!-- REVERSED SPLIT: Left Analytics Visual / Right Features -->
-      <div class="showcase-split reverse animate-on-scroll" style="margin-bottom:80px">
-        <!-- Left: Analytics Dashboard Mockup -->
-        <div class="showcase-visual">
-          <div class="visual-container">
-            <div class="visual-header" style="background:var(--text);color:#fff">
-              <div class="visual-dot" style="background:#ff5f57"></div>
-              <div class="visual-dot" style="background:#febc2e"></div>
-              <div class="visual-dot" style="background:#28c840"></div>
-              <span style="margin-left:12px;font-size:12px;font-family:'Space Mono',monospace">analytics.dashboard</span>
-            </div>
-            <div class="visual-body" style="padding:24px;background:#FAFAF8">
-              
-              <!-- Metric Cards -->
-              <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:20px">
-                <div style="background:#fff;border:1px solid var(--warm-light);border-radius:12px;padding:16px">
-                  <div style="font-size:11px;color:#8B8B7A;text-transform:uppercase;letter-spacing:0.04em">Total Visitors</div>
-                  <div style="font-size:28px;font-weight:900;color:var(--primary)">24,847</div>
-                  <div style="display:flex;align-items:center;gap:4px;font-size:12px;color:#22c55e;font-weight:600;margin-top:4px">
-                    ↑ 34.2%
-                  </div>
-                </div>
-                <div style="background:#fff;border:1px solid var(--warm-light);border-radius:12px;padding:16px">
-                  <div style="font-size:11px;color:#8B8B7A;text-transform:uppercase;letter-spacing:0.04em">Conversion Rate</div>
-                  <div style="font-size:28px;font-weight:900;color:var(--primary)">4.8%</div>
-                  <div style="display:flex;align-items:center;gap:4px;font-size:12px;color:#22c55e;font-weight:600;margin-top:4px">
-                    ↑ 12.5%
-                  </div>
-                </div>
-              </div>
-
-              <!-- Chart Mockup -->
-              <div style="background:#fff;border:1px solid var(--warm-light);border-radius:12px;padding:20px;height:140px;position:relative;overflow:hidden">
-                <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:12px">Traffic Overview</div>
-                <!-- SVG Chart Lines -->
-                <svg width="100%" height="90" viewBox="0 0 300 90" preserveAspectRatio="none" style="overflow:visible">
-                  <defs>
-                    <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stop-color="#AB1509" stop-opacity="0.2"/>
-                      <stop offset="100%" stop-color="#AB1509" stop-opacity="0"/>
-                    </linearGradient>
-                  </defs>
-                  <path d="M0,70 Q30,65 60,50 T120,45 T180,30 T240,35 T300,15 L300,90 L0,90 Z" fill="url(#chartGrad)"/>
-                  <path d="M0,70 Q30,65 60,50 T120,45 T180,30 T240,35 T300,15" fill="none" stroke="#AB1509" stroke-width="3" stroke-linecap="round"/>
-                  <circle cx="300" cy="15" r="5" fill="#AB1509" stroke="#fff" stroke-width="2"/>
-                </svg>
-                <!-- X Axis Labels -->
-                <div style="display:flex;justify-content:space-between;margin-top:4px;font-size:10px;color:#8B8B7A">
-                  <span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span>
-                </div>
-              </div>
-
-              <!-- Source Pills -->
-              <div style="display:flex;gap:8px;margin-top:16px;flex-wrap:wrap">
-                <span style="background:var(--primary-tint);color:var(--primary);padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600">Organic +42%</span>
-                <span style="background:#E6D8C3;color:var(--text);padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600">Direct +18%</span>
-                <span style="background:#DCFCE7;color:#166534;padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600">Social +67%</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Right: Feature List -->
-        <div class="showcase-content">
-          <div class="showcase-eyebrow">Growth Engine</div>
-          <h2 class="showcase-title">Data-driven<br>marketing that converts</h2>
           
-          <div class="feature-list">
-            <div class="feature-item">
-              <div class="feature-icon-wrap">${icons.target}</div>
-              <div class="feature-text">
-                <h4>Precision Targeting</h4>
-                <p>Audience segmentation based on behavior, demographics, and intent signals. No wasted ad spend on unqualified leads.</p>
+          <div class="tools-grid">
+            <!-- Color Picker Tool -->
+            <div class="tool-card animate-on-scroll animate-delay-1">
+              <div class="tool-header">
+                <div class="tool-icon">${icons.droplet}</div>
+                <div class="tool-title">Color Picker</div>
               </div>
-            </div>
-            
-            <div class="feature-item">
-              <div class="feature-icon-wrap">${icons.eye}</div>
-              <div class="feature-text">
-                <h4>Full-Funnel Tracking</h4>
-                <p>From impression to purchase. We track every touchpoint, attribute conversions correctly, and optimize based on real data.</p>
-              </div>
-            </div>
-            
-            <div class="feature-item">
-              <div class="feature-icon-wrap">${icons.mail}</div>
-              <div class="feature-text">
-                <h4>Automated Sequences</h4>
-                <p>Email workflows triggered by user behavior. Welcome series, abandoned cart recovery, re-engagement drips — all on autopilot.</p>
-              </div>
-            </div>
-            
-            <div class="feature-item">
-              <div class="feature-icon-wrap">${icons.search}</div>
-              <div class="feature-text">
-                <h4>SEO Foundation</h4>
-                <p>Technical SEO, content optimization, and authority building. Sustainable organic growth that compounds over time.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- SERVICES PRICING GRID -->
-      <div style="text-align:center;margin-bottom:48px" class="animate-on-scroll animate-delay-1">
-        <div class="section-label">Services</div>
-        <h2 class="section-title" style="font-size:36px">All marketing services,<br>one transparent price</h2>
-      </div>
-
-      <div class="use-cases-grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin-bottom:64px">
-        ${services.map((s, i) => `
-          <div class="tool-card animate-on-scroll animate-delay-${(i % 5) + 1}" style="box-shadow:4px 4px 0px 0px var(--text)" onclick="navigate('/contact')">
-            <div class="tool-header" style="background:${s.color}10;border-bottom:2px solid ${s.color}">
-              <div style="display:flex;align-items:center;gap:12px">
-                <span style="font-size:24px">${s.icon}</span>
-                <div class="tool-title" style="font-size:16px">${s.title}</div>
-              </div>
-              <div style="font-size:18px;font-weight:900;color:${s.color}">${s.price}</div>
-            </div>
-            <div class="tool-body" style="padding:16px">
-              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
-                <span style="font-size:12px;color:#8B8B7A">Typical Result:</span>
-                <span style="font-size:13px;font-weight:800;color:var(--primary);background:var(--primary-tint);padding:4px 10px;border-radius:6px">${s.metric}</span>
-              </div>
-              <button class="btn-secondary" style="width:100%;justify-content:center;padding:8px;font-size:12px">Learn More ${icons.arrowRight}</button>
-            </div>
-          </div>
-        `).join('')}
-      </div>
-
-      ${generateFAQSection(faqs)}
-
-      <section class="cta-section">
-        <div class="container">
-          <div class="cta-card animate-on-scroll">
-            <h2>Ready to <span class="accent">grow?</span></h2>
-            <p>Let us create a customized marketing strategy tailored to your budget and goals.</p>
-            <button class="btn-primary" onclick="navigate('/contact')">${icons.target} Get Marketing Proposal</button>
-          </div>
-        </div>
-      </section>
-    </div>
-  </section>
-  ${standardFooter}`;
-}
-
-// ===== PRODUCT AUTOMATION & BUSINESS TOOLS PAGE =====
-function renderProductAutomation(el) {
-  const services = [
-    { title: 'CRM Setup', price: 'RM1,200', color: '#AB1509', flow: 'Lead → Deal → Won', icon: '👥' },
-    { title: 'WhatsApp Automation', price: 'RM800', color: '#C2A68C', flow: 'Message → Bot → Reply', icon: '💬' },
-    { title: 'Invoice/Billing System', price: 'RM1,500', color: '#AB1509', flow: 'Create → Send → Paid', icon: '🧾' },
-    { title: 'Inventory System', price: 'RM3,500', color: '#C2A68C', flow: 'Stock → Sell → Alert', icon: '📦' },
-    { title: 'HR/Employee Portal', price: 'RM4,500', color: '#AB1509', flow: 'Apply → Onboard → Manage', icon: '👤' },
-    { title: 'AI Chatbot', price: 'RM1,200', color: '#C2A68C', flow: 'Ask → AI → Answer', icon: '🤖' },
-    { title: 'Client Portal', price: 'RM2,000', color: '#AB1509', flow: 'Login → Track → Deliver', icon: '🔗' },
-    { title: 'API Integration', price: 'RM500', color: '#C2A68C', flow: 'Connect → Sync → Auto', icon: '🔌' }
-  ];
-
-  const faqs = [
-    { q: 'Can these systems integrate with my existing tools?', a: 'Yes, most automation solutions integrate with Zapier, Make, or direct APIs. We assess your tech stack during consultation.' },
-    { q: 'How long does implementation take?', a: 'Simple systems like chatbots take 1-2 weeks. Complex systems like CRM or inventory management take 3-6 weeks depending on customization.' }
-  ];
-
-  el.innerHTML = `
-  <div class="page-hero">
-    <div class="container">
-      <div class="section-label animate-on-scroll">Automation & Tools</div>
-      <h1 class="animate-on-scroll animate-delay-1">Automation & Business <span class="accent">Systems</span></h1>
-      <p class="animate-on-scroll animate-delay-2">Streamline operations, reduce manual work, and scale efficiently with custom-built automation tools.</p>
-    </div>
-  </div>
-  
-  <section class="product-showcase">
-    <div class="container">
-      
-      <!-- MAIN SPLIT: Workflow Visualization -->
-      <div class="showcase-split animate-on-scroll" style="margin-bottom:80px">
-        <div class="showcase-content">
-          <div class="showcase-eyebrow">Workflow Automation</div>
-          <h2 class="showcase-title">Automate the boring stuff,<br>focus on what matters</h2>
-          
-          <div class="feature-list">
-            <div class="feature-item">
-              <div class="feature-icon-wrap">${icons.settings}</div>
-              <div class="feature-text">
-                <h4>No-Code Workflows</h4>
-                <p>Visual workflow builders let you automate processes without writing code. Drag, drop, connect — done.</p>
-              </div>
-            </div>
-            
-            <div class="feature-item">
-              <div class="feature-icon-wrap">${icons.smartphone}</div>
-              <div class="feature-text">
-                <h4>Omnichannel Triggers</h4>
-                <p>Email, WhatsApp, web forms, calendar events — any action can trigger automated sequences across channels.</p>
-              </div>
-            </div>
-            
-            <div class="feature-item">
-              <div class="feature-icon-wrap">${icons.shield}</div>
-              <div class="feature-text">
-                <h4>Error Handling Built-in</h4>
-                <p>Automatic retry logic, fallback paths, and alert notifications when something needs human attention.</p>
-              </div>
-            </div>
-            
-            <div class="feature-item">
-              <div class="feature-icon-wrap">${icons.clock}</div>
-              <div class="feature-text">
-                <h4>24/7 Operation</h4>
-                <p>Bots and automations never sleep. Handle inquiries, process orders, and send updates around the clock.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Right: Workflow Diagram Mockup -->
-        <div class="showcase-visual">
-          <div class="visual-container">
-            <div class="visual-header" style="background:linear-gradient(135deg,#EDEDE8,#F5F5F0)">
-              <div class="visual-dot active" style="background:var(--primary)"></div>
-              <div class="visual-dot"></div>
-              <div class="visual-dot"></div>
-              <span style="margin-left:auto;font-size:12px;color:#8B8B7A;font-family:'Space Mono',monospace">automation.flow</span>
-            </div>
-            <div class="visual-body" style="padding:32px;background:#FAFAF8;position:relative">
-              
-              <!-- Flow Nodes -->
-              <div style="display:flex;flex-direction:column;gap:20px;position:relative">
-                
-                <!-- Node 1: Trigger -->
-                <div style="display:flex;align-items:center;gap:16px">
-                  <div style="width:48px;height:48px;background:var(--primary);border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;box-shadow:3px 3px 0 #000;flex-shrink:0">📥</div>
-                  <div style="flex:1;background:#fff;border:2px solid var(--text);border-radius:12px;padding:14px 18px;box-shadow:3px 3px 0 rgba(0,0,0,0.1)">
-                    <div style="font-size:13px;font-weight:800;color:var(--text)">New Lead Captured</div>
-                    <div style="font-size:11px;color:#8B8B7A;margin-top:2px">From contact form submission</div>
-                  </div>
-                </div>
-
-                <!-- Connector Line -->
-                <div style="height:24px;width:2px;background:var(--warm-mid);margin-left:24px"></div>
-
-                <!-- Node 2: Process -->
-                <div style="display:flex;align-items:center;gap:16px">
-                  <div style="width:48px;height:48px;background:var(--warm-mid);border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;box-shadow:3px 3px 0 #000;flex-shrink:0">⚙️</div>
-                  <div style="flex:1;background:#fff;border:2px dashed var(--warm-mid);border-radius:12px;padding:14px 18px">
-                    <div style="font-size:13px;font-weight:800;color:var(--text)">Check CRM Database</div>
-                    <div style="font-size:11px;color:#8B8B7A;margin-top:2px">If exists → Update | If new → Create</div>
-                  </div>
-                </div>
-
-                <div style="height:24px;width:2px;background:var(--warm-mid);margin-left:24px"></div>
-
-                <!-- Node 3: Action Split -->
-                <div style="display:flex;align-items:center;gap:16px">
-                  <div style="width:48px;height:48px;background:#22c55e;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;box-shadow:3px 3px 0 #000;flex-shrink:0">✉️</div>
-                  <div style="flex:1;display:flex;gap:8px">
-                    <div style="flex:1;background:var(--primary-tint);border:1px solid var(--primary);border-radius:10px;padding:12px;text-align:center;font-size:12px;font-weight:700;color:var(--primary)">
-                      Send WhatsApp<br><span style="font-weight:400;font-size:10px;color:#8B8B7A">Auto-reply</span>
-                    </div>
-                    <div style="flex:1;background:var(--primary-tint);border:1px solid var(--primary);border-radius:10px;padding:12px;text-align:center;font-size:12px;font-weight:700;color:var(--primary)">
-                      Email Alert<br><span style="font-weight:400;font-size:10px;color:#8B8B7A">To sales team</span>
+              <div class="tool-body">
+                <p class="tool-desc">Pick colors and get HEX, RGB values instantly. Perfect for matching your brand palette.</p>
+                <div class="color-picker-wrapper">
+                  <div class="color-display">
+                    <div class="color-swatch" id="colorSwatch" style="background:#AB1509"></div>
+                    <div class="color-values">
+                      <div class="color-hex" id="colorHex" onclick="copyToClipboard(this.textContent)">#AB1509</div>
+                      <div class="color-rgb" id="colorRgb">RGB(171, 21, 9)</div>
                     </div>
                   </div>
-                </div>
-
-                <div style="height:24px;width:2px;background:var(--warm-mid);margin-left:24px"></div>
-
-                <!-- Node 4: Success -->
-                <div style="display:flex;align-items:center;gap:16px">
-                  <div style="width:48px;height:48px;background:var(--text);border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;box-shadow:3px 3px 0 var(--primary);flex-shrink:0">✅</div>
-                  <div style="flex:1;background:linear-gradient(135deg,var(--primary-tint),rgba(171,21,9,0.05));border:2px solid var(--primary);border-radius:12px;padding:14px 18px">
-                    <div style="font-size:13px;font-weight:800;color:var(--primary-dark)">Lead Nurtured Automatically!</div>
-                    <div style="font-size:11px;color:#5C5C4F;margin-top:2px">Response time: <strong>&lt;2 minutes</strong> (vs 4hrs manual)</div>
+                  <input type="color" id="colorPickerInput" value="#AB1509" style="width:100%;height:40px;border:none;cursor:pointer;border-radius:8px" onchange="updateColor(this.value)">
+                  <div class="color-presets">
+                    <div class="color-preset" style="background:#AB1509" onclick="updateColor('#AB1509')" title="Primary"></div>
+                    <div class="color-preset" style="background:#C2A68C" onclick="updateColor('#C2A68C')" title="Warm Mid"></div>
+                    <div class="color-preset" style="background:#F5F5F0" onclick="updateColor('#F5F5F0')" title="Background"></div>
+                    <div class="color-preset" style="background:#000000" onclick="updateColor('#000000')" title="Text"></div>
+                    <div class="color-preset" style="background:#C45B5B" onclick="updateColor('#C45B5B')" title="Error"></div>
+                    <div class="color-preset" style="background:#E6D8C3" onclick="updateColor('#E6D8C3')" title="Light"></div>
                   </div>
                 </div>
-
               </div>
+            </div>
 
-              <!-- Time Badge -->
-              <div style="position:absolute;top:16px;right:16px;background:#fff;border:2px solid var(--text);border-radius:10px;padding:8px 12px;box-shadow:2px 2px 0 rgba(0,0,0,1);font-size:11px;font-weight:700;color:var(--text)">
-                ⚡ Runs 24/7
-              </div>
+            <!-- LuvTools Link -->
+            <div class="tool-card animate-on-scroll animate-delay-2">
+              <a href="https://app.luviio.com" target="_blank" rel="noopener noreferrer" class="external-tool-link">
+                <div class="tool-header" style="background:linear-gradient(135deg,#FDF0EE,#F5E0DD)">
+                  <div class="tool-icon" style="background:linear-gradient(135deg,var(--primary),#6E0D04)">${icons.settings}</div>
+                  <div class="tool-title">LuvTools</div>
+                </div>
+                <div class="external-tool-content">
+                  <div class="external-tool-title">
+                    <div class="external-icon">LT</div>
+                    All-in-One Toolkit
+                  </div>
+                  <p class="external-tool-desc">Access powerful tools including image compressors, format converters, color generators, and more at app.luviio.com</p>
+                  <div class="external-tool-url">app.luviio.com</div>
+                  <div class="external-tool-arrow">Open LuvTools ${icons.externalLink}</div>
+                </div>
+              </a>
+            </div>
+
+            <!-- LuvImage Link -->
+            <div class="tool-card animate-on-scroll animate-delay-3">
+              <a href="https://remove-bg.luviio.com" target="_blank" rel="noopener noreferrer" class="external-tool-link">
+                <div class="tool-header" style="background:linear-gradient(135deg,#FFF5F0,#FFE8DD)">
+                  <div class="tool-icon" style="background:linear-gradient(135deg,#C2A68C,#A88B6E)">${icons.palette}</div>
+                  <div class="tool-title">LuvImage</div>
+                </div>
+                <div class="external-tool-content">
+                  <div class="external-tool-title">
+                    <div class="external-icon" style="background:linear-gradient(135deg,#C2A68C,#E6D8C3)">LI</div>
+                    Background Remover
+                  </div>
+                  <p class="external-tool-desc">Remove image backgrounds instantly with AI-powered precision. Perfect for product photos and profile pictures.</p>
+                  <div class="external-tool-url">remove-bg.luviio.com</div>
+                  <div class="external-tool-arrow">Open LuvImage ${icons.externalLink}</div>
+                </div>
+              </a>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- AUTOMATION TOOLS GRID -->
-      <div style="text-align:center;margin-bottom:48px" class="animate-on-scroll animate-delay-1">
-        <div class="section-label">Tools</div>
-        <h2 class="section-title" style="font-size:36px">Pick the automation<br>you need most</h2>
+      <div style="text-align:center;margin-top:48px" class="animate-on-scroll">
+        <button class="btn-primary" onclick="showToast('🎉 Downloading starter kit...','success')">${icons.zap} Get Starter Kit</button>
       </div>
-
-      <div class="features-grid" style="margin-bottom:64px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
-        ${services.map((s, i) => `
-          <div class="feature-card animate-on-scroll animate-delay-${(i % 5) + 1}" style="cursor:pointer;border-left:4px solid ${s.color}" onclick="navigate('/contact')">
-            <div class="feature-icon" style="background:${s.color}15;color:${s.color};font-size:22px">${s.icon}</div>
-            <h3 style="display:flex;justify-content:space-between;align-items:center;gap:8px">
-              ${s.title}
-              <span style="font-size:16px;font-weight:900;color:${s.color};white-space:nowrap">${s.price}</span>
-            </h3>
-            <p>${s.desc || 'Streamline this process with intelligent automation.'}</p>
-            <div style="margin-top:12px;padding:10px 14px;background:var(--bg);border-radius:8px;font-size:12px;font-family:'Space Mono',monospace;color:var(--primary-dark);font-weight:600">
-              ${s.flow}
-            </div>
-          </div>
-        `).join('')}
-      </div>
-
-      ${generateFAQSection(faqs)}
-
-      <section class="cta-section">
-        <div class="container">
-          <div class="cta-card animate-on-scroll">
-            <h2>Automate your <span class="accent">workflow?</span></h2>
-            <p>Tell us about your repetitive tasks and we'll build custom solutions to eliminate them.</p>
-            <button class="btn-primary" onclick="navigate('/contact')">${icons.settings} Discuss Automation Needs</button>
-          </div>
-        </div>
-      </section>
     </div>
   </section>
   ${standardFooter}`;
 }
 
-// ===== PRODUCT DESIGN & BRANDING PAGE =====
-function renderProductDesignBranding(el) {
-  const services = [
-    { title: 'Logo Design', price: 'RM250', color: '#AB1509', items: ['3 Concepts', 'Vector Files', 'Color Guide'], icon: '🎨' },
-    { title: 'Brand Identity Kit', price: 'RM800', color: '#C2A68C', items: ['Colors', 'Typography', 'Guidelines'], icon: '🖌️' },
-    { title: 'Company Profile', price: 'RM500', color: '#AB1509', items: ['Print PDF', 'Digital Version', 'Infographics'], icon: '📄' },
-    { title: 'Presentation Deck', price: 'RM450', color: '#C2A68C', items: ['Master Slides', 'Charts', 'Animations'], icon: '📊' },
-    { title: 'UI/UX Design System', price: 'RM1,500', color: '#AB1509', items: ['Components', 'Tokens', 'Docs'], icon: '🎛️' },
-    { title: 'Social Media Pack', price: 'RM350', color: '#C2A68C', items: ['Templates', 'Stories', 'Covers'], icon: '📱' }
-  ];
-
-  const faqs = [
-    { q: 'How many logo concepts do I get?', a: 'Logo Design includes 3-5 initial concepts with 2 rounds of revisions. Final files delivered in SVG, PNG, JPG, and PDF formats.' },
-    { q: 'Do you provide source files?', a: 'Yes, all deliverables include editable source files (Figma, Illustrator, or Photoshop) so you can make future modifications internally.' }
-  ];
-
-  el.innerHTML = `
-  <div class="page-hero">
-    <div class="container">
-      <div class="section-label animate-on-scroll">Design & Branding</div>
-      <h1 class="animate-on-scroll animate-delay-1">Design & Branding <span class="accent">Services</span></h1>
-      <p class="animate-on-scroll animate-delay-2">Build a memorable visual identity that resonates with your audience and stands out from competitors.</p>
-    </div>
-  </div>
+// ===== COLOR PICKER FUNCTIONS =====
+function updateColor(hex) {
+  const swatch = document.getElementById('colorSwatch');
+  const hexEl = document.getElementById('colorHex');
+  const rgbEl = document.getElementById('colorRgb');
+  const input = document.getElementById('colorPickerInput');
+  if (!swatch || !hexEl || !rgbEl || !input) return;
   
-  <section class="product-showcase">
-    <div class="container">
-      
-      <!-- REVERSED: Left Brand Preview / Right Features -->
-      <div class="showcase-split reverse animate-on-scroll" style="margin-bottom:80px">
-        <!-- Left: Brand Identity Mockup -->
-        <div class="showcase-visual">
-          <div class="visual-container" style="border-color:var(--warm-mid);box-shadow:8px 8px 0px 0px var(--warm-mid)">
-            <div class="visual-body" style="padding:32px;background:#fff;display:flex;flex-direction:column;gap:24px">
-              
-              <!-- Logo Area -->
-              <div style="text-align:center;padding:32px;background:var(--bg);border-radius:16px;border:2px dashed var(--warm-light)">
-                <div style="width:80px;height:80px;background:var(--primary);border-radius:20px;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:32px;font-weight:900;box-shadow:4px 4px 0 rgba(0,0,0,0.1)">
-                  L
-                </div>
-                <div style="font-size:24px;font-weight:900;color:var(--text);letter-spacing:-0.02em">BRANDNAME</div>
-                <div style="font-size:12px;color:#8B8B7A;margin-top:4px;letter-spacing:0.2em;text-transform:uppercase">Tagline Goes Here</div>
-              </div>
-
-              <!-- Color Palette -->
-              <div>
-                <div style="font-size:11px;font-weight:700;color:#8B8B7A;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:10px">Primary Palette</div>
-                <div style="display:flex;gap:10px">
-                  <div style="flex:1;height:48px;background:var(--primary);border-radius:10px;display:flex;align-items:end;justify-content:center;padding:6px;font-size:10px;color:rgba(255,255,255,0.8);font-weight:700">#AB1509</div>
-                  <div style="flex:1;height:48px;background:var(--primary-dark);border-radius:10px;display:flex;align-items:end;justify-content:center;padding:6px;font-size:10px;color:rgba(255,255,255,0.8);font-weight:700">#8A1107</div>
-                  <div style="flex:1;height:48px;background:var(--warm-mid);border-radius:10px;display:flex;align-items:end;justify-content:center;padding:6px;font-size:10px;color:rgba(0,0,0,0.5);font-weight:700">#C2A68C</div>
-                  <div style="flex:1;height:48px;background:var(--text);border-radius:10px;display:flex;align-items:end;justify-content:center;padding:6px;font-size:10px;color:rgba(255,255,255,0.6);font-weight:700">#000000</div>
-                </div>
-              </div>
-
-              <!-- Typography Sample -->
-              <div>
-                <div style="font-size:11px;font-weight:700;color:#8B8B7A;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:10px">Typography Scale</div>
-                <div style="background:var(--bg);border-radius:12px;padding:16px">
-                  <div style="font-size:28px;font-weight:900;color:var(--text);line-height:1.2">Heading One</div>
-                  <div style="font-size:18px;font-weight:800;color:var(--text);margin-top:8px">Heading Two</div>
-                  <div style="font-size:14px;color:#5C5C4F;margin-top:8px;line-height:1.5">Body text example showing how the typography looks in real usage scenarios with comfortable reading experience.</div>
-                </div>
-              </div>
-
-              <!-- Application Mockups -->
-              <div style="display:flex;gap:10px">
-                <div style="flex:1;height:60px;background:var(--primary);border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px;font-weight:700">Business Card</div>
-                <div style="flex:1;height:60px;background:var(--text);border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px;font-weight:700">Letterhead</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Right: Features -->
-        <div class="showcase-content">
-          <div class="showcase-eyebrow">Visual Identity</div>
-          <h2 class="showcase-title">Craft a brand<br>people remember</h2>
-          
-          <div class="feature-list">
-            <div class="feature-item">
-              <div class="feature-icon-wrap">${icons.palette}</div>
-              <div class="feature-text">
-                <h4>Strategic Color Psychology</h4>
-                <p>Colors chosen based on your industry, target audience psychology, and competitive positioning. Not just pretty — purposeful.</p>
-              </div>
-            </div>
-            
-            <div class="feature-item">
-              <div class="feature-icon-wrap">${icons.type}</div>
-              <div class="feature-text">
-                <h4>Scalable Typography</h4>
-                <p>Type scales from massive headlines to tiny legal text while maintaining readability and brand personality throughout.</p>
-              </div>
-            </div>
-            
-            <div class="feature-item">
-              <div class="feature-icon-wrap">${icons.layoutGrid}</div>
-              <div class="feature-text">
-                <h4>Consistent Grid Systems</h4>
-                <p>Spatial harmony across all touchpoints — web, print, social, packaging. Everything feels like it belongs together.</p>
-              </div>
-            </div>
-            
-            <div class="feature-item">
-              <div class="feature-icon-wrap">${icons.star}</div>
-              <div class="feature-text">
-                <h4>Brand Guidelines Document</h4>
-                <p>Comprehensive rulebook covering logo usage, spacing rules, do's and don'ts. Protect your brand integrity.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- DESIGN SERVICES GRID -->
-      <div style="text-align:center;margin-bottom:48px" class="animate-on-scroll animate-delay-1">
-        <div class="section-label">Services</div>
-        <h2 class="section-title" style="font-size:36px">Everything needed for<br>a complete brand identity</h2>
-      </div>
-
-      <div class="pricing-grid" style="margin-bottom:64px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))">
-        ${services.map((s, i) => `
-          <div class="pricing-card animate-on-scroll animate-delay-${(i % 5) + 1}" style="border-top:4px solid ${s.color}">
-            <div class="pricing-name" style="color:${s.color}">${s.title}</div>
-            <div class="pricing-price" style="color:${s.color}">${s.price.replace('/mo','')}</div>
-            <div class="pricing-desc">Professional ${s.title.toLowerCase()} tailored to your brand vision.</div>
-            <ul class="pricing-features">
-              ${s.items.map(item => `<li><span class="check" style="background:${s.color}20;color:${s.color}">${icons.check}</span> ${item}</li>`).join('')}
-            </ul>
-            <button class="btn-primary" style="width:100%;justify-content:center;background:${s.color};border-color:${s.color}" onclick="navigate('/contact')">Start Project ${icons.arrowRight}</button>
-          </div>
-        `).join('')}
-      </div>
-
-      ${generateFAQSection(faqs)}
-
-      <section class="cta-section">
-        <div class="container">
-          <div class="cta-card animate-on-scroll">
-            <h2>Need a fresh <span class="accent">look?</span></h2>
-            <p>Let us craft a visual identity that truly represents your brand's personality and values.</p>
-            <button class="btn-primary" onclick="navigate('/contact')">${icons.palette} Start Brand Project</button>
-          </div>
-        </div>
-      </section>
-    </div>
-  </section>
-  ${standardFooter}`;
-}
-
-// ===== PRODUCT HOSTING & INFRASTRUCTURE PAGE =====
-function renderProductHosting(el) {
-  const services = [
-    { title: 'Domain Management', price: 'RM50/mo', color: '#AB1509', status: 'Active ✓', icon: '🌐' },
-    { title: 'Business Email', price: 'RM150', color: '#C2A68C', status: 'Secure SSL', icon: '📧' },
-    { title: 'Cloud/VPS Server', price: 'RM800', color: '#AB1509', status: '99.99% Uptime', icon: '☁️' },
-    { title: 'Website Maintenance', price: 'RM250/mo', color: '#C2A68C', status: 'Auto Updates', icon: '🔧' },
-    { title: 'Security Monitoring', price: 'RM180/mo', color: '#AB1509', status: '24/7 Scanning', icon: '🛡️' },
-    { title: 'Backup Management', price: 'RM80/mo', color: '#C2A68C', status: 'Daily Backups', icon: '💾' },
-    { title: 'Cloudflare CDN', price: 'RM180', color: '#AB1509', status: 'Global Edge', icon: '⚡' }
-  ];
-
-  const faqs = [
-    { q: 'Do I need separate hosting if I have a subscription?', a: 'Starter/Growth/Pro plans include basic hosting. These advanced services are for enterprise-grade infrastructure beyond standard plans.' },
-    { q: 'What happens if my site goes down?', a: 'With our Maintenance or Security packages, we proactively monitor uptime and respond within 30 minutes for critical incidents.' }
-  ];
-
-  el.innerHTML = `
-  <div class="page-hero">
-    <div class="container">
-      <div class="section-label animate-on-scroll">Hosting & Infrastructure</div>
-      <h1 class="animate-on-scroll animate-delay-1">Hosting & Infrastructure <span class="accent">Services</span></h1>
-      <p class="animate-on-scroll animate-delay-2">Reliable, fast, and secure infrastructure to keep your digital assets running smoothly 24/7.</p>
-    </div>
-  </div>
+  swatch.style.background = hex;
+  hexEl.textContent = hex.toUpperCase();
+  input.value = hex;
   
-  <section class="product-showcase">
-    <div class="container">
-      
-      <!-- MAIN SPLIT: Server Status Visual -->
-      <div class="showcase-split animate-on-scroll" style="margin-bottom:80px">
-        <div class="showcase-content">
-          <div class="showcase-eyebrow">Infrastructure</div>
-          <h2 class="showcase-title">Enterprise-grade hosting<br>without the complexity</h2>
-          
-          <div class="feature-list">
-            <div class="feature-item">
-              <div class="feature-icon-wrap">${icons.monitor}</div>
-              <div class="feature-text">
-                <h4>Global CDN Network</h4>
-                <p>Content distributed across 200+ edge locations worldwide. Your site loads fast whether visitors are in KL, London, or Tokyo.</p>
-              </div>
-            </div>
-            
-            <div class="feature-item">
-              <div class="feature-icon-wrap">${icons.shield}</div>
-              <div class="feature-text">
-                <h4>Military-Grade Security</h4>
-                <p>DDoS protection, WAF rules, malware scanning, and automatic patching. Sleep easy knowing your assets are fortified.</p>
-              </div>
-            </div>
-            
-            <div class="feature-item">
-              <div class="feature-icon-wrap">${icons.clock}</div>
-              <div class="feature-text">
-                <h4>Real-Time Monitoring</h4>
-                <p>Uptime checks every 60 seconds from multiple geographic locations. Instant alerts via email, Slack, or WhatsApp if issues arise.</p>
-              </div>
-            </div>
-            
-            <div class="feature-item">
-              <div class="feature-icon-wrap">${icons.database}</div>
-              <div class="feature-text">
-                <h4>Automated Backups</h4>
-                <p>Daily snapshots stored in geographically redundant storage. Point-in-time recovery available with one click restore.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Right: Server Status Dashboard Mockup -->
-        <div class="showcase-visual">
-          <div class="visual-container">
-            <div class="visual-header" style="background:var(--text);color:#fff">
-              <div style="display:flex;align-items:center;gap:8px">
-                <div style="width:8px;height:8px;background:#22c55e;border-radius:50%;animation:pulse-dot 2s infinite"></div>
-                <span style="font-size:12px;font-family:'Space Mono',monospace">infrastructure.status</span>
-              </div>
-              <span style="font-size:11px;color:#8B8B7A">Last check: 2s ago</span>
-            </div>
-            <div class="visual-body" style="padding:24px;background:#FAFAF8">
-              
-              <!-- Uptime Badge -->
-              <div style="text-align:center;margin-bottom:24px">
-                <div style="font-size:56px;font-weight:900;color:#22c55e;line-height:1">99.99%</div>
-                <div style="font-size:13px;color:#8B8B7A;font-weight:600">Uptime This Month</div>
-                <div style="display:flex;justify-content:center;gap:4px;margin-top:8px">
-                  ${Array(30).fill().map(() => `<div style="width:6px;height:16px;background:#22c55e;border-radius:2px"></div>`).join('')}
-                </div>
-              </div>
-
-              <!-- Server Metrics Grid -->
-              <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-                <div style="background:#fff;border:1px solid var(--warm-light);border-radius:10px;padding:14px">
-                  <div style="font-size:11px;color:#8B8B7A;text-transform:uppercase;letter-spacing:0.04em">CPU Usage</div>
-                  <div style="font-size:22px;font-weight:900;color:var(--text);margin-top:4px">23%</div>
-                  <div style="height:4px;background:#E5E5E0;border-radius:2px;margin-top:8px;overflow:hidden">
-                    <div style="width:23%;height:100%;background:#22c55e;border-radius:2px"></div>
-                  </div>
-                </div>
-                
-                <div style="background:#fff;border:1px solid var(--warm-light);border-radius:10px;padding:14px">
-                  <div style="font-size:11px;color:#8B8B7A;text-transform:uppercase;letter-spacing:0.04em">Memory</div>
-                  <div style="font-size:22px;font-weight:900;color:var(--text);margin-top:4px">4.2GB</div>
-                  <div style="height:4px;background:#E5E5E0;border-radius:2px;margin-top:8px;overflow:hidden">
-                    <div style="width:52%;height:100%;background:#AB1509;border-radius:2px"></div>
-                  </div>
-                </div>
-                
-                <div style="background:#fff;border:1px solid var(--warm-light);border-radius:10px;padding:14px">
-                  <div style="font-size:11px;color:#8B8B7A;text-transform:uppercase;letter-spacing:0.04em">Bandwidth</div>
-                  <div style="font-size:22px;font-weight:900;color:var(--text);margin-top:4px">1.2TB</div>
-                  <div style="height:4px;background:#E5E5E0;border-radius:2px;margin-top:8px;overflow:hidden">
-                    <div style="width:38%;height:100%;background:#2563EB;border-radius:2px"></div>
-                  </div>
-                </div>
-                
-                <div style="background:#fff;border:1px solid var(--warm-light);border-radius:10px;padding:14px">
-                  <div style="font-size:11px;color:#8B8B7A;text-transform:uppercase;letter-spacing:0.04em">Response</div>
-                  <div style="font-size:22px;font-weight:900;color:var(--text);margin-top:4px">42ms</div>
-                  <div style="height:4px;background:#E5E5E0;border-radius:2px;margin-top:8px;overflow:hidden">
-                    <div style="width:12%;height:100%;background:#22c55e;border-radius:2px"></div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Security Status -->
-              <div style="margin-top:16px;background:#DCFCE7;border:1px solid #22c55e;border-radius:10px;padding:12px 16px;display:flex;align-items:center;gap:10px">
-                <span style="font-size:18px">🛡️</span>
-                <div style="flex:1">
-                  <div style="font-size:12px;font-weight:700;color:#166534">All Systems Secure</div>
-                  <div style="font-size:11px;color:#166534;opacity:0.8">SSL Valid • WAF Active • Last scan: 1h ago</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- HOSTING SERVICES LIST -->
-      <div style="text-align:center;margin-bottom:48px" class="animate-on-scroll animate-delay-1">
-        <div class="section-label">Infrastructure Stack</div>
-        <h2 class="section-title" style="font-size:36px">Layer by layer,<br>we've got you covered</h2>
-      </div>
-
-      <div class="features-grid" style="margin-bottom:64px;grid-template-columns:repeat(auto-fit,minmax(320px,1fr))">
-        ${services.map((s, i) => `
-          <div class="feature-card animate-on-scroll animate-delay-${(i % 5) + 1}" style="border-left:4px solid ${s.color};cursor:pointer" onclick="navigate('/contact')">
-            <div class="feature-icon" style="background:${s.color}15;color:${s.color};font-size:22px">${s.icon}</div>
-            <h3 style="display:flex;justify-content:space-between;align-items:center">
-              ${s.title}
-              <span style="font-size:13px;font-weight:700;color:#22c55e;background:#DCFCE7;padding:4px 10px;border-radius:6px">${s.status}</span>
-            </h3>
-            <p>Professional ${s.title.toLowerCase()} management ensuring maximum reliability and performance.</p>
-            <div style="margin-top:16px;display:flex;justify-content:space-between;align-items:center">
-              <span style="font-size:20px;font-weight:900;color:${s.color}">${s.price}</span>
-              <button class="btn-ghost" style="font-size:12px;padding:6px">Configure ${icons.arrowRight}</button>
-            </div>
-          </div>
-        `).join('')}
-      </div>
-
-      ${generateFAQSection(faqs)}
-
-      <section class="cta-section">
-        <div class="container">
-          <div class="cta-card animate-on-scroll">
-            <h2>Need reliable <span class="accent">infrastructure?</span></h2>
-            <p>Let us handle the technical heavy lifting so you can focus on growing your business.</p>
-            <button class="btn-primary" onclick="navigate('/contact')">${icons.monitor} Discuss Infrastructure</button>
-          </div>
-        </div>
-      </section>
-    </div>
-  </section>
-  ${standardFooter}`;
+  const r = parseInt(hex.slice(1,3), 16);
+  const g = parseInt(hex.slice(3,5), 16);
+  const b = parseInt(hex.slice(5,7), 16);
+  rgbEl.textContent = `RGB(${r}, ${g}, ${b})`;
+  
+  swatch.style.transform = 'scale(0.95) rotate(5deg)';
+  setTimeout(() => swatch.style.transform = '', 200);
 }
 
-// ===== PRICING PAGE (UPDATED 2026) =====
+function copyToClipboard(text) {
+  navigator.clipboard.writeText(text).then(() => showToast(`Copied: ${text}`, 'success')).catch(() => showToast('Failed to copy', 'error'));
+}
+
+// ===== PRICING PAGE =====
 function renderPricing(el) {
   el.innerHTML = `
   <div class="pricing-page-hero">
     <div class="container">
       <div class="section-label animate-on-scroll">Pricing</div>
       <h1 class="animate-on-scroll animate-delay-1">Plans that <span class="accent">scale</span> with you</h1>
-      <p class="animate-on-scroll animate-delay-2">Affordable subscription website plans for Malaysian businesses. From RM199/month. No hidden fees.</p>
+      <p class="animate-on-scroll animate-delay-2">From startup to enterprise — transparent pricing with no hidden fees. All plans include SSL certificates and basic security.</p>
     </div>
   </div>
 
@@ -4826,65 +2958,57 @@ function renderPricing(el) {
     <div class="container">
       <div class="pricing-grid">
         <div class="pricing-card animate-on-scroll animate-delay-1">
-          <div class="pricing-name">Starter Plan</div>
-          <div class="pricing-price">199 <span>MYR/mo</span></div>
-          <div class="pricing-desc">Perfect for personal brands, small businesses & startup companies. Billed monthly.</div>
+          <div class="pricing-name">Starter</div>
+          <div class="pricing-price">150 <span>MYR/mo</span></div>
+          <div class="pricing-desc">Perfect for small businesses & startups. Billed monthly.</div>
           <ul class="pricing-features">
-            <li><span class="check">${icons.check}</span><strong>Included:</strong> 1–3 Page Website</li>
-            <li><span class="check">${icons.check}</span>Mobile Responsive Design</li>
-            <li><span class="check">${icons.check}</span>WhatsApp Integration</li>
-            <li><span class="check">${icons.check}</span>Contact Form</li>
-            <li><span class="check">${icons.check}</span>Basic SEO Setup</li>
-            <li><span class="check">${icons.check}</span>Free SSL Certificate</li>
-            <li><span class="check">${icons.check}</span>Monthly Backup</li>
-            <li><span class="check">${icons.check}</span>Basic Maintenance</li>
-            <li><span class="check">${icons.check}</span>Bug Fix Support</li>
-            <li style="margin-top:12px;font-weight:600;color:#8B8B7A;font-size:13px">Support:</li>
-            <li><span class="check">${icons.check}</span>24–48 Hours Response Time</li>
-            <li><span class="check">${icons.check}</span>1 Minor Update/month</li>
+            <li><span class="check">${icons.check}</span>Custom website setup (up to 5 pages)</li>
+            <li><span class="check">${icons.check}</span>Fully mobile responsive design</li>
+            <li><span class="check">${icons.check}</span>Basic UI/UX design</li>
+            <li><span class="check">${icons.check}</span>Contact form + WhatsApp integration</li>
+            <li><span class="check">${icons.check}</span>Basic SEO optimization</li>
+            <li style="margin-top:12px;font-weight:600;color:#8B8B7A;font-size:13px">Monthly Support:</li>
+            <li><span class="check">${icons.check}</span>Bug fixes</li>
+            <li><span class="check">${icons.check}</span>Minor updates</li>
+            <li><span class="check">${icons.check}</span>Email support</li>
           </ul>
           <button class="btn-secondary" onclick="selectPlanAndCheckout('starter')">Get Started</button>
         </div>
         <div class="pricing-card featured animate-on-scroll animate-delay-2">
           <div class="pricing-badge">Most Popular</div>
-          <div class="pricing-name">Growth Plan</div>
-          <div class="pricing-price">499 <span>MYR/mo</span></div>
-          <div class="pricing-desc">Best for SMEs, growing businesses & service companies. Billed monthly.</div>
+          <div class="pricing-name">Growth</div>
+          <div class="pricing-price">300 <span>MYR/mo</span></div>
+          <div class="pricing-desc">Best for growing brands & eCommerce. Billed monthly.</div>
           <ul class="pricing-features">
-            <li><span class="check">${icons.check}</span><strong>Included:</strong> Up to 10 Pages</li>
-            <li><span class="check">${icons.check}</span>Advanced Responsive Design</li>
-            <li><span class="check">${icons.check}</span>SEO Optimization</li>
-            <li><span class="check">${icons.check}</span>Blog/News System</li>
-            <li><span class="check">${icons.check}</span>Booking/Inquiry Forms</li>
-            <li><span class="check">${icons.check}</span>Analytics Integration</li>
-            <li><span class="check">${icons.check}</span>Monthly Updates</li>
-            <li><span class="check">${icons.check}</span>Security Monitoring</li>
-            <li><span class="check">${icons.check}</span>Speed Optimization</li>
+            <li><span class="check">${icons.check}</span>Advanced website or Shopify store</li>
+            <li><span class="check">${icons.check}</span>Up to 10 pages / Full store structure</li>
+            <li><span class="check">${icons.check}</span>Conversion-focused UI/UX design</li>
+            <li><span class="check">${icons.check}</span>Payment gateway setup (Stripe, FPX)</li>
+            <li><span class="check">${icons.check}</span>Google Analytics integration</li>
+            <li><span class="check">${icons.check}</span>Performance optimization</li>
             <li style="margin-top:12px;font-weight:600;color:#8B8B7A;font-size:13px">Priority Support Included:</li>
-            <li><span class="check">${icons.check}</span>12–24 Hours Response Time</li>
-            <li><span class="check">${icons.check}</span>Up to 4 Minor Updates/month</li>
+            <li><span class="check">${icons.check}</span>Priority fixes</li>
+            <li><span class="check">${icons.check}</span>Monthly reviews</li>
+            <li><span class="check">${icons.check}</span>SEO tracking</li>
           </ul>
           <button class="btn-primary" onclick="selectPlanAndCheckout('growth')">Get Started Now</button>
         </div>
         <div class="pricing-card animate-on-scroll animate-delay-3">
-          <div class="pricing-name">Pro IT Plan</div>
-          <div class="pricing-price">1,999 <span>MYR/mo</span></div>
-          <div class="pricing-desc">For corporate businesses, SaaS/startups & automation systems. Billed monthly.</div>
+          <div class="pricing-name">Pro IT</div>
+          <div class="pricing-price">1,900 <span>MYR/mo</span></div>
+          <div class="pricing-desc">Full outsourced IT department. Billed monthly.</div>
           <ul class="pricing-features">
-            <li><span class="check">${icons.check}</span><strong>Included:</strong> Custom Website/System</li>
-            <li><span class="check">${icons.check}</span>Unlimited Pages</li>
-            <li><span class="check">${icons.check}</span>Advanced UI/UX Design</li>
-            <li><span class="check">${icons.check}</span>Backend Development</li>
-            <li><span class="check">${icons.check}</span>Database Integration</li>
-            <li><span class="check">${icons.check}</span>API Integration</li>
-            <li><span class="check">${icons.check}</span>Automation Features</li>
-            <li><span class="check">${icons.check}</span>Dashboard/Portal System</li>
-            <li><span class="check">${icons.check}</span>DevOps Support</li>
-            <li><span class="check">${icons.check}</span>Infrastructure Monitoring</li>
+            <li><span class="check">${icons.check}</span>Unlimited updates</li>
+            <li><span class="check">${icons.check}</span>Full website creation & maintenance</li>
+            <li><span class="check">${icons.check}</span>eCommerce store setup</li>
+            <li><span class="check">${icons.check}</span>Email marketing management</li>
+            <li><span class="check">${icons.check}</span>System integrations (CRM, automation)</li>
+            <li><span class="check">${icons.check}</span>Dedicated team support</li>
             <li style="margin-top:12px;font-weight:600;color:#8B8B7A;font-size:13px">Enterprise Support:</li>
-            <li><span class="check">${icons.check}</span>Within 12 Hours Response</li>
-            <li><span class="check">${icons.check}</span>Unlimited Minor Updates</li>
-            <li><span class="check">${icons.check}</span>Dedicated Technical Support</li>
+            <li><span class="check">${icons.check}</span>Fast response</li>
+            <li><span class="check">${icons.check}</span>Priority handling</li>
+            <li><span class="check">${icons.check}</span>Strategy calls</li>
+            <li><span class="check">${icons.check}</span>Monthly reports</li>
           </ul>
           <button class="btn-secondary" onclick="selectPlanAndCheckout('proit')">Contact Sales</button>
         </div>
@@ -4901,38 +3025,25 @@ function renderPricing(el) {
           <thead>
             <tr>
               <th>Feature</th>
-              <th class="plan-header">Starter Plan<br><span class="plan-price">RM 199/mo</span></th>
-              <th class="plan-header">Growth Plan <span class="popular-badge">POPULAR</span><br><span class="plan-price">RM 499/mo</span></th>
-              <th class="plan-header">Pro IT Plan<br><span class="plan-price">RM 1,999/mo</span></th>
+              <th class="plan-header">Starter<br><span class="plan-price">MYR 150/mo</span></th>
+              <th class="plan-header">Growth <span class="popular-badge">POPULAR</span><br><span class="plan-price">MYR 300/mo</span></th>
+              <th class="plan-header">Pro IT<br><span class="plan-price">MYR 1,900/mo</span></th>
             </tr>
           </thead>
           <tbody>
             <tr class="cat-row"><td colspan="4">Website & Design</td></tr>
-            <tr><td class="feature-name">Pages included</td><td>1–3 Pages</td><td>Up to 10 Pages</td><td>Unlimited</td></tr>
-            <tr><td class="feature-name">Responsive design</td><td class="check-icon">✓</td><td class="check-icon">✓ (Advanced)</td><td class="check-icon">✓ (Custom)</td></tr>
+            <tr><td class="feature-name">Pages included</td><td>Up to 5</td><td>Up to 10</td><td>Unlimited</td></tr>
+            <tr><td class="feature-name">Responsive design</td><td class="check-icon">✓</td><td class="check-icon">✓</td><td class="check-icon">✓</td></tr>
             <tr><td class="feature-name">UI/UX Design level</td><td>Basic</td><td>Conversion-focused</td><td>Premium + CRO</td></tr>
-            <tr><td class="feature-name">Blog/News System</td><td class="dash-icon">—</td><td class="check-icon">✓</td><td class="check-icon">✓</td></tr>
-            <tr><td class="feature-name">E-commerce capability</td><td class="dash-icon">—</td><td class="dash-icon">Optional add-on</td><td class="check-icon">✓</td></tr>
-            
-            <tr class="cat-row"><td colspan="4">Technical & Performance</td></tr>
-            <tr><td class="feature-name">SSL Certificate</td><td class="check-icon">✓</td><td class="check-icon">✓</td><td class="check-icon">✓</td></tr>
-            <tr><td class="feature-name">Monthly Backups</td><td class="check-icon">✓</td><td class="check-icon">✓</td><td class="check-icon">✓ (Daily)</td></tr>
-            <tr><td class="feature-name">Security Monitoring</td><td class="dash-icon">—</td><td class="check-icon">✓</td><td class="check-icon">✓ (24/7)</td></tr>
-            <tr><td class="feature-name">Speed Optimization</td><td class="dash-icon">—</td><td class="check-icon">✓</td><td class="check-icon">✓ (Advanced)</td></tr>
-            
+            <tr><td class="feature-name">Shopify / eCommerce</td><td class="dash-icon">—</td><td class="check-icon">✓</td><td class="check-icon">✓</td></tr>
             <tr class="cat-row"><td colspan="4">Integrations & Features</td></tr>
             <tr><td class="feature-name">Contact form + WhatsApp</td><td class="check-icon">✓</td><td class="check-icon">✓</td><td class="check-icon">✓</td></tr>
-            <tr><td class="feature-name">Booking/Inquiry forms</td><td class="dash-icon">—</td><td class="check-icon">✓</td><td class="check-icon">✓</td></tr>
-            <tr><td class="feature-name">Analytics Integration</td><td class="dash-icon">—</td><td class="check-icon">✓</td><td class="check-icon">✓</td></tr>
-            <tr><td class="feature-name">API / Database integration</td><td class="dash-icon">—</td><td class="dash-icon">—</td><td class="check-icon">✓</td></tr>
-            <tr><td class="feature-name">Automation features</td><td class="dash-icon">—</td><td class="dash-icon">—</td><td class="check-icon">✓</td></tr>
-            <tr><td class="feature-name">Dashboard/Portal system</td><td class="dash-icon">—</td><td class="dash-icon">—</td><td class="check-icon">✓</td></tr>
-            
+            <tr><td class="feature-name">Payment gateways</td><td class="dash-icon">—</td><td>Stripe, FPX</td><td>All gateways</td></tr>
+            <tr><td class="feature-name">Google Analytics</td><td class="dash-icon">—</td><td class="check-icon">✓</td><td class="check-icon">✓</td></tr>
+            <tr><td class="feature-name">CRM integrations</td><td class="dash-icon">—</td><td class="dash-icon">—</td><td class="check-icon">✓</td></tr>
             <tr class="cat-row"><td colspan="4">Support & Maintenance</td></tr>
-            <tr><td class="feature-name">Updates per month</td><td>1 Minor</td><td>Up to 4 Minor</td><td>Unlimited</td></tr>
-            <tr><td class="feature-name">Response time</td><td>24–48 hours</td><td>12–24 hours</td><td>&lt; 12 hours</td></tr>
-            <tr><td class="feature-name">Bug fix support</td><td class="check-icon">✓</td><td class="check-icon">✓ (Priority)</td><td class="check-icon">✓ (Dedicated)</td></tr>
-            <tr><td class="feature-name">Dedicated account manager</td><td class="dash-icon">—</td><td class="dash-icon">—</td><td class="check-icon">✓</td></tr>
+            <tr><td class="feature-name">Updates per month</td><td>Minor only</td><td>Standard</td><td>Unlimited</td></tr>
+            <tr><td class="feature-name">Response time</td><td>24-48 hours</td><td>12-24 hours</td><td>&lt; 4 hours</td></tr>
           </tbody>
         </table>
       </div>
@@ -4943,7 +3054,7 @@ function renderPricing(el) {
     <div class="container">
       <div class="pricing-cta-card animate-on-scroll">
         <h3>Still not sure which plan fits?</h3>
-        <p>Book a free consultation and we'll help you find the perfect plan for your needs and budget.</p>
+        <p>Book a free consultation and we'll help you find the perfect plan for your needs.</p>
         <button class="btn-primary" onclick="showToast('Please contact: hello@luviio.com','success')">${icons.zap} Book Free Consultation</button>
       </div>
     </div>
@@ -4962,67 +3073,7 @@ function renderServices(el) {
       <p class="animate-on-scroll animate-delay-2">From concept to launch, we provide end-to-end digital services that help your business thrive online.</p>
     </div>
   </div>
-
-<!-- Process Section - MOBILE-FIRST TIMELINE REDESIGN -->
-<section style="background:linear-gradient(180deg,#EDEDE8 0%,#F5F5F0 100%);border-top:1px solid var(--warm-light);border-bottom:1px solid var(--warm-light);padding:60px 0">
-  <div class="container">
-    <div class="section-header animate-on-scroll">
-      <div class="section-label">Our Process</div>
-      <h2 class="section-title" style="font-size:32px;line-height:38px;text-align:center">How we work</h2>
-      <p class="section-desc">A streamlined process designed for transparency, speed, and results you can measure.</p>
-    </div>
-    
-    <!-- Timeline Container -->
-    <div style="position:relative;max-width:680px;margin:40px auto 0;padding-left:28px;border-left:3px solid var(--primary)">
-      
-      <!-- Step 01 -->
-      <div class="animate-on-scroll animate-delay-1" style="margin-bottom:40px;position:relative;padding-left:12px">
-        <div style="position:absolute;left:-37px;top:-2px;width:26px;height:26px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:13px;font-family:'Space Mono',monospace;z-index:2;box-shadow:0 4px 12px rgba(171,21,9,0.3)">01</div>
-        <h3 style="font-size:22px;font-weight:800;color:var(--text);margin-bottom:8px;display:flex;align-items:center;gap:10px">
-          Discovery
-          <span style="display:inline-block;width:8px;height:8px;background:var(--primary);border-radius:50%;flex-shrink:0"></span>
-        </h3>
-        <p style="color:#5C5C4F;font-size:15px;line-height:1.7;margin:0">We learn about your business goals, target audience, market position, and competitors through in-depth research sessions and strategy workshops.</p>
-      </div>
-
-      <!-- Step 02 -->
-      <div class="animate-on-scroll animate-delay-2" style="margin-bottom:40px;position:relative;padding-left:12px">
-        <div style="position:absolute;left:-37px;top:-2px;width:26px;height:26px;background:linear-gradient(135deg,var(--primary-dark),#6E0D04);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:13px;font-family:'Space Mono',monospace;z-index:2;box-shadow:0 4px 12px rgba(138,17,7,0.25)">02</div>
-        <h3 style="font-size:22px;font-weight:800;color:var(--text);margin-bottom:8px;display:flex;align-items:center;gap:10px">
-          Design
-          <span style="display:inline-block;width:8px;height:8px;background:var(--primary-dark);border-radius:50%;flex-shrink:0"></span>
-        </h3>
-        <p style="color:#5C5C4F;font-size:15px;line-height:1.7;margin:0">Wireframes, mockups, and visual prototypes crafted with your brand identity and user experience at the forefront of every decision.</p>
-      </div>
-
-      <!-- Step 03 -->
-      <div class="animate-on-scroll animate-delay-3" style="margin-bottom:40px;position:relative;padding-left:12px">
-        <div style="position:absolute;left:-37px;top:-2px;width:26px;height:26px;background:linear-gradient(135deg,#6E0D04,var(--primary));border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:13px;font-family:'Space Mono',monospace;z-index:2;box-shadow:0 4px 12px rgba(110,13,4,0.2)">03</div>
-        <h3 style="font-size:22px;font-weight:800;color:var(--text);margin-bottom:8px;display:flex;align-items:center;gap:10px">
-          Build
-          <span style="display:inline-block;width:8px;height:8px;background:var(--primary-deeper);border-radius:50%;flex-shrink:0"></span>
-        </h3>
-        <p style="color:#5C5C4F;font-size:15px;line-height:1.7;margin:0">Clean code implementation, responsive layouts, performance optimization, and seamless integrations with your existing technology stack.</p>
-      </div>
-
-      <!-- Step 04 -->
-      <div class="animate-on-scroll animate-delay-4" style="position:relative;padding-left:12px">
-        <div style="position:absolute;left:-37px;top:-2px;width:26px;height:26px;background:var(--text);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:13px;font-family:'Space Mono',monospace;z-index:2;box-shadow:0 4px 12px rgba(0,0,0,0.15)">04</div>
-        <h3 style="font-size:22px;font-weight:800;color:var(--text);margin-bottom:8px;display:flex;align-items:center;gap:10px">
-          Launch & Grow
-          <span style="display:inline-block;width:8px;height:8px;background:var(--warm-mid);border-radius:50%;flex-shrink:0"></span>
-        </h3>
-        <p style="color:#5C5C4F;font-size:15px;line-height:1.7;margin:0">Deployment, monitoring, analytics setup, SEO optimization, and ongoing support to ensure your digital presence thrives long-term.</p>
-      </div>
-      
-    </div>
-    
-    <div style="text-align:center;margin-top:48px" class="animate-on-scroll">
-      <button class="btn-primary" onclick="navigate('/contact')" style="padding:14px 28px">${icons.send} Start Your Project</button>
-    </div>
-  </div>
-
-  <section style="padding:60px 0">
+  <section style="padding:0 0 60px">
     <div class="container">
       <div class="services-grid">
         <div class="service-card animate-on-scroll animate-delay-1">
@@ -5080,11 +3131,72 @@ function renderServices(el) {
     </div>
   </section>
 
+<!-- Process Section - MOBILE-FIRST TIMELINE REDESIGN -->
+<section style="background:linear-gradient(180deg,#EDEDE8 0%,#F5F5F0 100%);border-top:1px solid var(--warm-light);border-bottom:1px solid var(--warm-light);padding:60px 0">
+  <div class="container">
+    <div class="section-header animate-on-scroll">
+      <div class="section-label">Our Process</div>
+      <h2 class="section-title" style="font-size:32px;line-height:38px;text-align:center">How we work</h2>
+      <p class="section-desc">A streamlined process designed for transparency, speed, and results you can measure.</p>
+    </div>
+    
+    <!-- Timeline Container - Works on ALL screen sizes -->
+    <div style="position:relative;max-width:680px;margin:40px auto 0;padding-left:28px;border-left:3px solid var(--primary)">
+      
+      <!-- Step 01 - Discovery -->
+      <div class="animate-on-scroll animate-delay-1" style="margin-bottom:40px;position:relative;padding-left:12px">
+        <div style="position:absolute;left:-37px;top:-2px;width:26px;height:26px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:13px;font-family:'Space Mono',monospace;z-index:2;box-shadow:0 4px 12px rgba(171,21,9,0.3)">01</div>
+        <h3 style="font-size:22px;font-weight:800;color:var(--text);margin-bottom:8px;display:flex;align-items:center;gap:10px">
+          Discovery
+          <span style="display:inline-block;width:8px;height:8px;background:var(--primary);border-radius:50%;flex-shrink:0"></span>
+        </h3>
+        <p style="color:#5C5C4F;font-size:15px;line-height:1.7;margin:0">We learn about your business goals, target audience, market position, and competitors through in-depth research sessions and strategy workshops.</p>
+      </div>
+
+      <!-- Step 02 - Design -->
+      <div class="animate-on-scroll animate-delay-2" style="margin-bottom:40px;position:relative;padding-left:12px">
+        <div style="position:absolute;left:-37px;top:-2px;width:26px;height:26px;background:linear-gradient(135deg,var(--primary-dark),#6E0D04);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:13px;font-family:'Space Mono',monospace;z-index:2;box-shadow:0 4px 12px rgba(138,17,7,0.25)">02</div>
+        <h3 style="font-size:22px;font-weight:800;color:var(--text);margin-bottom:8px;display:flex;align-items:center;gap:10px">
+          Design
+          <span style="display:inline-block;width:8px;height:8px;background:var(--primary-dark);border-radius:50%;flex-shrink:0"></span>
+        </h3>
+        <p style="color:#5C5C4F;font-size:15px;line-height:1.7;margin:0">Wireframes, mockups, and visual prototypes crafted with your brand identity and user experience at the forefront of every decision.</p>
+      </div>
+
+      <!-- Step 03 - Build -->
+      <div class="animate-on-scroll animate-delay-3" style="margin-bottom:40px;position:relative;padding-left:12px">
+        <div style="position:absolute;left:-37px;top:-2px;width:26px;height:26px;background:linear-gradient(135deg,#6E0D04,var(--primary));border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:13px;font-family:'Space Mono',monospace;z-index:2;box-shadow:0 4px 12px rgba(110,13,4,0.2)">03</div>
+        <h3 style="font-size:22px;font-weight:800;color:var(--text);margin-bottom:8px;display:flex;align-items:center;gap:10px">
+          Build
+          <span style="display:inline-block;width:8px;height:8px;background:var(--primary-deeper);border-radius:50%;flex-shrink:0"></span>
+        </h3>
+        <p style="color:#5C5C4F;font-size:15px;line-height:1.7;margin:0">Clean code implementation, responsive layouts, performance optimization, and seamless integrations with your existing technology stack.</p>
+      </div>
+
+      <!-- Step 04 - Launch & Grow -->
+      <div class="animate-on-scroll animate-delay-4" style="position:relative;padding-left:12px">
+        <div style="position:absolute;left:-37px;top:-2px;width:26px;height:26px;background:var(--text);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:13px;font-family:'Space Mono',monospace;z-index:2;box-shadow:0 4px 12px rgba(0,0,0,0.15)">04</div>
+        <h3 style="font-size:22px;font-weight:800;color:var(--text);margin-bottom:8px;display:flex;align-items:center;gap:10px">
+          Launch & Grow
+          <span style="display:inline-block;width:8px;height:8px;background:var(--warm-mid);border-radius:50%;flex-shrink:0"></span>
+        </h3>
+        <p style="color:#5C5C4F;font-size:15px;line-height:1.7;margin:0">Deployment, monitoring, analytics setup, SEO optimization, and ongoing support to ensure your digital presence thrives long-term.</p>
+      </div>
+      
+    </div>
+    
+    <!-- CTA at bottom -->
+    <div style="text-align:center;margin-top:48px" class="animate-on-scroll">
+      <button class="btn-primary" onclick="navigate('/contact')" style="padding:14px 28px">${icons.send} Start Your Project</button>
+    </div>
+  </div>
+</section>
+
   <!-- CTA -->
   <section class="cta-section">
     <div class="container">
       <div class="cta-card animate-on-scroll">
-        <h2>Ready to start your <span class="accent">project?</span></h2>
+        <h2>Ready to start your <span class="accent">project</span>?</h2>
         <p>Tell us about your vision and let's build something extraordinary together.</p>
         <button class="btn-primary" onclick="navigate('/contact')">${icons.send} Get In Touch</button>
       </div>
@@ -5159,8 +3271,8 @@ function renderCompany(el) {
       <div class="team-zigzag-role-tag">Founder & VP</div>
       <h3 class="team-zigzag-name">Danial Danish</h3>
       <h4 class="team-zigzag-title">Founder & VP, Engineering</h4>
-      <p class="team-zigzag-desc">Danial leads the overall technical direction of Luviio, overseeing all aspects of software development, system architecture, and product engineering. He is responsible for building scalable, secure, and high-performance digital solutions that power Luviio's services.</p>
-      <p class="team-zigzag-desc">His role includes guiding the engineering team, making key technical decisions, and ensuring that all products align with the company's long-term vision and quality standards. He also focuses on innovation, improving development workflows, and ensuring that Luviio's technology stack remains modern and efficient as the company grows.</p>
+      <p class="team-zigzag-desc">Danial leads the overall technical direction of Luviio, overseeing all aspects of software development, system architecture, and product engineering. He is responsible for building scalable, secure, and high-performance digital solutions that power Luviio’s services.</p>
+      <p class="team-zigzag-desc">His role includes guiding the engineering team, making key technical decisions, and ensuring that all products align with the company’s long-term vision and quality standards. He also focuses on innovation, improving development workflows, and ensuring that Luviio’s technology stack remains modern and efficient as the company grows.</p>
     </div>
   </div>
 
@@ -5189,8 +3301,8 @@ function renderCompany(el) {
       <div class="team-zigzag-role-tag">VP</div>
       <h3 class="team-zigzag-name">Putri Erinna</h3>
       <h4 class="team-zigzag-title">VP, Client Success & Strategic Partnerships</h4>
-      <p class="team-zigzag-desc">Putri leads Luviio's client relationships, growth initiatives, and external partnerships. She is responsible for ensuring clients achieve strong results and long-term satisfaction through Luviio's services.</p>
-      <p class="team-zigzag-desc">Her role includes managing onboarding experiences, maintaining ongoing client communication, and identifying opportunities for expansion within existing accounts. In addition, she develops strategic collaborations and partnerships that help grow Luviio's market presence. She plays a key role in shaping the company's reputation, retention, and long-term growth strategy.</p>
+      <p class="team-zigzag-desc">Putri leads Luviio’s client relationships, growth initiatives, and external partnerships. She is responsible for ensuring clients achieve strong results and long-term satisfaction through Luviio’s services.</p>
+      <p class="team-zigzag-desc">Her role includes managing onboarding experiences, maintaining ongoing client communication, and identifying opportunities for expansion within existing accounts. In addition, she develops strategic collaborations and partnerships that help grow Luviio’s market presence. She plays a key role in shaping the company’s reputation, retention, and long-term growth strategy.</p>
     </div>
   </div>
     </div>
@@ -5416,7 +3528,7 @@ function renderPolicy(el) {
         <h2>9. Changes to This Policy</h2>
         <p>We may update this Privacy Policy from time to time. We will notify you of significant changes by posting the new policy on this page and updating the "Last updated" date.</p>
         
-        <h2>10. Contact</h2>
+        <h2>10. Contact Us</h2>
         <p>For privacy-related inquiries:</p>
         <p><strong>Luviio Studio</strong><br>Email: feedback@luviio.com<br>Address: Kedah, Malaysia</p>
         
@@ -5427,7 +3539,7 @@ function renderPolicy(el) {
   ${standardFooter}`;
 }
 
-// ===== LOGIN PAGE =====
+// ===== LOGIN PAGE (WITH IMPROVED GOOGLE ICON) =====
 function renderLogin(el) {
   el.innerHTML = `
   <div class="auth-page">
@@ -5564,7 +3676,7 @@ function handleGoogleSignIn() {
     });
 }
 
-// ===== SIGNUP PAGE =====
+// ===== SIGNUP PAGE (WITH IMPROVED GOOGLE ICON) =====
 function renderSignup(el) {
   el.innerHTML = `
   <div class="auth-page">
@@ -5841,7 +3953,7 @@ function handleProfileSave(e) {
   e.preventDefault();
   const firstName = document.getElementById('profileFirstName');
   const lastName = document.getElementById('profileLastName');
-  const bio = document.getElementById('bio');
+  const bio = document.getElementById('profileBio');
   
   if (firstName && lastName && currentUser.uid) {
     const fullName = (firstName.value.trim() + ' ' + lastName.value.trim()).trim();
@@ -5905,7 +4017,7 @@ function renderCheckout(el) {
         <div class="checkout-card-header">
           <div class="checkout-plan-info">
             <div class="checkout-plan-label">Selected Plan</div>
-            <div class="checkout-plan-name">${plan.name}</div>
+            <div class="checkout-plan-name">${plan.name} Plan</div>
             <div class="checkout-plan-meta"><span>Monthly billing</span><span style="width:4px;height:4px;background:#D0D0DC;border-radius:50%"></span><span>Cancel anytime</span></div>
           </div>
           <div class="checkout-plan-price-large">
@@ -6179,7 +4291,7 @@ function renderPaymentSuccessful(el, session) {
               </a>
               
               <a href="/" class="support-option">
-                <div class="support-option-icon">${icons.home}</div>
+                <div class="support-option-icon">${icons.mapPin}</div>
                 <div><div class="support-option-text">Visit Office</div><div class="support-option-sub">Kedah, Malaysia</div></div>
               </a>
             </div>
@@ -6244,14 +4356,14 @@ function startSessionTimer() {
     
     if (remaining < 60000) {
       warningEl.style.background = '#FEF2F2';
-      warningEl.borderColor = '#FECACA';
-      warningEl.color = '#DC2626';
+      warningEl.style.borderColor = '#FECACA';
+      warningEl.style.color = '#DC2626';
     }
     
     if (remaining <= 0) {
       clearInterval(sessionTimerInterval);
       timerEl.textContent = '00:00';
-      warningEl.innerHTML = `${icons.alertIcon} Session expired. Returning to home...`;
+      warningEl.innerHTML = `${icons.alertCircle} Session expired. Returning to home...`;
       setTimeout(() => { clearDeviceSession(); navigate('/'); }, 2000);
     }
   }, 1000);
