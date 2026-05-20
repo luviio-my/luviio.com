@@ -3969,109 +3969,20 @@ function renderProduct(el) {
 // ===== PRODUCT ADD-ON SERVICES PAGE =====
 function renderProductAddOn(el) {
   const services = [
-    {
-      title: 'Additional Website Page',
-      price: 'RM80/page',
-      color: '#AB1509',
-      description: 'We develop additional website pages that seamlessly integrate into your existing website structure while maintaining full design consistency, ensuring each new page enhances your website\'s usability, SEO performance, and overall content depth without disrupting the current user experience.',
-      features: ['Fully responsive layout', 'SEO-optimized structure', 'Matching existing UI style', 'Fast loading performance'],
-      bestFor: 'Expanding website content and improving SEO structure'
-    },
-    {
-      title: 'Landing Page Design',
-      price: 'RM350',
-      color: '#C2A68C',
-      description: 'We design high-conversion landing pages that are strategically structured to capture attention, guide user behavior, and increase conversions through optimized layout flow, persuasive messaging, and clear call-to-action placement.',
-      features: ['Conversion-focused design', 'Mobile optimized', 'CTA-driven structure', 'Clean UX flow'],
-      bestFor: 'Marketing campaigns, ads, and lead generation'
-    },
-    {
-      title: 'Blog Setup',
-      price: 'RM180',
-      color: '#AB1509',
-      description: 'We integrate a fully functional blog system into your website that allows you to publish content regularly, improve search engine rankings, and build long-term organic traffic through structured content marketing.',
-      features: ['CMS integration', 'Category system', 'SEO-optimized layout', 'Comment system optional'],
-      bestFor: 'Content marketing and SEO growth'
-    },
-    {
-      title: 'E-Commerce Setup',
-      price: 'RM1,500',
-      color: '#C2A68C',
-      description: 'We build a complete online store system with product management, checkout flow, payment integration, and responsive shopping experience that enables your business to sell products or services online efficiently.',
-      features: ['Product catalog', 'Shopping cart', 'Payment gateway', 'Order management'],
-      bestFor: 'Businesses wanting to sell online'
-    },
-    {
-      title: 'Payment Gateway Integration',
-      price: 'RM350',
-      color: '#AB1509',
-      description: 'We integrate secure and reliable payment systems such as Stripe, FPX, or DuitNow to ensure smooth, safe, and automated online transaction processing.',
-      features: ['Stripe/FPX/DuitNow', 'Secure checkout', 'Auto-receipts', 'Multi-currency support'],
-      bestFor: 'Businesses needing online payments'
-    },
-    {
-      title: 'Booking System',
-      price: 'RM800',
-      color: '#C2A68C',
-      description: 'We develop an automated booking system that allows customers to schedule appointments or services directly on your website with real-time availability and confirmation flow.',
-      features: ['Real-time availability', 'Calendar sync', 'Automated reminders', 'Confirmation emails'],
-      bestFor: 'Service-based businesses'
-    },
-    {
-      title: 'Membership/Login System',
-      price: 'RM1,200',
-      color: '#AB1509',
-      description: 'We implement a secure user authentication system that supports login, registration, and protected member-only content access with proper session handling.',
-      features: ['Secure registration', 'Role-based access', 'Password recovery', 'Protected areas'],
-      bestFor: 'Communities and membership sites'
-    },
-    {
-      title: 'Custom Dashboard',
-      price: 'RM2,500',
-      color: '#C2A68C',
-      description: 'We build a centralized business dashboard where you can manage users, data, analytics, and operations through a structured and easy-to-use interface.',
-      features: ['Real-time analytics', 'User management', 'Data visualization', 'Custom modules'],
-      bestFor: 'Businesses needing internal tools'
-    },
-    {
-      title: 'API Integration',
-      price: 'RM500',
-      color: '#AB1509',
-      description: 'We connect your website with third-party systems through secure API integration to enable automation, data syncing, and extended system functionality.',
-      features: ['REST/GraphQL APIs', 'Webhook support', 'Data synchronization', 'Error handling'],
-      bestFor: 'Businesses connecting multiple platforms'
-    },
-    {
-      title: 'Website Migration',
-      price: 'RM350',
-      color: '#C2A68C',
-      description: 'We safely migrate your entire website between platforms or hosting providers while ensuring zero data loss and minimal downtime during transition.',
-      features: ['Zero data loss', 'Minimal downtime', '301 redirects', 'SEO preservation'],
-      bestFor: 'Businesses changing hosts or platforms'
-    },
-    {
-      title: 'Website Speed Optimization',
-      price: 'RM450',
-      color: '#AB1509',
-      description: 'We optimize your website performance by improving loading speed, reducing unnecessary scripts, compressing assets, and enhancing overall Core Web Vitals performance.',
-      features: ['Core Web Vitals', 'Image optimization', 'Code minification', 'CDN setup'],
-      bestFor: 'Slow-loading websites'
-    },
-    {
-      title: 'Emergency Website Fix',
-      price: 'RM250',
-      color: '#C2A68C',
-      description: 'We provide urgent technical support to fix critical website issues such as downtime, broken layouts, errors, or system failures as quickly as possible.',
-      features: ['Priority response', 'Bug fixes', 'Security patches', 'Recovery assistance'],
-      bestFor: 'Urgent website emergencies'
-    }
+    { title: 'Additional Website Page', price: 'RM80/page', color: '#AB1509', desc: 'Extra pages seamlessly integrated into your existing site structure.', icon: '📄' },
+    { title: 'Landing Page Design', price: 'RM350', color: '#C2A68C', desc: 'High-conversion landing pages optimized for campaigns and lead gen.', icon: '🎯' },
+    { title: 'Blog Setup', price: 'RM180', color: '#AB1509', desc: 'Full CMS integration for content marketing and SEO growth.', icon: '📝' },
+    { title: 'E-Commerce Setup', price: 'RM1,500', color: '#C2A68C', desc: 'Complete online store with products, cart, checkout, and payments.', icon: '🛒' },
+    { title: 'Payment Gateway', price: 'RM350', color: '#AB1509', desc: 'Stripe, FPX, DuitNow integration for secure transactions.', icon: '💳' },
+    { title: 'Booking System', price: 'RM800', color: '#C2A68C', desc: 'Automated appointment scheduling with real-time availability.', icon: '📅' },
+    { title: 'Membership System', price: 'RM1,200', color: '#AB1509', desc: 'User auth, protected content areas, role-based access.', icon: '🔐' },
+    { title: 'Custom Dashboard', price: 'RM2,500', color: '#C2A68C', desc: 'Internal tools for managing users, data, and operations.', icon: '📊' }
   ];
 
   const faqs = [
-    { q: 'How long does each add-on service take?', a: 'Most add-on services are completed within 3-7 business days depending on complexity. Simple additions like extra pages can be done in 1-2 days, while complex integrations like e-commerce may take up to 2 weeks.' },
-    { q: 'Can I combine multiple add-on services?', a: 'Absolutely! Many clients bundle several add-ons together for a complete solution. Contact us for custom package pricing when combining 3 or more services.' },
-    { q: 'Do add-ons include ongoing maintenance?', a: 'Add-on prices are one-time fees for implementation. Ongoing maintenance and updates are covered under our subscription plans (Starter/Growth/Pro IT).' },
-    { q: 'Will add-ons work with my existing website?', a: 'Yes, all our add-on services are designed to integrate seamlessly with your existing Luviio-built website. If you have a third-party site, we\'ll assess compatibility during consultation.' }
+    { q: 'How long does implementation take?', a: 'Most add-ons are completed within 3-7 business days. Simple additions like extra pages can be done in 1-2 days.' },
+    { q: 'Can I combine multiple services?', a: 'Absolutely! Many clients bundle several add-ons together. Contact us for custom package pricing when combining 3+ services.' },
+    { q: 'Do add-ons include maintenance?', a: 'Add-on prices are one-time fees for implementation. Ongoing maintenance is covered under subscription plans (Starter/Growth/Pro IT).' }
   ];
 
   el.innerHTML = `
@@ -4079,130 +3990,157 @@ function renderProductAddOn(el) {
     <div class="container">
       <div class="section-label animate-on-scroll">Add-On Services</div>
       <h1 class="animate-on-scroll animate-delay-1">Website & Development <span class="accent">Services</span></h1>
-      <p class="animate-on-scroll animate-delay-2">Professional website enhancements, integrations, and custom development solutions designed to scale your digital business operations efficiently.</p>
+      <p class="animate-on-scroll animate-delay-2">Professional enhancements, integrations, and custom development solutions designed to scale your digital operations.</p>
     </div>
   </div>
   
-  <section style="padding:0 0 60px;background:var(--bg)">
+  <section class="product-showcase">
     <div class="container">
-      <div class="team-zigzag-container">
-        ${services.map((s, i) => generateZigzagItem(s, i, i % 2 === 1)).join('')}
+      
+      <!-- HERO SPLIT: Left Features / Right Visual -->
+      <div class="showcase-split animate-on-scroll" style="margin-bottom:80px">
+        <div class="showcase-content">
+          <div class="showcase-eyebrow">Enhancements</div>
+          <h2 class="showcase-title">Extend your<br>website's capabilities</h2>
+          
+          <div class="feature-list">
+            <div class="feature-item">
+              <div class="feature-icon-wrap">${icons.box}</div>
+              <div class="feature-text">
+                <h4>Modular Additions</h4>
+                <p>Add new features without rebuilding. Every component integrates seamlessly with your existing Luviio-built site.</p>
+              </div>
+            </div>
+            
+            <div class="feature-item">
+              <div class="feature-icon-wrap">${icons.zap}</div>
+              <div class="feature-text">
+                <h4>Quick Deployment</h4>
+                <p>Most add-ons deployed within 48 hours. We handle setup, testing, and integration so you can focus on business.</p>
+              </div>
+            </div>
+            
+            <div class="feature-item">
+              <div class="feature-icon-wrap">${icons.shield}</div>
+              <div class="feature-text">
+                <h4>Secure Integration</h4>
+                <p>All payment gateways and login systems follow OWASP security standards with SSL encryption enforced.</p>
+              </div>
+            </div>
+
+            <div class="feature-item">
+              <div class="feature-icon-wrap">${icons.settings}</div>
+              <div class="feature-text">
+                <h4>Scalable Architecture</h4>
+                <p>Built to grow with you. Start with a booking system today, add e-commerce tomorrow — same codebase, zero conflicts.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Right: Website Pages Mockup -->
+        <div class="showcase-visual">
+          <div class="visual-container">
+            <div class="visual-header">
+              <div class="visual-dot active"></div>
+              <div class="visual-dot"></div>
+              <div class="visual-dot"></div>
+              <span style="margin-left:auto;font-size:12px;color:#8B8B7A;font-family:'Space Mono',monospace">mywebsite.com</span>
+            </div>
+            <div class="visual-body" style="padding:0;min-height:360px;background:#FAFAF8">
+              <!-- Mock Browser Content -->
+              <div style="background:var(--primary);padding:16px 24px;display:flex;justify-content:space-between;align-items:center;color:#fff">
+                <div style="font-weight:800;font-size:14px">MyBusiness.com</div>
+                <div style="display:flex;gap:20px;font-size:13px">
+                  <span>Home</span><span style="opacity:0.6">About</span><span style="opacity:0.6">Services</span><span style="background:#fff;color:var(--primary);padding:4px 12px;border-radius:6px;font-weight:700">Contact</span>
+                </div>
+              </div>
+              
+              <div style="padding:32px 24px">
+                <div style="font-size:28px;font-weight:900;color:var(--text);margin-bottom:8px">Get Started Today</div>
+                <div style="color:#5C5C4F;margin-bottom:24px;font-size:14px">Fill out the form below and we'll get back to you within 24 hours.</div>
+                
+                <!-- Mock Form -->
+                <div style="display:flex;flex-direction:column;gap:12px">
+                  <div style="background:#fff;border:2px solid var(--warm-light);border-radius:10px;padding:12px 16px;font-size:13px;color:#B0B0A8;display:flex;justify-content:space-between">
+                    <span>Your Name</span>
+                    <span style="color:var(--primary)">✓</span>
+                  </div>
+                  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+                    <div style="background:#fff;border:2px solid var(--warm-light);border-radius:10px;padding:12px 16px;font-size:13px;color:#B0B0A8">Email</div>
+                    <div style="background:#fff;border:2px solid var(--warm-light);border-radius:10px;padding:12px 16px;font-size:13px;color:#B0B0A8">Phone</div>
+                  </div>
+                  <div style="background:var(--primary);color:#fff;border-radius:10px;padding:14px;text-align:center;font-weight:700;font-size:14px;box-shadow:2px 2px 0 #000;margin-top:4px">
+                    Send Message →
+                  </div>
+                </div>
+                
+                <!-- Floating Badge -->
+                <div style="position:absolute;top:120px;right:24px;background:#fff;border:2px solid var(--text);border-radius:12px;padding:12px 16px;box-shadow:4px 4px 0 rgba(0,0,0,1);font-size:11px;font-weight:700;color:var(--text)">
+                  🆕 New Page Added!<br><span style="color:#8B8B7A;font-weight:400">Landing Page v2</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+
+      <!-- SERVICES GRID SECTION -->
+      <div style="text-align:center;margin-bottom:56px" class="animate-on-scroll animate-delay-1">
+        <div class="section-label">Pricing</div>
+        <h2 class="section-title" style="font-size:36px;line-height:1.2">Transparent pricing,<br>no hidden fees</h2>
+      </div>
+
+      <div class="tools-grid" style="margin-bottom:64px">
+        ${services.map((s, i) => `
+          <div class="tool-card animate-on-scroll animate-delay-${(i % 5) + 1}" style="cursor:pointer" onclick="navigate('/contact')">
+            <div class="tool-header" style="background:linear-gradient(135deg,${s.color}15,${s.color}08)">
+              <div class="tool-icon" style="background:${s.color};font-size:18px">${s.icon}</div>
+              <div class="tool-title">${s.title}</div>
+              <div style="margin-left:auto;font-size:18px;font-weight:900;color:${s.color}">${s.price}</div>
+            </div>
+            <div class="tool-body">
+              <p class="tool-desc">${s.desc}</p>
+              <button class="btn-primary" style="width:100%;justify-content:center;padding:10px;font-size:13px">Get Quote ${icons.arrowRight}</button>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+
+      ${generateFAQSection(faqs)}
+
+      <section class="cta-section">
+        <div class="container">
+          <div class="cta-card animate-on-scroll">
+            <h2>Need a custom <span class="accent">solution?</span></h2>
+            <p>Don't see what you need? Let us build something tailored specifically for your requirements.</p>
+            <button class="btn-primary" onclick="navigate('/contact')">${icons.send} Request Custom Quote</button>
+          </div>
+        </div>
+      </section>
     </div>
   </section>
-
-  ${generateFAQSection(faqs)}
-
-  <section class="cta-section">
-    <div class="container">
-      <div class="cta-card animate-on-scroll">
-        <h2>Need a custom <span class="accent">solution?</span></h2>
-        <p>Don't see what you need? Let us build something tailored specifically for your business requirements.</p>
-        <button class="btn-primary" onclick="navigate('/contact')">${icons.send} Request Custom Quote</button>
-      </div>
-    </div>
-  </section>
-
   ${standardFooter}`;
 }
 
 // ===== PRODUCT MARKETING SERVICES PAGE =====
 function renderProductMarketing(el) {
   const services = [
-    {
-      title: 'Email Marketing Setup',
-      price: 'RM350',
-      color: '#AB1509',
-      description: 'We configure a complete email marketing system that allows you to create, automate, and manage email campaigns efficiently to improve customer engagement and retention.',
-      features: ['Platform configuration', 'Template setup', 'Automation workflows', 'List segmentation'],
-      bestFor: 'Businesses starting email marketing'
-    },
-    {
-      title: 'Monthly Email Marketing Management',
-      price: 'RM600/month',
-      color: '#C2A68C',
-      description: 'We handle full campaign execution including planning, writing, scheduling, segmentation, and performance tracking to ensure consistent customer communication.',
-      features: ['Campaign planning', 'Content writing', 'A/B testing', 'Performance reports'],
-      bestFor: 'Businesses without time to manage emails'
-    },
-    {
-      title: 'SEO Optimization',
-      price: 'RM500/month',
-      color: '#AB1509',
-      description: 'We optimize your website content, structure, and technical SEO to improve search rankings and increase organic traffic growth over time.',
-      features: ['Keyword research', 'On-page optimization', 'Technical SEO', 'Link building strategy'],
-      bestFor: 'Businesses wanting organic traffic growth'
-    },
-    {
-      title: 'Google Ads Setup',
-      price: 'RM350',
-      color: '#C2A68C',
-      description: 'We set up structured Google Ads campaigns with targeting, tracking, and conversion optimization to ensure efficient ad performance from the beginning.',
-      features: ['Campaign architecture', 'Keyword targeting', 'Conversion tracking', 'Ad copywriting'],
-      bestFor: 'Businesses starting paid advertising'
-    },
-    {
-      title: 'Google Ads Management',
-      price: 'RM700/month',
-      color: '#AB1509',
-      description: 'We continuously optimize Google Ads campaigns to improve conversions, reduce cost per click, and maximize ROI.',
-      features: ['Bid optimization', 'A/B testing', 'Negative keywords', 'Performance reporting'],
-      bestFor: 'Businesses running Google Ads'
-    },
-    {
-      title: 'Meta Ads Setup',
-      price: 'RM350',
-      color: '#C2A68C',
-      description: 'We configure Meta Ads campaigns with audience targeting, tracking setup, and structured campaign architecture.',
-      features: ['Facebook & Instagram ads', 'Audience research', 'Pixel setup', 'Creative strategy'],
-      bestFor: 'Businesses starting social advertising'
-    },
-    {
-      title: 'Meta Ads Management',
-      price: 'RM700/month',
-      color: '#AB1509',
-      description: 'We manage and optimize Meta Ads campaigns to increase reach, engagement, and conversions through continuous performance improvements.',
-      features: ['Campaign optimization', 'Retargeting', 'Creative testing', 'Audience refinement'],
-      bestFor: 'Businesses running Facebook/Instagram ads'
-    },
-    {
-      title: 'Social Media Management',
-      price: 'RM800/month',
-      color: '#C2A68C',
-      description: 'We manage your social media platforms with content planning, posting, engagement, and branding consistency.',
-      features: ['Content calendar', 'Post creation', 'Community management', 'Analytics tracking'],
-      bestFor: 'Businesses needing consistent social presence'
-    },
-    {
-      title: 'Content Writing',
-      price: 'RM120/article',
-      color: '#AB1509',
-      description: 'We produce SEO-optimized articles designed to increase organic visibility and strengthen your brand authority.',
-      features: ['SEO keyword integration', 'Original content', 'Editing & proofreading', 'Meta descriptions'],
-      bestFor: 'Businesses needing quality blog content'
-    },
-    {
-      title: 'Copywriting',
-      price: 'RM150/page',
-      color: '#C2A68C',
-      description: 'We write persuasive marketing copy designed to improve conversions and clearly communicate your brand message.',
-      features: ['Sales copy', 'Landing page text', 'Ad copy', 'Email sequences'],
-      bestFor: 'Businesses improving conversion rates'
-    },
-    {
-      title: 'Monthly Analytics Report',
-      price: 'RM150/month',
-      color: '#AB1509',
-      description: 'We deliver structured reports analyzing marketing performance, traffic, conversions, and campaign effectiveness.',
-      features: ['Traffic analysis', 'Conversion tracking', 'ROI calculation', 'Recommendations'],
-      bestFor: 'Businesses wanting data-driven decisions'
-    }
+    { title: 'Email Marketing Setup', price: 'RM350', color: '#AB1509', metric: '42% Open Rate', icon: '📧' },
+    { title: 'Monthly Email Management', price: 'RM600/mo', color: '#C2A68C', metric: '3.2x ROI', icon: '📈' },
+    { title: 'SEO Optimization', price: 'RM500/mo', color: '#AB1509', metric: '+340% Traffic', icon: '🔍' },
+    { title: 'Google Ads Setup', price: 'RM350', color: '#C2A68C', metric: '-35% CPC', icon: '🎯' },
+    { title: 'Google Ads Management', price: 'RM700/mo', color: '#AB1509', metric: '+180% Conv.', icon: '💰' },
+    { title: 'Meta Ads Setup', price: 'RM350', color: '#C2A68C', metric: '$0.40 CPL', icon: '📱' },
+    { title: 'Meta Ads Management', price: 'RM700/mo', color: '#AB1509', metric: '2.1x ROAS', icon: '🚀' },
+    { title: 'Social Media Mgmt', price: 'RM800/mo', color: '#C2A68C', metric: '+500% Reach', icon: '💬' },
+    { title: 'Content Writing', price: 'RM120/art', color: '#AB1509', metric: 'SEO Optimized', icon: '✍️' },
+    { title: 'Analytics Reports', price: 'RM150/mo', color: '#C2A68C', metric: 'Data Driven', icon: '📊' }
   ];
 
   const faqs = [
-    { q: 'Which marketing service should I start with?', a: 'For most businesses, we recommend starting with SEO Optimization combined with either Google Ads or Meta Ads depending on where your audience spends time. This gives you both immediate traffic and long-term organic growth.' },
-    { q: 'Can I change my monthly package?', a: 'Yes, all monthly services can be upgraded, downgraded, or cancelled with 30 days notice. We recommend committing to at least 3 months to see meaningful results.' },
-    { q: 'Do you guarantee results?', a: 'While we don\'t guarantee specific metrics (as that depends on many factors), we do guarantee professional execution, transparent reporting, and continuous optimization to improve performance over time.' }
+    { q: 'Which marketing service should I start with?', a: 'For most businesses, we recommend starting with SEO Optimization combined with Google Ads or Meta Ads depending on where your audience spends time.' },
+    { q: 'Can I change my monthly package?', a: 'Yes, all monthly services can be upgraded, downgraded, or cancelled with 30 days notice. We recommend committing to at least 3 months to see meaningful results.' }
   ];
 
   el.innerHTML = `
@@ -4210,106 +4148,175 @@ function renderProductMarketing(el) {
     <div class="container">
       <div class="section-label animate-on-scroll">Marketing Services</div>
       <h1 class="animate-on-scroll animate-delay-1">Marketing & Growth <span class="accent">Services</span></h1>
-      <p class="animate-on-scroll animate-delay-2">Data-driven marketing strategies to grow your audience, increase conversions, and build lasting brand awareness.</p>
+      <p class="animate-on-scroll animate-delay-2">Data-driven strategies to grow your audience, increase conversions, and build lasting brand awareness.</p>
     </div>
   </div>
   
-  <section style="padding:0 0 60px;background:var(--bg)">
+  <section class="product-showcase">
     <div class="container">
-      <div class="team-zigzag-container">
-        ${services.map((s, i) => generateZigzagItem(s, i, i % 2 === 1)).join('')}
+      
+      <!-- REVERSED SPLIT: Left Analytics Visual / Right Features -->
+      <div class="showcase-split reverse animate-on-scroll" style="margin-bottom:80px">
+        <!-- Left: Analytics Dashboard Mockup -->
+        <div class="showcase-visual">
+          <div class="visual-container">
+            <div class="visual-header" style="background:var(--text);color:#fff">
+              <div class="visual-dot" style="background:#ff5f57"></div>
+              <div class="visual-dot" style="background:#febc2e"></div>
+              <div class="visual-dot" style="background:#28c840"></div>
+              <span style="margin-left:12px;font-size:12px;font-family:'Space Mono',monospace">analytics.dashboard</span>
+            </div>
+            <div class="visual-body" style="padding:24px;background:#FAFAF8">
+              
+              <!-- Metric Cards -->
+              <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:20px">
+                <div style="background:#fff;border:1px solid var(--warm-light);border-radius:12px;padding:16px">
+                  <div style="font-size:11px;color:#8B8B7A;text-transform:uppercase;letter-spacing:0.04em">Total Visitors</div>
+                  <div style="font-size:28px;font-weight:900;color:var(--primary)">24,847</div>
+                  <div style="display:flex;align-items:center;gap:4px;font-size:12px;color:#22c55e;font-weight:600;margin-top:4px">
+                    ↑ 34.2%
+                  </div>
+                </div>
+                <div style="background:#fff;border:1px solid var(--warm-light);border-radius:12px;padding:16px">
+                  <div style="font-size:11px;color:#8B8B7A;text-transform:uppercase;letter-spacing:0.04em">Conversion Rate</div>
+                  <div style="font-size:28px;font-weight:900;color:var(--primary)">4.8%</div>
+                  <div style="display:flex;align-items:center;gap:4px;font-size:12px;color:#22c55e;font-weight:600;margin-top:4px">
+                    ↑ 12.5%
+                  </div>
+                </div>
+              </div>
+
+              <!-- Chart Mockup -->
+              <div style="background:#fff;border:1px solid var(--warm-light);border-radius:12px;padding:20px;height:140px;position:relative;overflow:hidden">
+                <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:12px">Traffic Overview</div>
+                <!-- SVG Chart Lines -->
+                <svg width="100%" height="90" viewBox="0 0 300 90" preserveAspectRatio="none" style="overflow:visible">
+                  <defs>
+                    <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#AB1509" stop-opacity="0.2"/>
+                      <stop offset="100%" stop-color="#AB1509" stop-opacity="0"/>
+                    </linearGradient>
+                  </defs>
+                  <path d="M0,70 Q30,65 60,50 T120,45 T180,30 T240,35 T300,15 L300,90 L0,90 Z" fill="url(#chartGrad)"/>
+                  <path d="M0,70 Q30,65 60,50 T120,45 T180,30 T240,35 T300,15" fill="none" stroke="#AB1509" stroke-width="3" stroke-linecap="round"/>
+                  <circle cx="300" cy="15" r="5" fill="#AB1509" stroke="#fff" stroke-width="2"/>
+                </svg>
+                <!-- X Axis Labels -->
+                <div style="display:flex;justify-content:space-between;margin-top:4px;font-size:10px;color:#8B8B7A">
+                  <span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span>
+                </div>
+              </div>
+
+              <!-- Source Pills -->
+              <div style="display:flex;gap:8px;margin-top:16px;flex-wrap:wrap">
+                <span style="background:var(--primary-tint);color:var(--primary);padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600">Organic +42%</span>
+                <span style="background:#E6D8C3;color:var(--text);padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600">Direct +18%</span>
+                <span style="background:#DCFCE7;color:#166534;padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600">Social +67%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Right: Feature List -->
+        <div class="showcase-content">
+          <div class="showcase-eyebrow">Growth Engine</div>
+          <h2 class="showcase-title">Data-driven<br>marketing that converts</h2>
+          
+          <div class="feature-list">
+            <div class="feature-item">
+              <div class="feature-icon-wrap">${icons.target}</div>
+              <div class="feature-text">
+                <h4>Precision Targeting</h4>
+                <p>Audience segmentation based on behavior, demographics, and intent signals. No wasted ad spend on unqualified leads.</p>
+              </div>
+            </div>
+            
+            <div class="feature-item">
+              <div class="feature-icon-wrap">${icons.eye}</div>
+              <div class="feature-text">
+                <h4>Full-Funnel Tracking</h4>
+                <p>From impression to purchase. We track every touchpoint, attribute conversions correctly, and optimize based on real data.</p>
+              </div>
+            </div>
+            
+            <div class="feature-item">
+              <div class="feature-icon-wrap">${icons.mail}</div>
+              <div class="feature-text">
+                <h4>Automated Sequences</h4>
+                <p>Email workflows triggered by user behavior. Welcome series, abandoned cart recovery, re-engagement drips — all on autopilot.</p>
+              </div>
+            </div>
+            
+            <div class="feature-item">
+              <div class="feature-icon-wrap">${icons.search}</div>
+              <div class="feature-text">
+                <h4>SEO Foundation</h4>
+                <p>Technical SEO, content optimization, and authority building. Sustainable organic growth that compounds over time.</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+
+      <!-- SERVICES PRICING GRID -->
+      <div style="text-align:center;margin-bottom:48px" class="animate-on-scroll animate-delay-1">
+        <div class="section-label">Services</div>
+        <h2 class="section-title" style="font-size:36px">All marketing services,<br>one transparent price</h2>
+      </div>
+
+      <div class="use-cases-grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin-bottom:64px">
+        ${services.map((s, i) => `
+          <div class="tool-card animate-on-scroll animate-delay-${(i % 5) + 1}" style="box-shadow:4px 4px 0px 0px var(--text)" onclick="navigate('/contact')">
+            <div class="tool-header" style="background:${s.color}10;border-bottom:2px solid ${s.color}">
+              <div style="display:flex;align-items:center;gap:12px">
+                <span style="font-size:24px">${s.icon}</span>
+                <div class="tool-title" style="font-size:16px">${s.title}</div>
+              </div>
+              <div style="font-size:18px;font-weight:900;color:${s.color}">${s.price}</div>
+            </div>
+            <div class="tool-body" style="padding:16px">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+                <span style="font-size:12px;color:#8B8B7A">Typical Result:</span>
+                <span style="font-size:13px;font-weight:800;color:var(--primary);background:var(--primary-tint);padding:4px 10px;border-radius:6px">${s.metric}</span>
+              </div>
+              <button class="btn-secondary" style="width:100%;justify-content:center;padding:8px;font-size:12px">Learn More ${icons.arrowRight}</button>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+
+      ${generateFAQSection(faqs)}
+
+      <section class="cta-section">
+        <div class="container">
+          <div class="cta-card animate-on-scroll">
+            <h2>Ready to <span class="accent">grow?</span></h2>
+            <p>Let us create a customized marketing strategy tailored to your budget and goals.</p>
+            <button class="btn-primary" onclick="navigate('/contact')">${icons.target} Get Marketing Proposal</button>
+          </div>
+        </div>
+      </section>
     </div>
   </section>
-
-  ${generateFAQSection(faqs)}
-
-  <section class="cta-section">
-    <div class="container">
-      <div class="cta-card animate-on-scroll">
-        <h2>Ready to <span class="accent">grow?</span></h2>
-        <p>Let us create a customized marketing strategy tailored to your budget and goals.</p>
-        <button class="btn-primary" onclick="navigate('/contact')">${icons.send} Get Marketing Proposal</button>
-      </div>
-    </div>
-  </section>
-
   ${standardFooter}`;
 }
 
 // ===== PRODUCT AUTOMATION & BUSINESS TOOLS PAGE =====
 function renderProductAutomation(el) {
   const services = [
-    {
-      title: 'CRM Setup',
-      price: 'RM1,200',
-      color: '#AB1509',
-      description: 'We build a customer management system that helps track leads, manage clients, and automate follow-ups to improve sales efficiency.',
-      features: ['Lead tracking', 'Pipeline management', 'Task automation', 'Reporting dashboard'],
-      bestFor: 'Sales teams and client-facing businesses'
-    },
-    {
-      title: 'WhatsApp Automation',
-      price: 'RM800',
-      color: '#C2A68C',
-      description: 'We implement automated messaging workflows to handle customer inquiries, notifications, and engagement automatically.',
-      features: ['Auto-responses', 'Broadcast messages', 'Chatbot flows', 'Integration with CRM'],
-      bestFor: 'High-volume customer communication'
-    },
-    {
-      title: 'Invoice/Billing System',
-      price: 'RM1,500',
-      color: '#AB1509',
-      description: 'We create a structured billing system for invoice generation, payment tracking, and financial management.',
-      features: ['Invoice generation', 'Payment reminders', 'Tax calculations', 'Financial reports'],
-      bestFor: 'Service businesses and freelancers'
-    },
-    {
-      title: 'Inventory System',
-      price: 'RM3,500',
-      color: '#C2A68C',
-      description: 'We develop a stock management system that tracks inventory levels and product movement in real time.',
-      features: ['Stock tracking', 'Low-stock alerts', 'Supplier management', 'Barcode support'],
-      bestFor: 'Retail and e-commerce businesses'
-    },
-    {
-      title: 'HR/Employee Dashboard',
-      price: 'RM4,500',
-      color: '#AB1509',
-      description: 'We build an internal HR system for managing employees, attendance, and internal workflows.',
-      features: ['Attendance tracking', 'Leave management', 'Payroll integration', 'Document storage'],
-      bestFor: 'Growing teams and companies'
-    },
-    {
-      title: 'AI Chatbot Integration',
-      price: 'RM1,200',
-      color: '#C2A68C',
-      description: 'We integrate AI chatbot systems that respond to customers automatically and assist in lead generation.',
-      features: ['Natural language processing', 'Lead qualification', '24/7 availability', 'Multi-platform'],
-      bestFor: 'Customer support automation'
-    },
-    {
-      title: 'Internal Staff Portal',
-      price: 'RM2,500',
-      color: '#AB1509',
-      description: 'We build an internal company portal for staff communication, tools, and workflow management.',
-      features: ['Document sharing', 'Task management', 'Announcements', 'Department organization'],
-      bestFor: 'Companies with remote/hybrid teams'
-    },
-    {
-      title: 'Client Portal System',
-      price: 'RM2,000',
-      color: '#C2A68C',
-      description: 'We create a client portal for project tracking, communication, and file access.',
-      features: ['Project status', 'File sharing', 'Communication history', 'Invoice access'],
-      bestFor: 'Agencies and service providers'
-    }
+    { title: 'CRM Setup', price: 'RM1,200', color: '#AB1509', flow: 'Lead → Deal → Won', icon: '👥' },
+    { title: 'WhatsApp Automation', price: 'RM800', color: '#C2A68C', flow: 'Message → Bot → Reply', icon: '💬' },
+    { title: 'Invoice/Billing System', price: 'RM1,500', color: '#AB1509', flow: 'Create → Send → Paid', icon: '🧾' },
+    { title: 'Inventory System', price: 'RM3,500', color: '#C2A68C', flow: 'Stock → Sell → Alert', icon: '📦' },
+    { title: 'HR/Employee Portal', price: 'RM4,500', color: '#AB1509', flow: 'Apply → Onboard → Manage', icon: '👤' },
+    { title: 'AI Chatbot', price: 'RM1,200', color: '#C2A68C', flow: 'Ask → AI → Answer', icon: '🤖' },
+    { title: 'Client Portal', price: 'RM2,000', color: '#AB1509', flow: 'Login → Track → Deliver', icon: '🔗' },
+    { title: 'API Integration', price: 'RM500', color: '#C2A68C', flow: 'Connect → Sync → Auto', icon: '🔌' }
   ];
 
   const faqs = [
-    { q: 'Can these systems integrate with my existing tools?', a: 'Yes, most of our automation solutions can integrate with popular platforms like Zapier, Make, or direct APIs. We assess your tech stack during consultation.' },
-    { q: 'How long does implementation take?', a: 'Simple systems like chatbots or portals take 1-2 weeks. Complex systems like CRM or inventory management take 3-6 weeks depending on customization needs.' },
-    { q: 'Do I need technical knowledge to use these?', a: 'No, we build user-friendly dashboards that non-technical staff can easily use. Training is included with every implementation.' }
+    { q: 'Can these systems integrate with my existing tools?', a: 'Yes, most automation solutions integrate with Zapier, Make, or direct APIs. We assess your tech stack during consultation.' },
+    { q: 'How long does implementation take?', a: 'Simple systems like chatbots take 1-2 weeks. Complex systems like CRM or inventory management take 3-6 weeks depending on customization.' }
   ];
 
   el.innerHTML = `
@@ -4321,86 +4328,174 @@ function renderProductAutomation(el) {
     </div>
   </div>
   
-  <section style="padding:0 0 60px;background:var(--bg)">
+  <section class="product-showcase">
     <div class="container">
-      <div class="team-zigzag-container">
-        ${services.map((s, i) => generateZigzagItem(s, i, i % 2 === 1)).join('')}
+      
+      <!-- MAIN SPLIT: Workflow Visualization -->
+      <div class="showcase-split animate-on-scroll" style="margin-bottom:80px">
+        <div class="showcase-content">
+          <div class="showcase-eyebrow">Workflow Automation</div>
+          <h2 class="showcase-title">Automate the boring stuff,<br>focus on what matters</h2>
+          
+          <div class="feature-list">
+            <div class="feature-item">
+              <div class="feature-icon-wrap">${icons.settings}</div>
+              <div class="feature-text">
+                <h4>No-Code Workflows</h4>
+                <p>Visual workflow builders let you automate processes without writing code. Drag, drop, connect — done.</p>
+              </div>
+            </div>
+            
+            <div class="feature-item">
+              <div class="feature-icon-wrap">${icons.smartphone}</div>
+              <div class="feature-text">
+                <h4>Omnichannel Triggers</h4>
+                <p>Email, WhatsApp, web forms, calendar events — any action can trigger automated sequences across channels.</p>
+              </div>
+            </div>
+            
+            <div class="feature-item">
+              <div class="feature-icon-wrap">${icons.shield}</div>
+              <div class="feature-text">
+                <h4>Error Handling Built-in</h4>
+                <p>Automatic retry logic, fallback paths, and alert notifications when something needs human attention.</p>
+              </div>
+            </div>
+            
+            <div class="feature-item">
+              <div class="feature-icon-wrap">${icons.clock}</div>
+              <div class="feature-text">
+                <h4>24/7 Operation</h4>
+                <p>Bots and automations never sleep. Handle inquiries, process orders, and send updates around the clock.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Right: Workflow Diagram Mockup -->
+        <div class="showcase-visual">
+          <div class="visual-container">
+            <div class="visual-header" style="background:linear-gradient(135deg,#EDEDE8,#F5F5F0)">
+              <div class="visual-dot active" style="background:var(--primary)"></div>
+              <div class="visual-dot"></div>
+              <div class="visual-dot"></div>
+              <span style="margin-left:auto;font-size:12px;color:#8B8B7A;font-family:'Space Mono',monospace">automation.flow</span>
+            </div>
+            <div class="visual-body" style="padding:32px;background:#FAFAF8;position:relative">
+              
+              <!-- Flow Nodes -->
+              <div style="display:flex;flex-direction:column;gap:20px;position:relative">
+                
+                <!-- Node 1: Trigger -->
+                <div style="display:flex;align-items:center;gap:16px">
+                  <div style="width:48px;height:48px;background:var(--primary);border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;box-shadow:3px 3px 0 #000;flex-shrink:0">📥</div>
+                  <div style="flex:1;background:#fff;border:2px solid var(--text);border-radius:12px;padding:14px 18px;box-shadow:3px 3px 0 rgba(0,0,0,0.1)">
+                    <div style="font-size:13px;font-weight:800;color:var(--text)">New Lead Captured</div>
+                    <div style="font-size:11px;color:#8B8B7A;margin-top:2px">From contact form submission</div>
+                  </div>
+                </div>
+
+                <!-- Connector Line -->
+                <div style="height:24px;width:2px;background:var(--warm-mid);margin-left:24px"></div>
+
+                <!-- Node 2: Process -->
+                <div style="display:flex;align-items:center;gap:16px">
+                  <div style="width:48px;height:48px;background:var(--warm-mid);border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;box-shadow:3px 3px 0 #000;flex-shrink:0">⚙️</div>
+                  <div style="flex:1;background:#fff;border:2px dashed var(--warm-mid);border-radius:12px;padding:14px 18px">
+                    <div style="font-size:13px;font-weight:800;color:var(--text)">Check CRM Database</div>
+                    <div style="font-size:11px;color:#8B8B7A;margin-top:2px">If exists → Update | If new → Create</div>
+                  </div>
+                </div>
+
+                <div style="height:24px;width:2px;background:var(--warm-mid);margin-left:24px"></div>
+
+                <!-- Node 3: Action Split -->
+                <div style="display:flex;align-items:center;gap:16px">
+                  <div style="width:48px;height:48px;background:#22c55e;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;box-shadow:3px 3px 0 #000;flex-shrink:0">✉️</div>
+                  <div style="flex:1;display:flex;gap:8px">
+                    <div style="flex:1;background:var(--primary-tint);border:1px solid var(--primary);border-radius:10px;padding:12px;text-align:center;font-size:12px;font-weight:700;color:var(--primary)">
+                      Send WhatsApp<br><span style="font-weight:400;font-size:10px;color:#8B8B7A">Auto-reply</span>
+                    </div>
+                    <div style="flex:1;background:var(--primary-tint);border:1px solid var(--primary);border-radius:10px;padding:12px;text-align:center;font-size:12px;font-weight:700;color:var(--primary)">
+                      Email Alert<br><span style="font-weight:400;font-size:10px;color:#8B8B7A">To sales team</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div style="height:24px;width:2px;background:var(--warm-mid);margin-left:24px"></div>
+
+                <!-- Node 4: Success -->
+                <div style="display:flex;align-items:center;gap:16px">
+                  <div style="width:48px;height:48px;background:var(--text);border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;box-shadow:3px 3px 0 var(--primary);flex-shrink:0">✅</div>
+                  <div style="flex:1;background:linear-gradient(135deg,var(--primary-tint),rgba(171,21,9,0.05));border:2px solid var(--primary);border-radius:12px;padding:14px 18px">
+                    <div style="font-size:13px;font-weight:800;color:var(--primary-dark)">Lead Nurtured Automatically!</div>
+                    <div style="font-size:11px;color:#5C5C4F;margin-top:2px">Response time: <strong>&lt;2 minutes</strong> (vs 4hrs manual)</div>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Time Badge -->
+              <div style="position:absolute;top:16px;right:16px;background:#fff;border:2px solid var(--text);border-radius:10px;padding:8px 12px;box-shadow:2px 2px 0 rgba(0,0,0,1);font-size:11px;font-weight:700;color:var(--text)">
+                ⚡ Runs 24/7
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+
+      <!-- AUTOMATION TOOLS GRID -->
+      <div style="text-align:center;margin-bottom:48px" class="animate-on-scroll animate-delay-1">
+        <div class="section-label">Tools</div>
+        <h2 class="section-title" style="font-size:36px">Pick the automation<br>you need most</h2>
+      </div>
+
+      <div class="features-grid" style="margin-bottom:64px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
+        ${services.map((s, i) => `
+          <div class="feature-card animate-on-scroll animate-delay-${(i % 5) + 1}" style="cursor:pointer;border-left:4px solid ${s.color}" onclick="navigate('/contact')">
+            <div class="feature-icon" style="background:${s.color}15;color:${s.color};font-size:22px">${s.icon}</div>
+            <h3 style="display:flex;justify-content:space-between;align-items:center;gap:8px">
+              ${s.title}
+              <span style="font-size:16px;font-weight:900;color:${s.color};white-space:nowrap">${s.price}</span>
+            </h3>
+            <p>${s.desc || 'Streamline this process with intelligent automation.'}</p>
+            <div style="margin-top:12px;padding:10px 14px;background:var(--bg);border-radius:8px;font-size:12px;font-family:'Space Mono',monospace;color:var(--primary-dark);font-weight:600">
+              ${s.flow}
+            </div>
+          </div>
+        `).join('')}
+      </div>
+
+      ${generateFAQSection(faqs)}
+
+      <section class="cta-section">
+        <div class="container">
+          <div class="cta-card animate-on-scroll">
+            <h2>Automate your <span class="accent">workflow?</span></h2>
+            <p>Tell us about your repetitive tasks and we'll build custom solutions to eliminate them.</p>
+            <button class="btn-primary" onclick="navigate('/contact')">${icons.settings} Discuss Automation Needs</button>
+          </div>
+        </div>
+      </section>
     </div>
   </section>
-
-  ${generateFAQSection(faqs)}
-
-  <section class="cta-section">
-    <div class="container">
-      <div class="cta-card animate-on-scroll">
-        <h2>Automate your <span class="accent">workflow?</span></h2>
-        <p>Tell us about your repetitive tasks and we'll build custom solutions to automate them.</p>
-        <button class="btn-primary" onclick="navigate('/contact')">${icons.settings} Discuss Automation Needs</button>
-      </div>
-    </div>
-  </section>
-
   ${standardFooter}`;
 }
 
 // ===== PRODUCT DESIGN & BRANDING PAGE =====
 function renderProductDesignBranding(el) {
   const services = [
-    {
-      title: 'Logo Design',
-      price: 'RM250',
-      color: '#AB1509',
-      description: 'We create a professional logo that represents your brand identity clearly and builds strong visual recognition.',
-      features: ['Multiple concepts', 'Vector formats', 'Color variations', 'Brand guidelines preview'],
-      bestFor: 'New businesses and rebrands'
-    },
-    {
-      title: 'Brand Identity Kit',
-      price: 'RM800',
-      color: '#C2A68C',
-      description: 'We develop a complete branding system including colors, typography, and visual guidelines.',
-      features: ['Color palette', 'Typography system', 'Iconography', 'Usage guidelines'],
-      bestFor: 'Businesses needing consistent branding'
-    },
-    {
-      title: 'Company Profile Design',
-      price: 'RM500',
-      color: '#AB1509',
-      description: 'We design a professional company profile that presents your business in a structured and visually appealing format.',
-      features: ['Print-ready PDF', 'Digital version', 'Infographics', 'Professional layout'],
-      bestFor: 'Corporate presentations and proposals'
-    },
-    {
-      title: 'Presentation Deck Design',
-      price: 'RM450',
-      color: '#C2A68C',
-      description: 'We design corporate presentation slides for pitching, meetings, and business communication.',
-      features: ['Master slides', 'Charts & graphs', 'Animation options', 'Speaker notes'],
-      bestFor: 'Pitch decks and investor meetings'
-    },
-    {
-      title: 'UI/UX Design System',
-      price: 'RM1,500',
-      color: '#AB1509',
-      description: 'We create a structured UI system with reusable components and consistent design rules.',
-      features: ['Component library', 'Design tokens', 'Documentation', 'Figma file'],
-      bestFor: 'Products with complex interfaces'
-    },
-    {
-      title: 'Social Media Design Pack',
-      price: 'RM350',
-      color: '#C2A68C',
-      description: 'We design branded social media templates for consistent marketing visuals.',
-      features: ['Post templates', 'Story templates', 'Cover images', 'Profile frames'],
-      bestFor: 'Active social media presence'
-    }
+    { title: 'Logo Design', price: 'RM250', color: '#AB1509', items: ['3 Concepts', 'Vector Files', 'Color Guide'], icon: '🎨' },
+    { title: 'Brand Identity Kit', price: 'RM800', color: '#C2A68C', items: ['Colors', 'Typography', 'Guidelines'], icon: '🖌️' },
+    { title: 'Company Profile', price: 'RM500', color: '#AB1509', items: ['Print PDF', 'Digital Version', 'Infographics'], icon: '📄' },
+    { title: 'Presentation Deck', price: 'RM450', color: '#C2A68C', items: ['Master Slides', 'Charts', 'Animations'], icon: '📊' },
+    { title: 'UI/UX Design System', price: 'RM1,500', color: '#AB1509', items: ['Components', 'Tokens', 'Docs'], icon: '🎛️' },
+    { title: 'Social Media Pack', price: 'RM350', color: '#C2A68C', items: ['Templates', 'Stories', 'Covers'], icon: '📱' }
   ];
 
   const faqs = [
-    { q: 'How many logo concepts do I get?', a: 'Our Logo Design package includes 3-5 initial concepts with 2 rounds of revisions. You\'ll receive final files in SVG, PNG, JPG, and PDF formats.' },
-    { q: 'Can I use the brand kit across all materials?', a: 'Yes, the Brand Identity Kit includes comprehensive guidelines for using your brand elements consistently across print, digital, social media, and merchandise.' },
-    { q: 'Do you provide source files?', a: 'Yes, all design deliverables include editable source files (Figma, Illustrator, or Photoshop) so you can make future modifications internally.' }
+    { q: 'How many logo concepts do I get?', a: 'Logo Design includes 3-5 initial concepts with 2 rounds of revisions. Final files delivered in SVG, PNG, JPG, and PDF formats.' },
+    { q: 'Do you provide source files?', a: 'Yes, all deliverables include editable source files (Figma, Illustrator, or Photoshop) so you can make future modifications internally.' }
   ];
 
   el.innerHTML = `
@@ -4412,102 +4507,147 @@ function renderProductDesignBranding(el) {
     </div>
   </div>
   
-  <section style="padding:0 0 60px;background:var(--bg)">
+  <section class="product-showcase">
     <div class="container">
-      <div class="team-zigzag-container">
-        ${services.map((s, i) => generateZigzagItem(s, i, i % 2 === 1)).join('')}
+      
+      <!-- REVERSED: Left Brand Preview / Right Features -->
+      <div class="showcase-split reverse animate-on-scroll" style="margin-bottom:80px">
+        <!-- Left: Brand Identity Mockup -->
+        <div class="showcase-visual">
+          <div class="visual-container" style="border-color:var(--warm-mid);box-shadow:8px 8px 0px 0px var(--warm-mid)">
+            <div class="visual-body" style="padding:32px;background:#fff;display:flex;flex-direction:column;gap:24px">
+              
+              <!-- Logo Area -->
+              <div style="text-align:center;padding:32px;background:var(--bg);border-radius:16px;border:2px dashed var(--warm-light)">
+                <div style="width:80px;height:80px;background:var(--primary);border-radius:20px;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:32px;font-weight:900;box-shadow:4px 4px 0 rgba(0,0,0,0.1)">
+                  L
+                </div>
+                <div style="font-size:24px;font-weight:900;color:var(--text);letter-spacing:-0.02em">BRANDNAME</div>
+                <div style="font-size:12px;color:#8B8B7A;margin-top:4px;letter-spacing:0.2em;text-transform:uppercase">Tagline Goes Here</div>
+              </div>
+
+              <!-- Color Palette -->
+              <div>
+                <div style="font-size:11px;font-weight:700;color:#8B8B7A;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:10px">Primary Palette</div>
+                <div style="display:flex;gap:10px">
+                  <div style="flex:1;height:48px;background:var(--primary);border-radius:10px;display:flex;align-items:end;justify-content:center;padding:6px;font-size:10px;color:rgba(255,255,255,0.8);font-weight:700">#AB1509</div>
+                  <div style="flex:1;height:48px;background:var(--primary-dark);border-radius:10px;display:flex;align-items:end;justify-content:center;padding:6px;font-size:10px;color:rgba(255,255,255,0.8);font-weight:700">#8A1107</div>
+                  <div style="flex:1;height:48px;background:var(--warm-mid);border-radius:10px;display:flex;align-items:end;justify-content:center;padding:6px;font-size:10px;color:rgba(0,0,0,0.5);font-weight:700">#C2A68C</div>
+                  <div style="flex:1;height:48px;background:var(--text);border-radius:10px;display:flex;align-items:end;justify-content:center;padding:6px;font-size:10px;color:rgba(255,255,255,0.6);font-weight:700">#000000</div>
+                </div>
+              </div>
+
+              <!-- Typography Sample -->
+              <div>
+                <div style="font-size:11px;font-weight:700;color:#8B8B7A;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:10px">Typography Scale</div>
+                <div style="background:var(--bg);border-radius:12px;padding:16px">
+                  <div style="font-size:28px;font-weight:900;color:var(--text);line-height:1.2">Heading One</div>
+                  <div style="font-size:18px;font-weight:800;color:var(--text);margin-top:8px">Heading Two</div>
+                  <div style="font-size:14px;color:#5C5C4F;margin-top:8px;line-height:1.5">Body text example showing how the typography looks in real usage scenarios with comfortable reading experience.</div>
+                </div>
+              </div>
+
+              <!-- Application Mockups -->
+              <div style="display:flex;gap:10px">
+                <div style="flex:1;height:60px;background:var(--primary);border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px;font-weight:700">Business Card</div>
+                <div style="flex:1;height:60px;background:var(--text);border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px;font-weight:700">Letterhead</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Right: Features -->
+        <div class="showcase-content">
+          <div class="showcase-eyebrow">Visual Identity</div>
+          <h2 class="showcase-title">Craft a brand<br>people remember</h2>
+          
+          <div class="feature-list">
+            <div class="feature-item">
+              <div class="feature-icon-wrap">${icons.palette}</div>
+              <div class="feature-text">
+                <h4>Strategic Color Psychology</h4>
+                <p>Colors chosen based on your industry, target audience psychology, and competitive positioning. Not just pretty — purposeful.</p>
+              </div>
+            </div>
+            
+            <div class="feature-item">
+              <div class="feature-icon-wrap">${icons.type}</div>
+              <div class="feature-text">
+                <h4>Scalable Typography</h4>
+                <p>Type scales from massive headlines to tiny legal text while maintaining readability and brand personality throughout.</p>
+              </div>
+            </div>
+            
+            <div class="feature-item">
+              <div class="feature-icon-wrap">${icons.layoutGrid}</div>
+              <div class="feature-text">
+                <h4>Consistent Grid Systems</h4>
+                <p>Spatial harmony across all touchpoints — web, print, social, packaging. Everything feels like it belongs together.</p>
+              </div>
+            </div>
+            
+            <div class="feature-item">
+              <div class="feature-icon-wrap">${icons.star}</div>
+              <div class="feature-text">
+                <h4>Brand Guidelines Document</h4>
+                <p>Comprehensive rulebook covering logo usage, spacing rules, do's and don'ts. Protect your brand integrity.</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+
+      <!-- DESIGN SERVICES GRID -->
+      <div style="text-align:center;margin-bottom:48px" class="animate-on-scroll animate-delay-1">
+        <div class="section-label">Services</div>
+        <h2 class="section-title" style="font-size:36px">Everything needed for<br>a complete brand identity</h2>
+      </div>
+
+      <div class="pricing-grid" style="margin-bottom:64px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))">
+        ${services.map((s, i) => `
+          <div class="pricing-card animate-on-scroll animate-delay-${(i % 5) + 1}" style="border-top:4px solid ${s.color}">
+            <div class="pricing-name" style="color:${s.color}">${s.title}</div>
+            <div class="pricing-price" style="color:${s.color}">${s.price.replace('/mo','')}</div>
+            <div class="pricing-desc">Professional ${s.title.toLowerCase()} tailored to your brand vision.</div>
+            <ul class="pricing-features">
+              ${s.items.map(item => `<li><span class="check" style="background:${s.color}20;color:${s.color}">${icons.check}</span> ${item}</li>`).join('')}
+            </ul>
+            <button class="btn-primary" style="width:100%;justify-content:center;background:${s.color};border-color:${s.color}" onclick="navigate('/contact')">Start Project ${icons.arrowRight}</button>
+          </div>
+        `).join('')}
+      </div>
+
+      ${generateFAQSection(faqs)}
+
+      <section class="cta-section">
+        <div class="container">
+          <div class="cta-card animate-on-scroll">
+            <h2>Need a fresh <span class="accent">look?</span></h2>
+            <p>Let us craft a visual identity that truly represents your brand's personality and values.</p>
+            <button class="btn-primary" onclick="navigate('/contact')">${icons.palette} Start Brand Project</button>
+          </div>
+        </div>
+      </section>
     </div>
   </section>
-
-  ${generateFAQSection(faqs)}
-
-  <section class="cta-section">
-    <div class="container">
-      <div class="cta-card animate-on-scroll">
-        <h2>Need a fresh <span class="accent">look?</span></h2>
-        <p>Let us craft a visual identity that truly represents your brand's personality and values.</p>
-        <button class="btn-primary" onclick="navigate('/contact')">${icons.palette} Start Brand Project</button>
-      </div>
-    </div>
-  </section>
-
   ${standardFooter}`;
 }
 
 // ===== PRODUCT HOSTING & INFRASTRUCTURE PAGE =====
 function renderProductHosting(el) {
   const services = [
-    {
-      title: 'Domain Management',
-      price: 'RM50/month',
-      color: '#AB1509',
-      description: 'We manage domain setup, renewal, and DNS configuration to ensure stable website connectivity.',
-      features: ['DNS management', 'SSL renewal', 'Domain transfer', 'Privacy protection'],
-      bestFor: 'All website owners'
-    },
-    {
-      title: 'Business Email Setup',
-      price: 'RM150',
-      color: '#C2A68C',
-      description: 'We configure professional email accounts using your domain to improve brand credibility.',
-      features: ['Custom domain email', 'Spam protection', 'Mobile sync', 'Storage allocation'],
-      bestFor: 'Professional email needs'
-    },
-    {
-      title: 'Business Email Management',
-      price: 'RM50/month',
-      color: '#AB1509',
-      description: 'We maintain and monitor your business email system for stability and delivery performance.',
-      features: ['Monitoring', 'Deliverability checks', 'Backup', 'Support'],
-      bestFor: 'Critical email operations'
-    },
-    {
-      title: 'Cloud/VPS Server Setup',
-      price: 'RM800',
-      color: '#C2A68C',
-      description: 'We deploy and configure cloud or VPS servers optimized for performance and scalability.',
-      features: ['Server provisioning', 'Security hardening', 'Auto-scaling setup', 'Monitoring'],
-      bestFor: 'High-traffic websites'
-    },
-    {
-      title: 'Website Maintenance',
-      price: 'RM250/month',
-      color: '#AB1509',
-      description: 'We provide ongoing updates, monitoring, and maintenance support for website stability.',
-      features: ['Core updates', 'Plugin updates', 'Uptime monitoring', 'Emergency fixes'],
-      bestFor: 'Businesses without IT staff'
-    },
-    {
-      title: 'Security Monitoring',
-      price: 'RM180/month',
-      color: '#C2A68C',
-      description: 'We monitor website security and detect vulnerabilities to ensure protection from threats.',
-      features: ['Malware scanning', 'Firewall management', 'Threat detection', 'Incident response'],
-      bestFor: 'All online businesses'
-    },
-    {
-      title: 'Backup Management',
-      price: 'RM80/month',
-      color: '#AB1509',
-      description: 'We manage automated backups to ensure safe recovery in case of failure.',
-      features: ['Daily backups', 'Offsite storage', 'One-click restore', 'Retention policy'],
-      bestFor: 'Data-critical websites'
-    },
-    {
-      title: 'Cloudflare Setup',
-      price: 'RM180',
-      color: '#C2A68C',
-      description: 'We configure Cloudflare for performance optimization, CDN, and security protection.',
-      features: ['CDN activation', 'DDoS protection', 'Caching rules', 'SSL termination'],
-      bestFor: 'Global audience reach'
-    }
+    { title: 'Domain Management', price: 'RM50/mo', color: '#AB1509', status: 'Active ✓', icon: '🌐' },
+    { title: 'Business Email', price: 'RM150', color: '#C2A68C', status: 'Secure SSL', icon: '📧' },
+    { title: 'Cloud/VPS Server', price: 'RM800', color: '#AB1509', status: '99.99% Uptime', icon: '☁️' },
+    { title: 'Website Maintenance', price: 'RM250/mo', color: '#C2A68C', status: 'Auto Updates', icon: '🔧' },
+    { title: 'Security Monitoring', price: 'RM180/mo', color: '#AB1509', status: '24/7 Scanning', icon: '🛡️' },
+    { title: 'Backup Management', price: 'RM80/mo', color: '#C2A68C', status: 'Daily Backups', icon: '💾' },
+    { title: 'Cloudflare CDN', price: 'RM180', color: '#AB1509', status: 'Global Edge', icon: '⚡' }
   ];
 
   const faqs = [
-    { q: 'Do I need separate hosting if I have a subscription?', a: 'Our Starter, Growth, and Pro IT plans include basic hosting. These advanced services are for businesses needing enterprise-grade infrastructure, dedicated servers, or enhanced security beyond what\'s included in standard plans.' },
-    { q: 'What happens if my site goes down?', a: 'With our Website Maintenance or Security Monitoring packages, we proactively monitor uptime and respond immediately to any issues. Average response time is under 30 minutes for critical incidents.' },
-    { q: 'Can I migrate my existing site to your hosting?', a: 'Yes, we offer migration services as part of Cloud/VPS Server Setup. We handle the entire process with zero downtime and full data integrity verification.' }
+    { q: 'Do I need separate hosting if I have a subscription?', a: 'Starter/Growth/Pro plans include basic hosting. These advanced services are for enterprise-grade infrastructure beyond standard plans.' },
+    { q: 'What happens if my site goes down?', a: 'With our Maintenance or Security packages, we proactively monitor uptime and respond within 30 minutes for critical incidents.' }
   ];
 
   el.innerHTML = `
@@ -4519,26 +4659,155 @@ function renderProductHosting(el) {
     </div>
   </div>
   
-  <section style="padding:0 0 60px;background:var(--bg)">
+  <section class="product-showcase">
     <div class="container">
-      <div class="team-zigzag-container">
-        ${services.map((s, i) => generateZigzagItem(s, i, i % 2 === 1)).join('')}
+      
+      <!-- MAIN SPLIT: Server Status Visual -->
+      <div class="showcase-split animate-on-scroll" style="margin-bottom:80px">
+        <div class="showcase-content">
+          <div class="showcase-eyebrow">Infrastructure</div>
+          <h2 class="showcase-title">Enterprise-grade hosting<br>without the complexity</h2>
+          
+          <div class="feature-list">
+            <div class="feature-item">
+              <div class="feature-icon-wrap">${icons.monitor}</div>
+              <div class="feature-text">
+                <h4>Global CDN Network</h4>
+                <p>Content distributed across 200+ edge locations worldwide. Your site loads fast whether visitors are in KL, London, or Tokyo.</p>
+              </div>
+            </div>
+            
+            <div class="feature-item">
+              <div class="feature-icon-wrap">${icons.shield}</div>
+              <div class="feature-text">
+                <h4>Military-Grade Security</h4>
+                <p>DDoS protection, WAF rules, malware scanning, and automatic patching. Sleep easy knowing your assets are fortified.</p>
+              </div>
+            </div>
+            
+            <div class="feature-item">
+              <div class="feature-icon-wrap">${icons.clock}</div>
+              <div class="feature-text">
+                <h4>Real-Time Monitoring</h4>
+                <p>Uptime checks every 60 seconds from multiple geographic locations. Instant alerts via email, Slack, or WhatsApp if issues arise.</p>
+              </div>
+            </div>
+            
+            <div class="feature-item">
+              <div class="feature-icon-wrap">${icons.database}</div>
+              <div class="feature-text">
+                <h4>Automated Backups</h4>
+                <p>Daily snapshots stored in geographically redundant storage. Point-in-time recovery available with one click restore.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Right: Server Status Dashboard Mockup -->
+        <div class="showcase-visual">
+          <div class="visual-container">
+            <div class="visual-header" style="background:var(--text);color:#fff">
+              <div style="display:flex;align-items:center;gap:8px">
+                <div style="width:8px;height:8px;background:#22c55e;border-radius:50%;animation:pulse-dot 2s infinite"></div>
+                <span style="font-size:12px;font-family:'Space Mono',monospace">infrastructure.status</span>
+              </div>
+              <span style="font-size:11px;color:#8B8B7A">Last check: 2s ago</span>
+            </div>
+            <div class="visual-body" style="padding:24px;background:#FAFAF8">
+              
+              <!-- Uptime Badge -->
+              <div style="text-align:center;margin-bottom:24px">
+                <div style="font-size:56px;font-weight:900;color:#22c55e;line-height:1">99.99%</div>
+                <div style="font-size:13px;color:#8B8B7A;font-weight:600">Uptime This Month</div>
+                <div style="display:flex;justify-content:center;gap:4px;margin-top:8px">
+                  ${Array(30).fill().map(() => `<div style="width:6px;height:16px;background:#22c55e;border-radius:2px"></div>`).join('')}
+                </div>
+              </div>
+
+              <!-- Server Metrics Grid -->
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+                <div style="background:#fff;border:1px solid var(--warm-light);border-radius:10px;padding:14px">
+                  <div style="font-size:11px;color:#8B8B7A;text-transform:uppercase;letter-spacing:0.04em">CPU Usage</div>
+                  <div style="font-size:22px;font-weight:900;color:var(--text);margin-top:4px">23%</div>
+                  <div style="height:4px;background:#E5E5E0;border-radius:2px;margin-top:8px;overflow:hidden">
+                    <div style="width:23%;height:100%;background:#22c55e;border-radius:2px"></div>
+                  </div>
+                </div>
+                
+                <div style="background:#fff;border:1px solid var(--warm-light);border-radius:10px;padding:14px">
+                  <div style="font-size:11px;color:#8B8B7A;text-transform:uppercase;letter-spacing:0.04em">Memory</div>
+                  <div style="font-size:22px;font-weight:900;color:var(--text);margin-top:4px">4.2GB</div>
+                  <div style="height:4px;background:#E5E5E0;border-radius:2px;margin-top:8px;overflow:hidden">
+                    <div style="width:52%;height:100%;background:#AB1509;border-radius:2px"></div>
+                  </div>
+                </div>
+                
+                <div style="background:#fff;border:1px solid var(--warm-light);border-radius:10px;padding:14px">
+                  <div style="font-size:11px;color:#8B8B7A;text-transform:uppercase;letter-spacing:0.04em">Bandwidth</div>
+                  <div style="font-size:22px;font-weight:900;color:var(--text);margin-top:4px">1.2TB</div>
+                  <div style="height:4px;background:#E5E5E0;border-radius:2px;margin-top:8px;overflow:hidden">
+                    <div style="width:38%;height:100%;background:#2563EB;border-radius:2px"></div>
+                  </div>
+                </div>
+                
+                <div style="background:#fff;border:1px solid var(--warm-light);border-radius:10px;padding:14px">
+                  <div style="font-size:11px;color:#8B8B7A;text-transform:uppercase;letter-spacing:0.04em">Response</div>
+                  <div style="font-size:22px;font-weight:900;color:var(--text);margin-top:4px">42ms</div>
+                  <div style="height:4px;background:#E5E5E0;border-radius:2px;margin-top:8px;overflow:hidden">
+                    <div style="width:12%;height:100%;background:#22c55e;border-radius:2px"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Security Status -->
+              <div style="margin-top:16px;background:#DCFCE7;border:1px solid #22c55e;border-radius:10px;padding:12px 16px;display:flex;align-items:center;gap:10px">
+                <span style="font-size:18px">🛡️</span>
+                <div style="flex:1">
+                  <div style="font-size:12px;font-weight:700;color:#166534">All Systems Secure</div>
+                  <div style="font-size:11px;color:#166534;opacity:0.8">SSL Valid • WAF Active • Last scan: 1h ago</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+
+      <!-- HOSTING SERVICES LIST -->
+      <div style="text-align:center;margin-bottom:48px" class="animate-on-scroll animate-delay-1">
+        <div class="section-label">Infrastructure Stack</div>
+        <h2 class="section-title" style="font-size:36px">Layer by layer,<br>we've got you covered</h2>
+      </div>
+
+      <div class="features-grid" style="margin-bottom:64px;grid-template-columns:repeat(auto-fit,minmax(320px,1fr))">
+        ${services.map((s, i) => `
+          <div class="feature-card animate-on-scroll animate-delay-${(i % 5) + 1}" style="border-left:4px solid ${s.color};cursor:pointer" onclick="navigate('/contact')">
+            <div class="feature-icon" style="background:${s.color}15;color:${s.color};font-size:22px">${s.icon}</div>
+            <h3 style="display:flex;justify-content:space-between;align-items:center">
+              ${s.title}
+              <span style="font-size:13px;font-weight:700;color:#22c55e;background:#DCFCE7;padding:4px 10px;border-radius:6px">${s.status}</span>
+            </h3>
+            <p>Professional ${s.title.toLowerCase()} management ensuring maximum reliability and performance.</p>
+            <div style="margin-top:16px;display:flex;justify-content:space-between;align-items:center">
+              <span style="font-size:20px;font-weight:900;color:${s.color}">${s.price}</span>
+              <button class="btn-ghost" style="font-size:12px;padding:6px">Configure ${icons.arrowRight}</button>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+
+      ${generateFAQSection(faqs)}
+
+      <section class="cta-section">
+        <div class="container">
+          <div class="cta-card animate-on-scroll">
+            <h2>Need reliable <span class="accent">infrastructure?</span></h2>
+            <p>Let us handle the technical heavy lifting so you can focus on growing your business.</p>
+            <button class="btn-primary" onclick="navigate('/contact')">${icons.monitor} Discuss Infrastructure</button>
+          </div>
+        </div>
+      </section>
     </div>
   </section>
-
-  ${generateFAQSection(faqs)}
-
-  <section class="cta-section">
-    <div class="container">
-      <div class="cta-card animate-on-scroll">
-        <h2>Need reliable <span class="accent">infrastructure?</span></h2>
-        <p>Let us handle the technical heavy lifting so you can focus on growing your business.</p>
-        <button class="btn-primary" onclick="navigate('/contact')">${icons.monitor} Discuss Infrastructure</button>
-      </div>
-    </div>
-  </section>
-
   ${standardFooter}`;
 }
 
