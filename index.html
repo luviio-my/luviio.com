@@ -1815,6 +1815,488 @@ body{
     .auth-card,.profile-card{padding:20px 16px}
   }
 
+  /* ========================================== */
+/* PRODUCT SHOWCASE REDESIGN — SPLIT LAYOUT   */
+/* ========================================== */
+
+/* Main Showcase Container */
+.product-showcase {
+  padding: 80px 0;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.showcase-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 120px;
+}
+
+/* Reverse direction for alternating sections */
+.showcase-split.reverse {
+  direction: rtl;
+}
+
+.showcase-split.reverse > * {
+  direction: ltr;
+}
+
+/* Content Side */
+.showcase-content {
+  padding-right: 20px;
+}
+
+.showcase-split.reverse .showcase-content {
+  padding-right: 0;
+  padding-left: 20px;
+}
+
+.showcase-eyebrow {
+  font-family: "Space Mono", monospace;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+  display: inline-block;
+}
+
+.showcase-title {
+  font-size: 42px;
+  font-weight: 900;
+  line-height: 1.15;
+  color: var(--text);
+  margin-bottom: 32px;
+  letter-spacing: -0.02em;
+}
+
+/* Feature Items List (Accordion-style) */
+.feature-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--warm-light);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.feature-item:first-child {
+  border-top: 1px solid var(--warm-light);
+}
+
+.feature-item:hover {
+  padding-left: 8px;
+}
+
+.feature-item:hover .feature-icon-wrap {
+  background: var(--primary);
+  color: #fff;
+  transform: scale(1.05);
+}
+
+.feature-icon-wrap {
+  width: 48px;
+  height: 48px;
+  background: var(--primary-tint);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  flex-shrink: 0;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  font-size: 22px;
+}
+
+.feature-text h4 {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 6px;
+  line-height: 1.3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.feature-text h4::after {
+  content: '›';
+  font-size: 24px;
+  font-weight: 300;
+  color: var(--warm-mid);
+  transition: transform 0.3s;
+  flex-shrink: 0;
+}
+
+.feature-item:hover h4::after {
+  transform: translateX(4px);
+  color: var(--primary);
+}
+
+.feature-text p {
+  font-size: 15px;
+  line-height: 1.65;
+  color: #5C5C4F;
+  margin: 0;
+  max-width: 480px;
+}
+
+/* Visual/Mockup Side */
+.showcase-visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.visual-container {
+  width: 100%;
+  background: #fff;
+  border: 2px solid var(--text);
+  border-radius: 20px;
+  box-shadow: 
+    8px 8px 0px 0px rgba(0,0,0,1),
+    0 20px 40px rgba(171,21,9,0.08);
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  position: relative;
+}
+
+.visual-container:hover {
+  transform: translateY(-4px) rotate(-0.5deg);
+  box-shadow: 
+    12px 12px 0px 0px rgba(0,0,0,1),
+    0 28px 48px rgba(171,21,9,0.12);
+}
+
+.visual-header {
+  background: linear-gradient(135deg, var(--primary-tint), rgba(171,21,9,0.08));
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--warm-light);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.visual-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--warm-light);
+}
+
+.visual-dot.active { background: var(--primary); }
+
+.visual-body {
+  padding: 32px;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Mock UI Elements inside Visual Container */
+.mock-nav {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.mock-tab {
+  padding: 8px 16px;
+  background: var(--bg);
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #8B8B7A;
+  border: 1px solid transparent;
+}
+
+.mock-tab.active {
+  background: var(--primary);
+  color: #fff;
+  box-shadow: 2px 2px 0px 0px var(--text);
+}
+
+.mock-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.mock-stat-box {
+  background: var(--bg);
+  border: 1px solid var(--warm-light);
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+}
+
+.mock-stat-num {
+  font-size: 24px;
+  font-weight: 900;
+  color: var(--primary);
+  display: block;
+}
+
+.mock-stat-label {
+  font-size: 11px;
+  color: #8B8B7A;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-top: 4px;
+}
+
+.mock-chat-bubble {
+  background: var(--primary-tint);
+  border: 1px solid rgba(171,21,9,0.15);
+  border-radius: 16px;
+  padding: 16px 20px;
+  max-width: 85%;
+  position: relative;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text);
+  box-shadow: 2px 2px 0px 0px rgba(171,21,9,0.1);
+}
+
+.mock-chat-bubble.user {
+  background: var(--primary);
+  color: #fff;
+  margin-left: auto;
+  border-bottom-right-radius: 4px;
+}
+
+.mock-chat-bubble.bot {
+  border-bottom-left-radius: 4px;
+}
+
+.mock-input-field {
+  background: #fff;
+  border: 2px solid var(--warm-light);
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-size: 13px;
+  color: #8B8B7A;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+}
+
+/* Use Cases Grid (Bottom Section) */
+.use-cases-section {
+  padding: 80px 0;
+  background: linear-gradient(180deg, #EDEDE8 0%, #F5F5F0 100%);
+  border-top: 1px solid var(--warm-light);
+  width: 100%;
+}
+
+.use-cases-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-top: 56px;
+  width: 100%;
+}
+
+.use-case-card {
+  background: #fff;
+  border: 2px solid var(--text);
+  border-radius: 20px;
+  box-shadow: 4px 4px 0px 0px var(--text);
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  text-align: center;
+}
+
+.use-case-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 8px 8px 0px 0px var(--text);
+}
+
+.use-case-icon-wrapper {
+  padding: 40px 20px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.use-case-icon-large {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, var(--primary-tint), rgba(171,21,9,0.1));
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  color: var(--primary);
+  box-shadow: 0 8px 20px rgba(171,21,9,0.15);
+}
+
+.use-case-body {
+  padding: 0 24px 32px;
+}
+
+.use-case-title {
+  font-size: 24px;
+  font-weight: 900;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.use-case-subtitle {
+  font-size: 14px;
+  color: #8B8B7A;
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+/* Mini chat preview inside use case cards */
+.mini-chat-preview {
+  background: var(--bg);
+  border: 1px solid var(--warm-light);
+  border-radius: 16px;
+  padding: 16px;
+  text-align: left;
+  margin-top: 16px;
+}
+
+.mini-chat-line {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+  align-items: flex-start;
+}
+
+.mini-chat-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.mini-chat-msg {
+  background: #fff;
+  border: 1px solid var(--warm-light);
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--text);
+  max-width: 80%;
+  box-shadow: 1px 1px 0px 0px rgba(0,0,0,0.05);
+}
+
+.mini-chat-msg.highlight {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+/* Responsive for Showcase */
+@media(max-width:1023px) {
+  .showcase-split {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    margin-bottom: 80px;
+  }
+  
+  .showcase-split.reverse {
+    direction: ltr;
+  }
+  
+  .showcase-split.reverse .showcase-content {
+    padding-left: 0;
+    padding-right: 0;
+    order: 1;
+  }
+  
+  .showcase-split.reverse .showcase-visual {
+    order: 2;
+  }
+  
+  .showcase-title {
+    font-size: 34px;
+  }
+  
+  .use-cases-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+@media(max-width:767px) {
+  .product-showcase {
+    padding: 56px 0;
+  }
+  
+  .showcase-split {
+    gap: 32px;
+    margin-bottom: 60px;
+  }
+  
+  .showcase-title {
+    font-size: 28px;
+    margin-bottom: 24px;
+  }
+  
+  .feature-item {
+    padding: 18px 0;
+    gap: 12px;
+  }
+  
+  .feature-icon-wrap {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+  
+  .feature-text h4 {
+    font-size: 17px;
+  }
+  
+  .feature-text p {
+    font-size: 14px;
+  }
+  
+  .visual-body {
+    padding: 24px;
+    min-height: 260px;
+  }
+  
+  .mock-stats-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+  }
+  
+  .use-cases-grid {
+    margin-top: 40px;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -3179,7 +3661,7 @@ async function handleContactSubmit(e) {
   }
 }
 
-// ===== PRODUCT OVERVIEW PAGE =====
+// ===== PRODUCT OVERVIEW PAGE — NEW SHOWCASE DESIGN =====
 function renderProduct(el) {
   el.innerHTML = `
   <div class="page-hero">
@@ -3189,92 +3671,298 @@ function renderProduct(el) {
       <p class="animate-on-scroll animate-delay-2">A comprehensive set of building blocks for creating modern, tactile interfaces with earthy warmth and intentional craft.</p>
     </div>
   </div>
-  <section style="padding:0 0 60px">
+
+  <!-- SECTION 1: Core Features (Left: Features, Right: Dashboard Mockup) -->
+  <section class="product-showcase">
     <div class="container">
-      <div class="product-features-grid">
-        <div class="product-feature animate-on-scroll animate-delay-1"><div class="pf-icon">${icons.layoutGrid}</div><h3>48+ Components</h3><p>From buttons and inputs to complex data tables and navigation patterns. Every component follows the same design language and interaction model.</p></div>
-        <div class="product-feature animate-on-scroll animate-delay-2"><div class="pf-icon">${icons.code}</div><h3>Framework Agnostic</h3><p>Use with React, Vue, Svelte, or plain HTML. Our tokens and styles work everywhere — no lock-in, just clean output.</p></div>
-        <div class="product-feature animate-on-scroll animate-delay-3"><div class="pf-icon">${icons.palette}</div><h3>Design Tokens</h3><p>Color, spacing, typography, and shadow tokens that sync between Figma and code. Change once, update everywhere.</p></div>
-        <div class="product-feature animate-on-scroll animate-delay-1"><div class="pf-icon">${icons.accessibility}</div><h3>WCAG 2.1 AA</h3><p>All components meet accessibility standards out of the box. Focus management, ARIA attributes, and keyboard navigation built in.</p></div>
-        <div class="product-feature animate-on-scroll animate-delay-2"><div class="pf-icon">${icons.globe}</div><h3>Dark Mode Ready</h3><p>Every component includes dark mode variants. Toggle with a single CSS class or use the prefers-color-scheme media query.</p></div>
-        <div class="product-feature animate-on-scroll animate-delay-4"><div class="pf-icon">${icons.monitor}</div><h3>Figma Library</h3><p>A matching Figma component library with auto-layout, variants, and design tokens. Ship designs that match code perfectly.</p></div>
+      <div class="showcase-split animate-on-scroll">
+        <!-- Left Content -->
+        <div class="showcase-content">
+          <div class="showcase-eyebrow">Core System</div>
+          <h2 class="showcase-title">Everything you need<br>to build & ship</h2>
+          
+          <div class="feature-list">
+            <div class="feature-item">
+              <div class="feature-icon-wrap">${icons.layoutGrid}</div>
+              <div class="feature-text">
+                <h4>Component Library</h4>
+                <p>48+ pre-built components including buttons, inputs, cards, navigation, modals, and data tables. All follow consistent design tokens.</p>
+              </div>
+            </div>
+            
+            <div class="feature-item">
+              <div class="feature-icon-wrap">${icons.type}</div>
+              <div class="feature-text">
+                <h4>Typography Scale</h4>
+                <p>Bold weight-driven hierarchy using DM Sans (headlines) and Space Mono (code). Nine weights available for maximum expression.</p>
+              </div>
+            </div>
+            
+            <div class="feature-item">
+              <div class="feature-icon-wrap">${icons.palette}</div>
+              <div class="feature-text">
+                <h4>Earthy Color System</h4>
+                <p>Sage red primary (#AB1509) with warm neutrals and creamy backgrounds. Every shade optimized for accessibility and warmth.</p>
+              </div>
+            </div>
+            
+            <div class="feature-item">
+              <div class="feature-icon-wrap">${icons.box}</div>
+              <div class="feature-text">
+                <h4>Tactile Depth</h4>
+                <p>Hard 2px offset shadows that feel printed, not floating. Components you can almost touch through the screen.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Right Visual: Dashboard Mockup -->
+        <div class="showcase-visual">
+          <div class="visual-container">
+            <div class="visual-header">
+              <div class="visual-dot active"></div>
+              <div class="visual-dot"></div>
+              <div class="visual-dot"></div>
+            </div>
+            <div class="visual-body">
+              <div class="mock-nav">
+                <div class="mock-tab active">Dashboard</div>
+                <div class="mock-tab">Components</div>
+                <div class="mock-tab">Tokens</div>
+              </div>
+              
+              <!-- Stats Row -->
+              <div class="mock-stats-grid">
+                <div class="mock-stat-box">
+                  <span class="mock-stat-num">48+</span>
+                  <span class="mock-stat-label">Components</span>
+                </div>
+                <div class="mock-stat-box">
+                  <span class="mock-stat-num">99%</span>
+                  <span class="mock-stat-label">Accessible</span>
+                </div>
+                <div class="mock-stat-box">
+                  <span class="mock-stat-num">4px</span>
+                  <span class="mock-stat-label">Base Unit</span>
+                </div>
+              </div>
+              
+              <!-- Chat Preview -->
+              <div style="margin-top:24px;display:flex;flex-direction:column;gap:12px">
+                <div class="mock-chat-bubble bot">
+                  <strong>New component ready:</strong> Pricing Card v2.0 with press effect states.
+                </div>
+                <div class="mock-chat-bubble user">
+                  Looks great! Ship it to production 🚀
+                </div>
+              </div>
+              
+              <div class="mock-input-field">
+                <span>Type a message...</span>
+                <span>→</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 2: Technical Specs (Reversed: Left: Code Mockup, Right: Features) -->
+      <div class="showcase-split reverse animate-on-scroll animate-delay-1">
+        <!-- Left Visual: Code Editor Mockup -->
+        <div class="showcase-visual">
+          <div class="visual-container" style="border-color: var(--warm-mid); box-shadow: 8px 8px 0px 0px var(--warm-mid);">
+            <div class="visual-header" style="background: var(--text);">
+              <div class="visual-dot" style="background:#ff5f57"></div>
+              <div class="visual-dot" style="background:#febc2e"></div>
+              <div class="visual-dot" style="background:#28c840"></div>
+              <span style="margin-left:12px;font-size:12px;color:#8B8B7A;font-family:'Space Mono',monospace">design-tokens.css</span>
+            </div>
+            <div class="visual-body" style="background:var(--text);padding:24px;font-family:'Space Mono',monospace;font-size:13px;line-height:1.8;color:#F5F5F0">
+              <div style="color:var(--primary)">:root {</div>
+              <div style="padding-left:16px;color:#E6D8C3">
+                <span style="color:#C2A68C">--primary:</span> <span style="color:#AB1509">#AB1509</span>;
+              </div>
+              <div style="padding-left:16px;color:#E6D8C3">
+                <span style="color:#C2A68C">--shadow-btn:</span> <span style="color:#AB1509">2px 2px 0 #000</span>;
+              </div>
+              <div style="padding-left:16px;color:#E6D8C3">
+                <span style="color:#C2A68C">--radius-lg:</span> <span style="color:#AB1509">16px</span>;
+              </div>
+              <div style="color:var(--primary)">}</div>
+              <div style="margin-top:16px;height:1px;background:rgba(255,255,255,0.1)"></div>
+              <div style="margin-top:16px;color:#8B8B7A;font-size:11px">
+                /* Press effect on hover */<br>
+                .btn:active {<br>
+                &nbsp;&nbsp;transform: translate(2px);<br>
+                &nbsp;&nbsp;box-shadow: 1px 1px 0;<br>
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Right Content -->
+        <div class="showcase-content">
+          <div class="showcase-eyebrow">Developer Experience</div>
+          <h2 class="showcase-title">Built for<br>modern workflows</h2>
+          
+          <div class="feature-list">
+            <div class="feature-item">
+              <div class="feature-icon-wrap">${icons.code}</div>
+              <div class="feature-text">
+                <h4>Framework Agnostic</h4>
+                <p>Works with React, Vue, Svelte, or vanilla HTML/CSS. No lock-in, just clean output that integrates anywhere.</p>
+              </div>
+            </div>
+            
+            <div class="feature-item">
+              <div class="feature-icon-wrap">${icons.accessibility}</div>
+              <div class="feature-text">
+                <h4>WCAG 2.1 AA Compliant</h4>
+                <p>High-contrast ratios, visible focus rings, ARIA attributes, and keyboard navigation built into every component.</p>
+              </div>
+            </div>
+            
+            <div class="feature-item">
+              <div class="feature-icon-wrap">${icons.globe}</div>
+              <div class="feature-text">
+                <h4>Dark Mode Ready</h4>
+                <p>Every component includes dark variants. Toggle via CSS class or respect prefers-color-scheme automatically.</p>
+              </div>
+            </div>
+            
+            <div class="feature-item">
+              <div class="feature-icon-wrap">${icons.monitor}</div>
+              <div class="feature-text">
+                <h4>Figma Design Kit</h4>
+                <p>Matching Figma library with auto-layout, variants, and synced design tokens. Pixel-perfect handoff guaranteed.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 3: Service Categories (Use Cases Style) -->
+      <div style="text-align:center;margin-top:80px;margin-bottom:48px" class="animate-on-scroll">
+        <div class="section-label">Service Categories</div>
+        <h2 class="section-title" style="font-size:42px;line-height:1.2">Specialized solutions<br>for every need</h2>
+        <p class="section-desc" style="max-width:600px;margin:20px auto 0">From website add-ons to enterprise automation, we've got you covered across five key domains.</p>
       </div>
       
-      <!-- PRODUCT SUB-PAGES GRID -->
-      <div style="margin-top:64px;text-align:center" class="animate-on-scroll">
-        <div class="section-label">Explore Services</div>
-        <h2 class="section-title" style="font-size:36px;line-height:42px">Our Service Categories</h2>
-        <p class="section-desc" style="max-width:600px;margin:16px auto 48px">Browse our specialized service offerings across five key categories.</p>
+      <div class="use-cases-grid">
+        <!-- Card 1: Add-Ons -->
+        <div class="use-case-card animate-on-scroll animate-delay-1">
+          <div class="use-case-icon-wrapper">
+            <div class="use-case-icon-large">${icons.box}</div>
+          </div>
+          <div class="use-case-body">
+            <h3 class="use-case-title">Add-On Services</h3>
+            <p class="use-case-subtitle">Enhance your website with additional features</p>
+            <div class="mini-chat-preview">
+              <div class="mini-chat-line">
+                <div class="mini-chat-avatar">+</div>
+                <div class="mini-chat-msg highlight">New landing page added! RM350</div>
+              </div>
+              <div class="mini-chat-line">
+                <div class="mini-chat-avatar" style="background:var(--warm-mid)">U</div>
+                <div class="mini-chat-msg">Perfect for our campaign launch!</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Marketing -->
+        <div class="use-case-card animate-on-scroll animate-delay-2">
+          <div class="use-case-icon-wrapper">
+            <div class="use-case-icon-large">${icons.target}</div>
+          </div>
+          <div class="use-case-body">
+            <h3 class="use-case-title">Marketing</h3>
+            <p class="use-case-subtitle">Data-driven growth strategies</p>
+            <div class="mini-chat-preview">
+              <div class="mini-chat-line">
+                <div class="mini-chat-avatar">📈</div>
+                <div class="mini-chat-msg highlight">SEO traffic up 340% this month!</div>
+              </div>
+              <div class="mini-chat-line">
+                <div class="mini-chat-avatar" style="background:var(--warm-mid)">M</div>
+                <div class="mini-chat-msg">The Google Ads optimization is working wonders.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Automation -->
+        <div class="use-case-card animate-on-scroll animate-delay-3">
+          <div class="use-case-icon-wrapper">
+            <div class="use-case-icon-large">${icons.settings}</div>
+          </div>
+          <div class="use-case-body">
+            <h3 class="use-case-title">Automation</h3>
+            <p class="use-case-subtitle">Streamline your operations</p>
+            <div class="mini-chat-preview">
+              <div class="mini-chat-line">
+                <div class="mini-chat-avatar">🤖</div>
+                <div class="mini-chat-msg highlight">WhatsApp bot handled 50 inquiries today</div>
+              </div>
+              <div class="mini-chat-line">
+                <div class="mini-chat-avatar" style="background:var(--warm-mid)">S</div>
+                <div class="mini-chat-msg">Incredible time savings for our team!</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Card 4: Design -->
+        <div class="use-case-card animate-on-scroll animate-delay-4">
+          <div class="use-case-icon-wrapper">
+            <div class="use-case-icon-large">${icons.palette}</div>
+          </div>
+          <div class="use-case-body">
+            <h3 class="use-case-title">Design & Branding</h3>
+            <p class="use-case-subtitle">Visual identity that converts</p>
+            <div class="mini-chat-preview">
+              <div class="mini-chat-line">
+                <div class="mini-chat-avatar">🎨</div>
+                <div class="mini-chat-msg highlight">Brand kit delivered! Logo + guidelines</div>
+              </div>
+              <div class="mini-chat-line">
+                <div class="mini-chat-avatar" style="background:var(--warm-mid)">A</div>
+                <div class="mini-chat-msg">This perfectly captures our vision!</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5: Hosting -->
+        <div class="use-case-card animate-on-scroll animate-delay-5">
+          <div class="use-case-icon-wrapper">
+            <div class="use-case-icon-large">${icons.monitor}</div>
+          </div>
+          <div class="use-case-body">
+            <h3 class="use-case-title">Hosting & Infra</h3>
+            <p class="use-case-subtitle">Reliable infrastructure 24/7</p>
+            <div class="mini-chat-preview">
+              <div class="mini-chat-line">
+                <div class="mini-chat-avatar">☁️</div>
+                <div class="mini-chat-msg highlight">99.99% uptime achieved! Cloudflare active</div>
+              </div>
+              <div class="mini-chat-line">
+                <div class="mini-chat-avatar" style="background:var(--warm-mid)">T</div>
+                <div class="mini-chat-msg">Fast loading speeds globally now!</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       
-      <div class="tools-grid" style="margin-top:0">
-        <a href="/product/add-on" class="external-tool-link" style="text-decoration:none">
-          <div class="tool-card animate-on-scroll animate-delay-1">
-            <div class="tool-header" style="background:linear-gradient(135deg,#FDF0EE,#F5E0DD)">
-              <div class="tool-icon" style="background:var(--primary)">${icons.box}</div>
-              <div class="tool-title">Add-On Services</div>
-            </div>
-            <div class="external-tool-content">
-              <p class="external-tool-desc">Additional pages, landing pages, e-commerce, booking systems, dashboards, and more website enhancements.</p>
-              <div class="external-tool-arrow">View Add-Ons ${icons.externalLink}</div>
-            </div>
-          </div>
-        </a>
-        
-        <a href="/product/marketing" class="external-tool-link" style="text-decoration:none">
-          <div class="tool-card animate-on-scroll animate-delay-2">
-            <div class="tool-header" style="background:linear-gradient(135deg,#FFF5F0,#FFE8DD)">
-              <div class="tool-icon" style="background:#C45B5B">${icons.target}</div>
-              <div class="tool-title">Marketing Services</div>
-            </div>
-            <div class="external-tool-content">
-              <p class="external-tool-desc">SEO, Google Ads, Meta Ads, email marketing, social media management, and content creation.</p>
-              <div class="external-tool-arrow">View Marketing ${icons.externalLink}</div>
-            </div>
-          </div>
-        </a>
-        
-        <a href="/product/automation-business-tools" class="external-tool-link" style="text-decoration:none">
-          <div class="tool-card animate-on-scroll animate-delay-3">
-            <div class="tool-header" style="background:linear-gradient(135deg,#F0FDF4,#DCFCE7)">
-              <div class="tool-icon" style="background:#166534">${icons.settings}</div>
-              <div class="tool-title">Automation & Tools</div>
-            </div>
-            <div class="external-tool-content">
-              <p class="external-tool-desc">CRM, WhatsApp automation, invoicing, inventory, HR dashboards, AI chatbots, and business systems.</p>
-              <div class="external-tool-arrow">View Automation ${icons.externalLink}</div>
-            </div>
-          </div>
-        </a>
-        
-        <a href="/product/design-branding" class="external-tool-link" style="text-decoration:none">
-          <div class="tool-card animate-on-scroll animate-delay-4">
-            <div class="tool-header" style="background:linear-gradient(135deg,#FDF0EE,#F5E0DD)">
-              <div class="tool-icon" style="background:var(--primary)">${icons.palette}</div>
-              <div class="tool-title">Design & Branding</div>
-            </div>
-            <div class="external-tool-content">
-              <p class="external-tool-desc">Logo design, brand identity kits, company profiles, presentation decks, UI/UX systems, and social media packs.</p>
-              <div class="external-tool-arrow">View Branding ${icons.externalLink}</div>
-            </div>
-          </div>
-        </a>
-        
-        <a href="/product/hosting" class="external-tool-link" style="text-decoration:none">
-          <div class="tool-card animate-on-scroll animate-delay-5">
-            <div class="tool-header" style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE)">
-              <div class="tool-icon" style="background:#2563EB">${icons.monitor}</div>
-              <div class="tool-title">Hosting & Infrastructure</div>
-            </div>
-            <div class="external-tool-content">
-              <p class="external-tool-desc">Domain management, business email, cloud servers, security monitoring, backups, and Cloudflare CDN.</p>
-              <div class="external-tool-arrow">View Hosting ${icons.externalLink}</div>
-            </div>
-          </div>
-        </a>
+      <!-- CTA -->
+      <div style="text-align:center;margin-top:72px" class="animate-on-scroll">
+        <button class="btn-primary" onclick="navigate('/pricing')" style="font-size:16px;padding:16px 36px">${icons.zap} Explore Full Pricing</button>
       </div>
     </div>
   </section>
+
   ${standardFooter}`;
 }
 
