@@ -5,32 +5,39 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
 
 <!-- CRITICAL: Site Identity for Google & Browsers -->
-<title>Luviio · Build Interfaces That Grow</title>
+<title>Luviio | Website Development, SaaS Development & Digital Solutions</title>
 <meta name="application-name" content="Luviio">
 <meta name="apple-mobile-web-app-title" content="Luviio">
 <meta name="msapplication-TileColor" content="#AB1509">
 <meta name="theme-color" content="#AB1509">
 
 <!-- SEO Description -->
-<meta name="description" content="Luviio is a bold design system for creative technologists. High-contrast components, earthy warmth, and razor-sharp tools for building modern websites and apps. Based in Malaysia.">
-<meta name="keywords" content="Luviio, Grow by Luviio, website builder, design system, UI components, Malaysia, Malaysia web development, Malaysia digital agency, Website Murah">
+<meta name="description" content="Luviio helps businesses build websites, SaaS platforms, CRM systems, booking systems, e-commerce solutions and custom software worldwide. Based in Malaysia, serving globally.">
+<meta name="keywords" content="Luviio, Grow by Luviio, website builder, design system, UI components, Malaysia, Malaysia web development, Malaysia digital agency, Website Murah, SaaS Development, CRM Development, Custom Software, AI Solutions">
 <meta name="author" content="Luviio Studio">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 
 <!-- Open Graph / Facebook / LinkedIn -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://luviio.com/">
-<meta property="og:title" content="Luviio — Build Interfaces That Grow">
-<meta property="og:description" content="A bold design system for vibe coders and creative technologists. Ship beautiful digital experiences with earthy warmth and intentional craft.">
+<meta property="og:title" content="Luviio | Website Development, SaaS Development & Digital Solutions">
+<meta property="og:description" content="Premium website development, SaaS platforms, CRM systems, booking systems, POS systems and AI solutions for modern businesses worldwide.">
 <meta property="og:image" content="https://images.luviio.com/og-image-luviio-red.png">
 <meta property="og:site_name" content="Luviio">
 <meta property="og:locale" content="en_MY">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Luviio — Build Interfaces That Grow">
-<meta name="twitter:description" content="Bold design system for creative technologists. High-contrast type, earthy warmth, ready to ship.">
+<meta name="twitter:title" content="Luviio | Build Software That Scales">
+<meta name="twitter:description" content="Websites, SaaS Platforms, CRM Systems and Digital Solutions for Modern Businesses. Premium development from Malaysia.">
 <meta name="twitter:image" content="https://images.luviio.com/og-image-luviio-red.png">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://luviio.com/">
+
+<!-- Hreflang -->
+<link rel="alternate" hreflang="en" href="https://luviio.com/">
+<link rel="alternate" hreflang="x-default" href="https://luviio.com/">
 
 <!-- ========== FAVICON: RED LUVIIO BRAND ICON ========== -->
 <link rel="icon" type="image/png" sizes="192x192" href="https://images.luviio.com/favicon-luviio-red.png">
@@ -40,15 +47,48 @@
 <link rel="manifest" href="/site.webmanifest">
 <link rel="shortcut icon" href="https://images.luviio.com/favicon-luviio-red.ico" type="image/x-icon">
 
-<!-- STRUCTURED DATA: Google Knowledge Graph -->
+<!-- STRUCTURED DATA: Google Knowledge Graph + Enhanced Schema -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": ["WebSite", "Organization"],
+  "@type": ["WebSite", "Organization", "LocalBusiness", "ProfessionalService"],
   "name": "Luviio",
   "alternateName": ["Grow by Luviio", "Luviio Malaysia", "Website Builder Malaysia", "Digital Agency Kedah"],
   "url": "https://luviio.com",
   "logo": "https://images.luviio.com/logo-luviio-red.png",
+  "image": "https://images.luviio.com/og-image-luviio-red.png",
+  "description": "Luviio is a Malaysian software company specializing in website development, SaaS platforms, CRM systems, custom software, business automation and digital transformation.",
+  "foundingDate": "2025",
+  "founder": {
+    "@type": "Person",
+    "name": "Danial Danish",
+    "jobTitle": "Founder & VP Engineering"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Kedah",
+    "addressCountry": "MY"
+  },
+  "areaServed": {
+    "@type": "GeoCircle",
+    "geoMidpoint": {
+      "@type": "GeoCoordinates",
+      "latitude": 6.125,
+      "longitude": 102.250
+    },
+    "geoRadius": "1000000"
+  },
+  "serviceType": ["Website Development", "SaaS Development", "CRM Development", "Custom Software Development", "Booking Systems", "POS Systems", "E-Commerce Development", "AI Solutions", "Business Automation", "Digital Transformation"],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Digital Services",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Website Development" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SaaS Development" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "CRM Development" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom Software" } }
+    ]
+  },
   "sameAs": [
     "https://x.com/weluviio",
     "https://github.com/luviio",
@@ -57,17 +97,74 @@
   "contactPoint": {
     "@type": "ContactPoint",
     "email": "hello@luviio.com",
+    "telephone": "+60-12-260-0969",
     "contactType": "customer service",
     "availableLanguage": ["English", "Malay"]
-  },
-  "founder": {
-    "@type": "Person",
-    "name": "Danial Danish"
-  },
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Kedah",
-    "addressCountry": "MY"
+  }
+}
+</script>
+
+<!-- FAQ Page Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What services does Luviio offer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Luviio offers website development, SaaS platform development, CRM systems, booking systems, POS systems, e-commerce solutions, AI integration, business automation and custom software development."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where is Luviio based?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Luviio is based in Kedah, Malaysia, serving clients worldwide including Kuala Lumpur, Penang, Johor, Selangor and international markets."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does Luviio charge for website development?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pricing starts from RM150/month for Starter plans up to RM1,900/month for full IT outsourcing. All plans include SSL certificates, security, and support."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Luviio work with international clients?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, Luviio serves clients globally across Southeast Asia, Europe, North America and beyond. We handle remote collaboration seamlessly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What technologies does Luviio use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We use modern tech stacks including React, Next.js, Node.js, Firebase, Supabase, Cloudflare, Shopify, WordPress, and integrate AI solutions like OpenAI, Claude, and custom ML models."
+      }
+    }
+  ]
+}
+</script>
+
+<!-- SearchAction Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Luviio",
+  "url": "https://luviio.com/",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://luviio.com/search?q={search_term_string}",
+    "query-input": "required name=search_term_string"
   }
 }
 </script>
@@ -100,6 +197,13 @@
     --shadow-btn-hover:#000000 4px 4px 0px 0px;
     --shadow-btn-active:#000000 1px 1px 0px 0px;
     --shadow-card:rgba(171,21,9,0.08) 0px 4px 32px 0px,rgba(0,0,0,0.05) 0px 1px 6px 0px;
+    /* NEW PREMIUM SHADOWS */
+    --shadow-premium: 0 4px 24px rgba(171,21,9,0.08), 0 1px 3px rgba(0,0,0,0.04);
+    --shadow-premium-hover: 0 12px 40px rgba(171,21,9,0.12), 0 4px 12px rgba(0,0,0,0.06);
+    --shadow-float: 0 20px 50px rgba(0,0,0,0.15), 0 8px 20px rgba(0,0,0,0.08);
+    --gradient-text: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    --glass-bg: rgba(255,255,255,0.7);
+    --glass-border: rgba(255,255,255,0.3);
   }
   
   #demoFont {
@@ -161,13 +265,17 @@ body{
   @keyframes confetti-fall{0%{transform:translateY(-100%) rotate(0deg);opacity:1}100%{transform:translateY(100vh) rotate(720deg);opacity:0}}
   @keyframes pulse-glow{0%,100%{box-shadow:0 0 20px rgba(171,21,9,0.3)}50%{box-shadow:0 0 40px rgba(171,21,9,0.6)}}
   @keyframes checkmark-draw{0%{stroke-dashoffset:50}100%{stroke-dashoffset:0}}
+  @keyframes gradient-shift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+  @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+  @keyframes bounce-subtle{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+  @keyframes fade-in{from{opacity:0}to{opacity:1}}
   
   .animate-on-scroll{opacity:0;transform:translateY(30px);transition:all 0.7s cubic-bezier(0.22, 1, 0.36, 1)}
   .animate-on-scroll.visible{opacity:1;transform:translateY(0)}
   .animate-delay-1{transition-delay:0.1s}.animate-delay-2{transition-delay:0.2s}.animate-delay-3{transition-delay:0.3s}.animate-delay-4{transition-delay:0.4s}.animate-delay-5{transition-delay:0.5s}
 
   /* HEADER */
-  header{background:var(--bg);border-bottom:1px solid var(--warm-light);padding:16px 40px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100;transition:box-shadow 0.3s, background 0.3s;width:100%;max-width:100vw;left:0;right:0}
+  header{background:var(--bg);border-bottom:1px solid var(--warm-light);padding:16px 40px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100;transition:box-shadow 0.3s, background 0.3s; width:100%;max-width:100vw;left:0;right:0}
   header.scrolled{box-shadow:0 4px 20px rgba(0,0,0,0.06);backdrop-filter:blur(10px);background:rgba(245,245,240,0.92)}
   .logo{font-family:"Space Mono",monospace;font-weight:700;font-size:20px;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:8px;transition:transform 0.3s;white-space:nowrap}
   .logo:hover{transform:scale(1.02)}
@@ -215,7 +323,7 @@ body{
   .section-title{font-size:52px;font-weight:900;line-height:57.2px;color:var(--text);margin-bottom:16px;text-align:center;word-wrap:break-word;overflow-wrap:break-word}
   .section-desc{font-size:17px;line-height:27.2px;color:#5C5C4F;max-width:520px;margin:0 auto;text-align:center}
 
-  /* HERO */
+  /* HERO - ENHANCED */
   .hero{padding:100px 0 80px;text-align:center;position:relative;overflow:hidden;width:100%}
   .hero::before{content:'';position:absolute;top:-120px;left:50%;transform:translateX(-50%);width:800px;height:800px;background:radial-gradient(circle,rgba(171,21,9,.08) 0%,transparent 70%);pointer-events:none;animation:float 8s ease-in-out infinite}
   .hero::after{content:'';position:absolute;top:20%;right:-10%;width:300px;height:300px;background:radial-gradient(circle,rgba(194,166,140,.1) 0%,transparent 70%);pointer-events:none;animation:float 10s ease-in-out infinite reverse}
@@ -246,6 +354,95 @@ body{
   .feature-card h3{font-size:22px;font-weight:800;line-height:33px;color:var(--text);margin-bottom:10px;transition:color .3s}
   .feature-card:hover h3{color:var(--primary-dark)}
   .feature-card p{font-size:15px;line-height:24px;color:#5C5C4F}
+
+  /* ========================================== */
+  /* TRUSTED BY SECTION (NEW)                 */
+  /* ========================================== */
+  .trusted-by-section{padding:48px 0;width:100%;background:linear-gradient(180deg,#FAFAF8 0%,#F5F5F0 100%);border-top:1px solid var(--warm-light);border-bottom:1px solid var(--warm-light);overflow:hidden}
+  .trusted-by-container{max-width:1200px;margin:0 auto;padding:0 40px;width:100%}
+  .trusted-by-header{text-align:center;margin-bottom:28px}
+  .trusted-by-label{font-family:"Space Mono",monospace;font-size:11px;font-weight:700;color:#8B8B7A;text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px}
+  .trusted-by-title{font-size:14px;font-weight:600;color:#5C5C4F}
+  .trusted-by-track{position:relative;overflow:hidden;mask-image:linear-gradient(to right, transparent, black 10%, black 90%, transparent);-webkit-mask-image:linear-gradient(to right, transparent, black 10%, black 90%, transparent)}
+  .trusted-by-marquee{display:flex;gap:56px;animation:marquee 30s linear infinite;width:max-content}
+  .trusted-logo-item{display:flex;align-items:center;gap:10px;opacity:0.4;grayscale:1;transition:all .3s;white-space:nowrap;flex-shrink:0}
+  .trusted-logo-item:hover{opacity:1;grayscale:0}
+  .trusted-logo-placeholder{width:120px;height:32px;background:var(--warm-light);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#8B8B7A;font-family:"Space Mono",monospace;letter-spacing:.03em}
+
+  /* ========================================== */
+  /* SERVICES OVERVIEW GRID (NEW)              */
+  /* ========================================== */
+  .services-overview-section{padding:80px 0;width:100%;position:relative;overflow:hidden}
+  .services-overview-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;width:100%}
+  .service-overview-card{background:#fff;border:1px solid var(--warm-light);border-radius:var(--radius-lg);padding:28px 20px;text-align:center;transition:all .35s cubic-bezier(0.22, 1, 0.36, 1);position:relative;overflow:hidden;width:100%;cursor:default}
+  .service-overview-card::before{content:'';position:absolute;top:0;left:0;right:0;height:0;background:linear-gradient(180deg,var(--primary-tint),transparent);transition:height .4s;z-index:0}
+  .service-overview-card:hover::before{height:100px}
+  .service-overview-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-premium-hover);border-color:rgba(171,21,9,0.2)}
+  .service-overview-icon{width:56px;height:56px;background:var(--primary-tint);border-radius:var(--radius-lg);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;color:var(--primary);transition:all .4s cubic-bezier(0.34, 1.56, 0.64, 1);position:relative;z-index:1}
+  .service-overview-card:hover .service-overview-icon{transform:scale(1.1) rotate(-5deg);background:var(--primary);color:#fff;box-shadow:0 8px 24px rgba(171,21,9,0.3)}
+  .service-overview-title{font-size:16px;font-weight:800;color:var(--text);margin-bottom:6px;position:relative;z-index:1;transition:color .3s}
+  .service-overview-card:hover .service-overview-title{color:var(--primary-dark)}
+  .service-overview-desc{font-size:13px;color:#8B8B7A;line-height:1.5;position:relative;z-index:1}
+
+  /* ========================================== */
+  /* WHY CHOOSE LUVIIO SECTION (NEW)           */
+  /* ========================================== */
+  .why-choose-section{background:linear-gradient(180deg,#EDEDE8 0%,#F5F5F0 100%);border-top:1px solid var(--warm-light);border-bottom:1px solid var(--warm-light);padding:80px 0;width:100%;position:relative;overflow:hidden}
+  .why-choose-section::before{content:'';position:absolute;top:0;left:0;right:0;height:200px;background:radial-gradient(ellipse at center top, rgba(171,21,9,0.04) 0%,transparent 70%);pointer-events:none}
+  .why-choose-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;width:100%}
+  .why-choose-item{text-align:center;padding:32px 20px;background:rgba(255,255,255,0.6);border-radius:var(--radius-lg);border:1px solid transparent;transition:all .4s cubic-bezier(0.22, 1, 0.36, 1);position:relative;overflow:hidden}
+  .why-choose-item::after{content:'';position:absolute;inset:0;border-radius:var(--radius-lg);border:2px solid transparent;transition:border-color .3s}
+  .why-choose-item:hover::after{border-color:var(--primary)}
+  .why-choose-item:hover{transform:translateY(-4px);background:#fff;box-shadow:var(--shadow-premium)}
+  .why-choose-number{font-size:48px;font-weight:900;color:var(--primary-tint);line-height:1;margin-bottom:8px;font-family:"Space Mono",monospace;transition:color .3s}
+  .why-choose-item:hover .why-choose-number{color:var(--primary)}
+  .why-choose-title{font-size:18px;font-weight:800;color:var(--text);margin-bottom:8px}
+  .why-choose-desc{font-size:14px;color:#5C5C4F;line-height:1.6}
+
+  /* ========================================== */
+  /* TECH STACK SECTION (NEW)                  */
+  /* ========================================== */
+  .tech-stack-section{padding:80px 0;width:100%;position:relative}
+  .tech-stack-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;max-width:900px;margin:40px auto 0}
+  .tech-chip{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:#fff;border:1px solid var(--warm-light);border-radius:9999px;font-size:14px;font-weight:600;color:var(--text);transition:all .3s;cursor:default}
+  .tech-chip:hover{border-color:var(--primary);background:var(--primary-tint);transform:translateY(-2px);box-shadow:0 4px 12px rgba(171,21,9,0.1)}
+  .tech-chip-icon{width:20px;height:20px;display:flex;align-items:center;justify-content:center;color:var(--primary)}
+
+  /* ========================================== */
+  /* FAQ ACCORDION (NEW)                       */
+  /* ========================================== */
+  .faq-section{background:linear-gradient(180deg,#FAFAF8 0%,#F5F5F0 100%);border-top:1px solid var(--warm-light);padding:80px 0;width:100%}
+  .faq-container{max-width:720px;margin:0 auto;width:100%}
+  .faq-item{background:#fff;border:1px solid var(--warm-light);border-radius:var(--radius-lg);margin-bottom:12px;overflow:hidden;transition:all .3s}
+  .faq-item:hover{border-color:rgba(171,21,9,0.2)}
+  .faq-question{width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 24px;background:none;border:none;cursor:pointer;font-family:"DM Sans",sans-serif;font-size:16px;font-weight:700;color:var(--text);text-align:left;transition:color .3s}
+  .faq-question:hover{color:var(--primary)}
+  .faq-icon{width:24px;height:24px;border-radius:50%;background:var(--primary-tint);display:flex;align-items:center;justify-content:center;color:var(--primary);flex-shrink:0;transition:transform .3s}
+  .faq-item.active .faq-icon{transform:rotate(45deg);background:var(--primary);color:#fff}
+  .faq-answer{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(0.22, 1, 0.36, 1), padding .3s}
+  .faq-answer-inner{padding:0 24px 20px;font-size:15px;line-height:1.7;color:#5C5C4F}
+  .faq-item.active .faq-answer{max-height:300px}
+
+  /* ========================================== */
+  /* FLOATING CONTACT BUTTON (NEW)             */
+  /* ========================================== */
+  .floating-contact{position:fixed;bottom:28px;right:28px;z-index:99;display:flex;flex-direction:column;gap:12px;align-items:flex-end}
+  .fab-main{width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(37,211,102,0.4),0 2px 8px rgba(0,0,0,0.15);transition:all .3s cubic-bezier(0.34, 1.56, 0.64, 1);position:relative;z-index:2}
+  .fab-main:hover{transform:scale(1.1) rotate(-5deg);box-shadow:0 10px 32px rgba(37,211,102,0.5),0 4px 12px rgba(0,0,0,0.2)}
+  .fab-main:active{transform:scale(0.95)}
+  .fab-tooltip{position:absolute;right:72px;top:50%;transform:translateY(-50%);background:var(--text);color:#fff;padding:8px 16px;border-radius:var(--radius-md);font-size:13px;font-weight:600;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .3s,transform .3s;box-shadow:var(--shadow-btn)}
+  .fab-tooltip::after{content:'';position:absolute;right:-6px;top:50%;transform:translateY(-50%) rotate(45deg);width:10px;height:10px;background:var(--text)}
+  .fab-main:hover .fab-tooltip{opacity:1;transform:translateY(-50%) translateX(-4px)}
+  .fab-secondary{width:44px;height:44px;border-radius:50%;background:var(--primary);color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(171,21,9,0.3);transition:all .3s}
+  .fab-secondary:hover{transform:scale(1.1)}
+
+  /* ========================================== */
+  /* STICKY CTA BAR (NEW)                     */
+  /* ========================================== */
+  .sticky-cta-bar{position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-top:1px solid var(--warm-light);padding:12px 24px;z-index:98;display:flex;align-items:center;justify-content:center;gap:16px;transform:translateY(100%);transition:transform .4s cubic-bezier(0.22, 1, 0.36, 1);box-shadow:0 -4px 20px rgba(0,0,0,0.06)}
+  .sticky-cta-bar.visible{transform:translateY(0)}
+  .sticky-cta-text{font-size:14px;font-weight:600;color:var(--text);display:none}
+  .sticky-cta-bar .btn-primary{padding:10px 24px;font-size:13px}
 
   /* SHOWCASE / MEMBERSHIP SECTION */
   .showcase{background:linear-gradient(180deg,#EDEDE8 0%,#F5F5F0 100%);border-top:1px solid var(--warm-light);border-bottom:1px solid var(--warm-light);position:relative;overflow:hidden;width:100%}
@@ -782,116 +979,6 @@ body{
   margin-bottom: 0;
 }
 
-/* ========================================== */
-/* ZIG-ZAG RESPONSIVE                        */
-/* ========================================== */
-
-@media(max-width:1023px) {
-  .team-zigzag-container {
-    gap: 48px;
-  }
-  .team-zigzag-item {
-    gap: 32px;
-    padding: 32px 28px;
-  }
-  .team-zigzag-avatar {
-    width: 100px;
-    height: 100px;
-    font-size: 32px;
-  }
-  .team-zigzag-decoration {
-    width: 120px;
-    height: 120px;
-  }
-  .team-zigzag-name {
-    font-size: 24px;
-  }
-  .team-zigzag-title {
-    font-size: 15px;
-  }
-  .team-zigzag-desc {
-    font-size: 14px;
-  }
-}
-
-@media(max-width:767px) {
-  .team-zigzag-container {
-    gap: 32px;
-    margin-top: 40px;
-  }
-  .team-zigzag-item,
-  .team-zigzag-reverse {
-    flex-direction: column !important;
-    text-align: center !important;
-    padding: 28px 24px;
-  }
-  .team-zigzag-reverse .team-zigzag-content {
-    text-align: center !important;
-  }
-  .team-zigzag-reverse .team-zigzag-role-tag {
-    margin-left: 0;
-    margin-right: 0;
-  }
-  .team-zigzag-avatar-wrapper {
-    margin-bottom: 20px;
-  }
-  .team-zigzag-avatar {
-    width: 88px;
-    height: 88px;
-    font-size: 28px;
-  }
-  .team-zigzag-decoration {
-    width: 108px;
-    height: 108px;
-  }
-  .team-zigzag-name {
-    font-size: 22px;
-  }
-  .team-zigzag-title {
-    font-size: 14px;
-    margin-bottom: 12px;
-  }
-  .team-zigzag-desc {
-    font-size: 13px;
-    line-height: 1.6;
-    margin-bottom: 10px;
-  }
-}
-
-@media(max-width:479px) {
-  .team-zigzag-container {
-    gap: 24px;
-  }
-  .team-zigzag-item {
-    padding: 24px 20px;
-    border-radius: 14px;
-  }
-  .team-zigzag-avatar {
-    width: 76px;
-    height: 76px;
-    font-size: 24px;
-    border-width: 3px;
-  }
-  .team-zigzag-decoration {
-    width: 96px;
-    height: 96px;
-  }
-  .team-zigzag-name {
-    font-size: 20px;
-  }
-  .team-zigzag-role-tag {
-    font-size: 10px;
-    padding: 5px 12px;
-  }
-  .team-zigzag-title {
-    font-size: 13px;
-  }
-  .team-zigzag-desc {
-    font-size: 12px;
-    line-height: 1.55;
-  }
-}
-
   /* CONTACT FORM */
   .contact-section{background:linear-gradient(180deg,#EDEDE8 0%,#F5F5F0 100%);border-top:1px solid var(--warm-light);border-bottom:1px solid var(--warm-light);padding:80px 0;width:100%}
   .contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:48px;align-items:start;width:100%}
@@ -1046,6 +1133,11 @@ body{
     .feature-card h3{font-size:19px}
     .feature-card p{font-size:14px;line-height:22px}
     
+    /* NEW SECTIONS RESPONSIVE */
+    .services-overview-grid{grid-template-columns:repeat(2,1fr);gap:16px}
+    .why-choose-grid{grid-template-columns:repeat(2,1fr);gap:16px}
+    .tech-stack-grid{gap:12px}
+    
     .showcase-grid{grid-template-columns:1fr;gap:32px}
     .showcase-left h2{font-size:38px;line-height:46px}
     .showcase-left p{font-size:15px;line-height:24px}
@@ -1127,6 +1219,12 @@ body{
     
     /* Profile Portal Responsive */
     .portal-features{grid-template-columns:1fr}
+    
+    /* Floating Contact Responsive */
+    .floating-contact{bottom:20px;right:20px}
+    .fab-main{width:54px;height:54px}
+    .sticky-cta-bar{padding:10px 16px}
+    .sticky-cta-text{display:none}
   }
 
   @media(max-width:767px){
@@ -1160,6 +1258,23 @@ body{
     .feature-icon{width:42px;height:42px;margin-bottom:16px}
     .feature-card h3{font-size:17px;line-height:24px;margin-bottom:8px}
     .feature-card p{font-size:13px;line-height:20px}
+    
+    /* NEW SECTIONS MOBILE */
+    .trusted-by-section{padding:32px 0}
+    .services-overview-section{padding:48px 0}
+    .services-overview-grid{grid-template-columns:1fr 1fr;gap:12px}
+    .service-overview-card{padding:20px 16px}
+    .service-overview-icon{width:48px;height:48px;margin-bottom:12px}
+    .why-choose-section{padding:48px 0}
+    .why-choose-grid{grid-template-columns:1fr 1fr;gap:12px}
+    .why-choose-item{padding:24px 16px}
+    .why-choose-number{font-size:36px}
+    .tech-stack-section{padding:48px 0}
+    .tech-stack-grid{gap:10px}
+    .tech-chip{padding:10px 18px;font-size:13px}
+    .faq-section{padding:48px 0}
+    .faq-question{padding:16px 18px;font-size:14px}
+    .faq-answer-inner{padding:0 18px 16px;font-size:14px}
     
     .showcase{padding:48px 0}
     .showcase-grid{gap:24px}
@@ -1358,6 +1473,11 @@ body{
     .order-summary-card,.support-section{padding:24px}
     .order-detail-row{font-size:14px;flex-direction:column;align-items:flex-start;gap:4px}
     .order-detail-row:last-child{flex-direction:row;align-items:center;justify-content:space-between}
+    
+    /* Hide floating contact on very small screens if needed */
+    .floating-contact{bottom:16px;right:16px}
+    .fab-main{width:50px;height:50px}
+    .fab-secondary{display:none}
   }
 
   @media(max-width:479px){
@@ -1390,6 +1510,28 @@ body{
     .feature-icon{width:38px;height:38px;margin-bottom:14px}
     .feature-card h3{font-size:16px;line-height:22px;margin-bottom:6px}
     .feature-card p{font-size:12px;line-height:18px}
+    
+    /* NEW SECTIONS - EXTRA SMALL */
+    .trusted-by-section{padding:24px 0}
+    .trusted-by-title{font-size:12px}
+    .services-overview-section{padding:36px 0}
+    .services-overview-grid{grid-template-columns:1fr;gap:10px}
+    .service-overview-card{padding:16px 14px}
+    .service-overview-icon{width:40px;height:40px;margin-bottom:10px}
+    .service-overview-title{font-size:14px}
+    .service-overview-desc{font-size:11px}
+    .why-choose-section{padding:36px 0}
+    .why-choose-grid{grid-template-columns:1fr;gap:10px}
+    .why-choose-item{padding:20px 14px}
+    .why-choose-number{font-size:32px}
+    .why-choose-title{font-size:15px}
+    .why-choose-desc{font-size:12px}
+    .tech-stack-section{padding:36px 0}
+    .tech-stack-grid{gap:8px}
+    .tech-chip{padding:8px 14px;font-size:12px}
+    .faq-section{padding:36px 0}
+    .faq-question{padding:14px 16px;font-size:13px}
+    .faq-answer-inner{padding:0 16px 14px;font-size:13px}
     
     .showcase{padding:36px 0}
     .showcase-grid{gap:20px}
@@ -1491,6 +1633,18 @@ body{
     .team-card .team-avatar{width:48px;height:48px;font-size:16px}
     .team-card h4{font-size:13px}
     .team-card p{font-size:11px}
+    
+    /* ZIGZAG TEAM MOBILE */
+    .team-zigzag-container{gap:24px;margin-top:32px}
+    .team-zigzag-item,.team-zigzag-reverse{flex-direction:column!important;text-align:center!important;padding:24px 20px}
+    .team-zigzag-reverse .team-zigzag-content{text-align:center!important}
+    .team-zigzag-avatar-wrapper{margin-bottom:16px}
+    .team-zigzag-avatar{width:76px;height:76px;font-size:24px}
+    .team-zigzag-decoration{width:88px;height:88px}
+    .team-zigzag-name{font-size:22px}
+    .team-zigzag-role-tag{margin:0 auto 10px;font-size:10px}
+    .team-zigzag-title{font-size:14px;margin-bottom:10px}
+    .team-zigzag-desc{font-size:13px;line-height:1.6}
     
     .contact-section{padding:44px 0}
     .contact-grid{gap:20px}
@@ -1634,15 +1788,22 @@ body{
     .portal-icon{width:40px;height:40px}
     .portal-title{font-size:15px}
     .portal-btn{padding:12px 20px;font-size:13px}
+
+    /* Hide floating on very small if needed */
+    .floating-contact{bottom:12px;right:12px}
+    .fab-main{width:46px;height:46px}
+    .fab-tooltip{display:none}
   }
 
   /* Touch-friendly improvements */
   @media(hover:none) and (pointer:coarse){
     .btn-primary,.btn-secondary,.btn-ghost,.nav-cta,.social-btn,.hamburger,.mobile-close,.test-btn,.stripe-pay-btn,.checkout-back-btn,.payment-back-btn,.stripe-button-clean,.edit-details-btn,.payment-failed-btn{min-height:44px;min-width:44px}
-    .feature-card,.pricing-card,.service-card,.product-feature,.company-value,.team-card,.contact-item,.order-summary,.checkout-card,.order-summary-card,.support-section{touch-action:manipulation}
+    .feature-card,.pricing-card,.service-card,.product-feature,.company-value,.team-card,.contact-item,.order-summary,.checkout-card,.order-summary-card,.support-section,.service-overview-card,.why-choose-item{touch-action:manipulation}
     nav a{padding:8px 0}
     .footer-col a{padding:8px 0}
     .support-option{min-height:52px}
+    .faq-question{min-height:44px}
+    .tech-chip{min-height:40px}
   }
 
   /* Landscape phone fixes */
@@ -1702,6 +1863,23 @@ body{
 
 <!-- TOAST CONTAINER -->
 <div class="toast-container" id="toastContainer"></div>
+
+<!-- FLOATING CONTACT BUTTONS (NEW) -->
+<div class="floating-contact" id="floatingContact">
+  <a href="https://wa.me/60122600969?text=Hi%20Luviio,%20I'm%20interested%20in%20your%20services!" target="_blank" rel="noopener noreferrer" class="fab-secondary" aria-label="Email us">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+  </a>
+  <a href="https://wa.me/60122600969?text=Hi%20Luviio,%20I'm%20interested%20in%20your%20services!" target="_blank" rel="noopener noreferrer" class="fab-main" aria-label="Chat on WhatsApp">
+    <span class="fab-tooltip">Chat with us!</span>
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+</div>
+
+<!-- STICKY CTA BAR (NEW) -->
+<div class="sticky-cta-bar" id="stickyCtaBar">
+  <span class="sticky-cta-text">Ready to build something amazing?</span>
+  <button class="btn-primary" onclick="navigate('/contact')">Start Your Project →</button>
+</div>
 
 <script>
 // ===== FIREBASE INITIALIZATION =====
@@ -1975,19 +2153,19 @@ document.addEventListener('click', (e) => {
 });
 
 const pageTitles = {
-  '/': 'Luviio · Build Interfaces That Grow',
-  '/home': 'Luviio · Build Interfaces That Grow',
+  '/': 'Luviio | Website Development, SaaS Development & Digital Solutions',
+  '/home': 'Luviio | Website Development, SaaS Development & Digital Solutions',
   '/product': 'Product & Components · Luviio',
-  '/services': 'Our Services · Luviio',
-  '/pricing':   'Pricing & Plans · Luviio',
-  '/company': 'About Our Company · Luviio',
+  '/services': 'Website Development, SaaS & Software Services | Luviio',
+  '/pricing':   'Pricing & Plans | Luviio',
+  '/company': 'About Luviio | Technology Company Malaysia',
   '/about': 'About Luviio · Luviio',
   '/terms': 'Terms of Service · Luviio',
   '/policy': 'Privacy Policy · Luviio',
   '/login': 'Sign In · Luviio',
   '/signup': 'Create Account · Luviio',
   '/profile': 'My Profile · Luviio',
-  '/contact': 'Contact Us · Luviio'
+  '/contact': 'Contact Luviio | Free Consultation'
 };
 
 const PROTECTED_ROUTES = ['/profile'];
@@ -2035,6 +2213,7 @@ function router() {
 
   setPageTitle(route);
 
+  // Update active nav link
   navLinks.forEach(link => {
     const href = link.getAttribute('href');
     link.style.color = (href === '#' + route || (route === '/' && href === '/')) ? 'var(--primary)' : '';
@@ -2067,6 +2246,7 @@ function router() {
         renderCheckout(app);
         window.scrollTo(0, 0);
         initScrollAnimations();
+        initStickyCTA();
         if (typeof lucide !== 'undefined') lucide.createIcons();
         return;
       } else if (!selectedPlan || !plans[selectedPlan]) {
@@ -2091,6 +2271,7 @@ function router() {
     window.scrollTo(0, 0);
     initScrollAnimations();
     initCardMouseTracking();
+    initStickyCTA();
     if (typeof lucide !== 'undefined') lucide.createIcons();
     return;
   }
@@ -2113,6 +2294,7 @@ function router() {
       renderPaymentSuccessful(app, session);
       window.scrollTo(0, 0);
       initScrollAnimations();
+      initStickyCTA();
       if (typeof lucide !== 'undefined') lucide.createIcons();
       startConfetti();
       startSessionTimer();
@@ -2159,6 +2341,7 @@ function router() {
   window.scrollTo(0, 0);
   initScrollAnimations();
   initCardMouseTracking();
+  initStickyCTA(); // Initialize sticky CTA for all pages
   if (typeof lucide !== 'undefined') lucide.createIcons();
 }
 
@@ -2198,6 +2381,7 @@ function handleFullCheckoutUrl(urlData, app) {
       renderCheckout(app);
       window.scrollTo(0, 0);
       initScrollAnimations();
+      initStickyCTA();
       if (typeof lucide !== 'undefined') lucide.createIcons();
     })
     .catch(() => {
@@ -2236,6 +2420,7 @@ function handleLegacyCheckoutUrl(docId, app) {
       renderCheckout(app);
       window.scrollTo(0, 0);
       initScrollAnimations();
+      initStickyCTA();
       if (typeof lucide !== 'undefined') lucide.createIcons();
     })
     .catch(() => {
@@ -2267,6 +2452,7 @@ function verifyAndRenderPaymentSuccess(app, uid, docId) {
       renderPaymentSuccessful(app, sessionData);
       window.scrollTo(0, 0);
       initScrollAnimations();
+      initStickyCTA();
       if (typeof lucide !== 'undefined') lucide.createIcons();
       startConfetti();
       startSessionTimer();
@@ -2347,6 +2533,84 @@ function initCardMouseTracking() {
   });
 }
 
+// ===== STICKY CTA BAR LOGIC (ENHANCED) =====
+function initStickyCTA() {
+  const stickyBar = document.getElementById('stickyCtaBar');
+  if (!stickyBar) return;
+  
+  const footer = document.querySelector('footer');
+  let ticking = false;
+  
+  // Configuration: How far from footer to start hiding (in pixels)
+  const FOOTER_HIDE_OFFSET = 300; // Start fading out 300px before footer
+  
+  const updateStickyVisibility = () => {
+    const scrollY = window.scrollY;
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight;
+    
+    // 1. SHOW: After scrolling past hero section (existing logic)
+    const heroSection = document.querySelector('.hero');
+    const heroHeight = heroSection ? heroSection.offsetHeight : 600;
+    const pastHero = scrollY > heroHeight * 0.8;
+    
+    // 2. HIDE: When approaching footer area (NEW LOGIC)
+    // Calculate distance from bottom of viewport to bottom of page
+    const distanceFromBottom = documentHeight - (scrollY + windowHeight);
+    
+    // Also check if footer element exists and is visible
+    let nearFooter = false;
+    if (footer) {
+      const footerRect = footer.getBoundingClientRect();
+      // If footer top is within viewport (or close to it)
+      nearFooter = footerRect.top < windowHeight + 100;
+    } else {
+      // Fallback: Use scroll calculation if no footer found
+      nearFooter = distanceFromBottom < FOOTER_HIDE_OFFSET;
+    }
+    
+    // Apply visibility logic
+    if (pastHero && !nearFooter) {
+      stickyBar.classList.add('visible');
+    } else {
+      stickyBar.classList.remove('visible');
+    }
+    
+    ticking = false;
+  };
+  
+  // Throttled scroll listener
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(updateStickyVisibility);
+      ticking = true;
+    }
+  }, { passive: true });
+  
+  // Also observe footer with IntersectionObserver for better performance
+  if (footer) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Footer is visible - hide CTA immediately
+          stickyBar.classList.remove('visible');
+        } else {
+          // Footer not visible - rely on scroll handler for show/hide logic
+          updateStickyVisibility();
+        }
+      });
+    }, {
+      rootMargin: '200px 0px 0px 0px', // Trigger 200px before footer enters view
+      threshold: 0
+    });
+    
+    observer.observe(footer);
+  }
+  
+  // Initial check
+  updateStickyVisibility();
+}
+
 // ===== HEADER SCROLL EFFECT =====
 window.addEventListener('scroll', () => {
   document.getElementById('mainHeader').classList.toggle('scrolled', window.scrollY > 20);
@@ -2401,7 +2665,7 @@ const icons = {
   play: '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>',
   externalLink: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>',
   send: '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>',
-  settings: '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg>',
+  settings: '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43-.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg>',
   star: '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>',
   pencil: '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"></path><path d="m15 5 4 4"></path></svg>',
   logOut: '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>',
@@ -2411,6 +2675,16 @@ const icons = {
   clockIcon: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>',
   creditCard: '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>',
   home: '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>',
+  
+  // NEW ICONS FOR NEW SECTIONS
+  globe2: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>',
+  server: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>',
+  zapFast: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>',
+  layers: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>',
+  brain: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0 0 7.998A3 3 0 1 0 12 18.75"></path><path d="M12 5a3 3 0 1 1 5.997-.125 4 4 0 0 1 0 7.998A3 3 0 1 1 12 18.75"></path><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"></path><path d="M17.599 6.5a-3 3 0 0 0 .59-4.06 3 3 0 0 0-5.93-.34"></path><path d="M21 16.003A3 3 0 0 0 18 14a3 3 0 0 0-3 3"></path><path d="M9 13.5a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"></path><path d="M6.401 6.5a-3 3 0 0 0 .59-4.06 3 3 0 0 0-5.93-.34"></path><path d="M3 16.003A3 3 0 0 0 0 14a3 3 0 0 0 3 3"></path></svg>',
+  scale: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 16l3-8 3 8c-.87.65-1.91 1-3 1-3.31 0-6-2.69-6-6s2.69-6 6-6c1.09 0 2.13.35 3 1z"></path><path d="M4 8l-3 4 3 4c-.87-.65-1.91-1-3-1-3.31 0-6 2.69-6 6s2.69 6 6 6c1.09 0 2.13-.35 3-1z"></path></svg>',
+  headsetIcon: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>',
+  chevronDown: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>',
   
   // IMPROVED GOOGLE ICON FOR AUTH FORMS - More detailed and polished
   google: `<svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -2445,15 +2719,15 @@ const standardFooter = `
   </div>
 </footer>`;
 
-// ===== HOME PAGE (NO TESTIMONIALS - SHAPO WIDGET INSTEAD) =====
+// ===== HOME PAGE (ENHANCED WITH NEW SECTIONS) =====
 function renderHome(el) {
   el.innerHTML = `
   <!-- HERO -->
   <section class="hero">
     <div class="container">
       <div class="hero-badge"><span class="pulse-dot"></span>v2.0 — Now with more vibe</div>
-      <h1>Build interfaces<br>that <span class="accent">grow</span></h1>
-      <p>A bold design system for vibe coders and creative technologists. High-contrast type, earthy warmth, and razor-sharp components — ready to ship.</p>
+      <h1>Build software that<br><span class="accent">scales.</span></h1>
+      <p>Websites, SaaS Platforms, CRM Systems and Digital Solutions for Modern Businesses. Premium development from Malaysia, serving worldwide.</p>
       <div class="hero-actions">
         <button class="btn-primary" onclick="navigate('/pricing')">${icons.zap} Start Building</button>
         <a href="/product" class="btn-secondary">${icons.eye} View Product</a>
@@ -2463,6 +2737,93 @@ function renderHome(el) {
         <div class="hero-stat"><div class="hero-stat-num">50+</div><div class="hero-stat-label">Design & Theme</div></div>
         <div class="hero-stat"><div class="hero-stat-num">99<span style="color:var(--primary)">%</span></div><div class="hero-stat-label">Uptime</div></div>
         <div class="hero-stat"><div class="hero-stat-num">4.9<span style="color:var(--primary)">★</span></div><div class="hero-stat-label">Rating</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUSTED BY SECTION (NEW) -->
+  <section class="trusted-by-section">
+    <div class="trusted-by-container">
+      <div class="trusted-by-header animate-on-scroll">
+        <div class="trusted-by-label">TRUSTED BY INNOVATORS</div>
+        <div class="trusted-by-title">Companies building with Luviio</div>
+      </div>
+      <div class="trusted-by-track animate-on-scroll animate-delay-1">
+        <div class="trusted-by-marquee">
+          <div class="trusted-logo-item"><div class="trusted-logo-placeholder">ACME Corp</div></div>
+          <div class="trusted-logo-item"><div class="trusted-logo-placeholder">TechFlow</div></div>
+          <div class="trusted-logo-item"><div class="trusted-logo-placeholder">StartupX</div></div>
+          <div class="trusted-logo-item"><div class="trusted-logo-placeholder">GlobalNet</div></div>
+          <div class="trusted-logo-item"><div class="trusted-logo-placeholder">CloudBase</div></div>
+          <div class="trusted-logo-item"><div class="trusted-logo-placeholder">DataVerse</div></div>
+          <div class="trusted-logo-item"><div class="trusted-logo-placeholder">InnovateCo</div></div>
+          <div class="trusted-logo-item"><div class="trusted-logo-placeholder">ScaleUp</div></div>
+          <!-- Duplicate for seamless loop -->
+          <div class="trusted-logo-item"><div class="trusted-logo-placeholder">ACME Corp</div></div>
+          <div class="trusted-logo-item"><div class="trusted-logo-placeholder">TechFlow</div></div>
+          <div class="trusted-logo-item"><div class="trusted-logo-placeholder">StartupX</div></div>
+          <div class="trusted-logo-item"><div class="trusted-logo-placeholder">GlobalNet</div></div>
+          <div class="trusted-logo-item"><div class="trusted-logo-placeholder">CloudBase</div></div>
+          <div class="trusted-logo-item"><div class="trusted-logo-placeholder">DataVerse</div></div>
+          <div class="trusted-logo-item"><div class="trusted-logo-placeholder">InnovateCo</div></div>
+          <div class="trusted-logo-item"><div class="trusted-logo-placeholder">ScaleUp</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES OVERVIEW GRID (NEW) -->
+  <section class="services-overview-section">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <div class="section-label">What We Build</div>
+        <h2 class="section-title">End-to-end digital solutions</h2>
+        <p class="section-desc">From concept to deployment, we handle every layer of your technology stack.</p>
+      </div>
+      <div class="services-overview-grid">
+        <div class="service-overview-card animate-on-scroll animate-delay-1">
+          <div class="service-overview-icon">${icons.monitor}</div>
+          <div class="service-overview-title">Website Development</div>
+          <div class="service-overview-desc">Custom websites that convert visitors into customers</div>
+        </div>
+        <div class="service-overview-card animate-on-scroll animate-delay-2">
+          <div class="service-overview-icon">${icons.server}</div>
+          <div class="service-overview-title">SaaS Development</div>
+          <div class="service-overview-desc">Scalable platforms built for recurring revenue models</div>
+        </div>
+        <div class="service-overview-card animate-on-scroll animate-delay-3">
+          <div class="service-overview-icon">${icons.layers}</div>
+          <div class="service-overview-title">CRM Systems</div>
+          <div class="service-overview-desc">Customer relationship management tailored to your workflow</div>
+        </div>
+        <div class="service-overview-card animate-on-scroll animate-delay-4">
+          <div class="service-overview-icon">${icons.globe2}</div>
+          <div class="service-overview-title">Booking Systems</div>
+          <div class="service-overview-desc">Appointment scheduling and reservation management</div>
+        </div>
+        <div class="service-overview-card animate-on-scroll animate-delay-1">
+          <div class="service-overview-icon">${icons.code}</div>
+          <div class="service-overview-title">POS Systems</div>
+          <div class="service-overview-desc">Point-of-sale solutions for retail and hospitality</div>
+        </div>
+        <div class="service-overview-card animate-on-scroll animate-delay-2">
+          <div class="service-overview-icon">${icons.brain}</div>
+          <div class="service-overview-title">AI Solutions</div>
+          <div class="service-overview-desc">Machine learning integration and automation</div>
+        </div>
+        <div class="service-overview-card animate-on-scroll animate-delay-3">
+          <div class="service-overview-icon">${icons.zapFast}</div>
+          <div class="service-overview-title">Business Automation</div>
+          <div class="service-overview-desc">Streamline workflows with intelligent automation</div>
+        </div>
+        <div class="service-overview-card animate-on-scroll animate-delay-4">
+          <div class="service-overview-icon">${icons.scale}</div>
+          <div class="service-overview-title">E-Commerce</div>
+          <div class="service-overview-desc">Online stores optimized for conversion and scale</div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:36px" class="animate-on-scroll">
+        <a href="/services" class="btn-primary">${icons.arrowRight} Explore All Services</a>
       </div>
     </div>
   </section>
@@ -2482,6 +2843,59 @@ function renderHome(el) {
         <div class="feature-card animate-on-scroll animate-delay-1"><div class="feature-icon">${icons.layoutGrid}</div><h3>Consistent Spacing</h3><p>4px base unit scale with purposeful whitespace. Every margin and padding follows the system — no guesswork.</p></div>
         <div class="feature-card animate-on-scroll animate-delay-2"><div class="feature-icon">${icons.accessibility}</div><h3>Accessible First</h3><p>High-contrast text, visible focus rings, and keyboard-friendly interactions. Built for everyone to use.</p></div>
         <div class="feature-card animate-on-scroll animate-delay-3"><div class="feature-icon">${icons.smartphone}</div><h3>Responsive DNA</h3><p>Mobile-first breakpoints with touch-friendly targets. From 360px phones to 1440px+ desktops — it just works.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE LUVIIO (NEW) -->
+  <section class="why-choose-section">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <div class="section-label">Why Luviio</div>
+        <h2 class="section-title">Built different, built better</h2>
+        <p class="section-desc">We don't just write code — we engineer solutions that grow with your business.</p>
+      </div>
+      <div class="why-choose-grid">
+        <div class="why-choose-item animate-on-scroll animate-delay-1">
+          <div class="why-choose-number">01</div>
+          <div class="why-choose-title">Fast Delivery</div>
+          <div class="why-choose-desc">From concept to launch in weeks, not months. Agile methodology with transparent milestones.</div>
+        </div>
+        <div class="why-choose-item animate-on-scroll animate-delay-2">
+          <div class="why-choose-number">02</div>
+          <div class="why-choose-title">Modern Technology</div>
+          <div class="why-choose-desc">React, Next.js, Node.js, Firebase, Cloudflare — always using the best tools for the job.</div>
+        </div>
+        <div class="why-choose-item animate-on-scroll animate-delay-3">
+          <div class="why-choose-number">03</div>
+          <div class="why-choose-title">Custom Solutions</div>
+          <div class="why-choose-desc">No templates, no cookie-cutter approaches. Every project is uniquely engineered.</div>
+        </div>
+        <div class="why-choose-item animate-on-scroll animate-delay-4">
+          <div class="why-choose-number">04</div>
+          <div class="why-choose-title">Scalable Architecture</div>
+          <div class="why-choose-desc">Built to handle 10 users or 10 million. Infrastructure that grows with you.</div>
+        </div>
+        <div class="why-choose-item animate-on-scroll animate-delay-1">
+          <div class="why-choose-number">05</div>
+          <div class="why-choose-title">Ongoing Support</div>
+          <div class="why-choose-desc">We don't disappear after launch. Dedicated support and maintenance included.</div>
+        </div>
+        <div class="why-choose-item animate-on-scroll animate-delay-2">
+          <div class="why-choose-number">06</div>
+          <div class="why-choose-title">Security First</div>
+          <div class="why-choose-desc">Enterprise-grade security practices, SSL certificates, and regular audits.</div>
+        </div>
+        <div class="why-choose-item animate-on-scroll animate-delay-3">
+          <div class="why-choose-number">07</div>
+          <div class="why-choose-title">Transparent Pricing</div>
+          <div class="why-choose-desc">No hidden fees, no surprises. Clear deliverables and fixed pricing models.</div>
+        </div>
+        <div class="why-choose-item animate-on-scroll animate-delay-4">
+          <div class="why-choose-number">08</div>
+          <div class="why-choose-title">Global Reach</div>
+          <div class="why-choose-desc">Based in Malaysia, serving clients across Southeast Asia and worldwide.</div>
+        </div>
       </div>
     </div>
   </section>
@@ -2584,6 +2998,29 @@ function renderHome(el) {
     </div>
   </section>
 
+  <!-- TECH STACK SECTION (NEW) -->
+  <section class="tech-stack-section">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <div class="section-label">Technology</div>
+        <h2 class="section-title">Modern tech stack</h2>
+        <p class="section-desc">We use cutting-edge technologies to build fast, secure, and scalable solutions.</p>
+      </div>
+      <div class="tech-stack-grid animate-on-scroll animate-delay-1">
+        <div class="tech-chip"><span class="tech-chip-icon">${icons.code}</span> React / Next.js</div>
+        <div class="tech-chip"><span class="tech-chip-icon">${icons.server}</span> Node.js / Express</div>
+        <div class="tech-chip"><span class="tech-chip-icon">${icons.box}</span> Firebase</div>
+        <div class="tech-chip"><span class="tech-chip-icon">${icons.globe2}</span> Cloudflare</div>
+        <div class="tech-chip"><span class="tech-chip-icon">${icons.layers}</span> Supabase</div>
+        <div class="tech-chip"><span class="tech-chip-icon">${icons.brain}</span> AI Integrations</div>
+        <div class="tech-chip"><span class="tech-chip-icon">${icons.monitor}</span> Shopify</div>
+        <div class="tech-chip"><span class="tech-chip-icon">${icons.database}</span> PostgreSQL</div>
+        <div class="tech-chip"><span class="tech-chip-icon">${icons.smartphone}</span> React Native</div>
+        <div class="tech-chip"><span class="tech-chip-icon">${icons.shield}</span> Stripe</div>
+      </div>
+    </div>
+  </section>
+
   <!-- SERVICES PREVIEW -->
   <section id="services" style="background:linear-gradient(180deg,#EDEDE8 0%,#F5F5F0 100%);border-top:1px solid var(--warm-light);border-bottom:1px solid var(--warm-light)">
     <div class="container">
@@ -2638,11 +3075,10 @@ function renderHome(el) {
           <div class="service-action"><button class="btn-ghost" onclick="navigate('/pricing')">${icons.arrowRight} View plans</button></div>
         </div>
       </div>
-      <div style="text-align:center;margin-top:36px" class="animate-on-scroll"><a href="/services" class="btn-primary">${icons.zap} View All Services</a></div>
     </div>
   </section>
 
-  <!-- SHAPO REVIEWS SECTION (REPLACES OLD TESTIMONIALS) -->
+  <!-- SHAPO REVIEWS SECTION -->
   <section class="shapo-section">
     <div class="shapo-container">
       <div class="shapo-eyebrow animate-on-scroll">
@@ -2658,13 +3094,50 @@ function renderHome(el) {
         <div id="shapo-widget-97c88f9e521fd582905b"></div>
       </div>
       
-      <!-- GOOGLE REVIEWS LINK (REPLACES TRUSTPILOT) -->
+      <!-- GOOGLE REVIEWS LINK -->
       <div style="text-align:center;margin-top:32px" class="animate-on-scroll animate-delay-2">
         <a href="https://g.page/r/CVUI33FMpZB8EBM/review" target="_blank" rel="noopener noreferrer" class="google-reviews-link">
           <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google" class="google-reviews-icon">
           <span class="google-reviews-text">Leave a Google Review</span>
           <span class="google-reviews-arrow">↗</span>
         </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION (NEW) -->
+  <section class="faq-section">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <div class="section-label">FAQ</div>
+        <h2 class="section-title">Frequently asked questions</h2>
+        <p class="section-desc">Everything you need to know about working with Luviio.</p>
+      </div>
+      <div class="faq-container">
+        <div class="faq-item animate-on-scroll animate-delay-1" onclick="toggleFaq(this)">
+          <button class="faq-question">What services does Luviio offer? <span class="faq-icon">${icons.chevronDown}</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Luviio offers website development, SaaS platform development, CRM systems, booking systems, POS systems, e-commerce solutions, AI integration, business automation and custom software development. We serve clients globally from our base in Kedah, Malaysia.</div></div>
+        </div>
+        <div class="faq-item animate-on-scroll animate-delay-2" onclick="toggleFaq(this)">
+          <button class="faq-question">Where is Luviio based? <span class="faq-icon">${icons.chevronDown}</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Luviio is based in Kedah, Malaysia, serving clients worldwide including Kuala Lumpur, Penang, Johor, Selangor and international markets across Southeast Asia, Europe, North America and beyond.</div></div>
+        </div>
+        <div class="faq-item animate-on-scroll animate-delay-3" onclick="toggleFaq(this)">
+          <button class="faq-question">How much does Luviio charge for website development? <span class="faq-icon">${icons.chevronDown}</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Pricing starts from RM150/month for Starter plans up to RM1,900/month for full IT outsourcing. All plans include SSL certificates, security monitoring, and ongoing support. Custom quotes available for enterprise projects.</div></div>
+        </div>
+        <div class="faq-item animate-on-scroll animate-delay-1" onclick="toggleFaq(this)">
+          <button class="faq-question">Does Luviio work with international clients? <span class="faq-icon">${icons.chevronDown}</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Yes! Luviio serves clients globally across Southeast Asia, Europe, North America and beyond. We handle remote collaboration seamlessly with tools like Slack, Zoom, and Notion. Timezone flexibility is built into our process.</div></div>
+        </div>
+        <div class="faq-item animate-on-scroll animate-delay-2" onclick="toggleFaq(this)">
+          <button class="faq-question">What technologies does Luviio use? <span class="faq-icon">${icons.chevronDown}</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">We use modern tech stacks including React, Next.js, Node.js, Firebase, Supabase, Cloudflare, Shopify, WordPress, and integrate AI solutions like OpenAI, Claude, and custom ML models. Technology choices are always based on what's best for your specific project needs.</div></div>
+        </div>
+        <div class="faq-item animate-on-scroll animate-delay-3" onclick="toggleFaq(this)">
+          <button class="faq-question">How long does a typical project take? <span class="faq-icon">${icons.chevronDown}</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Timelines vary by scope: Starter websites typically 2-3 weeks, Growth packages 4-6 weeks, and custom SaaS or enterprise projects 8-12+ weeks. We follow agile methodology with weekly demos so you always know exactly where things stand.</div></div>
+        </div>
       </div>
     </div>
   </section>
@@ -2676,7 +3149,7 @@ function renderHome(el) {
         <div class="contact-info animate-on-scroll">
           <div class="section-label">Get In Touch</div>
           <h2>Let's build something<br><span class="accent">amazing together</span></h2>
-          <p>Have a project in mind? We'd love to hear about it. Send us a message and we'll get back to you within 24 hours.</p>
+          <p>Have a project in mind? We'd love to hear from you. Send us a message and we'll get back to you within 24 hours.</p>
           <div class="contact-details">
             <div class="contact-item"><div class="contact-item-icon">${icons.mail}</div><div class="contact-item-text"><strong>Email Us</strong><span>hello@luviio.com</span></div></div>
             <div class="contact-item"><div class="contact-item-icon">${icons.phone}</div><div class="contact-item-text"><strong>Call Us</strong><span>+60 12 260 0969</span></div></div>
@@ -2716,7 +3189,7 @@ function renderHome(el) {
   <section class="cta-section">
     <div class="container">
       <div class="cta-card animate-on-scroll">
-        <h2>Ready to <span class="accent">grow</span>?</h2>
+        <h2>Ready to <span class="accent">build</span> your next project?</h2>
         <p>Join thousands of happy clients shipping beautiful digital experiences with Luviio.</p>
         <button class="btn-primary" onclick="navigate('/signup')">${icons.rocket} Start Your Project Today</button>
       </div>
@@ -2733,6 +3206,21 @@ function renderHome(el) {
     script.defer = true;
     document.head.appendChild(script);
   }
+}
+
+// ===== FAQ TOGGLE FUNCTION (NEW) =====
+function toggleFaq(element) {
+  const isActive = element.classList.contains('active');
+  
+  // Close all other FAQs
+  document.querySelectorAll('.faq-item.active').forEach(item => {
+    if (item !== element) {
+      item.classList.remove('active');
+    }
+  });
+  
+  // Toggle current
+  element.classList.toggle('active');
 }
 
 // ===== SELECT PLAN AND GO TO CHECKOUT =====
@@ -2788,12 +3276,8 @@ async function handleContactSubmit(e) {
     const fullName = `${formData.get('firstName') || ''} ${formData.get('lastName') || ''}`.trim();
     
     await callLuviioAPI('contact', {
-      name: fullName,
-      email: formData.get('email'),
-      phone: formData.get('phone'),
-      service: formData.get('service'),
-      message: formData.get('message'),
-      source: 'homepage_contact'
+      name: fullName, email: formData.get('email'), phone: formData.get('phone'),
+      service: formData.get('service'), message: formData.get('message'), source: 'homepage_contact'
     });
     
     btn.innerHTML = originalText;
@@ -3271,8 +3755,8 @@ function renderCompany(el) {
       <div class="team-zigzag-role-tag">Founder & VP</div>
       <h3 class="team-zigzag-name">Danial Danish</h3>
       <h4 class="team-zigzag-title">Founder & VP, Engineering</h4>
-      <p class="team-zigzag-desc">Danial leads the overall technical direction of Luviio, overseeing all aspects of software development, system architecture, and product engineering. He is responsible for building scalable, secure, and high-performance digital solutions that power Luviio’s services.</p>
-      <p class="team-zigzag-desc">His role includes guiding the engineering team, making key technical decisions, and ensuring that all products align with the company’s long-term vision and quality standards. He also focuses on innovation, improving development workflows, and ensuring that Luviio’s technology stack remains modern and efficient as the company grows.</p>
+      <p class="team-zigzag-desc">Danial leads the overall technical direction of Luviio, overseeing all aspects of software development, system architecture, and product engineering. He is responsible for building scalable, secure, and high-performance digital solutions that power Luviio's services.</p>
+      <p class="team-zigzag-desc">His role includes guiding the engineering team, making key technical decisions, and ensuring that all products align with the company's long-term vision and quality standards. He also focuses on innovation, improving development workflows, and ensuring that Luviio's technology stack remains modern and efficient as the company grows.</p>
     </div>
   </div>
 
@@ -3301,8 +3785,8 @@ function renderCompany(el) {
       <div class="team-zigzag-role-tag">VP</div>
       <h3 class="team-zigzag-name">Putri Erinna</h3>
       <h4 class="team-zigzag-title">VP, Client Success & Strategic Partnerships</h4>
-      <p class="team-zigzag-desc">Putri leads Luviio’s client relationships, growth initiatives, and external partnerships. She is responsible for ensuring clients achieve strong results and long-term satisfaction through Luviio’s services.</p>
-      <p class="team-zigzag-desc">Her role includes managing onboarding experiences, maintaining ongoing client communication, and identifying opportunities for expansion within existing accounts. In addition, she develops strategic collaborations and partnerships that help grow Luviio’s market presence. She plays a key role in shaping the company’s reputation, retention, and long-term growth strategy.</p>
+      <p class="team-zigzag-desc">Putri leads Luviio's client relationships, growth initiatives, and external partnerships. She is responsible for ensuring clients achieve strong results and long-term satisfaction through Luviio's services.</p>
+      <p class="team-zigzag-desc">Her role includes managing onboarding experiences, maintaining ongoing client communication, and identifying opportunities for expansion within existing accounts. In addition, she develops strategic collaborations and partnerships that help grow Luviio's market presence. She plays a key role in shaping the company's reputation, retention, and long-term growth strategy.</p>
     </div>
   </div>
     </div>
@@ -3833,7 +4317,7 @@ function renderContact(el) {
         </div>
       </div>
     </div>
-  </section>
+  </div>
 
   ${standardFooter}`;
 }
@@ -3953,7 +4437,7 @@ function handleProfileSave(e) {
   e.preventDefault();
   const firstName = document.getElementById('profileFirstName');
   const lastName = document.getElementById('profileLastName');
-  const bio = document.getElementById('profileBio');
+  const bio = document.getElementById('bio');
   
   if (firstName && lastName && currentUser.uid) {
     const fullName = (firstName.value.trim() + ' ' + lastName.value.trim()).trim();
@@ -4203,9 +4687,9 @@ function handlePaymentFailed() {
 // Reset Checkout
 function resetCheckoutClean() {
   document.getElementById('progressDot1').classList.add('active');
-  document.getElementById('progressDot1').classList.remove('completed');
-  document.getElementById('progressLineMini').classList.remove('filled');
-  document.getElementById('progressDot2').classList.remove('active');
+  document.getElementById('progressDot1').remove('completed');
+  document.getElementById('progressLineMini').remove('filled');
+  document.getElementById('progressDot2').remove('active');
   
   document.getElementById('checkoutStep1Body').style.display = 'block';
   document.getElementById('checkoutPaymentView').classList.remove('visible');
@@ -4302,7 +4786,7 @@ function renderPaymentSuccessful(el, session) {
             <button class="btn-secondary" onclick="navigate('/pricing')">${icons.arrowRight} View Other Plans</button>
           </div>
         </div>
-      </div>`;
+      </div>`
     })
     .catch((err) => {
       console.error('[Fetch Order Error]', err);
@@ -4352,12 +4836,12 @@ function startSessionTimer() {
     const remaining = Math.max(0, session.expiresAt - Date.now());
     const minutes = Math.floor(remaining / 60000);
     const seconds = Math.floor((remaining % 60000) / 1000);
-    timerEl.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+    timerEl.textContent = `${String(minutes).padStart(2,'0')}:${String(seconds).padStart(2,'0')}`;
     
     if (remaining < 60000) {
       warningEl.style.background = '#FEF2F2';
-      warningEl.style.borderColor = '#FECACA';
-      warningEl.style.color = '#DC2626';
+      warningEl.borderColor = '#FECACA';
+      warningEl.color = '#DC2626';
     }
     
     if (remaining <= 0) {
