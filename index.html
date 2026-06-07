@@ -2165,7 +2165,9 @@ const pageTitles = {
   '/login': 'Sign In · Luviio',
   '/signup': 'Create Account · Luviio',
   '/profile': 'My Profile · Luviio',
-  '/contact': 'Contact Luviio | Free Consultation'
+  '/contact': 'Contact Luviio | Free Consultation',
+  '/sitemap': 'Sitemap · Luviio'  // ← ADD THIS LINE
+
 };
 
 const PROTECTED_ROUTES = ['/profile'];
@@ -2205,6 +2207,268 @@ function parseCheckoutUrl(route) {
   
   return null;
 }
+
+// ===== SITEMAP PAGE =====
+function renderSitemap(el) {
+  const siteData = [
+    { 
+      path: '/', 
+      title: 'Luviio | Website Development, SaaS Development & Digital Solutions', 
+      description: 'Premium website development, SaaS platforms, CRM systems, booking systems, POS systems and AI solutions for modern businesses worldwide.',
+      priority: '1.0',
+      changeFreq: 'weekly',
+      lastMod: '2026-01-15'
+    },
+    { 
+      path: '/product', 
+      title: 'Product & Components · Luviio', 
+      description: 'A comprehensive set of building blocks for creating modern, tactile interfaces with earthy warmth and intentional craft.',
+      priority: '0.9',
+      changeFreq: 'weekly',
+      lastMod: '2026-01-14'
+    },
+    { 
+      path: '/services', 
+      title: 'Website Development, SaaS & Software Services | Luviio', 
+      description: 'From concept to deployment, we provide end-to-end digital services including web design, development, mobile apps, and IT support.',
+      priority: '0.9',
+      changeFreq: 'monthly',
+      lastMod: '2026-01-12'
+    },
+    { 
+      path: '/pricing', 
+      title: 'Pricing & Plans | Luviio', 
+      description: 'Transparent pricing plans from RM150/month to RM1,900/month. All plans include SSL certificates and security monitoring.',
+      priority: '0.9',
+      changeFreq: 'weekly',
+      lastMod: '2026-01-15'
+    },
+    { 
+      path: '/company', 
+      title: 'About Luviio | Technology Company Malaysia', 
+      description: 'Meet the team behind Luviio. A Malaysian software company specializing in digital transformation and modern web solutions.',
+      priority: '0.8',
+      changeFreq: 'monthly',
+      lastMod: '2026-01-10'
+    },
+    { 
+      path: '/about', 
+      title: 'About Luviio · Luviio', 
+      description: 'We\'re a digital agency based in Kedah, Malaysia, crafting beautiful digital experiences since 2025.',
+      priority: '0.7',
+      changeFreq: 'monthly',
+      lastMod: '2026-01-08'
+    },
+    { 
+      path: '/contact', 
+      title: 'Contact Luviio | Free Consultation', 
+      description: 'Get in touch with our team for a free consultation on your next web development or software project.',
+      priority: '0.8',
+      changeFreq: 'yearly',
+      lastMod: '2026-01-01'
+    },
+    { 
+      path: '/login', 
+      title: 'Sign In · Luviio', 
+      description: 'Sign in to your Luviio account to manage projects, view invoices, and access customer portal.',
+      priority: '0.4',
+      changeFreq: 'monthly',
+      lastMod: '2026-01-01'
+    },
+    { 
+      path: '/signup', 
+      title: 'Create Account · Luviio', 
+      description: 'Create a free Luviio account to get started with our design system and development tools.',
+      priority: '0.4',
+      changeFreq: 'monthly',
+      lastMod: '2026-01-01'
+    },
+    { 
+      path: '/terms', 
+      title: 'Terms of Service · Luviio', 
+      description: 'Read our terms of service regarding project delivery, payment terms, intellectual property, and support policies.',
+      priority: '0.3',
+      changeFreq: 'yearly',
+      lastMod: '2026-01-01'
+    },
+    { 
+      path: '/policy', 
+      title: 'Privacy Policy · Luviio', 
+      description: 'Learn how we collect, use, and protect your personal data when you use our services.',
+      priority: '0.3',
+      changeFreq: 'yearly',
+      lastMod: '2026-01-01'
+    }
+  ];
+
+  el.innerHTML = `
+  <div class="page-hero">
+    <div class="container">
+      <div class="section-label animate-on-scroll">SEO</div>
+      <h1 class="animate-on-scroll animate-delay-1">Site <span class="accent">Map</span></h1>
+      <p class="animate-on-scroll animate-delay-2">Complete index of all pages on luviio.com with metadata for search engines.</p>
+    </div>
+  </div>
+  
+  <section style="padding:0 0 60px">
+    <div class="container" style="max-width:960px">
+      
+      <!-- Site Info Card -->
+      <div class="animate-on-scroll" style="background:#fff;border:2px solid var(--text);border-radius:var(--radius-lg);box-shadow:var(--shadow-btn);padding:32px;margin-bottom:32px;transition:all .3s">
+        <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px;flex-wrap:wrap">
+          <img src="https://images.luviio.com/logo-luviio-red.png" alt="Luviio" style="height:40px;width:auto;border-radius:6px">
+          <div>
+            <h2 style="font-size:24px;font-weight:900;color:var(--text);margin-bottom:4px">Luviio</h2>
+            <p style="font-size:14px;color:#8B8B7A;font-family:'Space Mono',monospace">https://luviio.com</p>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px">
+          <div style="background:var(--primary-tint);padding:16px;border-radius:12px;text-align:center">
+            <div style="font-size:28px;font-weight:900;color:var(--primary)">${siteData.length}</div>
+            <div style="font-size:12px;color:#8B8B7A;text-transform:uppercase;letter-spacing:.04em;margin-top:4px">Total Pages</div>
+          </div>
+          <div style="background:var(--primary-tint);padding:16px;border-radius:12px;text-align:center">
+            <div style="font-size:28px;font-weight:900;color:var(--primary)">EN</div>
+            <div style="font-size:12px;color:#8B8B7A;text-transform:uppercase;letter-spacing:.04em;margin-top:4px">Language</div>
+          </div>
+          <div style="background:var(--primary-tint);padding:16px;border-radius:12px;text-align:center">
+            <div style="font-size:28px;font-weight:900;color:var(--primary)">MY</div>
+            <div style="font-size:12px;color:#8B8B7A;text-transform:uppercase;letter-spacing:.04em;margin-top:4px">Region</div>
+          </div>
+          <div style="background:var(--primary-tint);padding:16px;border-radius:12px;text-align:center">
+            <div style="font-size:18px;font-weight:900;color:var(--primary)">v2.0</div>
+            <div style="font-size:12px;color:#8B8B7A;text-transform:uppercase;letter-spacing:.04em;margin-top:4px">Version</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pages Table -->
+      <div class="animate-on-scroll animate-delay-1" style="background:#fff;border:1px solid var(--warm-light);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-card)">
+        <div style="background:linear-gradient(135deg,var(--primary-tint),rgba(171,21,9,.05));padding:20px 24px;border-bottom:1px solid var(--warm-light);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+          <h3 style="font-size:18px;font-weight:800;color:var(--text);display:flex;align-items:center;gap:10px">
+            ${icons.layoutGrid} All Indexed Pages
+          </h3>
+          <button onclick="copySitemapXML()" class="btn-secondary" style="padding:8px 16px;font-size:12px">${icons.code} Copy XML Format</button>
+        </div>
+        
+        <div style="overflow-x:auto">
+          <table style="width:100%;border-collapse:collapse;min-width:700px">
+            <thead>
+              <tr style="background:#FAFAF8;border-bottom:2px solid var(--warm-light)">
+                <th style="text-align:left;padding:14px 20px;font-size:11px;font-weight:800;color:var(--primary);text-transform:uppercase;letter-spacing:.06em;width:25%">Page URL</th>
+                <th style="text-align:left;padding:14px 20px;font-size:11px;font-weight:800;color:var(--primary);text-transform:uppercase;letter-spacing:.06em;width:30%">Title Tag</th>
+                <th style="text-align:left;padding:14px 20px;font-size:11px;font-weight:800;color:var(--primary);text-transform:uppercase;letter-spacing:.06em;width:30%">Meta Description</th>
+                <th style="text-align:center;padding:14px 20px;font-size:11px;font-weight:800;color:var(--primary);text-transform:uppercase;letter-spacing:.06em;width:5%">Priority</th>
+                <th style="text-align:center;padding:14px 20px;font-size:11px;font-weight:800;color:var(--primary);text-transform:uppercase;letter-spacing:.06em;width:10%">Last Mod</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${siteData.map((page, i) => `
+                <tr style="border-bottom:1px solid var(--warm-light);transition:background .2s" onmouseover="this.style.background='rgba(171,21,9,0.03)'" onmouseout="this.style.background='transparent'">
+                  <td style="padding:16px 20px;vertical-align:top">
+                    <a href="${page.path}" style="color:var(--primary);font-weight:600;font-family:'Space Mono',monospace;font-size:13px;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:all .2s" onmouseover="this.style.color='var(--primary-dark)';this.style.paddingLeft='4px'" onmouseout="this.style.color='var(--primary)';this.style.paddingLeft='0'">
+                      ${icons.externalLink} ${page.path === '/' ? '/ (Home)' : page.path}
+                    </a>
+                  </td>
+                  <td style="padding:16px 20px;vertical-align:top">
+                    <span style="font-size:13px;font-weight:600;color:var(--text);line-height:1.5;display:block">${page.title.split('·')[0].trim()}</span>
+                    <span style="font-size:11px;color:#8B8B7A;font-style:italic">${page.title.includes('·') ? page.title.split('·')[1].trim() : ''}</span>
+                  </td>
+                  <td style="padding:16px 20px;vertical-align:top">
+                    <p style="font-size:12px;color:#5C5C4F;line-height:1.6;margin:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">${page.description}</p>
+                  </td>
+                  <td style="padding:16px 20px;vertical-align:middle;text-align:center">
+                    <span style="display:inline-block;background:${parseFloat(page.priority) >= 0.8 ? 'linear-gradient(135deg,#DCFCE7,#BBF7D0)' : parseFloat(page.priority) >= 0.5 ? 'linear-gradient(135deg,#FEF3C7,#FDE68A)' : 'linear-gradient(135deg,#FEE2E2,#FECACA)'};color:${parseFloat(page.priority) >= 0.8 ? '#166534' : parseFloat(page.priority) >= 0.5 ? '#92400E' : '#991B1B'};font-size:12px;font-weight:700;padding:4px 10px;border-radius:9999px;font-family:'Space Mono',monospace">${page.priority}</span>
+                  </td>
+                  <td style="padding:16px 20px;vertical-align:middle;text-align:center">
+                    <span style="font-size:12px;color:#8B8B7A;font-family:'Space Mono',monospace">${page.lastMod}</span>
+                  </td>
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Raw XML Preview -->
+      <div class="animate-on-scroll animate-delay-2" style="margin-top:32px;background:var(--text);border-radius:var(--radius-lg);overflow:hidden">
+        <div style="padding:16px 24px;border-bottom:1px solid rgba(255,255,255,0.1);display:flex;justify-content:space-between;align-items:center">
+          <span style="font-size:13px;font-weight:600;color:var(--primary-tint);font-family:'Space Mono',monospace">sitemap.xml Preview</span>
+          <button onclick="downloadSitemap()" style="background:none;border:1px solid rgba(255,255,255,0.2);color:#F5F5F0;padding:6px 14px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;transition:all .2s;font-family:inherit" onmouseover="this.style.borderColor='var(--primary)';this.style.color='var(--primary)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.2)';this.style.color='#F5F5F0'">Download XML</button>
+        </div>
+        <pre id="sitemapXMLPreview" style="padding:24px;margin:0;font-size:12px;line-height:1.8;color:#E6D8C3;overflow-x:auto;white-space:pre-wrap;word-break:break-all">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"&gt;
+ ${siteData.map(page => `  &lt;url&gt;
+    &lt;loc&gt;https://luviio.com${page.path}&lt;/loc&gt;
+    &lt;lastmod&gt;${page.lastMod}&lt;/lastmod&gt;
+    &lt;changefreq&gt;${page.changeFreq}&lt;/changefreq&gt;
+    &lt;priority&gt;${page.priority}&lt;/priority&gt;
+  &lt;/url&gt;`).join('\n')}
+&lt;/urlset&gt;</pre>
+      </div>
+
+      <!-- SEO Stats -->
+      <div class="animate-on-scroll animate-delay-3" style="margin-top:32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px">
+        <div style="background:#fff;border:1px solid var(--warm-light);border-radius:var(--radius-lg);padding:20px;text-align:center">
+          <div style="font-size:24px;font-weight:900;color:var(--primary)">${siteData.filter(p => p.priority >= 0.8).length}</div>
+          <div style="font-size:12px;color:#8B8B7A;margin-top:4px">High Priority Pages</div>
+        </div>
+        <div style="background:#fff;border:1px solid var(--warm-light);border-radius:var(--radius-lg);padding:20px;text-align:center">
+          <div style="font-size:24px;font-weight:900;color:var(--primary)">${siteData.filter(p => p.changeFreq === 'weekly').length}</div>
+          <div style="font-size:12px;color:#8B8B7A;margin-top:4px">Weekly Updates</div>
+        </div>
+        <div style="background:#fff;border:1px solid var(--warm-light);border-radius:var(--radius-lg);padding:20px;text-align:center">
+          <div style="font-size:24px;font-weight:900;color:var(--primary)">100%</div>
+          <div style="font-size:12px;color:#8B8B7A;margin-top:4px">HTTPS Enabled</div>
+        </div>
+        <div style="background:#fff;border:1px solid var(--warm-light);border-radius:var(--radius-lg);padding:20px;text-align:center">
+          <div style="font-size:24px;font-weight:900;color:var(--primary)">Mobile</div>
+          <div style="font-size:12px;color:#8B8B7A;margin-top:4px">Responsive Design</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  
+  <!-- Hidden textarea for copying -->
+  <textarea id="sitemapXMLHidden" style="position:absolute;left:-9999px"><?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+ ${siteData.map(page => `  <url>
+    <loc>https://luviio.com${page.path}</loc>
+    <lastmod>${page.lastMod}</lastmod>
+    <changefreq>${page.changeFreq}</changefreq>
+    <priority>${page.priority}</priority>
+  </url>`).join('\n')}
+</urlset></textarea>
+
+  ${standardFooter}`;
+}
+
+// Helper functions for sitemap (add these after the renderSitemap function)
+window.copySitemapXML = function() {
+  const textarea = document.getElementById('sitemapXMLHidden');
+  if (textarea) {
+    navigator.clipboard.writeText(textarea.value).then(() => {
+      showToast('📋 Sitemap XML copied to clipboard!', 'success');
+    }).catch(() => {
+      showToast('Error copying', 'error');
+    });
+  }
+};
+
+window.downloadSitemap = function() {
+  const xmlContent = document.getElementById('sitemapXMLHidden')?.value || '';
+  const blob = new Blob([xmlContent], { type: 'application/xml' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'sitemap.xml';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  showToast('⬇️ Sitemap downloaded!', 'success');
+};
 
 function router() {
   let route = getRoute();
@@ -2335,6 +2599,8 @@ function router() {
     case '/signup': renderSignup(app); break;
     case '/contact': renderContact(app); break;
     case '/profile': renderProfile(app); break;
+    // ← ADD THIS NEW CASE ↓
+    case '/sitemap': renderSitemap(app); break;
     default: renderHome(app); break;
   }
 
