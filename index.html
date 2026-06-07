@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
 
+<!-- Sitemap for Google -->
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
+
 <!-- CRITICAL: Site Identity for Google & Browsers -->
 <title>Luviio | Website Development, SaaS Development & Digital Solutions</title>
 <meta name="application-name" content="Luviio">
@@ -2166,8 +2169,8 @@ const pageTitles = {
   '/signup': 'Create Account · Luviio',
   '/profile': 'My Profile · Luviio',
   '/contact': 'Contact Luviio | Free Consultation',
-  '/sitemap': 'Sitemap · Luviio'  // ← ADD THIS LINE
-
+  '/sitemap': 'Sitemap · Luviio',
+  '/sitemap.xml': 'Sitemap · Luviio'
 };
 
 const PROTECTED_ROUTES = ['/profile'];
@@ -2470,6 +2473,49 @@ window.downloadSitemap = function() {
   showToast('⬇️ Sitemap downloaded!', 'success');
 };
 
+// ===== SITEMAP.XML GENERATOR (For Google Bots) =====
+function serveSitemapXML(el) {
+  const pages = [
+    { loc: 'https://luviio.com/', lastmod: '2026-01-15', changefreq: 'weekly', priority: '1.0' },
+    { loc: 'https://luviio.com/product', lastmod: '2026-01-14', changefreq: 'weekly', priority: '0.9' },
+    { loc: 'https://luviio.com/services', lastmod: '2026-01-12', changefreq: 'monthly', priority: '0.9' },
+    { loc: 'https://luviio.com/pricing', lastmod: '2026-01-15', changefreq: 'weekly', priority: '0.9' },
+    { loc: 'https://luviio.com/company', lastmod: '2026-01-10', changefreq: 'monthly', priority: '0.8' },
+    { loc: 'https://luviio.com/about', lastmod: '2026-01-08', changefreq: 'monthly', priority: '0.7' },
+    { loc: 'https://luviio.com/contact', lastmod: '2026-01-01', changefreq: 'yearly', priority: '0.8' },
+    { loc: 'https://luviio.com/login', lastmod: '2026-01-01', changefreq: 'monthly', priority: '0.4' },
+    { loc: 'https://luviio.com/signup', lastmod: '2026-01-01', changefreq: 'monthly', priority: '0.4' },
+    { loc: 'https://luviio.com/terms', lastmod: '2026-01-01', changefreq: 'yearly', priority: '0.3' },
+    { loc: 'https://luviio.com/policy', lastmod: '2026-01-01', changefreq: 'yearly', priority: '0.3' }
+  ];
+
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+ ${pages.map(p => `  <url>
+    <loc>${p.loc}</loc>
+    <lastmod>${p.lastmod}</lastmod>
+    <changefreq>${p.changefreq}</changefreq>
+    <priority>${p.priority}</priority>
+  </url>`).join('\n')}
+</urlset>`;
+
+  // CRITICAL: Replace entire document with XML only
+  document.open();
+  document.write(xml);
+  document.close();
+  
+  // Attempt to set content type (works in some browsers/crawlers)
+  if (document.contentType !== undefined) {
+    document.contentType = 'application/xml';
+  }
+  
+  // Update title just in case
+  document.title = 'Sitemap - Luviio';
+}
+
 function router() {
   let route = getRoute();
   const app = document.getElementById('app');
@@ -2583,7 +2629,16 @@ function router() {
   }
 
   // NORMAL ROUTE RENDERING
-  switch (route) {
+switch (route) {
+    // ← ADD THESE TWO LINES HERE ↓
+    case '/sitemap.xml': 
+      serveSitemapXML(app); 
+      return; // Stop execution, don't load HTML
+    
+    case '/sitemap': 
+      renderSitemap(app); // Human-readable version
+      break;
+    
     case '/': case '/home': renderHome(app); break;
     case '/product': renderProduct(app); break;
     case '/services': renderServices(app); break;
