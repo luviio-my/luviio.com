@@ -172,6 +172,18 @@
 }
 </script>
 
+<!-- Site Name Structured Data for Google -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "url": "https://luviio.com/",
+  "name": "Luviio",
+  "alternateName": ["Luviio", "Grow by Luviio", "Luviio Malaysia"]
+}
+</script>
+
+
 <!-- Preconnect to external resources -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1831,8 +1843,7 @@ body{
 
 <!-- HEADER -->
 <header id="mainHeader">
-  <a href="/" class="logo"><img src="https://images.luviio.com/logo-luviio-red.png" alt="Luviio Logo" class="logo-img"></a>
-  <nav id="mainNav">
+<a href="/" class="logo"><img src="https://images.luviio.com/logo-luviio-red.png" alt="Luviio" class="logo-img"><span style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0">Luviio — Website Development & Digital Solutions</span></a>  <nav id="mainNav">
     <a href="/" class="nav-link">Home</a>
     <a href="/product" class="nav-link">Product</a>
     <a href="/services" class="nav-link">Services</a>
@@ -3049,7 +3060,7 @@ function renderHome(el) {
   <section class="hero">
     <div class="container">
       <div class="hero-badge"><span class="pulse-dot"></span>v2.0 — Now with more vibe</div>
-      <h1>Build software that<br><span class="accent">scales.</span></h1>
+      <h1><span style="display:block;font-size:0.55em;font-weight:800;color:var(--primary);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:12px;font-family:'Space Mono',monospace">Luviio</span>Build software that<br><span class="accent">scales.</span></h1>
       <p>Websites, SaaS Platforms, CRM Systems and Digital Solutions for Modern Businesses. Premium development from Malaysia, serving worldwide.</p>
       <div class="hero-actions">
         <button class="btn-primary" onclick="navigate('/pricing')">${icons.zap} Start Building</button>
